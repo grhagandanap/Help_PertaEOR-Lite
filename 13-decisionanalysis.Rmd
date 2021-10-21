@@ -1,0 +1,18 @@
+# Decision Tree Analysis
+
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Pendahuluan
+
+Decision tree merupakan metode yang digunakan untuk ... bla bla
+
+## Teori Dasar Teknik Pengambilan Keputusan 
+
+
+## Decision Tree Analysis
+### Framing The Problem
+### Deterministic Analysis
+### Probabilistic Analysis
+### Appraisal
