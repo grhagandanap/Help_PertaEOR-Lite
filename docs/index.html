@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Technical Guide PertaEOR-Lite</title>
+  <meta name="description" content="Technical Guide PertaEOR-Lite" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Technical Guide PertaEOR-Lite" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="/images/PertaEOR.png" />
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Technical Guide PertaEOR-Lite" />
+  
+  
+  <meta name="twitter:image" content="/images/PertaEOR.png" />
+
+<meta name="author" content="PT LAPI ITB &amp; PERTAMINA INV" />
+
+
+<meta name="date" content="2021-10-21" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="00-screening.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Help PertaEOR-Lite</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="00-screening.html"><a href="00-screening.html"><i class="fa fa-check"></i><b>1</b> Screening EOR</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="00-screening.html"><a href="00-screening.html#teori-dasar-statistik-distribusi-probabilitas-dan-metode-numerik"><i class="fa fa-check"></i><b>1.1</b> Teori Dasar Statistik, Distribusi Probabilitas, dan Metode Numerik</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="00-screening.html"><a href="00-screening.html#teori-dasar-statistik-dan-probabilitas"><i class="fa fa-check"></i><b>1.1.1</b> Teori Dasar Statistik dan Probabilitas</a></li>
+<li class="chapter" data-level="1.1.2" data-path="00-screening.html"><a href="00-screening.html#metode-numerik"><i class="fa fa-check"></i><b>1.1.2</b> Metode Numerik</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="00-screening.html"><a href="00-screening.html#metode-analisis-eor-screening"><i class="fa fa-check"></i><b>1.2</b> Metode Analisis EOR Screening</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="00-screening.html"><a href="00-screening.html#metode-analisis-eor-screening-untuk-input-data-single-value"><i class="fa fa-check"></i><b>1.2.1</b> Metode Analisis EOR Screening Untuk <em>Input</em> Data <em>Single-Value</em></a></li>
+<li class="chapter" data-level="1.2.2" data-path="00-screening.html"><a href="00-screening.html#metode-analisis-eor-screening-untuk-input-data-distribusi"><i class="fa fa-check"></i><b>1.2.2</b> Metode Analisis EOR <em>Screening</em> Untuk <em>Input</em> Data Distribusi</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="00-screening.html"><a href="00-screening.html#update-screening-eor"><i class="fa fa-check"></i><b>1.3</b> Update <em>Screening</em> EOR</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="00-screening.html"><a href="00-screening.html#update-database-screening-eor"><i class="fa fa-check"></i><b>1.3.1</b> Update <em>Database</em> <em>Screening</em> EOR</a></li>
+<li class="chapter" data-level="1.3.2" data-path="00-screening.html"><a href="00-screening.html#penambahan-parameter-pada-screening-eor"><i class="fa fa-check"></i><b>1.3.2</b> Penambahan Parameter pada <em>Screening</em> EOR</a></li>
+<li class="chapter" data-level="1.3.3" data-path="00-screening.html"><a href="00-screening.html#benchmark-eor-screening"><i class="fa fa-check"></i><b>1.3.3</b> <em>Benchmark</em> EOR <em>Screening</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="01-prophet.html"><a href="01-prophet.html"><i class="fa fa-check"></i><b>2</b> CO<sub>2</sub> Prophet Predictive Model</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="01-prophet.html"><a href="01-prophet.html#pendahuluan"><i class="fa fa-check"></i><b>2.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="2.2" data-path="01-prophet.html"><a href="01-prophet.html#asumsi-yang-digunakan-dalam-model"><i class="fa fa-check"></i><b>2.2</b> Asumsi yang Digunakan Dalam Model</a></li>
+<li class="chapter" data-level="2.3" data-path="01-prophet.html"><a href="01-prophet.html#parameter-parameter-penting-yang-digunakan-dalam-model"><i class="fa fa-check"></i><b>2.3</b> Parameter-Parameter Penting yang Digunakan Dalam Model</a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="01-prophet.html"><a href="01-prophet.html#koefisien-permeabilitas-dykstra-parsons"><i class="fa fa-check"></i><b>2.3.1</b> Koefisien Permeabilitas Dykstra-Parsons</a></li>
+<li class="chapter" data-level="2.3.2" data-path="01-prophet.html"><a href="01-prophet.html#temperatur-reservoir"><i class="fa fa-check"></i><b>2.3.2</b> Temperatur Reservoir</a></li>
+<li class="chapter" data-level="2.3.3" data-path="01-prophet.html"><a href="01-prophet.html#tekanan-rata-rata-reservoir-average-reservoir-pressure"><i class="fa fa-check"></i><b>2.3.3</b> Tekanan Rata-Rata Reservoir (<em>Average Reservoir Pressure</em>)</a></li>
+<li class="chapter" data-level="2.3.4" data-path="01-prophet.html"><a href="01-prophet.html#minimum-miscibility-pressure-mmp"><i class="fa fa-check"></i><b>2.3.4</b> <em>Minimum Miscibility Pressure (MMP)</em></a></li>
+<li class="chapter" data-level="2.3.5" data-path="01-prophet.html"><a href="01-prophet.html#viskositas-minyak-mu_o"><i class="fa fa-check"></i><b>2.3.5</b> Viskositas Minyak (<span class="math inline">\(\mu_o\)</span>)</a></li>
+<li class="chapter" data-level="2.3.6" data-path="01-prophet.html"><a href="01-prophet.html#viskositas-air-mu_w"><i class="fa fa-check"></i><b>2.3.6</b> Viskositas Air (<span class="math inline">\(\mu_w\)</span>)</a></li>
+<li class="chapter" data-level="2.3.7" data-path="01-prophet.html"><a href="01-prophet.html#faktor-volume-formasi-minyak-bo"><i class="fa fa-check"></i><b>2.3.7</b> Faktor Volume Formasi Minyak (B<sub><em>o</em></sub>)</a></li>
+<li class="chapter" data-level="2.3.8" data-path="01-prophet.html"><a href="01-prophet.html#solution-gas-oil-ratio-rs"><i class="fa fa-check"></i><b>2.3.8</b> <em>Solution Gas-Oil Ratio</em> (R<sub><em>s</em></sub>)</a></li>
+<li class="chapter" data-level="2.3.9" data-path="01-prophet.html"><a href="01-prophet.html#permeabilitas-relatif-kr"><i class="fa fa-check"></i><b>2.3.9</b> Permeabilitas Relatif (k<sub><em>r</em></sub>)</a></li>
+<li class="chapter" data-level="2.3.10" data-path="01-prophet.html"><a href="01-prophet.html#waterco2-injection-ratio"><i class="fa fa-check"></i><b>2.3.10</b> <em>Water/CO<sub>2</sub> Injection Ratio</em></a></li>
+<li class="chapter" data-level="2.3.11" data-path="01-prophet.html"><a href="01-prophet.html#mixing-parameter-omega"><i class="fa fa-check"></i><b>2.3.11</b> <em>Mixing Parameter (<span class="math inline">\(\omega\)</span>)</em></a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="01-prophet.html"><a href="01-prophet.html#tiga-kondisi-aliran-fluida"><i class="fa fa-check"></i><b>2.4</b> Tiga Kondisi Aliran Fluida</a>
+<ul>
+<li class="chapter" data-level="2.4.1" data-path="01-prophet.html"><a href="01-prophet.html#immiscible-flow"><i class="fa fa-check"></i><b>2.4.1</b> <em>Immiscible Flow</em></a></li>
+<li class="chapter" data-level="2.4.2" data-path="01-prophet.html"><a href="01-prophet.html#miscible-flow"><i class="fa fa-check"></i><b>2.4.2</b> <em>Miscible Flow</em></a></li>
+<li class="chapter" data-level="2.4.3" data-path="01-prophet.html"><a href="01-prophet.html#partially-miscible-flow"><i class="fa fa-check"></i><b>2.4.3</b> <em>Partially Miscible Flow</em></a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="01-prophet.html"><a href="01-prophet.html#hasil-perhitungan-dan-tampilan-perangkat-lunak"><i class="fa fa-check"></i><b>2.5</b> Hasil Perhitungan dan Tampilan Perangkat Lunak</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="02-waterflood.html"><a href="02-waterflood.html"><i class="fa fa-check"></i><b>3</b> Waterflood Predictive Model</a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="02-waterflood.html"><a href="02-waterflood.html#pendahuluan-1"><i class="fa fa-check"></i><b>3.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="3.2" data-path="02-waterflood.html"><a href="02-waterflood.html#teori-frontal-displacement-untuk-waterflooding"><i class="fa fa-check"></i><b>3.2</b> Teori <em>Frontal Displacement</em> Untuk <em>Waterflooding</em></a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="02-waterflood.html"><a href="02-waterflood.html#teori-fractional-flow-untuk-waterflooding"><i class="fa fa-check"></i><b>3.2.1</b> Teori <em>Fractional Flow</em> Untuk <em>Waterflooding</em></a></li>
+<li class="chapter" data-level="3.2.2" data-path="02-waterflood.html"><a href="02-waterflood.html#teori-frontal-advance-untuk-waterflooding"><i class="fa fa-check"></i><b>3.2.2</b> Teori <em>Frontal Advance</em> Untuk <em>Waterflooding</em></a></li>
+<li class="chapter" data-level="3.2.3" data-path="02-waterflood.html"><a href="02-waterflood.html#penentuan-parameter-left-fracpartial-f_wpartial-s_w-right_s_w-dan-saturasi-air-rata-rata-reservoir-bar-s_w"><i class="fa fa-check"></i><b>3.2.3</b> Penentuan parameter <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)_{S_w}\)</span> dan Saturasi Air Rata-Rata Reservoir (<span class="math inline">\(\bar S_w\)</span>)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="02-waterflood.html"><a href="02-waterflood.html#penentuan-parameter-efisiensi-waterflooding"><i class="fa fa-check"></i><b>3.3</b> Penentuan Parameter Efisiensi <em>Waterflooding</em></a>
+<ul>
+<li class="chapter" data-level="3.3.1" data-path="02-waterflood.html"><a href="02-waterflood.html#displacement-efficiency-ed"><i class="fa fa-check"></i><b>3.3.1</b> <em>Displacement Efficiency</em> (E<sub>D</sub>)</a></li>
+<li class="chapter" data-level="3.3.2" data-path="02-waterflood.html"><a href="02-waterflood.html#areal-sweep-efficiency-ea"><i class="fa fa-check"></i><b>3.3.2</b> <em>Areal Sweep Efficiency</em> (E<sub>A</sub>)</a></li>
+<li class="chapter" data-level="3.3.3" data-path="02-waterflood.html"><a href="02-waterflood.html#vertical-sweep-efficiency-ev"><i class="fa fa-check"></i><b>3.3.3</b> <em>Vertical Sweep Efficiency</em> (E<sub>V</sub>)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="02-waterflood.html"><a href="02-waterflood.html#persamaan-persamaan-yang-digunakan-dalam-prediksi-performa-waterflooding"><i class="fa fa-check"></i><b>3.4</b> Persamaan-Persamaan yang Digunakan Dalam Prediksi Performa <em>Waterflooding</em></a></li>
+<li class="chapter" data-level="3.5" data-path="02-waterflood.html"><a href="02-waterflood.html#persamaan-persamaan-dasar-dan-nilai-default-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>3.5</b> Persamaan-Persamaan Dasar dan Nilai <em>Default</em> yang Digunakan Dalam <em>Predictive Model</em></a>
+<ul>
+<li class="chapter" data-level="3.5.1" data-path="02-waterflood.html"><a href="02-waterflood.html#viskositas-minyak"><i class="fa fa-check"></i><b>3.5.1</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="3.5.2" data-path="02-waterflood.html"><a href="02-waterflood.html#solution-gas-oil-ratio"><i class="fa fa-check"></i><b>3.5.2</b> <em>SolUtion Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="3.5.3" data-path="02-waterflood.html"><a href="02-waterflood.html#faktor-volume-formasi-minyak"><i class="fa fa-check"></i><b>3.5.3</b> Faktor Volume Formasi Minyak</a></li>
+<li class="chapter" data-level="3.5.4" data-path="02-waterflood.html"><a href="02-waterflood.html#permeabilitas-relatif"><i class="fa fa-check"></i><b>3.5.4</b> Permeabilitas Relatif</a></li>
+<li class="chapter" data-level="3.5.5" data-path="02-waterflood.html"><a href="02-waterflood.html#nilai-default-parameter-yang-digunakan-dalam-model"><i class="fa fa-check"></i><b>3.5.5</b> Nilai <em>Default</em> Parameter yang Digunakan Dalam Model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="03-chemical.html"><a href="03-chemical.html"><i class="fa fa-check"></i><b>4</b> Chemical Flood Predictive Model</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="03-chemical.html"><a href="03-chemical.html#pendahuluan-2"><i class="fa fa-check"></i><b>4.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="4.2" data-path="03-chemical.html"><a href="03-chemical.html#tinjauan-sifat-fisis-dan-mekanisme-kerja-dari-surfaktan-dan-alkali"><i class="fa fa-check"></i><b>4.2</b> Tinjauan Sifat Fisis dan Mekanisme Kerja Dari Surfaktan dan Alkali</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="03-chemical.html"><a href="03-chemical.html#sifat-fisis-dan-mekanisme-kerja-surfaktan"><i class="fa fa-check"></i><b>4.2.1</b> Sifat Fisis dan Mekanisme Kerja Surfaktan</a></li>
+<li class="chapter" data-level="4.2.2" data-path="03-chemical.html"><a href="03-chemical.html#sifat-fisis-dan-mekanisme-kerja-alkali"><i class="fa fa-check"></i><b>4.2.2</b> Sifat Fisis dan Mekanisme Kerja Alkali</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="03-chemical.html"><a href="03-chemical.html#mekanisme-proses-injeksi-kimia"><i class="fa fa-check"></i><b>4.3</b> Mekanisme Proses Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.4" data-path="03-chemical.html"><a href="03-chemical.html#asumsi-dan-batasan-dalam-predictive-model"><i class="fa fa-check"></i><b>4.4</b> Asumsi dan Batasan Dalam <em>Predictive Model</em></a></li>
+<li class="chapter" data-level="4.5" data-path="03-chemical.html"><a href="03-chemical.html#konsep-dan-algoritma-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>4.5</b> Konsep dan Algoritma yang Digunakan Dalam <em>Predictive Model</em></a>
+<ul>
+<li class="chapter" data-level="4.5.1" data-path="03-chemical.html"><a href="03-chemical.html#perhitungan-target-oil"><i class="fa fa-check"></i><b>4.5.1</b> Perhitungan <em>Target Oil</em></a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="03-chemical.html"><a href="03-chemical.html#laju-alir-dan-bilangan-kapiler"><i class="fa fa-check"></i><b>4.6</b> Laju Alir dan Bilangan Kapiler</a>
+<ul>
+<li class="chapter" data-level="4.6.1" data-path="03-chemical.html"><a href="03-chemical.html#surfactant-retention-pada-batuan-sandstone"><i class="fa fa-check"></i><b>4.6.1</b> <em>Surfactant Retention</em> Pada Batuan <em>Sandstone</em></a></li>
+<li class="chapter" data-level="4.6.2" data-path="03-chemical.html"><a href="03-chemical.html#perhitungan-oil-recovery"><i class="fa fa-check"></i><b>4.6.2</b> Perhitungan <em>Oil Recovery</em></a></li>
+<li class="chapter" data-level="4.6.3" data-path="03-chemical.html"><a href="03-chemical.html#karakteristik-produksi-minyak-dan-koreksi-terhadap-crossflow"><i class="fa fa-check"></i><b>4.6.3</b> Karakteristik Produksi Minyak dan Koreksi Terhadap <em>Crossflow</em></a></li>
+<li class="chapter" data-level="4.6.4" data-path="03-chemical.html"><a href="03-chemical.html#karakteristik-injeksi-kimia"><i class="fa fa-check"></i><b>4.6.4</b> Karakteristik Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.6.5" data-path="03-chemical.html"><a href="03-chemical.html#modifikasi-predictive-model-untuk-caustic-dan-caustic-polymer-flood"><i class="fa fa-check"></i><b>4.6.5</b> Modifikasi <em>Predictive Model</em> Untuk <em>Caustic</em> dan <em>Caustic-Polymer Flood</em></a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="03-chemical.html"><a href="03-chemical.html#persamaan-persamaan-dasar-dan-nilai-default-yang-digunakan-dalam-model"><i class="fa fa-check"></i><b>4.7</b> Persamaan-Persamaan Dasar dan Nilai <em>Default</em> yang Digunakan Dalam Model</a>
+<ul>
+<li class="chapter" data-level="4.7.1" data-path="03-chemical.html"><a href="03-chemical.html#viskositas-minyak-1"><i class="fa fa-check"></i><b>4.7.1</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="4.7.2" data-path="03-chemical.html"><a href="03-chemical.html#solution-gas-oil-ratio-1"><i class="fa fa-check"></i><b>4.7.2</b> <em>Solution Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="4.7.3" data-path="03-chemical.html"><a href="03-chemical.html#faktor-volume-formasi-minyak-1"><i class="fa fa-check"></i><b>4.7.3</b> Faktor Volume Formasi Minyak</a></li>
+<li class="chapter" data-level="4.7.4" data-path="03-chemical.html"><a href="03-chemical.html#permeabilitas-relatif-dan-fraksi-aliran-air"><i class="fa fa-check"></i><b>4.7.4</b> Permeabilitas Relatif dan Fraksi Aliran Air</a></li>
+<li class="chapter" data-level="4.7.5" data-path="03-chemical.html"><a href="03-chemical.html#nilai-default-yang-dignakan-dalam-predictive-model"><i class="fa fa-check"></i><b>4.7.5</b> Nilai <em>Default</em> yang Dignakan Dalam <em>Predictive Model</em></a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="03-chemical.html"><a href="03-chemical.html#penambahan-jenis-pattern-pada-injeksi-kimia"><i class="fa fa-check"></i><b>4.8</b> Penambahan Jenis <em>Pattern</em> pada Injeksi Kimia</a>
+<ul>
+<li class="chapter" data-level="4.8.1" data-path="03-chemical.html"><a href="03-chemical.html#injeksi-kimia"><i class="fa fa-check"></i><b>4.8.1</b> Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.8.2" data-path="03-chemical.html"><a href="03-chemical.html#penentuan-pola-sumur-injeksi"><i class="fa fa-check"></i><b>4.8.2</b> Penentuan Pola Sumur Injeksi</a></li>
+<li class="chapter" data-level="4.8.3" data-path="03-chemical.html"><a href="03-chemical.html#sejarah-injeksi-kimia"><i class="fa fa-check"></i><b>4.8.3</b> Sejarah Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.8.4" data-path="03-chemical.html"><a href="03-chemical.html#derivasi-persamaan-model-pattern-injeksi-kimia"><i class="fa fa-check"></i><b>4.8.4</b> Derivasi Persamaan Model <em>Pattern</em> Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.8.5" data-path="03-chemical.html"><a href="03-chemical.html#simulasi-sintetik-injeksi-kimia"><i class="fa fa-check"></i><b>4.8.5</b> Simulasi Sintetik Injeksi Kimia</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="04-polymer.html"><a href="04-polymer.html"><i class="fa fa-check"></i><b>5</b> Polymer Predictive Model</a>
+<ul>
+<li class="chapter" data-level="5.1" data-path="04-polymer.html"><a href="04-polymer.html#pendahuluan-3"><i class="fa fa-check"></i><b>5.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="5.2" data-path="04-polymer.html"><a href="04-polymer.html#teori-fractional-flow"><i class="fa fa-check"></i><b>5.2</b> Teori <em>Fractional Flow</em></a>
+<ul>
+<li class="chapter" data-level="5.2.1" data-path="04-polymer.html"><a href="04-polymer.html#penentuan-nilai-saturasi-air-rata-rata-di-reservoir-selama-periode-injeksi-polimer"><i class="fa fa-check"></i><b>5.2.1</b> Penentuan Nilai Saturasi Air Rata-Rata di Reservoir Selama Periode Injeksi Polimer</a></li>
+<li class="chapter" data-level="5.2.2" data-path="04-polymer.html"><a href="04-polymer.html#rangkuman-persamaan-persamaan-yang-digunakan-dalam-teori-fractional-flow"><i class="fa fa-check"></i><b>5.2.2</b> Rangkuman Persamaan-Persamaan yang Digunakan Dalam Teori <em>Fractional Flow</em></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="04-polymer.html"><a href="04-polymer.html#metode-perhitungan-areal-dan-vertical-sweep-efficiency-menggunakan-pendekatan-streamtube"><i class="fa fa-check"></i><b>5.3</b> Metode Perhitungan <em>Areal</em> dan <em>Vertical Sweep Efficiency</em> Menggunakan Pendekatan <em>Streamtube</em></a></li>
+<li class="chapter" data-level="5.4" data-path="04-polymer.html"><a href="04-polymer.html#perhitungan-injectivity"><i class="fa fa-check"></i><b>5.4</b> Perhitungan <em>Injectivity</em></a></li>
+<li class="chapter" data-level="5.5" data-path="04-polymer.html"><a href="04-polymer.html#penentuan-nilai-permeabilitas-di-setiap-lapisan-reservoir"><i class="fa fa-check"></i><b>5.5</b> Penentuan Nilai Permeabilitas di Setiap Lapisan Reservoir</a></li>
+<li class="chapter" data-level="5.6" data-path="04-polymer.html"><a href="04-polymer.html#koreksi-terhadap-pengaruh-slug-polimer"><i class="fa fa-check"></i><b>5.6</b> Koreksi Terhadap Pengaruh <em>Slug</em> Polimer</a></li>
+<li class="chapter" data-level="5.7" data-path="04-polymer.html"><a href="04-polymer.html#pengaruh-sifat-fisis-larutan-polimer-terhadap-performa-injeksi-polimer"><i class="fa fa-check"></i><b>5.7</b> Pengaruh Sifat Fisis Larutan Polimer Terhadap Performa Injeksi Polimer</a>
+<ul>
+<li class="chapter" data-level="5.7.1" data-path="04-polymer.html"><a href="04-polymer.html#efek-pengurangan-permeabilitas-untuk-fasa-aqueous"><i class="fa fa-check"></i><b>5.7.1</b> Efek Pengurangan Permeabilitas Untuk Fasa <em>Aqueous</em></a></li>
+<li class="chapter" data-level="5.7.2" data-path="04-polymer.html"><a href="04-polymer.html#efek-aliran-non-newtonian-larutan-polimer-di-daerah-sekitar-sumur-injeksi"><i class="fa fa-check"></i><b>5.7.2</b> Efek Aliran <em>Non-Newtonian</em> Larutan Polimer di Daerah Sekitar Sumur Injeksi</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="04-polymer.html"><a href="04-polymer.html#persamaan-persamaan-dasar-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>5.8</b> Persamaan-Persamaan Dasar yang Digunakan Dalam <em>Predictive Model</em></a>
+<ul>
+<li class="chapter" data-level="5.8.1" data-path="04-polymer.html"><a href="04-polymer.html#viskositas-minyak-2"><i class="fa fa-check"></i><b>5.8.1</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="5.8.2" data-path="04-polymer.html"><a href="04-polymer.html#solution-gas-oil-ratio-2"><i class="fa fa-check"></i><b>5.8.2</b> <em>Solution Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="5.8.3" data-path="04-polymer.html"><a href="04-polymer.html#faktor-volume-formasi-minyak-2"><i class="fa fa-check"></i><b>5.8.3</b> Faktor Volume Formasi Minyak</a></li>
+<li class="chapter" data-level="5.8.4" data-path="04-polymer.html"><a href="04-polymer.html#faktor-volume-formasi-air"><i class="fa fa-check"></i><b>5.8.4</b> Faktor Volume Formasi Air</a></li>
+<li class="chapter" data-level="5.8.5" data-path="04-polymer.html"><a href="04-polymer.html#permeabilitas-relatf-dan-fraksi-aliran-air"><i class="fa fa-check"></i><b>5.8.5</b> Permeabilitas Relatf dan Fraksi Aliran Air</a></li>
+<li class="chapter" data-level="5.8.6" data-path="04-polymer.html"><a href="04-polymer.html#persamaan-persamaan-dasar-dan-nilai-default-yang-digunakan"><i class="fa fa-check"></i><b>5.8.6</b> Persamaan-Persamaan Dasar dan Nilai <em>Default</em> yang Digunakan</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="05-co2miscible.html"><a href="05-co2miscible.html"><i class="fa fa-check"></i><b>6</b> CO<sub>2</sub> Miscible Predictive Model</a>
+<ul>
+<li class="chapter" data-level="6.1" data-path="05-co2miscible.html"><a href="05-co2miscible.html#pendahuluan-4"><i class="fa fa-check"></i><b>6.1</b> Pendahuluan</a>
+<ul>
+<li class="chapter" data-level="6.1.1" data-path="05-co2miscible.html"><a href="05-co2miscible.html#kondisi-pvt"><i class="fa fa-check"></i><b>6.1.1</b> Kondisi PVT</a></li>
+<li class="chapter" data-level="6.1.2" data-path="05-co2miscible.html"><a href="05-co2miscible.html#wettability"><i class="fa fa-check"></i><b>6.1.2</b> Wettability</a></li>
+<li class="chapter" data-level="6.1.3" data-path="05-co2miscible.html"><a href="05-co2miscible.html#keuntungan-dan-kerugian-melakukan-injeksi-co2"><i class="fa fa-check"></i><b>6.1.3</b> Keuntungan dan Kerugian Melakukan Injeksi CO<sub>2</sub></a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="05-co2miscible.html"><a href="05-co2miscible.html#miscible-co2-predictive-model"><i class="fa fa-check"></i><b>6.2</b> <em>Miscible CO<sub>2</sub> Predictive Model</em></a>
+<ul>
+<li class="chapter" data-level="6.2.1" data-path="05-co2miscible.html"><a href="05-co2miscible.html#sifat-sifat-fisik-fluida"><i class="fa fa-check"></i><b>6.2.1</b> Sifat-Sifat Fisik Fluida</a></li>
+<li class="chapter" data-level="6.2.2" data-path="05-co2miscible.html"><a href="05-co2miscible.html#fractional-flow-model"><i class="fa fa-check"></i><b>6.2.2</b> <em>Fractional Flow</em> Model</a></li>
+<li class="chapter" data-level="6.2.3" data-path="05-co2miscible.html"><a href="05-co2miscible.html#parameter-parameter-performa-miscible-co2"><i class="fa fa-check"></i><b>6.2.3</b> Parameter-Parameter Performa <em>Miscible</em> CO<sub>2</sub></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html"><i class="fa fa-check"></i><b>7</b> CO<sub>2</sub> Immiscible Predictive Model</a>
+<ul>
+<li class="chapter" data-level="7.1" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#pendahuluan-5"><i class="fa fa-check"></i><b>7.1</b> Pendahuluan</a>
+<ul>
+<li class="chapter" data-level="7.1.1" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#mekanisme-pendesakan-secara-immiscible"><i class="fa fa-check"></i><b>7.1.1</b> Mekanisme Pendesakan Secara <em>Immiscible</em></a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#immiscible-co2-predictive-model"><i class="fa fa-check"></i><b>7.2</b> <em>Immiscible</em> CO<sub>2</sub> <em>Predictive Model</em></a>
+<ul>
+<li class="chapter" data-level="7.2.1" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#sifat-sifat-fisik-fluida-1"><i class="fa fa-check"></i><b>7.2.1</b> Sifat-Sifat Fisik Fluida</a></li>
+<li class="chapter" data-level="7.2.2" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#fractional-flow-model-1"><i class="fa fa-check"></i><b>7.2.2</b> <em>Fractional Flow Model</em></a></li>
+<li class="chapter" data-level="7.2.3" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#material-balance-equation"><i class="fa fa-check"></i><b>7.2.3</b> <em>Material Balance Equation</em></a></li>
+<li class="chapter" data-level="7.2.4" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#parameter-parameter-performa-immiscible-co2"><i class="fa fa-check"></i><b>7.2.4</b> Parameter-Parameter Performa <em>Immiscible</em> CO<sub>2</sub></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="07-steam.html"><a href="07-steam.html"><i class="fa fa-check"></i><b>8</b> Steamflood Predictive Model</a>
+<ul>
+<li class="chapter" data-level="8.1" data-path="07-steam.html"><a href="07-steam.html#pendahuluan-6"><i class="fa fa-check"></i><b>8.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="8.2" data-path="07-steam.html"><a href="07-steam.html#fenomena-heat-loss"><i class="fa fa-check"></i><b>8.2</b> Fenomena <em>Heat Loss</em></a>
+<ul>
+<li class="chapter" data-level="8.2.1" data-path="07-steam.html"><a href="07-steam.html#fenomena-heat-loss-di-pipa-permukaan"><i class="fa fa-check"></i><b>8.2.1</b> Fenomena <em>Heat Loss</em> di Pipa Permukaan</a></li>
+<li class="chapter" data-level="8.2.2" data-path="07-steam.html"><a href="07-steam.html#fenomena-heat-loss-di-sumur-injeksi"><i class="fa fa-check"></i><b>8.2.2</b> Fenomena <em>Heat Loss</em> di Sumur Injeksi</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="07-steam.html"><a href="07-steam.html#perhitungan-sejumlah-parameter-penting-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>8.3</b> Perhitungan Sejumlah Parameter Penting yang Digunakan Dalam <em>Predictive Model</em></a>
+<ul>
+<li class="chapter" data-level="8.3.1" data-path="07-steam.html"><a href="07-steam.html#permeabilitas-relatif-tiga-fasa"><i class="fa fa-check"></i><b>8.3.1</b> Permeabilitas Relatif Tiga Fasa</a></li>
+<li class="chapter" data-level="8.3.2" data-path="07-steam.html"><a href="07-steam.html#pembagian-daerah-reservoir"><i class="fa fa-check"></i><b>8.3.2</b> Pembagian Daerah Reservoir</a></li>
+<li class="chapter" data-level="8.3.3" data-path="07-steam.html"><a href="07-steam.html#initial-injectivity-index"><i class="fa fa-check"></i><b>8.3.3</b> <em>Initial Injectivity Index</em></a></li>
+<li class="chapter" data-level="8.3.4" data-path="07-steam.html"><a href="07-steam.html#viskositas-fluida"><i class="fa fa-check"></i><b>8.3.4</b> Viskositas Fluida</a></li>
+<li class="chapter" data-level="8.3.5" data-path="07-steam.html"><a href="07-steam.html#solution-gas-oil-ratio-4"><i class="fa fa-check"></i><b>8.3.5</b> <em>Solution Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="8.3.6" data-path="07-steam.html"><a href="07-steam.html#faktor-volume-formasi-minyak-4"><i class="fa fa-check"></i><b>8.3.6</b> Faktor Volume Formasi Minyak</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="07-steam.html"><a href="07-steam.html#steamflood-predictive-model-1"><i class="fa fa-check"></i><b>8.4</b> <em>Steamflood Predictive Model</em></a>
+<ul>
+<li class="chapter" data-level="8.4.1" data-path="07-steam.html"><a href="07-steam.html#metode-williams-metode-stanford-university"><i class="fa fa-check"></i><b>8.4.1</b> Metode Williams (Metode Stanford University)</a></li>
+<li class="chapter" data-level="8.4.2" data-path="07-steam.html"><a href="07-steam.html#metode-jones"><i class="fa fa-check"></i><b>8.4.2</b> Metode Jones</a></li>
+<li class="chapter" data-level="8.4.3" data-path="07-steam.html"><a href="07-steam.html#model-gomaa"><i class="fa fa-check"></i><b>8.4.3</b> Model Gomaa</a></li>
+<li class="chapter" data-level="8.4.4" data-path="07-steam.html"><a href="07-steam.html#model-aydelotte-pope-model-intercomp"><i class="fa fa-check"></i><b>8.4.4</b> Model Aydelotte-Pope (Model Intercomp)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="08-insitu.html"><a href="08-insitu.html"><i class="fa fa-check"></i><b>9</b> In-Situ Combustion Predictive Model</a>
+<ul>
+<li class="chapter" data-level="9.1" data-path="08-insitu.html"><a href="08-insitu.html#pendahuluan-7"><i class="fa fa-check"></i><b>9.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="9.2" data-path="08-insitu.html"><a href="08-insitu.html#in-situ-combustion-predictive-model-1"><i class="fa fa-check"></i><b>9.2</b> <em>In-Situ Combustion Predictive Model</em></a>
+<ul>
+<li class="chapter" data-level="9.2.1" data-path="08-insitu.html"><a href="08-insitu.html#model-brigham-et-al-untuk-dry-in-situ-combustion"><i class="fa fa-check"></i><b>9.2.1</b> Model Brigham, et al Untuk <em>Dry In-Situ Combustion</em></a></li>
+<li class="chapter" data-level="9.2.2" data-path="08-insitu.html"><a href="08-insitu.html#perhitungan-parameter-parameter-penting-ynag-dgunakan-dalam-model"><i class="fa fa-check"></i><b>9.2.2</b> Perhitungan Parameter-Parameter Penting ynag Dgunakan Dalam Model</a></li>
+<li class="chapter" data-level="9.2.3" data-path="08-insitu.html"><a href="08-insitu.html#viskositas-minyak-4"><i class="fa fa-check"></i><b>9.2.3</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="9.2.4" data-path="08-insitu.html"><a href="08-insitu.html#parameter-parameter-performa-in-situ-combustion"><i class="fa fa-check"></i><b>9.2.4</b> Parameter-Parameter Performa <em>In-Situ Combustion</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="09-infill.html"><a href="09-infill.html"><i class="fa fa-check"></i><b>10</b> Infill Drilling Predictive Model</a>
+<ul>
+<li class="chapter" data-level="10.1" data-path="09-infill.html"><a href="09-infill.html#pendahuluan-8"><i class="fa fa-check"></i><b>10.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="10.2" data-path="09-infill.html"><a href="09-infill.html#asumsi-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>10.2</b> Asumsi yang Digunakan Dalam <em>Predictive Model</em></a></li>
+<li class="chapter" data-level="10.3" data-path="09-infill.html"><a href="09-infill.html#analisis-streamtube"><i class="fa fa-check"></i><b>10.3</b> Analisis <em>Streamtube</em></a></li>
+<li class="chapter" data-level="10.4" data-path="09-infill.html"><a href="09-infill.html#pemodelan-continuity-reservoir"><i class="fa fa-check"></i><b>10.4</b> Pemodelan <em>Continuity</em> Reservoir</a></li>
+<li class="chapter" data-level="10.5" data-path="09-infill.html"><a href="09-infill.html#persamaan-persamaan-dasar-dan-nilai-default-yang-digunakan-dalam-predcitive-model"><i class="fa fa-check"></i><b>10.5</b> Persamaan-Persamaan Dasar dan Nilai <em>Default</em> yang Digunakan Dalam <em>Predcitive Model</em></a>
+<ul>
+<li class="chapter" data-level="10.5.1" data-path="09-infill.html"><a href="09-infill.html#viskositas-minyak-5"><i class="fa fa-check"></i><b>10.5.1</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="10.5.2" data-path="09-infill.html"><a href="09-infill.html#solution-gas-oil-ratio-5"><i class="fa fa-check"></i><b>10.5.2</b> <em>Solution Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="10.5.3" data-path="09-infill.html"><a href="09-infill.html#faktor-volume-formasi-minyak-6"><i class="fa fa-check"></i><b>10.5.3</b> Faktor Volume Formasi Minyak</a></li>
+<li class="chapter" data-level="10.5.4" data-path="09-infill.html"><a href="09-infill.html#permeabilitas-relatif-1"><i class="fa fa-check"></i><b>10.5.4</b> Permeabilitas Relatif</a></li>
+<li class="chapter" data-level="10.5.5" data-path="09-infill.html"><a href="09-infill.html#nilai-default-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>10.5.5</b> Nilai <em>Default</em> yang Digunakan Dalam <em>Predictive Model</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="10-hc.html"><a href="10-hc.html"><i class="fa fa-check"></i><b>11</b> Hydrocarbon Gas Injection Predictive Model</a>
+<ul>
+<li class="chapter" data-level="11.1" data-path="10-hc.html"><a href="10-hc.html#pendahuluan-9"><i class="fa fa-check"></i><b>11.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="11.2" data-path="10-hc.html"><a href="10-hc.html#mekanisme-injeksi-hidrokarbon"><i class="fa fa-check"></i><b>11.2</b> Mekanisme Injeksi Hidrokarbon</a></li>
+<li class="chapter" data-level="11.3" data-path="10-hc.html"><a href="10-hc.html#pembuatan-predictive-model"><i class="fa fa-check"></i><b>11.3</b> Pembuatan <em>Predictive Model</em></a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="11-co2hnp.html"><a href="11-co2hnp.html"><i class="fa fa-check"></i><b>12</b> CO<sub>2</sub> Huff &amp; Puff Predictive Model</a>
+<ul>
+<li class="chapter" data-level="12.1" data-path="11-co2hnp.html"><a href="11-co2hnp.html#pendahuluan-10"><i class="fa fa-check"></i><b>12.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="12.2" data-path="11-co2hnp.html"><a href="11-co2hnp.html#pembutan-predictive-model"><i class="fa fa-check"></i><b>12.2</b> Pembutan <em>Predictive Model</em></a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="12-chemicalhnp.html"><a href="12-chemicalhnp.html"><i class="fa fa-check"></i><b>13</b> Chemical Injection Huff &amp; Puff Predictive Model</a>
+<ul>
+<li class="chapter" data-level="13.1" data-path="12-chemicalhnp.html"><a href="12-chemicalhnp.html#pendahuluan-11"><i class="fa fa-check"></i><b>13.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="13.2" data-path="12-chemicalhnp.html"><a href="12-chemicalhnp.html#mekanisme-injeksi-chemical-huff-and-puff"><i class="fa fa-check"></i><b>13.2</b> Mekanisme Injeksi <em>Chemical Huff and Puff</em></a></li>
+<li class="chapter" data-level="13.3" data-path="12-chemicalhnp.html"><a href="12-chemicalhnp.html#pembuatan-model-prediktif"><i class="fa fa-check"></i><b>13.3</b> Pembuatan Model Prediktif</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Technical Guide PertaEOR-Lite</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Technical Guide PertaEOR-Lite</h1>
+<p class="author"><em>PT LAPI ITB &amp; PERTAMINA INV</em></p>
+<p class="date"><em>2021-10-21</em></p>
+</div>
+<p>
+ 
+</p>
+<p><img src="images/PertaEOR.png" width="80%" style="display: block; margin: auto;" /></p>
+
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="00-screening.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

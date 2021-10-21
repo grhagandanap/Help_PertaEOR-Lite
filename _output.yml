@@ -1,0 +1,17 @@
+bookdown::gitbook:
+  toolbar:
+    position: fixed
+  edit: null
+  download: null
+  search: yes
+  css: style.css
+  config:
+    toc:
+      collapse: subsection
+      scroll_highlight: yes
+      before: |
+        <li><a href="./">Help PertaEOR-Lite</a></li>
+  fig_caption: TRUE
+  number_sections: TRUE
+  split_by: rmd
+

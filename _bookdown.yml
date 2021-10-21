@@ -1,0 +1,10 @@
+book_filename: "help_pertaeorlite"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Bab "
+  label:
+    fig: "Gambar "
+new_session: yes 
+output_dir: "docs"
+

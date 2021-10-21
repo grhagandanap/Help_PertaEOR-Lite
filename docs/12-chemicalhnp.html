@@ -1,0 +1,5454 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Bab 13 Chemical Injection Huff &amp; Puff Predictive Model | Technical Guide PertaEOR-Lite</title>
+  <meta name="description" content="Bab 13 Chemical Injection Huff &amp; Puff Predictive Model | Technical Guide PertaEOR-Lite" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Bab 13 Chemical Injection Huff &amp; Puff Predictive Model | Technical Guide PertaEOR-Lite" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/PertaEOR.png" />
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Bab 13 Chemical Injection Huff &amp; Puff Predictive Model | Technical Guide PertaEOR-Lite" />
+  
+  
+  <meta name="twitter:image" content="images/PertaEOR.png" />
+
+<meta name="author" content="PT LAPI ITB &amp; PERTAMINA INV" />
+
+
+<meta name="date" content="2021-03-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="11-co2hnp.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Help PertaEOR-Lite</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="00-screening.html"><a href="00-screening.html"><i class="fa fa-check"></i><b>1</b> Screening EOR</a><ul>
+<li class="chapter" data-level="1.1" data-path="00-screening.html"><a href="00-screening.html#teori-dasar-statistik-distribusi-probabilitas-dan-metode-numerik"><i class="fa fa-check"></i><b>1.1</b> Teori Dasar Statistik, Distribusi Probabilitas, dan Metode Numerik</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="00-screening.html"><a href="00-screening.html#teori-dasar-statistik-dan-probabilitas"><i class="fa fa-check"></i><b>1.1.1</b> Teori Dasar Statistik dan Probabilitas</a></li>
+<li class="chapter" data-level="1.1.2" data-path="00-screening.html"><a href="00-screening.html#metode-numerik"><i class="fa fa-check"></i><b>1.1.2</b> Metode Numerik</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="00-screening.html"><a href="00-screening.html#metode-analisis-eor-screening"><i class="fa fa-check"></i><b>1.2</b> Metode Analisis EOR Screening</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="00-screening.html"><a href="00-screening.html#metode-analisis-eor-screening-untuk-input-data-single-value"><i class="fa fa-check"></i><b>1.2.1</b> Metode Analisis EOR Screening Untuk <em>Input</em> Data <em>Single-Value</em></a></li>
+<li class="chapter" data-level="1.2.2" data-path="00-screening.html"><a href="00-screening.html#metode-analisis-eor-screening-untuk-input-data-distribusi"><i class="fa fa-check"></i><b>1.2.2</b> Metode Analisis EOR <em>Screening</em> Untuk <em>Input</em> Data Distribusi</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="00-screening.html"><a href="00-screening.html#update-screening-eor"><i class="fa fa-check"></i><b>1.3</b> Update <em>Screening</em> EOR</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="00-screening.html"><a href="00-screening.html#update-database-screening-eor"><i class="fa fa-check"></i><b>1.3.1</b> Update <em>Database</em> <em>Screening</em> EOR</a></li>
+<li class="chapter" data-level="1.3.2" data-path="00-screening.html"><a href="00-screening.html#penambahan-parameter-pada-screening-eor"><i class="fa fa-check"></i><b>1.3.2</b> Penambahan Parameter pada <em>Screening</em> EOR</a></li>
+<li class="chapter" data-level="1.3.3" data-path="00-screening.html"><a href="00-screening.html#benchmark-eor-screening"><i class="fa fa-check"></i><b>1.3.3</b> <em>Benchmark</em> EOR <em>Screening</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="01-prophet.html"><a href="01-prophet.html"><i class="fa fa-check"></i><b>2</b> CO<sub>2</sub> Prophet Predictive Model</a><ul>
+<li class="chapter" data-level="2.1" data-path="01-prophet.html"><a href="01-prophet.html#pendahuluan"><i class="fa fa-check"></i><b>2.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="2.2" data-path="01-prophet.html"><a href="01-prophet.html#asumsi-yang-digunakan-dalam-model"><i class="fa fa-check"></i><b>2.2</b> Asumsi yang Digunakan Dalam Model</a></li>
+<li class="chapter" data-level="2.3" data-path="01-prophet.html"><a href="01-prophet.html#parameter-parameter-penting-yang-digunakan-dalam-model"><i class="fa fa-check"></i><b>2.3</b> Parameter-Parameter Penting yang Digunakan Dalam Model</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="01-prophet.html"><a href="01-prophet.html#koefisien-permeabilitas-dykstra-parsons"><i class="fa fa-check"></i><b>2.3.1</b> Koefisien Permeabilitas Dykstra-Parsons</a></li>
+<li class="chapter" data-level="2.3.2" data-path="01-prophet.html"><a href="01-prophet.html#temperatur-reservoir"><i class="fa fa-check"></i><b>2.3.2</b> Temperatur Reservoir</a></li>
+<li class="chapter" data-level="2.3.3" data-path="01-prophet.html"><a href="01-prophet.html#tekanan-rata-rata-reservoir-average-reservoir-pressure"><i class="fa fa-check"></i><b>2.3.3</b> Tekanan Rata-Rata Reservoir (<em>Average Reservoir Pressure</em>)</a></li>
+<li class="chapter" data-level="2.3.4" data-path="01-prophet.html"><a href="01-prophet.html#minimum-miscibility-pressure-mmp"><i class="fa fa-check"></i><b>2.3.4</b> <em>Minimum Miscibility Pressure (MMP)</em></a></li>
+<li class="chapter" data-level="2.3.5" data-path="01-prophet.html"><a href="01-prophet.html#viskositas-minyak-mu_o"><i class="fa fa-check"></i><b>2.3.5</b> Viskositas Minyak (<span class="math inline">\(\mu_o\)</span>)</a></li>
+<li class="chapter" data-level="2.3.6" data-path="01-prophet.html"><a href="01-prophet.html#viskositas-air-mu_w"><i class="fa fa-check"></i><b>2.3.6</b> Viskositas Air (<span class="math inline">\(\mu_w\)</span>)</a></li>
+<li class="chapter" data-level="2.3.7" data-path="01-prophet.html"><a href="01-prophet.html#faktor-volume-formasi-minyak-bo"><i class="fa fa-check"></i><b>2.3.7</b> Faktor Volume Formasi Minyak (B<sub><em>o</em></sub>)</a></li>
+<li class="chapter" data-level="2.3.8" data-path="01-prophet.html"><a href="01-prophet.html#solution-gas-oil-ratio-rs"><i class="fa fa-check"></i><b>2.3.8</b> <em>Solution Gas-Oil Ratio</em> (R<sub><em>s</em></sub>)</a></li>
+<li class="chapter" data-level="2.3.9" data-path="01-prophet.html"><a href="01-prophet.html#permeabilitas-relatif-kr"><i class="fa fa-check"></i><b>2.3.9</b> Permeabilitas Relatif (k<sub><em>r</em></sub>)</a></li>
+<li class="chapter" data-level="2.3.10" data-path="01-prophet.html"><a href="01-prophet.html#waterco2-injection-ratio"><i class="fa fa-check"></i><b>2.3.10</b> <em>Water/CO<sub>2</sub> Injection Ratio</em></a></li>
+<li class="chapter" data-level="2.3.11" data-path="01-prophet.html"><a href="01-prophet.html#mixing-parameter-omega"><i class="fa fa-check"></i><b>2.3.11</b> <em>Mixing Parameter (<span class="math inline">\(\omega\)</span>)</em></a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="01-prophet.html"><a href="01-prophet.html#tiga-kondisi-aliran-fluida"><i class="fa fa-check"></i><b>2.4</b> Tiga Kondisi Aliran Fluida</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="01-prophet.html"><a href="01-prophet.html#immiscible-flow"><i class="fa fa-check"></i><b>2.4.1</b> <em>Immiscible Flow</em></a></li>
+<li class="chapter" data-level="2.4.2" data-path="01-prophet.html"><a href="01-prophet.html#miscible-flow"><i class="fa fa-check"></i><b>2.4.2</b> <em>Miscible Flow</em></a></li>
+<li class="chapter" data-level="2.4.3" data-path="01-prophet.html"><a href="01-prophet.html#partially-miscible-flow"><i class="fa fa-check"></i><b>2.4.3</b> <em>Partially Miscible Flow</em></a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="01-prophet.html"><a href="01-prophet.html#hasil-perhitungan-dan-tampilan-perangkat-lunak"><i class="fa fa-check"></i><b>2.5</b> Hasil Perhitungan dan Tampilan Perangkat Lunak</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="02-waterflood.html"><a href="02-waterflood.html"><i class="fa fa-check"></i><b>3</b> Waterflood Predictive Model</a><ul>
+<li class="chapter" data-level="3.1" data-path="02-waterflood.html"><a href="02-waterflood.html#pendahuluan-1"><i class="fa fa-check"></i><b>3.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="3.2" data-path="02-waterflood.html"><a href="02-waterflood.html#teori-frontal-displacement-untuk-waterflooding"><i class="fa fa-check"></i><b>3.2</b> Teori <em>Frontal Displacement</em> Untuk <em>Waterflooding</em></a><ul>
+<li class="chapter" data-level="3.2.1" data-path="02-waterflood.html"><a href="02-waterflood.html#teori-fractional-flow-untuk-waterflooding"><i class="fa fa-check"></i><b>3.2.1</b> Teori <em>Fractional Flow</em> Untuk <em>Waterflooding</em></a></li>
+<li class="chapter" data-level="3.2.2" data-path="02-waterflood.html"><a href="02-waterflood.html#teori-frontal-advance-untuk-waterflooding"><i class="fa fa-check"></i><b>3.2.2</b> Teori <em>Frontal Advance</em> Untuk <em>Waterflooding</em></a></li>
+<li class="chapter" data-level="3.2.3" data-path="02-waterflood.html"><a href="02-waterflood.html#penentuan-parameter-left-fracpartial-f_wpartial-s_w-right_s_w-dan-saturasi-air-rata-rata-reservoir-bar-s_w"><i class="fa fa-check"></i><b>3.2.3</b> Penentuan parameter <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)_{S_w}\)</span> dan Saturasi Air Rata-Rata Reservoir (<span class="math inline">\(\bar S_w\)</span>)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="02-waterflood.html"><a href="02-waterflood.html#penentuan-parameter-efisiensi-waterflooding"><i class="fa fa-check"></i><b>3.3</b> Penentuan Parameter Efisiensi <em>Waterflooding</em></a><ul>
+<li class="chapter" data-level="3.3.1" data-path="02-waterflood.html"><a href="02-waterflood.html#displacement-efficiency-ed"><i class="fa fa-check"></i><b>3.3.1</b> <em>Displacement Efficiency</em> (E<sub>D</sub>)</a></li>
+<li class="chapter" data-level="3.3.2" data-path="02-waterflood.html"><a href="02-waterflood.html#areal-sweep-efficiency-ea"><i class="fa fa-check"></i><b>3.3.2</b> <em>Areal Sweep Efficiency</em> (E<sub>A</sub>)</a></li>
+<li class="chapter" data-level="3.3.3" data-path="02-waterflood.html"><a href="02-waterflood.html#vertical-sweep-efficiency-ev"><i class="fa fa-check"></i><b>3.3.3</b> <em>Vertical Sweep Efficiency</em> (E<sub>V</sub>)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="02-waterflood.html"><a href="02-waterflood.html#persamaan-persamaan-yang-digunakan-dalam-prediksi-performa-waterflooding"><i class="fa fa-check"></i><b>3.4</b> Persamaan-Persamaan yang Digunakan Dalam Prediksi Performa <em>Waterflooding</em></a></li>
+<li class="chapter" data-level="3.5" data-path="02-waterflood.html"><a href="02-waterflood.html#persamaan-persamaan-dasar-dan-nilai-default-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>3.5</b> Persamaan-Persamaan Dasar dan Nilai <em>Default</em> yang Digunakan Dalam <em>Predictive Model</em></a><ul>
+<li class="chapter" data-level="3.5.1" data-path="02-waterflood.html"><a href="02-waterflood.html#viskositas-minyak"><i class="fa fa-check"></i><b>3.5.1</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="3.5.2" data-path="02-waterflood.html"><a href="02-waterflood.html#solution-gas-oil-ratio"><i class="fa fa-check"></i><b>3.5.2</b> <em>SolUtion Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="3.5.3" data-path="02-waterflood.html"><a href="02-waterflood.html#faktor-volume-formasi-minyak"><i class="fa fa-check"></i><b>3.5.3</b> Faktor Volume Formasi Minyak</a></li>
+<li class="chapter" data-level="3.5.4" data-path="02-waterflood.html"><a href="02-waterflood.html#permeabilitas-relatif"><i class="fa fa-check"></i><b>3.5.4</b> Permeabilitas Relatif</a></li>
+<li class="chapter" data-level="3.5.5" data-path="02-waterflood.html"><a href="02-waterflood.html#nilai-default-parameter-yang-digunakan-dalam-model"><i class="fa fa-check"></i><b>3.5.5</b> Nilai <em>Default</em> Parameter yang Digunakan Dalam Model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="03-chemical.html"><a href="03-chemical.html"><i class="fa fa-check"></i><b>4</b> Chemical Flood Predictive Model</a><ul>
+<li class="chapter" data-level="4.1" data-path="03-chemical.html"><a href="03-chemical.html#pendahuluan-2"><i class="fa fa-check"></i><b>4.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="4.2" data-path="03-chemical.html"><a href="03-chemical.html#tinjauan-sifat-fisis-dan-mekanisme-kerja-dari-surfaktan-dan-alkali"><i class="fa fa-check"></i><b>4.2</b> Tinjauan Sifat Fisis dan Mekanisme Kerja Dari Surfaktan dan Alkali</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="03-chemical.html"><a href="03-chemical.html#sifat-fisis-dan-mekanisme-kerja-surfaktan"><i class="fa fa-check"></i><b>4.2.1</b> Sifat Fisis dan Mekanisme Kerja Surfaktan</a></li>
+<li class="chapter" data-level="4.2.2" data-path="03-chemical.html"><a href="03-chemical.html#sifat-fisis-dan-mekanisme-kerja-alkali"><i class="fa fa-check"></i><b>4.2.2</b> Sifat Fisis dan Mekanisme Kerja Alkali</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="03-chemical.html"><a href="03-chemical.html#mekanisme-proses-injeksi-kimia"><i class="fa fa-check"></i><b>4.3</b> Mekanisme Proses Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.4" data-path="03-chemical.html"><a href="03-chemical.html#asumsi-dan-batasan-dalam-predictive-model"><i class="fa fa-check"></i><b>4.4</b> Asumsi dan Batasan Dalam <em>Predictive Model</em></a></li>
+<li class="chapter" data-level="4.5" data-path="03-chemical.html"><a href="03-chemical.html#konsep-dan-algoritma-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>4.5</b> Konsep dan Algoritma yang Digunakan Dalam <em>Predictive Model</em></a><ul>
+<li class="chapter" data-level="4.5.1" data-path="03-chemical.html"><a href="03-chemical.html#perhitungan-target-oil"><i class="fa fa-check"></i><b>4.5.1</b> Perhitungan <em>Target Oil</em></a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="03-chemical.html"><a href="03-chemical.html#laju-alir-dan-bilangan-kapiler"><i class="fa fa-check"></i><b>4.6</b> Laju Alir dan Bilangan Kapiler</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="03-chemical.html"><a href="03-chemical.html#surfactant-retention-pada-batuan-sandstone"><i class="fa fa-check"></i><b>4.6.1</b> <em>Surfactant Retention</em> Pada Batuan <em>Sandstone</em></a></li>
+<li class="chapter" data-level="4.6.2" data-path="03-chemical.html"><a href="03-chemical.html#perhitungan-oil-recovery"><i class="fa fa-check"></i><b>4.6.2</b> Perhitungan <em>Oil Recovery</em></a></li>
+<li class="chapter" data-level="4.6.3" data-path="03-chemical.html"><a href="03-chemical.html#karakteristik-produksi-minyak-dan-koreksi-terhadap-crossflow"><i class="fa fa-check"></i><b>4.6.3</b> Karakteristik Produksi Minyak dan Koreksi Terhadap <em>Crossflow</em></a></li>
+<li class="chapter" data-level="4.6.4" data-path="03-chemical.html"><a href="03-chemical.html#karakteristik-injeksi-kimia"><i class="fa fa-check"></i><b>4.6.4</b> Karakteristik Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.6.5" data-path="03-chemical.html"><a href="03-chemical.html#modifikasi-predictive-model-untuk-caustic-dan-caustic-polymer-flood"><i class="fa fa-check"></i><b>4.6.5</b> Modifikasi <em>Predictive Model</em> Untuk <em>Caustic</em> dan <em>Caustic-Polymer Flood</em></a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="03-chemical.html"><a href="03-chemical.html#persamaan-persamaan-dasar-dan-nilai-default-yang-digunakan-dalam-model"><i class="fa fa-check"></i><b>4.7</b> Persamaan-Persamaan Dasar dan Nilai <em>Default</em> yang Digunakan Dalam Model</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="03-chemical.html"><a href="03-chemical.html#viskositas-minyak-1"><i class="fa fa-check"></i><b>4.7.1</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="4.7.2" data-path="03-chemical.html"><a href="03-chemical.html#solution-gas-oil-ratio-1"><i class="fa fa-check"></i><b>4.7.2</b> <em>Solution Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="4.7.3" data-path="03-chemical.html"><a href="03-chemical.html#faktor-volume-formasi-minyak-1"><i class="fa fa-check"></i><b>4.7.3</b> Faktor Volume Formasi Minyak</a></li>
+<li class="chapter" data-level="4.7.4" data-path="03-chemical.html"><a href="03-chemical.html#permeabilitas-relatif-dan-fraksi-aliran-air"><i class="fa fa-check"></i><b>4.7.4</b> Permeabilitas Relatif dan Fraksi Aliran Air</a></li>
+<li class="chapter" data-level="4.7.5" data-path="03-chemical.html"><a href="03-chemical.html#nilai-default-yang-dignakan-dalam-predictive-model"><i class="fa fa-check"></i><b>4.7.5</b> Nilai <em>Default</em> yang Dignakan Dalam <em>Predictive Model</em></a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="03-chemical.html"><a href="03-chemical.html#penambahan-jenis-pattern-pada-injeksi-kimia"><i class="fa fa-check"></i><b>4.8</b> Penambahan Jenis <em>Pattern</em> pada Injeksi Kimia</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="03-chemical.html"><a href="03-chemical.html#injeksi-kimia"><i class="fa fa-check"></i><b>4.8.1</b> Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.8.2" data-path="03-chemical.html"><a href="03-chemical.html#penentuan-pola-sumur-injeksi"><i class="fa fa-check"></i><b>4.8.2</b> Penentuan Pola Sumur Injeksi</a></li>
+<li class="chapter" data-level="4.8.3" data-path="03-chemical.html"><a href="03-chemical.html#sejarah-injeksi-kimia"><i class="fa fa-check"></i><b>4.8.3</b> Sejarah Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.8.4" data-path="03-chemical.html"><a href="03-chemical.html#derivasi-persamaan-model-pattern-injeksi-kimia"><i class="fa fa-check"></i><b>4.8.4</b> Derivasi Persamaan Model <em>Pattern</em> Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.8.5" data-path="03-chemical.html"><a href="03-chemical.html#simulasi-sintetik-injeksi-kimia"><i class="fa fa-check"></i><b>4.8.5</b> Simulasi Sintetik Injeksi Kimia</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="04-polymer.html"><a href="04-polymer.html"><i class="fa fa-check"></i><b>5</b> Polymer Predictive Model</a><ul>
+<li class="chapter" data-level="5.1" data-path="04-polymer.html"><a href="04-polymer.html#pendahuluan-3"><i class="fa fa-check"></i><b>5.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="5.2" data-path="04-polymer.html"><a href="04-polymer.html#teori-fractional-flow"><i class="fa fa-check"></i><b>5.2</b> Teori <em>Fractional Flow</em></a><ul>
+<li class="chapter" data-level="5.2.1" data-path="04-polymer.html"><a href="04-polymer.html#penentuan-nilai-saturasi-air-rata-rata-di-reservoir-selama-periode-injeksi-polimer"><i class="fa fa-check"></i><b>5.2.1</b> Penentuan Nilai Saturasi Air Rata-Rata di Reservoir Selama Periode Injeksi Polimer</a></li>
+<li class="chapter" data-level="5.2.2" data-path="04-polymer.html"><a href="04-polymer.html#rangkuman-persamaan-persamaan-yang-digunakan-dalam-teori-fractional-flow"><i class="fa fa-check"></i><b>5.2.2</b> Rangkuman Persamaan-Persamaan yang Digunakan Dalam Teori <em>Fractional Flow</em></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="04-polymer.html"><a href="04-polymer.html#metode-perhitungan-areal-dan-vertical-sweep-efficiency-menggunakan-pendekatan-streamtube"><i class="fa fa-check"></i><b>5.3</b> Metode Perhitungan <em>Areal</em> dan <em>Vertical Sweep Efficiency</em> Menggunakan Pendekatan <em>Streamtube</em></a></li>
+<li class="chapter" data-level="5.4" data-path="04-polymer.html"><a href="04-polymer.html#perhitungan-injectivity"><i class="fa fa-check"></i><b>5.4</b> Perhitungan <em>Injectivity</em></a></li>
+<li class="chapter" data-level="5.5" data-path="04-polymer.html"><a href="04-polymer.html#penentuan-nilai-permeabilitas-di-setiap-lapisan-reservoir"><i class="fa fa-check"></i><b>5.5</b> Penentuan Nilai Permeabilitas di Setiap Lapisan Reservoir</a></li>
+<li class="chapter" data-level="5.6" data-path="04-polymer.html"><a href="04-polymer.html#koreksi-terhadap-pengaruh-slug-polimer"><i class="fa fa-check"></i><b>5.6</b> Koreksi Terhadap Pengaruh <em>Slug</em> Polimer</a></li>
+<li class="chapter" data-level="5.7" data-path="04-polymer.html"><a href="04-polymer.html#pengaruh-sifat-fisis-larutan-polimer-terhadap-performa-injeksi-polimer"><i class="fa fa-check"></i><b>5.7</b> Pengaruh Sifat Fisis Larutan Polimer Terhadap Performa Injeksi Polimer</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="04-polymer.html"><a href="04-polymer.html#efek-pengurangan-permeabilitas-untuk-fasa-aqueous"><i class="fa fa-check"></i><b>5.7.1</b> Efek Pengurangan Permeabilitas Untuk Fasa <em>Aqueous</em></a></li>
+<li class="chapter" data-level="5.7.2" data-path="04-polymer.html"><a href="04-polymer.html#efek-aliran-non-newtonian-larutan-polimer-di-daerah-sekitar-sumur-injeksi"><i class="fa fa-check"></i><b>5.7.2</b> Efek Aliran <em>Non-Newtonian</em> Larutan Polimer di Daerah Sekitar Sumur Injeksi</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="04-polymer.html"><a href="04-polymer.html#persamaan-persamaan-dasar-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>5.8</b> Persamaan-Persamaan Dasar yang Digunakan Dalam <em>Predictive Model</em></a><ul>
+<li class="chapter" data-level="5.8.1" data-path="04-polymer.html"><a href="04-polymer.html#viskositas-minyak-2"><i class="fa fa-check"></i><b>5.8.1</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="5.8.2" data-path="04-polymer.html"><a href="04-polymer.html#solution-gas-oil-ratio-2"><i class="fa fa-check"></i><b>5.8.2</b> <em>Solution Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="5.8.3" data-path="04-polymer.html"><a href="04-polymer.html#faktor-volume-formasi-minyak-2"><i class="fa fa-check"></i><b>5.8.3</b> Faktor Volume Formasi Minyak</a></li>
+<li class="chapter" data-level="5.8.4" data-path="04-polymer.html"><a href="04-polymer.html#faktor-volume-formasi-air"><i class="fa fa-check"></i><b>5.8.4</b> Faktor Volume Formasi Air</a></li>
+<li class="chapter" data-level="5.8.5" data-path="04-polymer.html"><a href="04-polymer.html#permeabilitas-relatf-dan-fraksi-aliran-air"><i class="fa fa-check"></i><b>5.8.5</b> Permeabilitas Relatf dan Fraksi Aliran Air</a></li>
+<li class="chapter" data-level="5.8.6" data-path="04-polymer.html"><a href="04-polymer.html#persamaan-persamaan-dasar-dan-nilai-default-yang-digunakan"><i class="fa fa-check"></i><b>5.8.6</b> Persamaan-Persamaan Dasar dan Nilai <em>Default</em> yang Digunakan</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="05-co2miscible.html"><a href="05-co2miscible.html"><i class="fa fa-check"></i><b>6</b> CO<sub>2</sub> Miscible Predictive Model</a><ul>
+<li class="chapter" data-level="6.1" data-path="05-co2miscible.html"><a href="05-co2miscible.html#pendahuluan-4"><i class="fa fa-check"></i><b>6.1</b> Pendahuluan</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="05-co2miscible.html"><a href="05-co2miscible.html#kondisi-pvt"><i class="fa fa-check"></i><b>6.1.1</b> Kondisi PVT</a></li>
+<li class="chapter" data-level="6.1.2" data-path="05-co2miscible.html"><a href="05-co2miscible.html#wettability"><i class="fa fa-check"></i><b>6.1.2</b> Wettability</a></li>
+<li class="chapter" data-level="6.1.3" data-path="05-co2miscible.html"><a href="05-co2miscible.html#keuntungan-dan-kerugian-melakukan-injeksi-co2"><i class="fa fa-check"></i><b>6.1.3</b> Keuntungan dan Kerugian Melakukan Injeksi CO<sub>2</sub></a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="05-co2miscible.html"><a href="05-co2miscible.html#miscible-co2-predictive-model"><i class="fa fa-check"></i><b>6.2</b> <em>Miscible CO<sub>2</sub> Predictive Model</em></a><ul>
+<li class="chapter" data-level="6.2.1" data-path="05-co2miscible.html"><a href="05-co2miscible.html#sifat-sifat-fisik-fluida"><i class="fa fa-check"></i><b>6.2.1</b> Sifat-Sifat Fisik Fluida</a></li>
+<li class="chapter" data-level="6.2.2" data-path="05-co2miscible.html"><a href="05-co2miscible.html#fractional-flow-model"><i class="fa fa-check"></i><b>6.2.2</b> <em>Fractional Flow</em> Model</a></li>
+<li class="chapter" data-level="6.2.3" data-path="05-co2miscible.html"><a href="05-co2miscible.html#parameter-parameter-performa-miscible-co2"><i class="fa fa-check"></i><b>6.2.3</b> Parameter-Parameter Performa <em>Miscible</em> CO<sub>2</sub></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html"><i class="fa fa-check"></i><b>7</b> CO<sub>2</sub> Immiscible Predictive Model</a><ul>
+<li class="chapter" data-level="7.1" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#pendahuluan-5"><i class="fa fa-check"></i><b>7.1</b> Pendahuluan</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#mekanisme-pendesakan-secara-immiscible"><i class="fa fa-check"></i><b>7.1.1</b> Mekanisme Pendesakan Secara <em>Immiscible</em></a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#immiscible-co2-predictive-model"><i class="fa fa-check"></i><b>7.2</b> <em>Immiscible</em> CO<sub>2</sub> <em>Predictive Model</em></a><ul>
+<li class="chapter" data-level="7.2.1" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#sifat-sifat-fisik-fluida-1"><i class="fa fa-check"></i><b>7.2.1</b> Sifat-Sifat Fisik Fluida</a></li>
+<li class="chapter" data-level="7.2.2" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#fractional-flow-model-1"><i class="fa fa-check"></i><b>7.2.2</b> <em>Fractional Flow Model</em></a></li>
+<li class="chapter" data-level="7.2.3" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#material-balance-equation"><i class="fa fa-check"></i><b>7.2.3</b> <em>Material Balance Equation</em></a></li>
+<li class="chapter" data-level="7.2.4" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#parameter-parameter-performa-immiscible-co2"><i class="fa fa-check"></i><b>7.2.4</b> Parameter-Parameter Performa <em>Immiscible</em> CO<sub>2</sub></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="07-steam.html"><a href="07-steam.html"><i class="fa fa-check"></i><b>8</b> Steamflood Predictive Model</a><ul>
+<li class="chapter" data-level="8.1" data-path="07-steam.html"><a href="07-steam.html#pendahuluan-6"><i class="fa fa-check"></i><b>8.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="8.2" data-path="07-steam.html"><a href="07-steam.html#fenomena-heat-loss"><i class="fa fa-check"></i><b>8.2</b> Fenomena <em>Heat Loss</em></a><ul>
+<li class="chapter" data-level="8.2.1" data-path="07-steam.html"><a href="07-steam.html#fenomena-heat-loss-di-pipa-permukaan"><i class="fa fa-check"></i><b>8.2.1</b> Fenomena <em>Heat Loss</em> di Pipa Permukaan</a></li>
+<li class="chapter" data-level="8.2.2" data-path="07-steam.html"><a href="07-steam.html#fenomena-heat-loss-di-sumur-injeksi"><i class="fa fa-check"></i><b>8.2.2</b> Fenomena <em>Heat Loss</em> di Sumur Injeksi</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="07-steam.html"><a href="07-steam.html#perhitungan-sejumlah-parameter-penting-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>8.3</b> Perhitungan Sejumlah Parameter Penting yang Digunakan Dalam <em>Predictive Model</em></a><ul>
+<li class="chapter" data-level="8.3.1" data-path="07-steam.html"><a href="07-steam.html#permeabilitas-relatif-tiga-fasa"><i class="fa fa-check"></i><b>8.3.1</b> Permeabilitas Relatif Tiga Fasa</a></li>
+<li class="chapter" data-level="8.3.2" data-path="07-steam.html"><a href="07-steam.html#pembagian-daerah-reservoir"><i class="fa fa-check"></i><b>8.3.2</b> Pembagian Daerah Reservoir</a></li>
+<li class="chapter" data-level="8.3.3" data-path="07-steam.html"><a href="07-steam.html#initial-injectivity-index"><i class="fa fa-check"></i><b>8.3.3</b> <em>Initial Injectivity Index</em></a></li>
+<li class="chapter" data-level="8.3.4" data-path="07-steam.html"><a href="07-steam.html#viskositas-fluida"><i class="fa fa-check"></i><b>8.3.4</b> Viskositas Fluida</a></li>
+<li class="chapter" data-level="8.3.5" data-path="07-steam.html"><a href="07-steam.html#solution-gas-oil-ratio-4"><i class="fa fa-check"></i><b>8.3.5</b> <em>Solution Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="8.3.6" data-path="07-steam.html"><a href="07-steam.html#faktor-volume-formasi-minyak-4"><i class="fa fa-check"></i><b>8.3.6</b> Faktor Volume Formasi Minyak</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="07-steam.html"><a href="07-steam.html#steamflood-predictive-model-1"><i class="fa fa-check"></i><b>8.4</b> <em>Steamflood Predictive Model</em></a><ul>
+<li class="chapter" data-level="8.4.1" data-path="07-steam.html"><a href="07-steam.html#metode-williams-metode-stanford-university"><i class="fa fa-check"></i><b>8.4.1</b> Metode Williams (Metode Stanford University)</a></li>
+<li class="chapter" data-level="8.4.2" data-path="07-steam.html"><a href="07-steam.html#metode-jones"><i class="fa fa-check"></i><b>8.4.2</b> Metode Jones</a></li>
+<li class="chapter" data-level="8.4.3" data-path="07-steam.html"><a href="07-steam.html#model-gomaa"><i class="fa fa-check"></i><b>8.4.3</b> Model Gomaa</a></li>
+<li class="chapter" data-level="8.4.4" data-path="07-steam.html"><a href="07-steam.html#model-aydelotte-pope-model-intercomp"><i class="fa fa-check"></i><b>8.4.4</b> Model Aydelotte-Pope (Model Intercomp)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="08-insitu.html"><a href="08-insitu.html"><i class="fa fa-check"></i><b>9</b> In-Situ Combustion Predictive Model</a><ul>
+<li class="chapter" data-level="9.1" data-path="08-insitu.html"><a href="08-insitu.html#pendahuluan-7"><i class="fa fa-check"></i><b>9.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="9.2" data-path="08-insitu.html"><a href="08-insitu.html#in-situ-combustion-predictive-model-1"><i class="fa fa-check"></i><b>9.2</b> <em>In-Situ Combustion Predictive Model</em></a><ul>
+<li class="chapter" data-level="9.2.1" data-path="08-insitu.html"><a href="08-insitu.html#model-brigham-et-al-untuk-dry-in-situ-combustion"><i class="fa fa-check"></i><b>9.2.1</b> Model Brigham, et al Untuk <em>Dry In-Situ Combustion</em></a></li>
+<li class="chapter" data-level="9.2.2" data-path="08-insitu.html"><a href="08-insitu.html#perhitungan-parameter-parameter-penting-ynag-dgunakan-dalam-model"><i class="fa fa-check"></i><b>9.2.2</b> Perhitungan Parameter-Parameter Penting ynag Dgunakan Dalam Model</a></li>
+<li class="chapter" data-level="9.2.3" data-path="08-insitu.html"><a href="08-insitu.html#viskositas-minyak-4"><i class="fa fa-check"></i><b>9.2.3</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="9.2.4" data-path="08-insitu.html"><a href="08-insitu.html#parameter-parameter-performa-in-situ-combustion"><i class="fa fa-check"></i><b>9.2.4</b> Parameter-Parameter Performa <em>In-Situ Combustion</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="09-infill.html"><a href="09-infill.html"><i class="fa fa-check"></i><b>10</b> Infill Drilling Predictive Model</a><ul>
+<li class="chapter" data-level="10.1" data-path="09-infill.html"><a href="09-infill.html#pendahuluan-8"><i class="fa fa-check"></i><b>10.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="10.2" data-path="09-infill.html"><a href="09-infill.html#asumsi-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>10.2</b> Asumsi yang Digunakan Dalam <em>Predictive Model</em></a></li>
+<li class="chapter" data-level="10.3" data-path="09-infill.html"><a href="09-infill.html#analisis-streamtube"><i class="fa fa-check"></i><b>10.3</b> Analisis <em>Streamtube</em></a></li>
+<li class="chapter" data-level="10.4" data-path="09-infill.html"><a href="09-infill.html#pemodelan-continuity-reservoir"><i class="fa fa-check"></i><b>10.4</b> Pemodelan <em>Continuity</em> Reservoir</a></li>
+<li class="chapter" data-level="10.5" data-path="09-infill.html"><a href="09-infill.html#persamaan-persamaan-dasar-dan-nilai-default-yang-digunakan-dalam-predcitive-model"><i class="fa fa-check"></i><b>10.5</b> Persamaan-Persamaan Dasar dan Nilai <em>Default</em> yang Digunakan Dalam <em>Predcitive Model</em></a><ul>
+<li class="chapter" data-level="10.5.1" data-path="09-infill.html"><a href="09-infill.html#viskositas-minyak-5"><i class="fa fa-check"></i><b>10.5.1</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="10.5.2" data-path="09-infill.html"><a href="09-infill.html#solution-gas-oil-ratio-5"><i class="fa fa-check"></i><b>10.5.2</b> <em>Solution Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="10.5.3" data-path="09-infill.html"><a href="09-infill.html#faktor-volume-formasi-minyak-6"><i class="fa fa-check"></i><b>10.5.3</b> Faktor Volume Formasi Minyak</a></li>
+<li class="chapter" data-level="10.5.4" data-path="09-infill.html"><a href="09-infill.html#permeabilitas-relatif-1"><i class="fa fa-check"></i><b>10.5.4</b> Permeabilitas Relatif</a></li>
+<li class="chapter" data-level="10.5.5" data-path="09-infill.html"><a href="09-infill.html#nilai-default-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>10.5.5</b> Nilai <em>Default</em> yang Digunakan Dalam <em>Predictive Model</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="10-hc.html"><a href="10-hc.html"><i class="fa fa-check"></i><b>11</b> Hydrocarbon Gas Injection Predictive Model</a><ul>
+<li class="chapter" data-level="11.1" data-path="10-hc.html"><a href="10-hc.html#pendahuluan-9"><i class="fa fa-check"></i><b>11.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="11.2" data-path="10-hc.html"><a href="10-hc.html#mekanisme-injeksi-hidrokarbon"><i class="fa fa-check"></i><b>11.2</b> Mekanisme Injeksi Hidrokarbon</a></li>
+<li class="chapter" data-level="11.3" data-path="10-hc.html"><a href="10-hc.html#pembuatan-predictive-model"><i class="fa fa-check"></i><b>11.3</b> Pembuatan <em>Predictive Model</em></a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="11-co2hnp.html"><a href="11-co2hnp.html"><i class="fa fa-check"></i><b>12</b> CO<sub>2</sub> Huff &amp; Puff Predictive Model</a><ul>
+<li class="chapter" data-level="12.1" data-path="11-co2hnp.html"><a href="11-co2hnp.html#pendahuluan-10"><i class="fa fa-check"></i><b>12.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="12.2" data-path="11-co2hnp.html"><a href="11-co2hnp.html#pembutan-predictive-model"><i class="fa fa-check"></i><b>12.2</b> Pembutan <em>Predictive Model</em></a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="12-chemicalhnp.html"><a href="12-chemicalhnp.html"><i class="fa fa-check"></i><b>13</b> Chemical Injection Huff &amp; Puff Predictive Model</a><ul>
+<li class="chapter" data-level="13.1" data-path="12-chemicalhnp.html"><a href="12-chemicalhnp.html#pendahuluan-11"><i class="fa fa-check"></i><b>13.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="13.2" data-path="12-chemicalhnp.html"><a href="12-chemicalhnp.html#mekanisme-injeksi-chemical-huff-and-puff"><i class="fa fa-check"></i><b>13.2</b> Mekanisme Injeksi <em>Chemical Huff and Puff</em></a></li>
+<li class="chapter" data-level="13.3" data-path="12-chemicalhnp.html"><a href="12-chemicalhnp.html#pembuatan-model-prediktif"><i class="fa fa-check"></i><b>13.3</b> Pembuatan Model Prediktif</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Technical Guide PertaEOR-Lite</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="chemical-injection-huff-puff-predictive-model" class="section level1">
+<h1><span class="header-section-number">Bab 13</span> Chemical Injection Huff &amp; Puff Predictive Model</h1>
+<div id="pendahuluan-11" class="section level2">
+<h2><span class="header-section-number">13.1</span> Pendahuluan</h2>
+<p>Injeksi surfaktan <em>huff and puff</em> adalah metode EOR yang baru diaplikasikan yang memberikan efisiensi yang lebih besar daripada metode konvensional dengan menginjeksi surfaktan di sumur produksi, bukan di sumur injeksi. Berikut akan dibahas mengenai penyusunan model prediktif injeksi <em>chemical huff and puff</em> untuk memprediksi performa reservoir saat dilakukan metode EOR <em>chemical huff and puff</em>. Model prediktif dibuat berdasarkan hasil simulasi reservoir dan aplikasi <em>Artificial Neural Network</em> (ANN). Profil produksi dibentuk berdasarkan model prediktif laju alir maksimum, waktu saat laju alir maksimum, laju alir inisial, periode produksi dan laju alir di akhir periode produksi.</p>
+</div>
+<div id="mekanisme-injeksi-chemical-huff-and-puff" class="section level2">
+<h2><span class="header-section-number">13.2</span> Mekanisme Injeksi <em>Chemical Huff and Puff</em></h2>
+<p><em>Huff and Puff</em> terdiri dari 3 siklus. Siklus terdiri dari injeksi surfaktan, penutupan sumur sementara sambil membiarkan surfaktan meresap dan meningkatkan ekstrasi minyak di sekitar sumur, dan produksi (di masa depan) yang secara inkremental lebih besar daripada metode konvensional. Sekuensi tersebut dilakukan sampai mencapai batasan ekonomi. Contoh dari urutan aktivitas <em>huff and puff</em> dapat dilihat di Gambar 1.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<img src="images/chemicalhnp/ilustrasi.png" alt="Ilustrasi metode _Huff and Puff_" width="50%" />
+<p class="caption">
+Gambar 1.1: Ilustrasi metode <em>Huff and Puff</em>
+</p>
+</div>
+<p><em>Chemical</em> yang diinjeksikan ke dalam suatu sumur adalah surfaktan. Surfaktan akan mengurangi nilai <em>interfacial tension</em> fluida yang ada direservoir dan juga mengubah <em>wettability</em> batuan. Setelah reservoir diinjeksikan surfaktan, seharusnya minyak dalam reservoir akan lebih mudah mengalir. Hasilnya adalah perubahan karakteristik aliran berubah ketika konsentrasi surfaktan dinaikkan sehingga kurva permeabilitas relatif mendekati garis lurus. Gambar 2 dan Gambar 3 menunjukan ilustrasi perubahan kurva permeabilitas relatif setelah injeksi surfaktan.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<img src="images/chemicalhnp/sebelum.png" alt="Kurva permeabilitas relatif sebelum diinjeksikan surrfaktan" width="50%" />
+<p class="caption">
+Gambar 1.2: Kurva permeabilitas relatif sebelum diinjeksikan surrfaktan
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<img src="images/chemicalhnp/sesudah.png" alt="Kurva permeabilitas relatif sesudah diinjeksikan surrfaktan" width="50%" />
+<p class="caption">
+Gambar 1.3: Kurva permeabilitas relatif sesudah diinjeksikan surrfaktan
+</p>
+</div>
+</div>
+<div id="pembuatan-model-prediktif" class="section level2">
+<h2><span class="header-section-number">13.3</span> Pembuatan Model Prediktif</h2>
+<p>Model prediktif injeksi hidrokarbon dibentuk menggunakan fungsi <em>Multilayer Neural Network</em> pada <em>software</em> CMG-CMOST berdasarkan data hasil simulasi reservoir. Tahapannya adalah pembuatan model sintetis, analisa sensitivitas, pembuatan <em>proxy model</em> untuk tiap titik hasil, dan pembuatan profil produksi.</p>
+Model sintetis reservoir yang dibangun merupakan model radial dengan jenis <em>grid</em> logaritmik untuk dapat lebih bisa memodelkan efek injeksi. Ukuran <em>grid</em> homogen pada bagian lateral dan <em>layer vertical</em>. Model reservoir tertutup dengan 1 sumur injeksi dan 1 sumur produksi yang diletakkan bagian paling tengah. Perforasi injeksi dan produksi juga diletakkan di blok yang sama. Properti batuan reservoir pada model merupakan <em>single value model</em> (homogen), kondisi inisial reservoir disesuaikan dengan kedalaman reservoir dan telah disesuaikan dengan <em>screening criteria</em> pada berbagai studi dan aplikasi lapangan yang telah dilakukan sebelumnya. Fluida yang digunakan didapat dari STARS dengan rentang oAPI 15-45. Gambar 4 menunjukan model sintetik yang digunakan.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<img src="images/chemicalhnp/sintesis.png" alt="Model sintetis reservoir untuk pembuatan model prediktif _Chemical Huff and Puff_" width="50%" />
+<p class="caption">
+Gambar 1.4: Model sintetis reservoir untuk pembuatan model prediktif <em>Chemical Huff and Puff</em>
+</p>
+</div>
+Kurva permeabilitas relatif dibangun menggunakan Persamaan Corey. Contoh kurva permeabilitas relatif minyak-air ditunjukan pada Gambar 5.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
+<img src="images/chemicalhnp/oilwater.png" alt="Kurva permeabilitas relatif minyak-air" width="50%" />
+<p class="caption">
+Gambar 1.5: Kurva permeabilitas relatif minyak-air
+</p>
+</div>
+Untuk permeabilitas relatif minyak dan air ditentukan dengan persamaan berikut ini:
+<span class="math display">\[k_{ro} = (k_{rocw}) \left[ \frac{1-S_{w}-S_{orw}}{1-S_{wc}-S_{orw}} \right]^{n_o}...(1)\]</span>
+<span class="math display">\[k_{rw} = (k_{rwiro}) \left[ \frac{S_{w}-S_{wc}}{1-S_{wc}-S_{orw}} \right]^{n_{ow}}...(2)\]</span>
+Berikut asumsi yang digunakan dalam membuat tabel permeabilitas relatif minyak dan gas:
+<span class="math display">\[S_{wc}=S_{wcrit}...(3)\]</span>
+<span class="math display">\[S_{orw}=S_{oirw}...(4)\]</span>
+Untuk permeabilitas relatif <em>liquid</em> dan gas ditentukan dengan persamaan berikut ini:
+<span class="math display">\[k_{rog} = (k_{rogcg})\left[ \frac{1-S_{g}-S_{Lc}}{1-S_{gc}-S_{Lc}} \right]^{n_{og}}...(5)\]</span>
+<span class="math display">\[k_{rg} = (k_{rgci}) \left[ \frac{S_{g}-S_{gc}}{1-S_{gc}-S_{Lc}} \right]^{n_g}...(6)\]</span>
+Contoh kurva permeabilitas relatif likuid-gas ditunjukan pada Gambar 6.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-7"></span>
+<img src="images/chemicalhnp/oilgas.png" alt="Kurva permeabilitas relatif liquid-gas" width="50%" />
+<p class="caption">
+Gambar 1.6: Kurva permeabilitas relatif liquid-gas
+</p>
+</div>
+<p>Berikut asumsi yang digunakan dalam membuat tabel permeabilitas relatif <em>liquid</em>-gas:
+<span class="math display">\[S_{wcon} = S_{Lcon}\]</span>
+<span class="math display">\[S_{Lrg} = S_{Lcon}+S_{org}\]</span>
+<span class="math display">\[S_{gc} = S_{gcrit}\]</span>
+<span class="math display">\[N_o = N_g\]</span>
+<span class="math display">\[N_{ow} = N_{og}\]</span></p>
+<p>Tekanan alir produksi bawah sumur di-<em>set</em> agar perbedaan nilainya dengan tekanan reservoir berbeda sedikit untuk mensimulasikan penggunaan <em>chemical huff and puff</em> pada lapangan yang sudah lama diproduksikan. Parameter operasi lainnya adalah laju alir surfaktan yang diinjeksikan, jenis surfaktan yang digunakan, beserta lama waktu injeksi dan <em>soaking</em>. Pada awalnya sumur produksi ditutup dan hanya sumur injeksi saja yang dibuka dengan durasi sebesar waktu injeksinya. Setelah injeksi tersebut selesai, sumur injeksi juga dimatikan. Setelah waktu <em>soaking</em> tercapai, produksi akan dilanjutkan sampai laju alir fluida mencapai <em>economic limit</em> (dengan nilai standar sebesar 2 bbl/day) dimana kemudian sumur produksi akan dimatikan.</p>
+<p>Analisa sensitivitas dilakukan menggunakan fungsi CMOST pada <em>software</em> CMG, dengan menggunakan metode <em>Response Surface Methodology</em>. Metode ini digunakan untuk menentukan hubungan antara variabel <em>input</em> (parameter) dan respon (<em>objective function</em>). Seluruh parameter divariasikan dalam sejumlah eksperimen yang dibuat menggunakan <em>Latin Hypercube Method</em> dan respon dari seluruh eksperimen akan digunakan untuk membentuk sebuah <em>proxy model</em>.</p>
+<p>Ada 42 parameter yang divariasikan, dengan <em>range</em> nilai masing-masing parameter yang berbeda. Tabel 1 menunjukkan parameter-parameter dan variasi nilainya:</p>
+<table>
+<caption><span style="color: grey;"> Tabel 13.1: <em>Range</em> Nilai Parameter <em>Input</em> Untuk Studi Sensitivitas dan Pembuatan <em>Proxy Model</em> </span></caption>
+<thead>
+<tr class="header">
+<th align="center">No</th>
+<th align="center">Parameter</th>
+<th align="center">Satuan</th>
+<th align="center">Min</th>
+<th align="center">Max</th>
+<th align="center">Keterangan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">Area</td>
+<td align="center">acre</td>
+<td align="center">3</td>
+<td align="center">15</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">Thickness</td>
+<td align="center">ft</td>
+<td align="center">10</td>
+<td align="center">100</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">Permeability</td>
+<td align="center">mD</td>
+<td align="center">50</td>
+<td align="center">250</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">Porosity</td>
+<td align="center">fraksi</td>
+<td align="center">0.1</td>
+<td align="center">0.3</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">Densitas Minyak</td>
+<td align="center">lb/ft<sup>3</sup></td>
+<td align="center">50.03</td>
+<td align="center">60.27</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">API</td>
+<td align="center"><span class="math inline">\(^\circ\)</span>API</td>
+<td align="center">15</td>
+<td align="center">45</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="center">MFCHEM</td>
+<td align="center">fraksi</td>
+<td align="center">0.001</td>
+<td align="center">0.05</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="center">MFWATER</td>
+<td align="center">fraksi</td>
+<td align="center">0.999</td>
+<td align="center">0.95</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">9</td>
+<td align="center">ADMAXT</td>
+<td align="center">gmole/ft<sup>3</sup></td>
+<td align="center">0.02</td>
+<td align="center">0.04</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="center">Injection Rate</td>
+<td align="center">ft<sup>3</sup>/day</td>
+<td align="center">300</td>
+<td align="center">1000</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">11</td>
+<td align="center">INJECTION</td>
+<td align="center">Date</td>
+<td align="center">2</td>
+<td align="center">6</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">12</td>
+<td align="center">SOAKING</td>
+<td align="center">Date</td>
+<td align="center">7</td>
+<td align="center">31</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">13</td>
+<td align="center">Injection Time</td>
+<td align="center">Days</td>
+<td align="center">1</td>
+<td align="center">5</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">14</td>
+<td align="center">Soaking Time</td>
+<td align="center">Days</td>
+<td align="center">5</td>
+<td align="center">25</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">15</td>
+<td align="center">PRES</td>
+<td align="center">psi</td>
+<td align="center">600</td>
+<td align="center">1250</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">16</td>
+<td align="center">PRES Multiplier</td>
+<td align="center">fraksi</td>
+<td align="center">1</td>
+<td align="center">1.25</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">17</td>
+<td align="center">PWF</td>
+<td align="center">Psi</td>
+<td align="center">600</td>
+<td align="center">1000</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">18</td>
+<td align="center">a</td>
+<td align="center">-</td>
+<td align="center">20</td>
+<td align="center">150</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">19</td>
+<td align="center">b</td>
+<td align="center">-</td>
+<td align="center">105</td>
+<td align="center">400</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">20</td>
+<td align="center">IFT</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">21</td>
+<td align="center">TEMP</td>
+<td align="center"><span class="math inline">\(^\circ\)</span>C</td>
+<td align="center">60</td>
+<td align="center">150</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">22</td>
+<td align="center">TIFT1</td>
+<td align="center"><span class="math inline">\(^\circ\)</span>C</td>
+<td align="center">60</td>
+<td align="center">150</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">23</td>
+<td align="center">TIFT2</td>
+<td align="center"><span class="math inline">\(^\circ\)</span>C</td>
+<td align="center">60.1</td>
+<td align="center">150.1</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">24</td>
+<td align="center">DTRAPW1</td>
+<td align="center">-</td>
+<td align="center">-7</td>
+<td align="center">-4</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">25</td>
+<td align="center">DTRAPN1</td>
+<td align="center">-</td>
+<td align="center">-7</td>
+<td align="center">-4</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">26</td>
+<td align="center">DTRAPW2</td>
+<td align="center">-</td>
+<td align="center">-3</td>
+<td align="center">-1</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">27</td>
+<td align="center">DTRAPN2</td>
+<td align="center">-</td>
+<td align="center">-3</td>
+<td align="center">-1</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">28</td>
+<td align="center">Swinit</td>
+<td align="center">fraksi</td>
+<td align="center">0.4</td>
+<td align="center">0.85</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">29</td>
+<td align="center">Swcon</td>
+<td align="center">fraksi</td>
+<td align="center">0.125</td>
+<td align="center">0.4</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">30</td>
+<td align="center">Sorw</td>
+<td align="center">-</td>
+<td align="center">0.2</td>
+<td align="center">0.2</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">31</td>
+<td align="center">Krocw</td>
+<td align="center">-</td>
+<td align="center">0.4</td>
+<td align="center">0.95</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">32</td>
+<td align="center">Krwcw</td>
+<td align="center">-</td>
+<td align="center">0.15</td>
+<td align="center">0.7</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">33</td>
+<td align="center">Nw</td>
+<td align="center">-</td>
+<td align="center">1</td>
+<td align="center">3</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">34</td>
+<td align="center">Now</td>
+<td align="center">-</td>
+<td align="center">1</td>
+<td align="center">5</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">35</td>
+<td align="center">Sorg</td>
+<td align="center">-</td>
+<td align="center">0</td>
+<td align="center">0.2</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">36</td>
+<td align="center">Sgcon</td>
+<td align="center">-</td>
+<td align="center">0</td>
+<td align="center">0.1</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">37</td>
+<td align="center">Krgcl</td>
+<td align="center">-</td>
+<td align="center">0.5</td>
+<td align="center">1</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">38</td>
+<td align="center">Krogcg</td>
+<td align="center">-</td>
+<td align="center">0.5</td>
+<td align="center">1</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">39</td>
+<td align="center">Ng</td>
+<td align="center">-</td>
+<td align="center">1</td>
+<td align="center">3</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">40</td>
+<td align="center">Ngl</td>
+<td align="center">-</td>
+<td align="center">1</td>
+<td align="center">3</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">41</td>
+<td align="center">OilWaterTable</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">42</td>
+<td align="center">LiquidGasTable</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+Respon yang diukur adalah volume produksi dan laju alir fluida. Dari respon tersebut akan direkam nilai produksi kumulatif, laju alir maksimum (Q<sub>max</sub>), waktu saat laju alir maksimum tercapai (<a href="mailto:t@Q~max" class="email">t@Q~max</a>~), dan periode produksi (t<sub>Stop</sub>). Masing-masing respon ini akan dibentuk <em>proxy model</em>-nya untuk membangun profil produksi suatu fluida reservoir seperti yang ada pada Gambar 7.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<img src="images/chemicalhnp/profil.png" alt="Pembangunan profil produksi fluida reservoir berdasarkan _proxy model_" width="50%" />
+<p class="caption">
+Gambar 1.7: Pembangunan profil produksi fluida reservoir berdasarkan <em>proxy model</em>
+</p>
+</div>
+<p>Tren dari laju alir inisial menuju laju alir maksimum diasumsikan berupa <em>linear trend</em>, dan tren dari laju alir maksimum menuju laju alir akhir produksi berupa <em>exponential decline</em>.</p>
+<p><em>Proxy model</em> dibuat berdasarkan hubungan parameter dan respon pada fungsi CMOST pada <em>software</em> komersial CMG. Ada 2 jenis <em>proxy</em> <em>model</em> yang dapat dibentuk: _Polynomial Regressio_n dan <em>Neural Network</em>. Setelah membandingkan keakuratan kedua jenis model, jenis <em>proxy model</em> yang dominan digunakan adalah <em>Neural Network</em>, tipe <em>Multilayer Neural Network</em>.</p>
+<p>Jumlah eksperimen simulasi yang digunakan untuk membangun <em>proxy model</em> adalah 2599 eksperimen, dengan jumlah data <em>training</em> 2344 data dan jumlah data verifikasi <em>proxy model</em> 255 data.</p>
+<p>Profil produksi akan dibentuk menggunakan <em>proxy model</em> variabel-variabel respon di atas untuk fluida minyak, air, gas, dan <em>liquid</em> seperti tertera pada Tabel 2. Di bawah ini akan dilampirkan seluruh <em>proxy model</em> pembentuk profil produksi dalam bentuk <em>weighting</em> dari <em>neural network architecture</em>.</p>
+<table>
+<caption><span style="color: grey;"> Tabel 13.2: Jumlah <em>Proxy Model</em> yang Dibentuk untuk Profil Produksi Berbagai Fluida Reservoir </span></caption>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Respon</th>
+<th align="center">Minyak</th>
+<th align="center">Air</th>
+<th align="center">Gas</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Kumulatif Produksi</td>
+<td align="center">NpOil</td>
+<td align="center">NpWater</td>
+<td align="center">NpGas</td>
+</tr>
+<tr class="even">
+<td align="center">Laju Alir Maksimum</td>
+<td align="center">Max_RateOil</td>
+<td align="center">Max_RateWater</td>
+<td align="center">Max_RateGas</td>
+</tr>
+<tr class="odd">
+<td align="center">Waktu Saat Laju Alir Maksimum</td>
+<td align="center">Days_At_MaxRate_Oil</td>
+<td align="center">Days_At_MaxRate_Water</td>
+<td align="center">Days_At_MaxRate_Gas</td>
+</tr>
+<tr class="even">
+<td align="center">Laju Alir Akhir</td>
+<td align="center">RateOil_EndSom</td>
+<td align="center">RateWater_EndSom</td>
+<td align="center">RateGas_EndSom</td>
+</tr>
+<tr class="odd">
+<td align="center">Saturasi Air di Akhir Produksi</td>
+<td align="center">Sw_EndSim</td>
+<td align="center">Sw_EndSim</td>
+<td align="center">Sw_EndSim</td>
+</tr>
+<tr class="even">
+<td align="center">Tekanan di Akhir Produksi</td>
+<td align="center">Pressure_EndSim</td>
+<td align="center">Pressure_EndSim</td>
+<td align="center">Pressure_EndSim</td>
+</tr>
+<tr class="odd">
+<td align="center">Waktu Produksi Terakhir</td>
+<td align="center">EndCycle</td>
+<td align="center">EndCycle</td>
+<td align="center">EndCycle</td>
+</tr>
+</tbody>
+</table>
+<p><em>Proxy model</em> untuk produksi kumulatif minyak:</p>
+<p><strong>Multilayer Neural Network (15)</strong></p>
+<p><strong>Layer 1:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">-1.15</td>
+<td align="center">0.16</td>
+<td align="center">0.11</td>
+<td align="center">-2.29</td>
+<td align="center">0</td>
+<td align="center">0.02</td>
+<td align="center">0.47</td>
+<td align="center">0.31</td>
+<td align="center">-0.24</td>
+<td align="center">2.27</td>
+<td align="center">0.06</td>
+<td align="center">-0.04</td>
+<td align="center">-0.6</td>
+<td align="center">-1.33</td>
+<td align="center">0.03</td>
+</tr>
+<tr class="even">
+<td align="center">-3.62</td>
+<td align="center">0.17</td>
+<td align="center">-0.13</td>
+<td align="center">-2.19</td>
+<td align="center">-4.49</td>
+<td align="center">-0.31</td>
+<td align="center">0.05</td>
+<td align="center">0.04</td>
+<td align="center">-0.43</td>
+<td align="center">2.29</td>
+<td align="center">-0.11</td>
+<td align="center">0.16</td>
+<td align="center">-0.16</td>
+<td align="center">-4.24</td>
+<td align="center">-4.48</td>
+</tr>
+<tr class="odd">
+<td align="center">0.06</td>
+<td align="center">-0.13</td>
+<td align="center">-0.06</td>
+<td align="center">-0.34</td>
+<td align="center">0.15</td>
+<td align="center">0.02</td>
+<td align="center">0.08</td>
+<td align="center">-0.19</td>
+<td align="center">0.02</td>
+<td align="center">0.03</td>
+<td align="center">-0.18</td>
+<td align="center">-0.4</td>
+<td align="center">-0.13</td>
+<td align="center">0</td>
+<td align="center">0.14</td>
+</tr>
+<tr class="even">
+<td align="center">-2.01</td>
+<td align="center">-0.05</td>
+<td align="center">0.01</td>
+<td align="center">-1.62</td>
+<td align="center">0.1</td>
+<td align="center">0</td>
+<td align="center">0.08</td>
+<td align="center">0.25</td>
+<td align="center">-0.18</td>
+<td align="center">1.45 0</td>
+<td align="center">-0.42</td>
+<td align="center">-0.16</td>
+<td align="center">-1.87</td>
+<td align="center">0.15</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">-0.11</td>
+<td align="center">0.03</td>
+<td align="center">0.02</td>
+<td align="center">-0.07</td>
+<td align="center">-0.57</td>
+<td align="center">0.04</td>
+<td align="center">0.09</td>
+<td align="center">0.01</td>
+<td align="center">-0.05</td>
+<td align="center">0.03</td>
+<td align="center">0.1</td>
+<td align="center">0.31</td>
+<td align="center">-0.12</td>
+<td align="center">-0.17</td>
+<td align="center">-0.55</td>
+</tr>
+<tr class="even">
+<td align="center">-0.58</td>
+<td align="center">-0.01</td>
+<td align="center">-0.06</td>
+<td align="center">0.08</td>
+<td align="center">-0.35</td>
+<td align="center">0.06</td>
+<td align="center">0.14</td>
+<td align="center">0.3</td>
+<td align="center">0.03</td>
+<td align="center">-0.2</td>
+<td align="center">-0.21</td>
+<td align="center">0.33</td>
+<td align="center">-0.19</td>
+<td align="center">-0.31</td>
+<td align="center">-0.34</td>
+</tr>
+<tr class="odd">
+<td align="center">0.55</td>
+<td align="center">-0.11</td>
+<td align="center">-0.03</td>
+<td align="center">-0.07</td>
+<td align="center">0.79</td>
+<td align="center">0.04</td>
+<td align="center">-0.05</td>
+<td align="center">-0.27</td>
+<td align="center">0.07</td>
+<td align="center">0.14</td>
+<td align="center">0.01</td>
+<td align="center">0.33</td>
+<td align="center">0.03</td>
+<td align="center">0.39</td>
+<td align="center">0.78</td>
+</tr>
+<tr class="even">
+<td align="center">-0.59</td>
+<td align="center">-0.06</td>
+<td align="center">0.12</td>
+<td align="center">-0.32</td>
+<td align="center">0.87</td>
+<td align="center">-0.08</td>
+<td align="center">-0.1</td>
+<td align="center">-0.2</td>
+<td align="center">0.06</td>
+<td align="center">0.29</td>
+<td align="center">-0.13</td>
+<td align="center">0.27</td>
+<td align="center">0.15</td>
+<td align="center">-0.12</td>
+<td align="center">0.87</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.8</td>
+<td align="center">-0.04</td>
+<td align="center">0.06</td>
+<td align="center">-0.24</td>
+<td align="center">0.33</td>
+<td align="center">-0.07</td>
+<td align="center">-0.16</td>
+<td align="center">-0.08</td>
+<td align="center">-0.02</td>
+<td align="center">-0.02</td>
+<td align="center">-0.03</td>
+<td align="center">0.09</td>
+<td align="center">0.23</td>
+<td align="center">-0.23</td>
+<td align="center">0.33</td>
+</tr>
+<tr class="even">
+<td align="center">0.59</td>
+<td align="center">0.04</td>
+<td align="center">-0.1</td>
+<td align="center">0.11</td>
+<td align="center">-0.34</td>
+<td align="center">0.08</td>
+<td align="center">0.17</td>
+<td align="center">-0.15</td>
+<td align="center">0.09</td>
+<td align="center">-0.12</td>
+<td align="center">0.02</td>
+<td align="center">0.57</td>
+<td align="center">-0.24</td>
+<td align="center">0.33</td>
+<td align="center">-0.34</td>
+</tr>
+<tr class="odd">
+<td align="center">-1.15</td>
+<td align="center">0.23</td>
+<td align="center">-0.2</td>
+<td align="center">0.38</td>
+<td align="center">-0.72</td>
+<td align="center">-0.01</td>
+<td align="center">0.33 0.08</td>
+<td align="center">-0.16</td>
+<td align="center">-5.26</td>
+<td align="center">0.11</td>
+<td align="center">-0.58</td>
+<td align="center">-0.48</td>
+<td align="center">-0.33</td>
+<td align="center">-0.7</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">2.71</td>
+<td align="center">0.13</td>
+<td align="center">0.03</td>
+<td align="center">0.84</td>
+<td align="center">-0.13</td>
+<td align="center">-0.07</td>
+<td align="center">-0.1</td>
+<td align="center">-0.08</td>
+<td align="center">0.03</td>
+<td align="center">-0.46</td>
+<td align="center">0.17</td>
+<td align="center">-0.84</td>
+<td align="center">0.17</td>
+<td align="center">2.24</td>
+<td align="center">-0.15</td>
+</tr>
+<tr class="odd">
+<td align="center">1.03</td>
+<td align="center">0.13</td>
+<td align="center">-0.05</td>
+<td align="center">-0.13</td>
+<td align="center">-0.63</td>
+<td align="center">0.04</td>
+<td align="center">0.06</td>
+<td align="center">0.06</td>
+<td align="center">-0.01</td>
+<td align="center">0.08</td>
+<td align="center">0.21</td>
+<td align="center">-0.15</td>
+<td align="center">-0.06</td>
+<td align="center">0.95</td>
+<td align="center">-0.63</td>
+</tr>
+<tr class="even">
+<td align="center">0.17</td>
+<td align="center">0 0.05</td>
+<td align="center">-0.02</td>
+<td align="center">-0.56</td>
+<td align="center">0.01</td>
+<td align="center">0</td>
+<td align="center">0.1</td>
+<td align="center">0</td>
+<td align="center">0.11</td>
+<td align="center">-0.01</td>
+<td align="center">0.77</td>
+<td align="center">0</td>
+<td align="center">0.33</td>
+<td align="center">-0.55</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">1.49</td>
+<td align="center">-0.07</td>
+<td align="center">0.01</td>
+<td align="center">-0.09</td>
+<td align="center">1.3</td>
+<td align="center">0.01</td>
+<td align="center">-0.06</td>
+<td align="center">0.12</td>
+<td align="center">-0.01</td>
+<td align="center">0.09</td>
+<td align="center">-0.08</td>
+<td align="center">-0.12</td>
+<td align="center">0.06</td>
+<td align="center">1.19</td>
+<td align="center">1.31</td>
+</tr>
+<tr class="even">
+<td align="center">0.27</td>
+<td align="center">-0.12</td>
+<td align="center">0.07</td>
+<td align="center">-0.15</td>
+<td align="center">0.68</td>
+<td align="center">-0.03</td>
+<td align="center">0.06</td>
+<td align="center">-0.4</td>
+<td align="center">-0.01</td>
+<td align="center">0.09</td>
+<td align="center">-0.1</td>
+<td align="center">0.24</td>
+<td align="center">-0.06</td>
+<td align="center">0.56</td>
+<td align="center">0.66</td>
+</tr>
+<tr class="odd">
+<td align="center">0.74</td>
+<td align="center">0.07</td>
+<td align="center">0.09</td>
+<td align="center">-0.27</td>
+<td align="center">-0.21</td>
+<td align="center">-0.05</td>
+<td align="center">-0.16</td>
+<td align="center">0.16</td>
+<td align="center">-0.01</td>
+<td align="center">0.11</td>
+<td align="center">0.08</td>
+<td align="center">0.5</td>
+<td align="center">0.26</td>
+<td align="center">0.97</td>
+<td align="center">-0.21</td>
+</tr>
+<tr class="even">
+<td align="center">7.71</td>
+<td align="center">-0.58</td>
+<td align="center">1.49</td>
+<td align="center">5.12</td>
+<td align="center">-1.23</td>
+<td align="center">-0.38</td>
+<td align="center">-1.48</td>
+<td align="center">-0.29</td>
+<td align="center">0.46</td>
+<td align="center">-4.48</td>
+<td align="center">-0.27</td>
+<td align="center">0.15</td>
+<td align="center">2.37</td>
+<td align="center">6.63</td>
+<td align="center">-1.33</td>
+</tr>
+<tr class="odd">
+<td align="center">-4.31</td>
+<td align="center">0.1</td>
+<td align="center">-0.24</td>
+<td align="center">-1.66</td>
+<td align="center">0.53</td>
+<td align="center">0.15</td>
+<td align="center">0.49</td>
+<td align="center">-0.19</td>
+<td align="center">0.08</td>
+<td align="center">1.02</td>
+<td align="center">-0.02</td>
+<td align="center">-0.69</td>
+<td align="center">-0.7</td>
+<td align="center">-4.27</td>
+<td align="center">0.56</td>
+</tr>
+<tr class="even">
+<td align="center">-2.03</td>
+<td align="center">-0.01</td>
+<td align="center">0.01</td>
+<td align="center">-0.31</td>
+<td align="center">0.32</td>
+<td align="center">0</td>
+<td align="center">-0.02</td>
+<td align="center">0.15</td>
+<td align="center">-0.02</td>
+<td align="center">0.22</td>
+<td align="center">-0.08</td>
+<td align="center">0.82</td>
+<td align="center">0.04</td>
+<td align="center">-2.32</td>
+<td align="center">0.34</td>
+</tr>
+<tr class="odd">
+<td align="center">1.12</td>
+<td align="center">-0.09</td>
+<td align="center">0.13</td>
+<td align="center">0.21</td>
+<td align="center">0.07</td>
+<td align="center">0.02</td>
+<td align="center">-0.05</td>
+<td align="center">-0.28</td>
+<td align="center">0.16</td>
+<td align="center">-0.44</td>
+<td align="center">-0.06</td>
+<td align="center">0.78</td>
+<td align="center">0.08</td>
+<td align="center">0.85</td>
+<td align="center">0.06</td>
+</tr>
+<tr class="even">
+<td align="center">-3.23</td>
+<td align="center">-0.02</td>
+<td align="center">-0.12</td>
+<td align="center">-0.74</td>
+<td align="center">0.27</td>
+<td align="center">0.06</td>
+<td align="center">0.22</td>
+<td align="center">-0.02</td>
+<td align="center">-0.05</td>
+<td align="center">0.65</td>
+<td align="center">-0.09</td>
+<td align="center">0.82</td>
+<td align="center">-0.34</td>
+<td align="center">-3.24</td>
+<td align="center">0.3</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.97</td>
+<td align="center">0.09</td>
+<td align="center">0.42</td>
+<td align="center">0.04</td>
+<td align="center">0.25</td>
+<td align="center">0.03</td>
+<td align="center">-0.3</td>
+<td align="center">-0.1</td>
+<td align="center">0.54</td>
+<td align="center">-0.48</td>
+<td align="center">0.09</td>
+<td align="center">-0.18</td>
+<td align="center">0.55</td>
+<td align="center">-0.7</td>
+<td align="center">0.22</td>
+</tr>
+<tr class="even">
+<td align="center">-0.87</td>
+<td align="center">-0.14</td>
+<td align="center">0.01</td>
+<td align="center">0.25</td>
+<td align="center">0.48</td>
+<td align="center">0.05</td>
+<td align="center">-0.02</td>
+<td align="center">-0.15</td>
+<td align="center">0.08</td>
+<td align="center">-0.32</td>
+<td align="center">-0.09</td>
+<td align="center">0.16</td>
+<td align="center">0.03</td>
+<td align="center">-0.55</td>
+<td align="center">0.47</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.37</td>
+<td align="center">-0.13</td>
+<td align="center">-0.18</td>
+<td align="center">-0.66</td>
+<td align="center">1.12</td>
+<td align="center">-0.04</td>
+<td align="center">0.15</td>
+<td align="center">0.27</td>
+<td align="center">-0.1</td>
+<td align="center">0.51</td>
+<td align="center">-0.5</td>
+<td align="center">-1.08</td>
+<td align="center">-0.32</td>
+<td align="center">-1.03</td>
+<td align="center">1.12</td>
+</tr>
+<tr class="even">
+<td align="center">-0.97</td>
+<td align="center">0.15</td>
+<td align="center">0.03</td>
+<td align="center">0.46</td>
+<td align="center">-0.18</td>
+<td align="center">0.06</td>
+<td align="center">0.11</td>
+<td align="center">0.08</td>
+<td align="center">0.06</td>
+<td align="center">-0.24</td>
+<td align="center">0.2</td>
+<td align="center">0.19</td>
+<td align="center">-0.12</td>
+<td align="center">-1.16</td>
+<td align="center">-0.2</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.49</td>
+<td align="center">0.07</td>
+<td align="center">-0.05</td>
+<td align="center">-0.65</td>
+<td align="center">0.26</td>
+<td align="center">-0.02</td>
+<td align="center">0.03</td>
+<td align="center">-0.06</td>
+<td align="center">-0.06</td>
+<td align="center">0.6</td>
+<td align="center">0.11</td>
+<td align="center">-0.07</td>
+<td align="center">-0.05</td>
+<td align="center">-0.1</td>
+<td align="center">0.24</td>
+</tr>
+<tr class="even">
+<td align="center">1.03</td>
+<td align="center">0</td>
+<td align="center">0.08</td>
+<td align="center">0.39</td>
+<td align="center">0.06</td>
+<td align="center">-0.03</td>
+<td align="center">-0.04</td>
+<td align="center">-0.17</td>
+<td align="center">0.01</td>
+<td align="center">-0.24</td>
+<td align="center">0.08</td>
+<td align="center">-0.41</td>
+<td align="center">0.09</td>
+<td align="center">0.62</td>
+<td align="center">0.05</td>
+</tr>
+<tr class="odd">
+<td align="center">0.92</td>
+<td align="center">0.13</td>
+<td align="center">-0.21</td>
+<td align="center">-1.11</td>
+<td align="center">0.64</td>
+<td align="center">-0.06</td>
+<td align="center">0.04</td>
+<td align="center">0.13</td>
+<td align="center">-0.19</td>
+<td align="center">1.05</td>
+<td align="center">0.11</td>
+<td align="center">-0.36</td>
+<td align="center">-0.15</td>
+<td align="center">0.87</td>
+<td align="center">0.64</td>
+</tr>
+<tr class="even">
+<td align="center">-5.55</td>
+<td align="center">-0.07</td>
+<td align="center">0.12</td>
+<td align="center">-2.65</td>
+<td align="center">0.15</td>
+<td align="center">0.02</td>
+<td align="center">-0.16</td>
+<td align="center">-0.05</td>
+<td align="center">0.12</td>
+<td align="center">3.72</td>
+<td align="center">-0.03</td>
+<td align="center">-0.01</td>
+<td align="center">0.27</td>
+<td align="center">-5.57</td>
+<td align="center">0.13</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output Layer:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">2.13</td>
+<td align="center">-3.47</td>
+<td align="center">-1.34</td>
+<td align="center">-0.26</td>
+<td align="center">-0.76</td>
+<td align="center">-5.57</td>
+<td align="center">3.95</td>
+<td align="center">1.08</td>
+<td align="center">2.55</td>
+<td align="center">-0.39</td>
+<td align="center">2.06</td>
+<td align="center">0.06</td>
+<td align="center">1.46</td>
+<td align="center">-2.91</td>
+<td align="center">0.76</td>
+<td align="center">-0.33</td>
+</tr>
+</tbody>
+</table>
+<p>
+ 
+</p>
+<p><em>Proxy model</em> untuk produksi kumulatif air:</p>
+<p><strong>Multilayer Neural Network (3,3)</strong></p>
+<p><strong>Layer 1:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">-4.7</td>
+<td align="center">2.03</td>
+<td align="center">3.96</td>
+</tr>
+<tr class="even">
+<td align="center">-8.14</td>
+<td align="center">2.29</td>
+<td align="center">2.15</td>
+</tr>
+<tr class="odd">
+<td align="center">-1.67</td>
+<td align="center">-0.14</td>
+<td align="center">-1.49</td>
+</tr>
+<tr class="even">
+<td align="center">-1.36</td>
+<td align="center">1.53</td>
+<td align="center">0.22</td>
+</tr>
+<tr class="odd">
+<td align="center">2.23</td>
+<td align="center">-0.15</td>
+<td align="center">-1.65</td>
+</tr>
+<tr class="even">
+<td align="center">-0.79</td>
+<td align="center">0.09</td>
+<td align="center">2.16</td>
+</tr>
+<tr class="odd">
+<td align="center">4.27</td>
+<td align="center">0.07</td>
+<td align="center">-0.8</td>
+</tr>
+<tr class="even">
+<td align="center">0.7</td>
+<td align="center">0.24</td>
+<td align="center">1.79</td>
+</tr>
+<tr class="odd">
+<td align="center">1.8</td>
+<td align="center">-0.06</td>
+<td align="center">-0.98</td>
+</tr>
+<tr class="even">
+<td align="center">5.1</td>
+<td align="center">-0.06</td>
+<td align="center">-2.54</td>
+</tr>
+<tr class="odd">
+<td align="center">-7.03</td>
+<td align="center">1.37</td>
+<td align="center">0.36</td>
+</tr>
+<tr class="even">
+<td align="center">0.32</td>
+<td align="center">-0.05</td>
+<td align="center">2.14</td>
+</tr>
+<tr class="odd">
+<td align="center">0.08</td>
+<td align="center">-0.4</td>
+<td align="center">-1.01</td>
+</tr>
+<tr class="even">
+<td align="center">1.25</td>
+<td align="center">-0.04</td>
+<td align="center">-0.72</td>
+</tr>
+<tr class="odd">
+<td align="center">-2.36</td>
+<td align="center">0.65</td>
+<td align="center">3.28</td>
+</tr>
+<tr class="even">
+<td align="center">0.57</td>
+<td align="center">-0.14</td>
+<td align="center">-0.49</td>
+</tr>
+<tr class="odd">
+<td align="center">3.25</td>
+<td align="center">-0.1</td>
+<td align="center">-0.75</td>
+</tr>
+<tr class="even">
+<td align="center">13.61</td>
+<td align="center">2.59</td>
+<td align="center">16.52</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.87</td>
+<td align="center">-1.37</td>
+<td align="center">-2.76</td>
+</tr>
+<tr class="even">
+<td align="center">0.65</td>
+<td align="center">0.03</td>
+<td align="center">2.23</td>
+</tr>
+<tr class="odd">
+<td align="center">1.37</td>
+<td align="center">0.72</td>
+<td align="center">2.95</td>
+</tr>
+<tr class="even">
+<td align="center">-1.85</td>
+<td align="center">-0.62</td>
+<td align="center">0.13</td>
+</tr>
+<tr class="odd">
+<td align="center">4.9</td>
+<td align="center">0.54</td>
+<td align="center">7.8</td>
+</tr>
+<tr class="even">
+<td align="center">3.52</td>
+<td align="center">-0.35</td>
+<td align="center">-1.67</td>
+</tr>
+<tr class="odd">
+<td align="center">-2.47</td>
+<td align="center">0.38</td>
+<td align="center">-1.24</td>
+</tr>
+<tr class="even">
+<td align="center">-4.25</td>
+<td align="center">-0.19</td>
+<td align="center">1.09</td>
+</tr>
+<tr class="odd">
+<td align="center">-1.15</td>
+<td align="center">-0.11</td>
+<td align="center">-2.4</td>
+</tr>
+<tr class="even">
+<td align="center">-2.73</td>
+<td align="center">0.35</td>
+<td align="center">3.23</td>
+</tr>
+<tr class="odd">
+<td align="center">-4.91</td>
+<td align="center">0.97</td>
+<td align="center">-0.85</td>
+</tr>
+<tr class="even">
+<td align="center">-3.82</td>
+<td align="center">2.56</td>
+<td align="center">2.51</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Layer 2:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">0.51</td>
+<td align="center">-9.67</td>
+<td align="center">-0.28</td>
+</tr>
+<tr class="even">
+<td align="center">-11</td>
+<td align="center">-8.56</td>
+<td align="center">-2.15</td>
+</tr>
+<tr class="odd">
+<td align="center">6.2</td>
+<td align="center">-4.7</td>
+<td align="center">-2.78</td>
+</tr>
+<tr class="even">
+<td align="center">4.79</td>
+<td align="center">2.33</td>
+<td align="center">5</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output Layer:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">-0.19</td>
+<td align="center">0.07</td>
+<td align="center">-0.35</td>
+<td align="center">0.29</td>
+</tr>
+</tbody>
+</table>
+<p>
+ 
+</p>
+<p><em>Proxy model</em> untuk produksi kumulatif gas:</p>
+<p><strong>Multilayer Neural Network (3)</strong></p>
+<p><strong>Layer 1:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">-1.68</td>
+<td align="center">-1.87</td>
+<td align="center">1.75</td>
+</tr>
+<tr class="even">
+<td align="center">-2.09</td>
+<td align="center">-2.65</td>
+<td align="center">2.09</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.2</td>
+<td align="center">0.14</td>
+<td align="center">0.27</td>
+</tr>
+<tr class="even">
+<td align="center">-1.49</td>
+<td align="center">-1.49</td>
+<td align="center">1.57</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.33</td>
+<td align="center">-0.12</td>
+<td align="center">0.41</td>
+</tr>
+<tr class="even">
+<td align="center">0.13</td>
+<td align="center">0.13</td>
+<td align="center">-0.13</td>
+</tr>
+<tr class="odd">
+<td align="center">0.12</td>
+<td align="center">-0.11</td>
+<td align="center">-0.21</td>
+</tr>
+<tr class="even">
+<td align="center">-0.36</td>
+<td align="center">-0.52</td>
+<td align="center">0.45</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.03</td>
+<td align="center">0.11</td>
+<td align="center">0.08</td>
+</tr>
+<tr class="even">
+<td align="center">0.18</td>
+<td align="center">0.13</td>
+<td align="center">-0.23</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.51</td>
+<td align="center">5.08</td>
+<td align="center">0.51</td>
+</tr>
+<tr class="even">
+<td align="center">0.18</td>
+<td align="center">0.04</td>
+<td align="center">-0.29</td>
+</tr>
+<tr class="odd">
+<td align="center">0.02</td>
+<td align="center">-0.11</td>
+<td align="center">-0.06</td>
+</tr>
+<tr class="even">
+<td align="center">0.01</td>
+<td align="center">-0.19</td>
+<td align="center">-0.02</td>
+</tr>
+<tr class="odd">
+<td align="center">0.49</td>
+<td align="center">0.23</td>
+<td align="center">-0.52</td>
+</tr>
+<tr class="even">
+<td align="center">-0.36</td>
+<td align="center">-0.21</td>
+<td align="center">0.46</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.14</td>
+<td align="center">-0.08</td>
+<td align="center">0.2</td>
+</tr>
+<tr class="even">
+<td align="center">1.66</td>
+<td align="center">2.73</td>
+<td align="center">-1.13</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.02</td>
+<td align="center">0</td>
+<td align="center">-0.1</td>
+</tr>
+<tr class="even">
+<td align="center">0.14</td>
+<td align="center">0.42</td>
+<td align="center">-0.14</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.11</td>
+<td align="center">0.17</td>
+<td align="center">0.24</td>
+</tr>
+<tr class="even">
+<td align="center">-0.07</td>
+<td align="center">-0.0</td>
+<td align="center">7</td>
+</tr>
+<tr class="odd">
+<td align="center">0.27</td>
+<td align="center">0.73</td>
+<td align="center">-0.05</td>
+</tr>
+<tr class="even">
+<td align="center">0.38</td>
+<td align="center">0.49</td>
+<td align="center">-0.39</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.18</td>
+<td align="center">-0.45</td>
+<td align="center">0.02</td>
+</tr>
+<tr class="even">
+<td align="center">0.05</td>
+<td align="center">0.09</td>
+<td align="center">-0.04</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.25</td>
+<td align="center">-0.56</td>
+<td align="center">0.21</td>
+</tr>
+<tr class="even">
+<td align="center">0.01</td>
+<td align="center">0.17</td>
+<td align="center">0.03</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.72</td>
+<td align="center">-0.89</td>
+<td align="center">0.66</td>
+</tr>
+<tr class="even">
+<td align="center">-2.47</td>
+<td align="center">-3.57</td>
+<td align="center">3.07</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output Layer:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">-2.92</td>
+<td align="center">0.3</td>
+<td align="center">-6.93</td>
+<td align="center">4.51</td>
+</tr>
+</tbody>
+</table>
+<p>
+ 
+</p>
+<p><em>Proxy model</em> untuk laju alir maksimum minyak:</p>
+<p><strong>Multilayer Neural Network (5)</strong></p>
+<p><em>Layer 1:</em></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">-0.06</td>
+<td align="center">-2.5</td>
+<td align="center">0.09</td>
+<td align="center">0.08</td>
+<td align="center">-0.23</td>
+</tr>
+<tr class="even">
+<td align="center">1.49</td>
+<td align="center">2.5</td>
+<td align="center">3.01</td>
+<td align="center">3.13</td>
+<td align="center">-3.02</td>
+</tr>
+<tr class="odd">
+<td align="center">1.34</td>
+<td align="center">8.45</td>
+<td align="center">1.56</td>
+<td align="center">1.53</td>
+<td align="center">-1.58</td>
+</tr>
+<tr class="even">
+<td align="center">-0.36</td>
+<td align="center">0.06</td>
+<td align="center">0.26</td>
+<td align="center">0.26</td>
+<td align="center">-0.17</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.03</td>
+<td align="center">-2.1</td>
+<td align="center">-0.02</td>
+<td align="center">-0.03</td>
+<td align="center">0.06</td>
+</tr>
+<tr class="even">
+<td align="center">-0.14</td>
+<td align="center">-6.96</td>
+<td align="center">-0.34</td>
+<td align="center">-0.33</td>
+<td align="center">0.45</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.11</td>
+<td align="center">-1.47</td>
+<td align="center">-0.07</td>
+<td align="center">-0.13</td>
+<td align="center">-0.05</td>
+</tr>
+<tr class="even">
+<td align="center">0.22</td>
+<td align="center">0.5</td>
+<td align="center">0.26</td>
+<td align="center">0.28</td>
+<td align="center">-0.31</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.04</td>
+<td align="center">-1.45</td>
+<td align="center">0.38</td>
+<td align="center">0.49</td>
+<td align="center">-0.21</td>
+</tr>
+<tr class="even">
+<td align="center">-0.26</td>
+<td align="center">-0.92</td>
+<td align="center">-0.12</td>
+<td align="center">-0.15</td>
+<td align="center">0.15</td>
+</tr>
+<tr class="odd">
+<td align="center">1.74</td>
+<td align="center">16.83</td>
+<td align="center">1.41</td>
+<td align="center">1.71</td>
+<td align="center">-0.03</td>
+</tr>
+<tr class="even">
+<td align="center">0.29</td>
+<td align="center">-3.9</td>
+<td align="center">0.02</td>
+<td align="center">-0.04</td>
+<td align="center">-0.08</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.14</td>
+<td align="center">1.13</td>
+<td align="center">-0.36</td>
+<td align="center">-0.42</td>
+<td align="center">0.21</td>
+</tr>
+<tr class="even">
+<td align="center">-0.13</td>
+<td align="center">2.86</td>
+<td align="center">0.03</td>
+<td align="center">0.02</td>
+<td align="center">0.02</td>
+</tr>
+<tr class="odd">
+<td align="center">0.43</td>
+<td align="center">-2.54</td>
+<td align="center">0.06</td>
+<td align="center">0.01</td>
+<td align="center">-0.19</td>
+</tr>
+<tr class="even">
+<td align="center">-0.27</td>
+<td align="center">-4.44</td>
+<td align="center">-0.4</td>
+<td align="center">-0.41</td>
+<td align="center">0.46</td>
+</tr>
+<tr class="odd">
+<td align="center">0.07</td>
+<td align="center">-3.2</td>
+<td align="center">-0.24</td>
+<td align="center">-0.27</td>
+<td align="center">0.17</td>
+</tr>
+<tr class="even">
+<td align="center">-1.89</td>
+<td align="center">-15.92</td>
+<td align="center">-3.38</td>
+<td align="center">-3.12</td>
+<td align="center">3.76</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.36</td>
+<td align="center">5.41</td>
+<td align="center">1.65</td>
+<td align="center">1.6</td>
+<td align="center">-1.6</td>
+</tr>
+<tr class="even">
+<td align="center">0.46</td>
+<td align="center">5.11</td>
+<td align="center">0.77</td>
+<td align="center">0.78</td>
+<td align="center">-0.76</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.33</td>
+<td align="center">-0.87</td>
+<td align="center">0.04</td>
+<td align="center">0.01</td>
+<td align="center">-0.07</td>
+</tr>
+<tr class="even">
+<td align="center">-0.03</td>
+<td align="center">0.36</td>
+<td align="center">0.09</td>
+<td align="center">0.17</td>
+<td align="center">0.18</td>
+</tr>
+<tr class="odd">
+<td align="center">-3.96</td>
+<td align="center">-2.53</td>
+<td align="center">-0.19</td>
+<td align="center">-0.01</td>
+<td align="center">0.53</td>
+</tr>
+<tr class="even">
+<td align="center">0.15</td>
+<td align="center">-4.47</td>
+<td align="center">-0.2</td>
+<td align="center">-0.16</td>
+<td align="center">0.24</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.2</td>
+<td align="center">-1.61</td>
+<td align="center">0.09</td>
+<td align="center">0.05</td>
+<td align="center">-0.03</td>
+</tr>
+<tr class="even">
+<td align="center">0.18</td>
+<td align="center">3.48</td>
+<td align="center">-0.34</td>
+<td align="center">-0.36</td>
+<td align="center">0.36</td>
+</tr>
+<tr class="odd">
+<td align="center">0.31</td>
+<td align="center">-3.46</td>
+<td align="center">0.18</td>
+<td align="center">0.17</td>
+<td align="center">-0.21</td>
+</tr>
+<tr class="even">
+<td align="center">-0.24</td>
+<td align="center">2.85</td>
+<td align="center">-0.02</td>
+<td align="center">0</td>
+<td align="center">0.13</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.07</td>
+<td align="center">-5.95</td>
+<td align="center">-0.2</td>
+<td align="center">-0.25</td>
+<td align="center">0.21</td>
+</tr>
+<tr class="even">
+<td align="center">4.41</td>
+<td align="center">12.75</td>
+<td align="center">3.04</td>
+<td align="center">3.65</td>
+<td align="center">-3.17</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output Layer:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">6.1</td>
+<td align="center">-1.33</td>
+<td align="center">6.53</td>
+<td align="center">-14.89</td>
+<td align="center">1.67</td>
+<td align="center">5.47</td>
+</tr>
+</tbody>
+</table>
+<p>
+ 
+</p>
+<p><em>Proxy model</em> untuk laju alir maksimum air:</p>
+<p><strong>Multilayer Neural Network (3,1)</strong></p>
+<p><strong>Layer 1:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">0.23</td>
+<td align="center">-0.89</td>
+<td align="center">0.5</td>
+</tr>
+<tr class="even">
+<td align="center">-0.25</td>
+<td align="center">-0.99</td>
+<td align="center">-0.15</td>
+</tr>
+<tr class="odd">
+<td align="center">0.24</td>
+<td align="center">0.14</td>
+<td align="center">0.77</td>
+</tr>
+<tr class="even">
+<td align="center">-0.02</td>
+<td align="center">-0.39</td>
+<td align="center">-0.01</td>
+</tr>
+<tr class="odd">
+<td align="center">0.13</td>
+<td align="center">0.47</td>
+<td align="center">0.29</td>
+</tr>
+<tr class="even">
+<td align="center">-0.17</td>
+<td align="center">-0.41</td>
+<td align="center">-0.33</td>
+</tr>
+<tr class="odd">
+<td align="center">0.1</td>
+<td align="center">-0.59</td>
+<td align="center">0.23</td>
+</tr>
+<tr class="even">
+<td align="center">-0.26</td>
+<td align="center">0.38</td>
+<td align="center">-0.53</td>
+</tr>
+<tr class="odd">
+<td align="center">0.18</td>
+<td align="center">-0.57</td>
+<td align="center">0.46</td>
+</tr>
+<tr class="even">
+<td align="center">-0.3</td>
+<td align="center">-0.19</td>
+<td align="center">-0.67</td>
+</tr>
+<tr class="odd">
+<td align="center">0.19</td>
+<td align="center">-0.35</td>
+<td align="center">0.84</td>
+</tr>
+<tr class="even">
+<td align="center">0.06</td>
+<td align="center">0.18</td>
+<td align="center">0.24</td>
+</tr>
+<tr class="odd">
+<td align="center">0.08</td>
+<td align="center">-0.21</td>
+<td align="center">0.14</td>
+</tr>
+<tr class="even">
+<td align="center">-0.02</td>
+<td align="center">0.39</td>
+<td align="center">-0.07</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.08</td>
+<td align="center">-0.04</td>
+<td align="center">0.05</td>
+</tr>
+<tr class="even">
+<td align="center">0.07</td>
+<td align="center">0.23</td>
+<td align="center">0.11</td>
+</tr>
+<tr class="odd">
+<td align="center">0.14</td>
+<td align="center">-0.21</td>
+<td align="center">0.27</td>
+</tr>
+<tr class="even">
+<td align="center">0.14</td>
+<td align="center">8.31</td>
+<td align="center">0.42</td>
+</tr>
+<tr class="odd">
+<td align="center">0.07</td>
+<td align="center">-3.39</td>
+<td align="center">0.14</td>
+</tr>
+<tr class="even">
+<td align="center">-0.14</td>
+<td align="center">-0.18</td>
+<td align="center">-0.29</td>
+</tr>
+<tr class="odd">
+<td align="center">0.08</td>
+<td align="center">-0.68</td>
+<td align="center">0.45</td>
+</tr>
+<tr class="even">
+<td align="center">-0.07</td>
+<td align="center">-3.6</td>
+<td align="center">-0.18</td>
+</tr>
+<tr class="odd">
+<td align="center">0.29</td>
+<td align="center">-0.08</td>
+<td align="center">0.64</td>
+</tr>
+<tr class="even">
+<td align="center">-0.2</td>
+<td align="center">-0.5</td>
+<td align="center">-0.43</td>
+</tr>
+<tr class="odd">
+<td align="center">0.26</td>
+<td align="center">0</td>
+<td align="center">0.55</td>
+</tr>
+<tr class="even">
+<td align="center">-0.07</td>
+<td align="center">-0.09</td>
+<td align="center">-0.14</td>
+</tr>
+<tr class="odd">
+<td align="center">0.21</td>
+<td align="center">-0.23</td>
+<td align="center">0.47</td>
+</tr>
+<tr class="even">
+<td align="center">0.05</td>
+<td align="center">1.05</td>
+<td align="center">0.06</td>
+</tr>
+<tr class="odd">
+<td align="center">0.39</td>
+<td align="center">0.23</td>
+<td align="center">0.85</td>
+</tr>
+<tr class="even">
+<td align="center">-0.14</td>
+<td align="center">-1.35</td>
+<td align="center">0.04</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Layer 2:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">9.66</td>
+</tr>
+<tr class="even">
+<td align="center">-0.56</td>
+</tr>
+<tr class="odd">
+<td align="center">-4.79</td>
+</tr>
+<tr class="even">
+<td align="center">-1.23</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output Layer:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">-0.78</td>
+<td align="center">-0.57</td>
+</tr>
+</tbody>
+</table>
+<p>
+ 
+</p>
+<p><em>Proxy model</em> untuk laju alir maksimum gas:</p>
+<p><strong>Multilayer Neural Network (20)</strong></p>
+<strong>Layer 1:</strong> </br>
+<center>
+Bagian Pertama
+</center>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">-0.1</td>
+<td align="center">0.08</td>
+<td align="center">0.03</td>
+<td align="center">0.16</td>
+<td align="center">0.29</td>
+<td align="center">-0.15</td>
+<td align="center">0.18</td>
+<td align="center">-0.16</td>
+<td align="center">-0.2</td>
+<td align="center">-0.1</td>
+</tr>
+<tr class="even">
+<td align="center">-1.21</td>
+<td align="center">-0.52</td>
+<td align="center">-0.17</td>
+<td align="center">0.24</td>
+<td align="center">-0.6</td>
+<td align="center">-0.29</td>
+<td align="center">0.24</td>
+<td align="center">0.2</td>
+<td align="center">1.34</td>
+<td align="center">-1.29</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.23</td>
+<td align="center">-0.3</td>
+<td align="center">-0.14</td>
+<td align="center">0.02</td>
+<td align="center">1.37</td>
+<td align="center">1.53</td>
+<td align="center">0.16</td>
+<td align="center">-0.1</td>
+<td align="center">1.75</td>
+<td align="center">-0.19</td>
+</tr>
+<tr class="even">
+<td align="center">-0.01</td>
+<td align="center">0.07</td>
+<td align="center">0.05</td>
+<td align="center">0.02</td>
+<td align="center">-0.16</td>
+<td align="center">0.36</td>
+<td align="center">0.17</td>
+<td align="center">0.12</td>
+<td align="center">0</td>
+<td align="center">-0.01</td>
+</tr>
+<tr class="odd">
+<td align="center">0.09</td>
+<td align="center">0.1</td>
+<td align="center">-0.04</td>
+<td align="center">0.22</td>
+<td align="center">-0.24</td>
+<td align="center">-0.67</td>
+<td align="center">0.03</td>
+<td align="center">-0.08</td>
+<td align="center">-0.01</td>
+<td align="center">0.09</td>
+</tr>
+<tr class="even">
+<td align="center">-0.02</td>
+<td align="center">-0.13</td>
+<td align="center">-0.14</td>
+<td align="center">-0.04</td>
+<td align="center">-0.65</td>
+<td align="center">-1.38</td>
+<td align="center">0.14</td>
+<td align="center">0.3</td>
+<td align="center">-0.06</td>
+<td align="center">0</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.18</td>
+<td align="center">0</td>
+<td align="center">0.08</td>
+<td align="center">0.12</td>
+<td align="center">-0.45</td>
+<td align="center">-0.87</td>
+<td align="center">-0.08</td>
+<td align="center">-0.24</td>
+<td align="center">-0.3</td>
+<td align="center">-0.18</td>
+</tr>
+<tr class="even">
+<td align="center">-0.08</td>
+<td align="center">0.08</td>
+<td align="center">-0.14</td>
+<td align="center">0.06</td>
+<td align="center">-0.13</td>
+<td align="center">0</td>
+<td align="center">0.25</td>
+<td align="center">0.04</td>
+<td align="center">-0.15</td>
+<td align="center">-0.08</td>
+</tr>
+<tr class="odd">
+<td align="center">0.08</td>
+<td align="center">0.04</td>
+<td align="center">0.26</td>
+<td align="center">-0.19</td>
+<td align="center">0.25</td>
+<td align="center">-0.97</td>
+<td align="center">-0.07</td>
+<td align="center">0.11</td>
+<td align="center">-0.07</td>
+<td align="center">0.08</td>
+</tr>
+<tr class="even">
+<td align="center">0.03</td>
+<td align="center">0.02</td>
+<td align="center">0.17</td>
+<td align="center">0.08</td>
+<td align="center">-0.18</td>
+<td align="center">-0.48</td>
+<td align="center">0.12</td>
+<td align="center">0.15</td>
+<td align="center">-0.03</td>
+<td align="center">0.04</td>
+</tr>
+<tr class="odd">
+<td align="center">1.61</td>
+<td align="center">-0.48</td>
+<td align="center">-0.13</td>
+<td align="center">0.11</td>
+<td align="center">1.44</td>
+<td align="center">-0.38</td>
+<td align="center">0.2</td>
+<td align="center">0.17</td>
+<td align="center">1.92</td>
+<td align="center">1.76</td>
+</tr>
+<tr class="even">
+<td align="center">-0.17</td>
+<td align="center">-0.19</td>
+<td align="center">-0.22</td>
+<td align="center">0</td>
+<td align="center">-0.65</td>
+<td align="center">-0.7</td>
+<td align="center">0.02</td>
+<td align="center">-0.14</td>
+<td align="center">0.63</td>
+<td align="center">-0.16</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.08</td>
+<td align="center">0.02</td>
+<td align="center">0.16</td>
+<td align="center">-0.33</td>
+<td align="center">-0.02</td>
+<td align="center">-0.25</td>
+<td align="center">-0.06</td>
+<td align="center">-0.04</td>
+<td align="center">0.08</td>
+<td align="center">-0.1</td>
+</tr>
+<tr class="even">
+<td align="center">-0.01</td>
+<td align="center">0.07</td>
+<td align="center">-0.16</td>
+<td align="center">-0.07</td>
+<td align="center">0.74</td>
+<td align="center">0.21</td>
+<td align="center">0.06</td>
+<td align="center">-0.12</td>
+<td align="center">-0.24</td>
+<td align="center">-0.02</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.06</td>
+<td align="center">0.11</td>
+<td align="center">-0.09</td>
+<td align="center">0.12</td>
+<td align="center">0.18</td>
+<td align="center">0.35</td>
+<td align="center">0.06</td>
+<td align="center">-0.29</td>
+<td align="center">0.06</td>
+<td align="center">-0.07</td>
+</tr>
+<tr class="even">
+<td align="center">0.04</td>
+<td align="center">0.11</td>
+<td align="center">0.41</td>
+<td align="center">-0.3</td>
+<td align="center">-0.68</td>
+<td align="center">0.16</td>
+<td align="center">0.01</td>
+<td align="center">-0.18</td>
+<td align="center">-0.45</td>
+<td align="center">0.04</td>
+</tr>
+<tr class="odd">
+<td align="center">0</td>
+<td align="center">0.03</td>
+<td align="center">0.19</td>
+<td align="center">0.21</td>
+<td align="center">-0.69</td>
+<td align="center">-1.76</td>
+<td align="center">0.18</td>
+<td align="center">-0.11</td>
+<td align="center">-0.05</td>
+<td align="center">-0.01</td>
+</tr>
+<tr class="even">
+<td align="center">0.06</td>
+<td align="center">0.18</td>
+<td align="center">-0.17</td>
+<td align="center">-0.08</td>
+<td align="center">-0.87</td>
+<td align="center">-0.59</td>
+<td align="center">-0.2</td>
+<td align="center">-0.56</td>
+<td align="center">-5.06</td>
+<td align="center">-0.1</td>
+</tr>
+<tr class="odd">
+<td align="center">0.11</td>
+<td align="center">-0.24</td>
+<td align="center">-0.11</td>
+<td align="center">0.03</td>
+<td align="center">0.26</td>
+<td align="center">1.16</td>
+<td align="center">0.29</td>
+<td align="center">0.42</td>
+<td align="center">0.94</td>
+<td align="center">0.16</td>
+</tr>
+<tr class="even">
+<td align="center">0.33</td>
+<td align="center">-0.32</td>
+<td align="center">-0.07</td>
+<td align="center">0.07</td>
+<td align="center">0.86</td>
+<td align="center">-0.01</td>
+<td align="center">-0.25</td>
+<td align="center">-0.35</td>
+<td align="center">0.95</td>
+<td align="center">0.39</td>
+</tr>
+<tr class="odd">
+<td align="center">0.09</td>
+<td align="center">0.02</td>
+<td align="center">-0.16</td>
+<td align="center">-0.18</td>
+<td align="center">-0.03</td>
+<td align="center">-0.92</td>
+<td align="center">-0.21</td>
+<td align="center">-0.31</td>
+<td align="center">-0.05</td>
+<td align="center">0.1</td>
+</tr>
+<tr class="even">
+<td align="center">0.1</td>
+<td align="center">0.12</td>
+<td align="center">-0.04</td>
+<td align="center">0.04</td>
+<td align="center">-0.74</td>
+<td align="center">0.54</td>
+<td align="center">0.04</td>
+<td align="center">-0.09</td>
+<td align="center">-0.34</td>
+<td align="center">0.07</td>
+</tr>
+<tr class="odd">
+<td align="center">0.11</td>
+<td align="center">0.25</td>
+<td align="center">-0.09</td>
+<td align="center">0.17</td>
+<td align="center">0.15</td>
+<td align="center">0.95</td>
+<td align="center">-0.49</td>
+<td align="center">0.03</td>
+<td align="center">-3.2</td>
+<td align="center">0.03</td>
+</tr>
+<tr class="even">
+<td align="center">0.22</td>
+<td align="center">0.07</td>
+<td align="center">0.06</td>
+<td align="center">-0.17</td>
+<td align="center">1.56</td>
+<td align="center">-0.42</td>
+<td align="center">-0.05</td>
+<td align="center">-0.31</td>
+<td align="center">0.02</td>
+<td align="center">0.21</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.14</td>
+<td align="center">-0.1</td>
+<td align="center">0.13</td>
+<td align="center">-0.04</td>
+<td align="center">-0.14</td>
+<td align="center">0.96</td>
+<td align="center">-0.03</td>
+<td align="center">0.09</td>
+<td align="center">0.36</td>
+<td align="center">-0.14</td>
+</tr>
+<tr class="even">
+<td align="center">-0.26</td>
+<td align="center">0.16</td>
+<td align="center">0.13</td>
+<td align="center">0.05</td>
+<td align="center">0</td>
+<td align="center">-0.61</td>
+<td align="center">0.2</td>
+<td align="center">0.02</td>
+<td align="center">-0.25</td>
+<td align="center">-0.27</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.15</td>
+<td align="center">0.04</td>
+<td align="center">-0.11</td>
+<td align="center">0.11</td>
+<td align="center">-0.23</td>
+<td align="center">-0.11</td>
+<td align="center">0.13</td>
+<td align="center">-0.25</td>
+<td align="center">0.14</td>
+<td align="center">-0.18</td>
+</tr>
+<tr class="even">
+<td align="center">0.09</td>
+<td align="center">0</td>
+<td align="center">-0.21</td>
+<td align="center">-0.12</td>
+<td align="center">-0.31</td>
+<td align="center">0.78</td>
+<td align="center">-0.02</td>
+<td align="center">-0.12</td>
+<td align="center">-0.1</td>
+<td align="center">0.07</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.07</td>
+<td align="center">-0.1</td>
+<td align="center">-0.13</td>
+<td align="center">0.04</td>
+<td align="center">-0.38</td>
+<td align="center">1.8</td>
+<td align="center">-0.12</td>
+<td align="center">-0.05</td>
+<td align="center">0.08</td>
+<td align="center">-0.07</td>
+</tr>
+<tr class="even">
+<td align="center">-0.03</td>
+<td align="center">0.13</td>
+<td align="center">0.01</td>
+<td align="center">-0.05</td>
+<td align="center">-0.25</td>
+<td align="center">0.07</td>
+<td align="center">-0.04</td>
+<td align="center">-0.06</td>
+<td align="center">3.36</td>
+<td align="center">-0.07</td>
+</tr>
+</tbody>
+</table>
+<center>
+Bagian Kedua
+</center>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">-0.65</td>
+<td align="center">-0.01</td>
+<td align="center">1.43</td>
+<td align="center">0.83</td>
+<td align="center">0.96</td>
+<td align="center">-0.36</td>
+<td align="center">-0.04</td>
+<td align="center">1.13</td>
+<td align="center">-0.46</td>
+<td align="center">0.19</td>
+</tr>
+<tr class="even">
+<td align="center">2.4</td>
+<td align="center">0.1</td>
+<td align="center">1.36</td>
+<td align="center">1.45</td>
+<td align="center">1.52</td>
+<td align="center">1.46</td>
+<td align="center">0.07</td>
+<td align="center">1.98</td>
+<td align="center">0.92</td>
+<td align="center">-0.81</td>
+</tr>
+<tr class="odd">
+<td align="center">1.18</td>
+<td align="center">0.13</td>
+<td align="center">2.79</td>
+<td align="center">1.77</td>
+<td align="center">3.71</td>
+<td align="center">1.53</td>
+<td align="center">0.43</td>
+<td align="center">2.65</td>
+<td align="center">0.15</td>
+<td align="center">2.36</td>
+</tr>
+<tr class="even">
+<td align="center">0.32</td>
+<td align="center">0</td>
+<td align="center">0.64</td>
+<td align="center">0.47</td>
+<td align="center">0.1</td>
+<td align="center">-0.04</td>
+<td align="center">-0.08</td>
+<td align="center">0.31</td>
+<td align="center">0.58</td>
+<td align="center">0.3</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.3</td>
+<td align="center">-0.11</td>
+<td align="center">1.51</td>
+<td align="center">0.6</td>
+<td align="center">1</td>
+<td align="center">-0.1</td>
+<td align="center">-0.13</td>
+<td align="center">0.39</td>
+<td align="center">0.32</td>
+<td align="center">0.33</td>
+</tr>
+<tr class="even">
+<td align="center">-0.04</td>
+<td align="center">-0.01</td>
+<td align="center">-2</td>
+<td align="center">0.35</td>
+<td align="center">2.25</td>
+<td align="center">-0.09</td>
+<td align="center">-0.09</td>
+<td align="center">0.63</td>
+<td align="center">0.71</td>
+<td align="center">-0.44</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.35</td>
+<td align="center">-0.01</td>
+<td align="center">1.29</td>
+<td align="center">0.39</td>
+<td align="center">1.08</td>
+<td align="center">-0.37</td>
+<td align="center">-0.18</td>
+<td align="center">0.81</td>
+<td align="center">0.99</td>
+<td align="center">-0.36</td>
+</tr>
+<tr class="even">
+<td align="center">-0.51</td>
+<td align="center">-0.03</td>
+<td align="center">-2.42</td>
+<td align="center">-0.12</td>
+<td align="center">0.32</td>
+<td align="center">-0.17</td>
+<td align="center">-0.01</td>
+<td align="center">0.06</td>
+<td align="center">0.12</td>
+<td align="center">0.17</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.45</td>
+<td align="center">0.08</td>
+<td align="center">1.5</td>
+<td align="center">0.03</td>
+<td align="center">0.53</td>
+<td align="center">-0.09</td>
+<td align="center">0.01</td>
+<td align="center">0.21</td>
+<td align="center">0.1 -</td>
+<td align="center">0.14</td>
+</tr>
+<tr class="even">
+<td align="center">0.39</td>
+<td align="center">0.02</td>
+<td align="center">1.25</td>
+<td align="center">0.08</td>
+<td align="center">-0.93</td>
+<td align="center">-0.02</td>
+<td align="center">-0.05</td>
+<td align="center">-0.36</td>
+<td align="center">-0.33</td>
+<td align="center">-0.43</td>
+</tr>
+<tr class="odd">
+<td align="center">3.01</td>
+<td align="center">0.01</td>
+<td align="center">6.78</td>
+<td align="center">2.28</td>
+<td align="center">3.25</td>
+<td align="center">1.92</td>
+<td align="center">-0.08</td>
+<td align="center">2.95</td>
+<td align="center">0.63</td>
+<td align="center">-0.51</td>
+</tr>
+<tr class="even">
+<td align="center">-0.42</td>
+<td align="center">0.07</td>
+<td align="center">1.74</td>
+<td align="center">0.99</td>
+<td align="center">0.86</td>
+<td align="center">0.53</td>
+<td align="center">0.27</td>
+<td align="center">1.13</td>
+<td align="center">-1.04</td>
+<td align="center">-0.13</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.61</td>
+<td align="center">0.1</td>
+<td align="center">2.89</td>
+<td align="center">0.41</td>
+<td align="center">0.66</td>
+<td align="center">-0.19</td>
+<td align="center">-0.15</td>
+<td align="center">0.64</td>
+<td align="center">0.55</td>
+<td align="center">0.38</td>
+</tr>
+<tr class="even">
+<td align="center">-0.72</td>
+<td align="center">-0.03</td>
+<td align="center">2.62</td>
+<td align="center">-0.23</td>
+<td align="center">-0.28</td>
+<td align="center">-0.19</td>
+<td align="center">-0.08</td>
+<td align="center">0.09</td>
+<td align="center">0.26</td>
+<td align="center">0.16</td>
+</tr>
+<tr class="odd">
+<td align="center">0.37</td>
+<td align="center">-0.05</td>
+<td align="center">-1.66</td>
+<td align="center">0.06</td>
+<td align="center">-0.26</td>
+<td align="center">0.02</td>
+<td align="center">-0.06</td>
+<td align="center">-0.25</td>
+<td align="center">0.1</td>
+<td align="center">0.01</td>
+</tr>
+<tr class="even">
+<td align="center">-1.25</td>
+<td align="center">0.17</td>
+<td align="center">1.85</td>
+<td align="center">-0.22</td>
+<td align="center">0.6</td>
+<td align="center">-0.57</td>
+<td align="center">-0.13</td>
+<td align="center">0.47</td>
+<td align="center">0.87</td>
+<td align="center">0.27</td>
+</tr>
+<tr class="odd">
+<td align="center">0.17</td>
+<td align="center">0.03</td>
+<td align="center">-0.4</td>
+<td align="center">-0.23</td>
+<td align="center">-2.05</td>
+<td align="center">0.03</td>
+<td align="center">0.01</td>
+<td align="center">-1.28</td>
+<td align="center">0.31</td>
+<td align="center">-0.44</td>
+</tr>
+<tr class="even">
+<td align="center">-3.67</td>
+<td align="center">-0.16</td>
+<td align="center">-5.47</td>
+<td align="center">-3.85</td>
+<td align="center">-8.2</td>
+<td align="center">-3.96</td>
+<td align="center">-0.85</td>
+<td align="center">-6.86</td>
+<td align="center">-1.66</td>
+<td align="center">1.37</td>
+</tr>
+<tr class="odd">
+<td align="center">0.89</td>
+<td align="center">0.09</td>
+<td align="center">5.85</td>
+<td align="center">0.27</td>
+<td align="center">5.8</td>
+<td align="center">0.96</td>
+<td align="center">0.37</td>
+<td align="center">4.26</td>
+<td align="center">0.06</td>
+<td align="center">-0.7</td>
+</tr>
+<tr class="even">
+<td align="center">2.27</td>
+<td align="center">0.09</td>
+<td align="center">0.95</td>
+<td align="center">0.28</td>
+<td align="center">0.52</td>
+<td align="center">1.07</td>
+<td align="center">0.55</td>
+<td align="center">0.75</td>
+<td align="center">0.05</td>
+<td align="center">0.74</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.93</td>
+<td align="center">0</td>
+<td align="center">-0.67</td>
+<td align="center">-0.35</td>
+<td align="center">-1.22</td>
+<td align="center">-0.08</td>
+<td align="center">0.05</td>
+<td align="center">-0.43</td>
+<td align="center">0.21</td>
+<td align="center">-0.03</td>
+</tr>
+<tr class="even">
+<td align="center">0.41</td>
+<td align="center">-0.04</td>
+<td align="center">1.52</td>
+<td align="center">-0.38</td>
+<td align="center">0.19</td>
+<td align="center">-0.11</td>
+<td align="center">-0.04</td>
+<td align="center">-0.3</td>
+<td align="center">-0.85</td>
+<td align="center">0.12</td>
+</tr>
+<tr class="odd">
+<td align="center">-1.69</td>
+<td align="center">-0.33</td>
+<td align="center">-1.49</td>
+<td align="center">-5.97</td>
+<td align="center">-0.9</td>
+<td align="center">-2.37</td>
+<td align="center">-0.53</td>
+<td align="center">-0.53</td>
+<td align="center">-0.14</td>
+<td align="center">0.73</td>
+</tr>
+<tr class="even">
+<td align="center">0.24</td>
+<td align="center">0.07</td>
+<td align="center">-0.55</td>
+<td align="center">0</td>
+<td align="center">0.13</td>
+<td align="center">0.03</td>
+<td align="center">0.1</td>
+<td align="center">-0.07</td>
+<td align="center">-0.18</td>
+<td align="center">0.28</td>
+</tr>
+<tr class="odd">
+<td align="center">0.47</td>
+<td align="center">0.06</td>
+<td align="center">-1.15</td>
+<td align="center">-0.31</td>
+<td align="center">-0.33</td>
+<td align="center">0.36</td>
+<td align="center">0</td>
+<td align="center">0.03</td>
+<td align="center">0.5</td>
+<td align="center">0.15</td>
+</tr>
+<tr class="even">
+<td align="center">-0.23</td>
+<td align="center">0</td>
+<td align="center">1.65</td>
+<td align="center">0.14</td>
+<td align="center">0.87</td>
+<td align="center">-0.26</td>
+<td align="center">-0.13</td>
+<td align="center">0.58</td>
+<td align="center">0.15</td>
+<td align="center">0.2</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.78</td>
+<td align="center">-0.01</td>
+<td align="center">0.26</td>
+<td align="center">0.45</td>
+<td align="center">0.85</td>
+<td align="center">0.03</td>
+<td align="center">-0.04</td>
+<td align="center">0.85</td>
+<td align="center">0.36</td>
+<td align="center">-0.24</td>
+</tr>
+<tr class="even">
+<td align="center">-0.2</td>
+<td align="center">0</td>
+<td align="center">0.08</td>
+<td align="center">-0.35</td>
+<td align="center">0.5</td>
+<td align="center">-0.04</td>
+<td align="center">0</td>
+<td align="center">0.5</td>
+<td align="center">-0.87</td>
+<td align="center">-0.19</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.52</td>
+<td align="center">-0.05</td>
+<td align="center">-1.6</td>
+<td align="center">0.06</td>
+<td align="center">-0.92</td>
+<td align="center">-0.02</td>
+<td align="center">-0.15</td>
+<td align="center">-0.25</td>
+<td align="center">0.7</td>
+<td align="center">0.06</td>
+</tr>
+<tr class="even">
+<td align="center">4.16</td>
+<td align="center">-0.05</td>
+<td align="center">7.48</td>
+<td align="center">4.55</td>
+<td align="center">6.48</td>
+<td align="center">2.85</td>
+<td align="center">-0.27</td>
+<td align="center">5.36</td>
+<td align="center">-0.42</td>
+<td align="center">0.16</td>
+</tr>
+</tbody>
+</table>
+<strong>Output Layer:</strong> </br>
+<center>
+Bagian Pertama
+</center>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">-0.75</td>
+<td align="center">-0.69</td>
+<td align="center">0.64</td>
+<td align="center">-0.77</td>
+<td align="center">-0.02</td>
+<td align="center">0.01</td>
+<td align="center">0.52</td>
+<td align="center">-0.34</td>
+<td align="center">-1.62</td>
+<td align="center">0.62</td>
+</tr>
+</tbody>
+</table>
+<center>
+Bagian Kedua
+</center>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">-1.27</td>
+<td align="center">-2.53</td>
+<td align="center">-1.64</td>
+<td align="center">1.54</td>
+<td align="center">-1.78</td>
+<td align="center">1.64</td>
+<td align="center">0.29</td>
+<td align="center">2.37</td>
+<td align="center">-0.02</td>
+<td align="center">-0.02</td>
+<td align="center">0.99</td>
+</tr>
+</tbody>
+</table>
+<p>
+ 
+</p>
+<p><em>Proxy model</em> untuk waktu laju alir maksimum minyak:</p>
+<p><strong>Multilayer Neural Network (5)</strong></p>
+<p><strong>Layer 1:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">2.26</td>
+<td align="center">2.79</td>
+<td align="center">0.35</td>
+<td align="center">6.71</td>
+<td align="center">-12.19</td>
+</tr>
+<tr class="even">
+<td align="center">0.29</td>
+<td align="center">-3.59</td>
+<td align="center">-0.58</td>
+<td align="center">5.14</td>
+<td align="center">-2.4</td>
+</tr>
+<tr class="odd">
+<td align="center">-1.29</td>
+<td align="center">12.64</td>
+<td align="center">-0.24</td>
+<td align="center">-4.08</td>
+<td align="center">3.27</td>
+</tr>
+<tr class="even">
+<td align="center">-1.07</td>
+<td align="center">1.62</td>
+<td align="center">-0.59</td>
+<td align="center">-5.58</td>
+<td align="center">-4.18</td>
+</tr>
+<tr class="odd">
+<td align="center">0.99</td>
+<td align="center">-1.36</td>
+<td align="center">0.57</td>
+<td align="center">7.55</td>
+<td align="center">6.67</td>
+</tr>
+<tr class="even">
+<td align="center">-2.33</td>
+<td align="center">-2.57</td>
+<td align="center">-0.37</td>
+<td align="center">-10.73</td>
+<td align="center">-0.91</td>
+</tr>
+<tr class="odd">
+<td align="center">-1.19</td>
+<td align="center">4.46</td>
+<td align="center">-0.38</td>
+<td align="center">-9.08</td>
+<td align="center">-4.96</td>
+</tr>
+<tr class="even">
+<td align="center">0.58</td>
+<td align="center">1.53</td>
+<td align="center">0.92</td>
+<td align="center">1.74</td>
+<td align="center">10.83</td>
+</tr>
+<tr class="odd">
+<td align="center">-2.02</td>
+<td align="center">2.67</td>
+<td align="center">-0.32</td>
+<td align="center">1.18</td>
+<td align="center">-5.64</td>
+</tr>
+<tr class="even">
+<td align="center">1.75</td>
+<td align="center">3.37</td>
+<td align="center">3.68</td>
+<td align="center">0.79</td>
+<td align="center">3.33</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.15</td>
+<td align="center">8.35</td>
+<td align="center">-2.9</td>
+<td align="center">1.78</td>
+<td align="center">-11.48</td>
+</tr>
+<tr class="even">
+<td align="center">-2.37</td>
+<td align="center">-0.27</td>
+<td align="center">0.08</td>
+<td align="center">-2.24</td>
+<td align="center">2.94</td>
+</tr>
+<tr class="odd">
+<td align="center">0.21</td>
+<td align="center">5.23</td>
+<td align="center">0.77</td>
+<td align="center">0</td>
+<td align="center">-3.84</td>
+</tr>
+<tr class="even">
+<td align="center">0.67</td>
+<td align="center">1.72</td>
+<td align="center">0.27</td>
+<td align="center">4.84</td>
+<td align="center">-10.89</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.19</td>
+<td align="center">-8.54</td>
+<td align="center">-0.19</td>
+<td align="center">5.54</td>
+<td align="center">-7.6</td>
+</tr>
+<tr class="even">
+<td align="center">-1.53</td>
+<td align="center">-3.22</td>
+<td align="center">-0.68</td>
+<td align="center">-0.29</td>
+<td align="center">-3.92</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.04</td>
+<td align="center">3.49</td>
+<td align="center">-0.32</td>
+<td align="center">5.04</td>
+<td align="center">14.42</td>
+</tr>
+<tr class="even">
+<td align="center">0.28</td>
+<td align="center">5.47</td>
+<td align="center">0.92</td>
+<td align="center">0.01</td>
+<td align="center">-2</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.73</td>
+<td align="center">-1.82</td>
+<td align="center">-1.48</td>
+<td align="center">-4.59</td>
+<td align="center">4.8</td>
+</tr>
+<tr class="even">
+<td align="center">0.46</td>
+<td align="center">4.64</td>
+<td align="center">-1.03</td>
+<td align="center">-0.73</td>
+<td align="center">-3.89</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.27</td>
+<td align="center">6.23</td>
+<td align="center">-2</td>
+<td align="center">1.43</td>
+<td align="center">4.84</td>
+</tr>
+<tr class="even">
+<td align="center">0.05</td>
+<td align="center">0.32</td>
+<td align="center">-0.71</td>
+<td align="center">0.9</td>
+<td align="center">3.43</td>
+</tr>
+<tr class="odd">
+<td align="center">0.79</td>
+<td align="center">0.32</td>
+<td align="center">0.31</td>
+<td align="center">2.51</td>
+<td align="center">-7.51</td>
+</tr>
+<tr class="even">
+<td align="center">-2.67</td>
+<td align="center">-1.2</td>
+<td align="center">-1.23</td>
+<td align="center">-2.36</td>
+<td align="center">8.13</td>
+</tr>
+<tr class="odd">
+<td align="center">0.95</td>
+<td align="center">5</td>
+<td align="center">0.23</td>
+<td align="center">0.92</td>
+<td align="center">-2.73</td>
+</tr>
+<tr class="even">
+<td align="center">-2.26</td>
+<td align="center">2.67</td>
+<td align="center">-0.96</td>
+<td align="center">-4.96</td>
+<td align="center">2.08</td>
+</tr>
+<tr class="odd">
+<td align="center">-2.53</td>
+<td align="center">6.38</td>
+<td align="center">0.08</td>
+<td align="center">-2.96</td>
+<td align="center">-12.5</td>
+</tr>
+<tr class="even">
+<td align="center">-2.9</td>
+<td align="center">-2.32</td>
+<td align="center">-0.1</td>
+<td align="center">-11.87</td>
+<td align="center">5.8</td>
+</tr>
+<tr class="odd">
+<td align="center">1.62</td>
+<td align="center">9.82</td>
+<td align="center">2.36</td>
+<td align="center">7.47</td>
+<td align="center">-4.53</td>
+</tr>
+<tr class="even">
+<td align="center">5.33</td>
+<td align="center">14.01</td>
+<td align="center">0.66</td>
+<td align="center">14.08</td>
+<td align="center">-19.36</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output Layer:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">-0.57</td>
+<td align="center">1.1</td>
+<td align="center">0</td>
+<td align="center">2.16</td>
+<td align="center">-2.77</td>
+</tr>
+</tbody>
+</table>
+<p>
+ 
+</p>
+<p><em>Proxy model</em> untuk waktu saat laju alir maksimum air:</p>
+<p><strong>Multilayer Neural Network (2)</strong></p>
+<p><strong>Layer 1:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">-0.36</td>
+<td align="center">0.29</td>
+</tr>
+<tr class="even">
+<td align="center">-2.47</td>
+<td align="center">0.86</td>
+</tr>
+<tr class="odd">
+<td align="center">-1.75</td>
+<td align="center">0.44</td>
+</tr>
+<tr class="even">
+<td align="center">0.05</td>
+<td align="center">0.29</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.25</td>
+<td align="center">0.27</td>
+</tr>
+<tr class="even">
+<td align="center">0.09</td>
+<td align="center">-0.19</td>
+</tr>
+<tr class="odd">
+<td align="center">0.29</td>
+<td align="center">0.04</td>
+</tr>
+<tr class="even">
+<td align="center">1.64</td>
+<td align="center">-0.39</td>
+</tr>
+<tr class="odd">
+<td align="center">1.75</td>
+<td align="center">-0.87</td>
+</tr>
+<tr class="even">
+<td align="center">2.25</td>
+<td align="center">2.11</td>
+</tr>
+<tr class="odd">
+<td align="center">-1.98</td>
+<td align="center">-13.41</td>
+</tr>
+<tr class="even">
+<td align="center">-0.12</td>
+<td align="center">0.46</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.1</td>
+<td align="center">0.02</td>
+</tr>
+<tr class="even">
+<td align="center">-0.14</td>
+<td align="center">0.09</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.81</td>
+<td align="center">-0.67</td>
+</tr>
+<tr class="even">
+<td align="center">0.22</td>
+<td align="center">-0.01</td>
+</tr>
+<tr class="odd">
+<td align="center">0.33</td>
+<td align="center">-0.18</td>
+</tr>
+<tr class="even">
+<td align="center">2.61</td>
+<td align="center">-0.66</td>
+</tr>
+<tr class="odd">
+<td align="center">-1.62</td>
+<td align="center">0.33</td>
+</tr>
+<tr class="even">
+<td align="center">-0.02</td>
+<td align="center">0.12</td>
+</tr>
+<tr class="odd">
+<td align="center">-1.06</td>
+<td align="center">0.3</td>
+</tr>
+<tr class="even">
+<td align="center">-0.23</td>
+<td align="center">-0.11</td>
+</tr>
+<tr class="odd">
+<td align="center">0.46</td>
+<td align="center">-0.03</td>
+</tr>
+<tr class="even">
+<td align="center">-0.04</td>
+<td align="center">0.11</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.48</td>
+<td align="center">0.32</td>
+</tr>
+<tr class="even">
+<td align="center">-0.1</td>
+<td align="center">-0.08</td>
+</tr>
+<tr class="odd">
+<td align="center">0.01</td>
+<td align="center">0.19</td>
+</tr>
+<tr class="even">
+<td align="center">0.23</td>
+<td align="center">-0.02</td>
+</tr>
+<tr class="odd">
+<td align="center">0.4</td>
+<td align="center">0.31</td>
+</tr>
+<tr class="even">
+<td align="center">1.5</td>
+<td align="center">4.9</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output Layer:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">0.07</td>
+<td align="center">0.34</td>
+<td align="center">-0.22</td>
+</tr>
+</tbody>
+</table>
+<p>
+ 
+</p>
+<p><em>Proxy model</em> untuk waktu saat laju alir maksimum gas:</p>
+<p><strong>Multilayer Neural Network (7)</strong></p>
+<p><strong>Layer 1:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">18.93</td>
+<td align="center">-14.44</td>
+<td align="center">-14.26</td>
+<td align="center">-3.48</td>
+<td align="center">1.66</td>
+<td align="center">-4.33</td>
+<td align="center">-18.92</td>
+</tr>
+<tr class="even">
+<td align="center">2.93</td>
+<td align="center">-15.7</td>
+<td align="center">-15.49</td>
+<td align="center">4.42</td>
+<td align="center">4.52</td>
+<td align="center">0.04</td>
+<td align="center">-2.99</td>
+</tr>
+<tr class="odd">
+<td align="center">-5.35</td>
+<td align="center">3.68</td>
+<td align="center">3.64</td>
+<td align="center">-6.96</td>
+<td align="center">7.88</td>
+<td align="center">-6.59</td>
+<td align="center">5.43</td>
+</tr>
+<tr class="even">
+<td align="center">-1.74</td>
+<td align="center">-10.91</td>
+<td align="center">-10.79</td>
+<td align="center">-0.18</td>
+<td align="center">7.09</td>
+<td align="center">-6.35</td>
+<td align="center">1.81</td>
+</tr>
+<tr class="odd">
+<td align="center">-1.18</td>
+<td align="center">-6.43</td>
+<td align="center">-6.32</td>
+<td align="center">-1.56</td>
+<td align="center">-0.07</td>
+<td align="center">-3.86</td>
+<td align="center">1.26</td>
+</tr>
+<tr class="even">
+<td align="center">0.75</td>
+<td align="center">-2.02</td>
+<td align="center">-1.98</td>
+<td align="center">-8.35</td>
+<td align="center">-0.06</td>
+<td align="center">6.18</td>
+<td align="center">-0.77</td>
+</tr>
+<tr class="odd">
+<td align="center">4.19</td>
+<td align="center">2.28</td>
+<td align="center">2.23</td>
+<td align="center">-6.93</td>
+<td align="center">-0.77</td>
+<td align="center">-4.33</td>
+<td align="center">-4.29</td>
+</tr>
+<tr class="even">
+<td align="center">-11.37</td>
+<td align="center">-1.48</td>
+<td align="center">-1.4</td>
+<td align="center">-2.18</td>
+<td align="center">-5.66</td>
+<td align="center">10.59</td>
+<td align="center">11.41</td>
+</tr>
+<tr class="odd">
+<td align="center">-8.21</td>
+<td align="center">-0.09</td>
+<td align="center">-0.11</td>
+<td align="center">-1.04</td>
+<td align="center">1.08</td>
+<td align="center">6.8</td>
+<td align="center">8.21</td>
+</tr>
+<tr class="even">
+<td align="center">-0.46</td>
+<td align="center">2.72</td>
+<td align="center">2.63</td>
+<td align="center">7.54</td>
+<td align="center">-0.58</td>
+<td align="center">1.26</td>
+<td align="center">0.52</td>
+</tr>
+<tr class="odd">
+<td align="center">32.66</td>
+<td align="center">-23.44 -</td>
+<td align="center">23.18</td>
+<td align="center">6.9</td>
+<td align="center">8.78</td>
+<td align="center">-5.95</td>
+<td align="center">-32.41</td>
+</tr>
+<tr class="even">
+<td align="center">-17.72</td>
+<td align="center">20.12</td>
+<td align="center">19.85</td>
+<td align="center">2.54</td>
+<td align="center">-1.3</td>
+<td align="center">1.38</td>
+<td align="center">17.64</td>
+</tr>
+<tr class="odd">
+<td align="center">-1.72</td>
+<td align="center">-4.71</td>
+<td align="center">-4.61</td>
+<td align="center">-6</td>
+<td align="center">.71</td>
+<td align="center">-4.25</td>
+<td align="center">-3.06</td>
+</tr>
+<tr class="even">
+<td align="center">-2.7</td>
+<td align="center">3.28</td>
+<td align="center">3.19</td>
+<td align="center">1.92</td>
+<td align="center">1.23</td>
+<td align="center">3.88</td>
+<td align="center">2.68</td>
+</tr>
+<tr class="odd">
+<td align="center">-2.94</td>
+<td align="center">-5.94</td>
+<td align="center">-5.84</td>
+<td align="center">6.62</td>
+<td align="center">-5.71</td>
+<td align="center">2.46</td>
+<td align="center">2.94</td>
+</tr>
+<tr class="even">
+<td align="center">7.06</td>
+<td align="center">0.54</td>
+<td align="center">0.61</td>
+<td align="center">4.24</td>
+<td align="center">0.56</td>
+<td align="center">-5.14</td>
+<td align="center">-7.14</td>
+</tr>
+<tr class="odd">
+<td align="center">-6.54</td>
+<td align="center">10.44</td>
+<td align="center">10.3</td>
+<td align="center">-1.85</td>
+<td align="center">-4.89</td>
+<td align="center">2.21</td>
+<td align="center">6.47</td>
+</tr>
+<tr class="even">
+<td align="center">10.27</td>
+<td align="center">28.12</td>
+<td align="center">28.03</td>
+<td align="center">-2.21</td>
+<td align="center">-1.68</td>
+<td align="center">6.15</td>
+<td align="center">-10.19</td>
+</tr>
+<tr class="odd">
+<td align="center">-8.4</td>
+<td align="center">-1.02</td>
+<td align="center">-1.03</td>
+<td align="center">-5.91</td>
+<td align="center">0.83</td>
+<td align="center">13.34</td>
+<td align="center">8.21</td>
+</tr>
+<tr class="even">
+<td align="center">-14.45</td>
+<td align="center">1.78</td>
+<td align="center">1.71</td>
+<td align="center">-1.16</td>
+<td align="center">-2.67</td>
+<td align="center">-2.85</td>
+<td align="center">14.34</td>
+</tr>
+<tr class="odd">
+<td align="center">-13.03</td>
+<td align="center">8.27</td>
+<td align="center">8.16</td>
+<td align="center">1.36</td>
+<td align="center">0.48</td>
+<td align="center">5.4</td>
+<td align="center">13.01</td>
+</tr>
+<tr class="even">
+<td align="center">12.1</td>
+<td align="center">-7.65</td>
+<td align="center">-7.55</td>
+<td align="center">2.51</td>
+<td align="center">-5.48</td>
+<td align="center">-1.32</td>
+<td align="center">-12.1</td>
+</tr>
+<tr class="odd">
+<td align="center">6.41</td>
+<td align="center">0.07</td>
+<td align="center">0.14</td>
+<td align="center">5.31</td>
+<td align="center">4.82</td>
+<td align="center">-18.61</td>
+<td align="center">-6.45</td>
+</tr>
+<tr class="even">
+<td align="center">-8.27</td>
+<td align="center">1.57</td>
+<td align="center">1.57</td>
+<td align="center">-5.71</td>
+<td align="center">2.71</td>
+<td align="center">0.15</td>
+<td align="center">8.21</td>
+</tr>
+<tr class="odd">
+<td align="center">-6.83</td>
+<td align="center">-3.62</td>
+<td align="center">-3.49</td>
+<td align="center">2.75</td>
+<td align="center">4.52</td>
+<td align="center">0.66</td>
+<td align="center">6.85</td>
+</tr>
+<tr class="even">
+<td align="center">5.25</td>
+<td align="center">1.97</td>
+<td align="center">1.98</td>
+<td align="center">-6.99</td>
+<td align="center">-5.96</td>
+<td align="center">-2.71</td>
+<td align="center">-5.31</td>
+</tr>
+<tr class="odd">
+<td align="center">6.7</td>
+<td align="center">-8.69</td>
+<td align="center">-8.52</td>
+<td align="center">0.68</td>
+<td align="center">5.5</td>
+<td align="center">1.86</td>
+<td align="center">-6.63</td>
+</tr>
+<tr class="even">
+<td align="center">16.72</td>
+<td align="center">-0.31</td>
+<td align="center">-0.34</td>
+<td align="center">2.3</td>
+<td align="center">-2.21</td>
+<td align="center">6.23</td>
+<td align="center">-16.69</td>
+</tr>
+<tr class="odd">
+<td align="center">4.26</td>
+<td align="center">2.86</td>
+<td align="center">2.8</td>
+<td align="center">-4.72</td>
+<td align="center">-3.47</td>
+<td align="center">-2.74</td>
+<td align="center">-4.24</td>
+</tr>
+<tr class="even">
+<td align="center">15.41</td>
+<td align="center">-11.7</td>
+<td align="center">-11.59</td>
+<td align="center">12.21</td>
+<td align="center">6.82</td>
+<td align="center">-14.6</td>
+<td align="center">-15.31</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output Layer:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">-2.48</td>
+<td align="center">-2.07</td>
+<td align="center">2.08</td>
+<td align="center">1.81</td>
+<td align="center">0.02</td>
+<td align="center">-2.52</td>
+<td align="center">-2.48</td>
+<td align="center">-4.13</td>
+</tr>
+</tbody>
+</table>
+<p>
+ 
+</p>
+<p><em>Proxy model</em> untuk saturasi air terakhir:</p>
+<p><strong>Multilayer Neural Network (10)</strong></p>
+<p><strong>Layer 1:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">-0.16</td>
+<td align="center">0.28</td>
+<td align="center">-0.07</td>
+<td align="center">0.52</td>
+<td align="center">-0.11</td>
+<td align="center">0.1</td>
+<td align="center">-0.49</td>
+<td align="center">0.04</td>
+<td align="center">-0.03</td>
+<td align="center">-0.14</td>
+</tr>
+<tr class="even">
+<td align="center">-0.02</td>
+<td align="center">-0.14</td>
+<td align="center">0.09</td>
+<td align="center">-0.47</td>
+<td align="center">-0.84</td>
+<td align="center">0.85</td>
+<td align="center">0.54</td>
+<td align="center">-0.03</td>
+<td align="center">-0.08</td>
+<td align="center">0.02</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.2</td>
+<td align="center">-0.11</td>
+<td align="center">0.38</td>
+<td align="center">-0.75</td>
+<td align="center">-0.78</td>
+<td align="center">0.77</td>
+<td align="center">0.48</td>
+<td align="center">-0.27</td>
+<td align="center">-0.05</td>
+<td align="center">-0.06</td>
+</tr>
+<tr class="even">
+<td align="center">-0.13</td>
+<td align="center">0.01</td>
+<td align="center">0.2</td>
+<td align="center">0.25</td>
+<td align="center">-0.36</td>
+<td align="center">0.37</td>
+<td align="center">0.28</td>
+<td align="center">-0.05</td>
+<td align="center">0.12</td>
+<td align="center">-0.06</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.26</td>
+<td align="center">0.01</td>
+<td align="center">0.19</td>
+<td align="center">0.47</td>
+<td align="center">-0.33</td>
+<td align="center">0.34</td>
+<td align="center">0.3</td>
+<td align="center">-0.15</td>
+<td align="center">-0.22</td>
+<td align="center">-0.12</td>
+</tr>
+<tr class="even">
+<td align="center">0.11</td>
+<td align="center">0.21</td>
+<td align="center">-0.29</td>
+<td align="center">-0.56</td>
+<td align="center">0.47</td>
+<td align="center">-0.46</td>
+<td align="center">-0.3</td>
+<td align="center">0.14</td>
+<td align="center">0.22</td>
+<td align="center">0</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.11</td>
+<td align="center">-0.19</td>
+<td align="center">0.09</td>
+<td align="center">0.19</td>
+<td align="center">-0.23</td>
+<td align="center">0.22</td>
+<td align="center">-0.01</td>
+<td align="center">-0.04</td>
+<td align="center">-0.19</td>
+<td align="center">-0.01</td>
+</tr>
+<tr class="even">
+<td align="center">-0.1</td>
+<td align="center">-0.13</td>
+<td align="center">-0.28</td>
+<td align="center">0.15</td>
+<td align="center">0.63</td>
+<td align="center">-0.63</td>
+<td align="center">-0.29</td>
+<td align="center">0.03</td>
+<td align="center">0.28</td>
+<td align="center">0</td>
+</tr>
+<tr class="odd">
+<td align="center">0.2</td>
+<td align="center">-0.09</td>
+<td align="center">0.02</td>
+<td align="center">-0.07</td>
+<td align="center">0.37</td>
+<td align="center">-0.34</td>
+<td align="center">0.16</td>
+<td align="center">0.07</td>
+<td align="center">0.41</td>
+<td align="center">0.12</td>
+</tr>
+<tr class="even">
+<td align="center">0.04</td>
+<td align="center">0.22</td>
+<td align="center">-0.04</td>
+<td align="center">-0.52</td>
+<td align="center">0.03</td>
+<td align="center">-0.03</td>
+<td align="center">-0.06</td>
+<td align="center">0.06</td>
+<td align="center">0.31</td>
+<td align="center">-0.03</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.2</td>
+<td align="center">-0.11</td>
+<td align="center">0.07</td>
+<td align="center">-0.05</td>
+<td align="center">0.17</td>
+<td align="center">-0.19</td>
+<td align="center">-0.21</td>
+<td align="center">-0.21</td>
+<td align="center">-0.14</td>
+<td align="center">-0.06</td>
+</tr>
+<tr class="even">
+<td align="center">-0.05</td>
+<td align="center">0.04</td>
+<td align="center">0.34</td>
+<td align="center">-0.24</td>
+<td align="center">-0.41</td>
+<td align="center">0.43</td>
+<td align="center">0.28</td>
+<td align="center">0.08</td>
+<td align="center">-0.62</td>
+<td align="center">-0.04</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.1</td>
+<td align="center">-0.25</td>
+<td align="center">-0.1</td>
+<td align="center">-0.35</td>
+<td align="center">-0.03</td>
+<td align="center">0.03</td>
+<td align="center">-0.03</td>
+<td align="center">0</td>
+<td align="center">-0.3</td>
+<td align="center">0.01</td>
+</tr>
+<tr class="even">
+<td align="center">0</td>
+<td align="center">0.25</td>
+<td align="center">-0.45</td>
+<td align="center">-0.69</td>
+<td align="center">0.08</td>
+<td align="center">-0.05</td>
+<td align="center">-0.26</td>
+<td align="center">-0.25</td>
+<td align="center">0.09</td>
+<td align="center">-0.06</td>
+</tr>
+<tr class="odd">
+<td align="center">0.15</td>
+<td align="center">0.04</td>
+<td align="center">-0.1</td>
+<td align="center">0.21</td>
+<td align="center">0.13</td>
+<td align="center">-0.13</td>
+<td align="center">-0.13</td>
+<td align="center">0.14</td>
+<td align="center">0.55</td>
+<td align="center">0.07</td>
+</tr>
+<tr class="even">
+<td align="center">-0.1</td>
+<td align="center">0.11</td>
+<td align="center">0</td>
+<td align="center">-0.18</td>
+<td align="center">-0.17</td>
+<td align="center">0.18</td>
+<td align="center">0.02</td>
+<td align="center">0.13</td>
+<td align="center">-0.08</td>
+<td align="center">-0.07</td>
+</tr>
+<tr class="odd">
+<td align="center">0.12</td>
+<td align="center">-0.06</td>
+<td align="center">-6.24</td>
+<td align="center">2.81</td>
+<td align="center">8.58</td>
+<td align="center">-8.43</td>
+<td align="center">-6.67</td>
+<td align="center">-0.46</td>
+<td align="center">0.02</td>
+<td align="center">0.01</td>
+</tr>
+<tr class="even">
+<td align="center">-0.15</td>
+<td align="center">-0.28</td>
+<td align="center">1.17</td>
+<td align="center">-0.69</td>
+<td align="center">-0.34</td>
+<td align="center">0.28</td>
+<td align="center">1.41</td>
+<td align="center">0.66</td>
+<td align="center">-0.18</td>
+<td align="center">0.01</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.08</td>
+<td align="center">0.17</td>
+<td align="center">-0.4</td>
+<td align="center">0.23</td>
+<td align="center">0.54</td>
+<td align="center">-0.55</td>
+<td align="center">-0.36</td>
+<td align="center">0.11</td>
+<td align="center">-0.41</td>
+<td align="center">-0.09</td>
+</tr>
+<tr class="even">
+<td align="center">0.29</td>
+<td align="center">0.1</td>
+<td align="center">-0.75</td>
+<td align="center">0.31</td>
+<td align="center">0.8</td>
+<td align="center">-0.77</td>
+<td align="center">-0.34</td>
+<td align="center">-0.26</td>
+<td align="center">-0.66</td>
+<td align="center">0.08</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.09</td>
+<td align="center">-0.24</td>
+<td align="center">0.65</td>
+<td align="center">-0.68</td>
+<td align="center">0.07</td>
+<td align="center">-0.09</td>
+<td align="center">0.62</td>
+<td align="center">0.18</td>
+<td align="center">-0.82</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="center">-0.1</td>
+<td align="center">0.11</td>
+<td align="center">-2.57</td>
+<td align="center">0.77</td>
+<td align="center">4.57</td>
+<td align="center">-4.49</td>
+<td align="center">-2.42</td>
+<td align="center">0.23</td>
+<td align="center">-0.09</td>
+<td align="center">-0.08</td>
+</tr>
+<tr class="odd">
+<td align="center">0.04</td>
+<td align="center">0.13</td>
+<td align="center">0.14</td>
+<td align="center">-0.54</td>
+<td align="center">0.12</td>
+<td align="center">-0.11</td>
+<td align="center">-0.04</td>
+<td align="center">0.31</td>
+<td align="center">0.2</td>
+<td align="center">-0.01</td>
+</tr>
+<tr class="even">
+<td align="center">0.09</td>
+<td align="center">0.03</td>
+<td align="center">-0.34</td>
+<td align="center">-1.77</td>
+<td align="center">-1.12</td>
+<td align="center">1.12</td>
+<td align="center">0.3</td>
+<td align="center">-0.24</td>
+<td align="center">0.5</td>
+<td align="center">0.04</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.13</td>
+<td align="center">0.05</td>
+<td align="center">0.03</td>
+<td align="center">0.12</td>
+<td align="center">0.37</td>
+<td align="center">-0.36</td>
+<td align="center">-0.02</td>
+<td align="center">0.18</td>
+<td align="center">-0.22</td>
+<td align="center">-0.07</td>
+</tr>
+<tr class="even">
+<td align="center">-0.16</td>
+<td align="center">-0.06</td>
+<td align="center">0.71</td>
+<td align="center">-0.2</td>
+<td align="center">-0.91</td>
+<td align="center">0.9</td>
+<td align="center">0.57</td>
+<td align="center">-0.06</td>
+<td align="center">0.58</td>
+<td align="center">-0.04</td>
+</tr>
+<tr class="odd">
+<td align="center">0.01</td>
+<td align="center">-0.1</td>
+<td align="center">-0.02</td>
+<td align="center">0.69</td>
+<td align="center">0.44</td>
+<td align="center">-0.45</td>
+<td align="center">0.04</td>
+<td align="center">-0.11</td>
+<td align="center">0.54</td>
+<td align="center">0.04</td>
+</tr>
+<tr class="even">
+<td align="center">0.02</td>
+<td align="center">0.05</td>
+<td align="center">-0.68</td>
+<td align="center">-2.07</td>
+<td align="center">-1.53</td>
+<td align="center">1.56</td>
+<td align="center">0.27</td>
+<td align="center">-0.44</td>
+<td align="center">-0.02</td>
+<td align="center">-0.01</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.04</td>
+<td align="center">-0.02</td>
+<td align="center">0.32</td>
+<td align="center">-0.8</td>
+<td align="center">1.07</td>
+<td align="center">-1.1</td>
+<td align="center">-0.36</td>
+<td align="center">0.37</td>
+<td align="center">0.06</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="center">0.1</td>
+<td align="center">-0.14</td>
+<td align="center">0.24</td>
+<td align="center">1.08</td>
+<td align="center">-0.43</td>
+<td align="center">0.62</td>
+<td align="center">2.88</td>
+<td align="center">2.52</td>
+<td align="center">0.03</td>
+<td align="center">0.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output Layer:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">4.41</td>
+<td align="center">-2.63</td>
+<td align="center">0.07</td>
+<td align="center">-0.03</td>
+<td align="center">0.73</td>
+<td align="center">0.74</td>
+<td align="center">-0.08</td>
+<td align="center">0.11</td>
+<td align="center">0.24</td>
+<td align="center">-10.15</td>
+<td align="center">-0.06</td>
+</tr>
+</tbody>
+</table>
+<p>
+ 
+</p>
+<p>Proxy model untuk tekanan terakhir:</p>
+<p><strong>Multilayer Neural Network (10)</strong></p>
+<p><strong>Layer 1:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">-0.7</td>
+<td align="center">-0.11</td>
+<td align="center">0.14</td>
+<td align="center">0.17</td>
+<td align="center">0.23</td>
+<td align="center">-0.09</td>
+<td align="center">-0.24</td>
+<td align="center">2.76</td>
+<td align="center">-0.11</td>
+<td align="center">-0.05</td>
+</tr>
+<tr class="even">
+<td align="center">-0.75</td>
+<td align="center">-0.13</td>
+<td align="center">1.01</td>
+<td align="center">0.15</td>
+<td align="center">-0.48</td>
+<td align="center">-0.06</td>
+<td align="center">0.51</td>
+<td align="center">-2.44</td>
+<td align="center">-0.13</td>
+<td align="center">-0.15</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.73</td>
+<td align="center">-0.42</td>
+<td align="center">-0.46</td>
+<td align="center">-0.23</td>
+<td align="center">-0.53</td>
+<td align="center">0.03</td>
+<td align="center">0.55</td>
+<td align="center">0.17</td>
+<td align="center">-0.26</td>
+<td align="center">0.11</td>
+</tr>
+<tr class="even">
+<td align="center">0.03</td>
+<td align="center">0.25</td>
+<td align="center">0.47</td>
+<td align="center">0.09</td>
+<td align="center">-0.01</td>
+<td align="center">0.01</td>
+<td align="center">0.02</td>
+<td align="center">2</td>
+<td align="center">0.14</td>
+<td align="center">-0.12</td>
+</tr>
+<tr class="odd">
+<td align="center">0.35</td>
+<td align="center">0.11</td>
+<td align="center">-0.14</td>
+<td align="center">0.13</td>
+<td align="center">-0.22</td>
+<td align="center">-0.01</td>
+<td align="center">0.24</td>
+<td align="center">2.37</td>
+<td align="center">0.08</td>
+<td align="center">-0.35</td>
+</tr>
+<tr class="even">
+<td align="center">0.32</td>
+<td align="center">0.14</td>
+<td align="center">-0.05</td>
+<td align="center">0.1</td>
+<td align="center">0.1</td>
+<td align="center">-0.06</td>
+<td align="center">-0.11</td>
+<td align="center">-2.09</td>
+<td align="center">0.06</td>
+<td align="center">0.15</td>
+</tr>
+<tr class="odd">
+<td align="center">0.58</td>
+<td align="center">-0.77</td>
+<td align="center">0.63</td>
+<td align="center">-0.04</td>
+<td align="center">-0.1</td>
+<td align="center">-0.09</td>
+<td align="center">0.11</td>
+<td align="center">-0.86</td>
+<td align="center">-0.49</td>
+<td align="center">0.06</td>
+</tr>
+<tr class="even">
+<td align="center">0.33</td>
+<td align="center">-0.04</td>
+<td align="center">-0.02</td>
+<td align="center">0.13</td>
+<td align="center">0.38</td>
+<td align="center">-0.08</td>
+<td align="center">-0.4</td>
+<td align="center">-0.42</td>
+<td align="center">-0.06</td>
+<td align="center">0</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.13</td>
+<td align="center">-0.71</td>
+<td align="center">0.1</td>
+<td align="center">0.01</td>
+<td align="center">0.18</td>
+<td align="center">-0.13</td>
+<td align="center">-0.19</td>
+<td align="center">-0.39</td>
+<td align="center">-0.51</td>
+<td align="center">0.04</td>
+</tr>
+<tr class="even">
+<td align="center">-0.22</td>
+<td align="center">-0.31</td>
+<td align="center">0.68</td>
+<td align="center">-0.15</td>
+<td align="center">0.04</td>
+<td align="center">0.02</td>
+<td align="center">-0.06</td>
+<td align="center">0.12</td>
+<td align="center">-0.2</td>
+<td align="center">0.18</td>
+</tr>
+<tr class="odd">
+<td align="center">0.23</td>
+<td align="center">-0.08</td>
+<td align="center">-0.43</td>
+<td align="center">0.25</td>
+<td align="center">-0.13</td>
+<td align="center">-0.21</td>
+<td align="center">0.33</td>
+<td align="center">4.07</td>
+<td align="center">-0.11</td>
+<td align="center">0.61</td>
+</tr>
+<tr class="even">
+<td align="center">-0.24</td>
+<td align="center">0.11</td>
+<td align="center">-0.18</td>
+<td align="center">-0.2</td>
+<td align="center">0.26</td>
+<td align="center">0.05</td>
+<td align="center">-0.23</td>
+<td align="center">1.66</td>
+<td align="center">0.12</td>
+<td align="center">0.2</td>
+</tr>
+<tr class="odd">
+<td align="center">0.27</td>
+<td align="center">0.46</td>
+<td align="center">-0.18</td>
+<td align="center">-0.1</td>
+<td align="center">-0.02</td>
+<td align="center">0.11</td>
+<td align="center">0.02</td>
+<td align="center">2.1</td>
+<td align="center">0.34</td>
+<td align="center">0.17</td>
+</tr>
+<tr class="even">
+<td align="center">0</td>
+<td align="center">-0.12</td>
+<td align="center">-0.14</td>
+<td align="center">0.08</td>
+<td align="center">-0.07</td>
+<td align="center">-0.05</td>
+<td align="center">0.07</td>
+<td align="center">1.13</td>
+<td align="center">-0.1</td>
+<td align="center">-0.13</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.8</td>
+<td align="center">0.77</td>
+<td align="center">-0.23</td>
+<td align="center">0.09</td>
+<td align="center">-0.1</td>
+<td align="center">0.08</td>
+<td align="center">0.1</td>
+<td align="center">-1.21</td>
+<td align="center">0.52</td>
+<td align="center">0.13</td>
+</tr>
+<tr class="even">
+<td align="center">0.26</td>
+<td align="center">-0.06</td>
+<td align="center">0.08</td>
+<td align="center">0.17</td>
+<td align="center">0.26</td>
+<td align="center">-0.08</td>
+<td align="center">-0.26</td>
+<td align="center">0.05</td>
+<td align="center">-0.05</td>
+<td align="center">-0.03</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.63</td>
+<td align="center">-0.07</td>
+<td align="center">-0.35</td>
+<td align="center">-0.2</td>
+<td align="center">-0.07</td>
+<td align="center">0.09</td>
+<td align="center">0.07</td>
+<td align="center">0.64</td>
+<td align="center">-0.02</td>
+<td align="center">-0.01</td>
+</tr>
+<tr class="even">
+<td align="center">-0.62</td>
+<td align="center">0.73</td>
+<td align="center">-0.28</td>
+<td align="center">-0.03</td>
+<td align="center">6.04</td>
+<td align="center">0.2</td>
+<td align="center">-6.32</td>
+<td align="center">-2.66</td>
+<td align="center">0.53</td>
+<td align="center">-0.43</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.08</td>
+<td align="center">-0.73</td>
+<td align="center">0.67</td>
+<td align="center">-0.05</td>
+<td align="center">-0.54</td>
+<td align="center">-0.15</td>
+<td align="center">0.56</td>
+<td align="center">2.89</td>
+<td align="center">-0.53</td>
+<td align="center">0.66</td>
+</tr>
+<tr class="even">
+<td align="center">0.64</td>
+<td align="center">0.28</td>
+<td align="center">0.24</td>
+<td align="center">0.37</td>
+<td align="center">0.16</td>
+<td align="center">-0.18</td>
+<td align="center">-0.16</td>
+<td align="center">-3.19</td>
+<td align="center">0.13</td>
+<td align="center">0.43</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.39</td>
+<td align="center">-0.1</td>
+<td align="center">-0.01</td>
+<td align="center">0.26</td>
+<td align="center">0.65</td>
+<td align="center">-0.13</td>
+<td align="center">-0.68</td>
+<td align="center">-0.51</td>
+<td align="center">-0.09</td>
+<td align="center">0</td>
+</tr>
+<tr class="even">
+<td align="center">0.49</td>
+<td align="center">-0.54</td>
+<td align="center">0.63</td>
+<td align="center">0.22</td>
+<td align="center">-0.18</td>
+<td align="center">-0.21</td>
+<td align="center">0.2</td>
+<td align="center">3.14</td>
+<td align="center">-0.41</td>
+<td align="center">0.21</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.17</td>
+<td align="center">-0.3</td>
+<td align="center">0.13</td>
+<td align="center">0.14</td>
+<td align="center">2.81</td>
+<td align="center">-0.12</td>
+<td align="center">-2.94</td>
+<td align="center">0.55</td>
+<td align="center">-0.24</td>
+<td align="center">0.06</td>
+</tr>
+<tr class="even">
+<td align="center">-0.16</td>
+<td align="center">-0.3</td>
+<td align="center">-0.47</td>
+<td align="center">-0.08</td>
+<td align="center">-0.12</td>
+<td align="center">-0.03</td>
+<td align="center">0.12</td>
+<td align="center">-0.12</td>
+<td align="center">-0.18</td>
+<td align="center">0.3</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.48</td>
+<td align="center">0.67</td>
+<td align="center">-0.5</td>
+<td align="center">-0.02</td>
+<td align="center">-0.99</td>
+<td align="center">0.13</td>
+<td align="center">1.04</td>
+<td align="center">-0.44</td>
+<td align="center">0.48</td>
+<td align="center">-0.01</td>
+</tr>
+<tr class="even">
+<td align="center">0.51</td>
+<td align="center">0.69</td>
+<td align="center">-0.13</td>
+<td align="center">-0.05</td>
+<td align="center">0.09</td>
+<td align="center">0.15</td>
+<td align="center">-0.09</td>
+<td align="center">1.63</td>
+<td align="center">0.5</td>
+<td align="center">-0.11</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.36</td>
+<td align="center">-0.7</td>
+<td align="center">0.15</td>
+<td align="center">-0.02</td>
+<td align="center">-0.51</td>
+<td align="center">-0.07</td>
+<td align="center">0.53</td>
+<td align="center">-2.27</td>
+<td align="center">-0.47</td>
+<td align="center">-0.26</td>
+</tr>
+<tr class="even">
+<td align="center">0.44</td>
+<td align="center">-0.12</td>
+<td align="center">-0.25</td>
+<td align="center">-0.29</td>
+<td align="center"></td>
+<td align="center">0.21</td>
+<td align="center">0.13</td>
+<td align="center">-0.22</td>
+<td align="center">1.13</td>
+<td align="center">-0.02</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.37</td>
+<td align="center">0.01</td>
+<td align="center">-0.37</td>
+<td align="center">0.07</td>
+<td align="center">-0.88</td>
+<td align="center">0</td>
+<td align="center">0.92</td>
+<td align="center">-6.98</td>
+<td align="center">0.03</td>
+<td align="center">-0.23</td>
+</tr>
+<tr class="even">
+<td align="center">-0.19</td>
+<td align="center">-0.04</td>
+<td align="center">0.09</td>
+<td align="center">0.03</td>
+<td align="center">1.41</td>
+<td align="center">-0.04</td>
+<td align="center">-1.5</td>
+<td align="center">6.71</td>
+<td align="center">-0.03</td>
+<td align="center">-0.1</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output Layer:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">-0.07</td>
+<td align="center">-0.98</td>
+<td align="center">0.11</td>
+<td align="center">-1.96</td>
+<td align="center">0.8</td>
+<td align="center">-4.69</td>
+<td align="center">0.76</td>
+<td align="center">1.02</td>
+<td align="center">2.54</td>
+<td align="center">-0.41</td>
+<td align="center">-1.18</td>
+</tr>
+</tbody>
+</table>
+<p>
+ 
+</p>
+<p><em>Proxy model</em> untuk waktu produksi berhenti:</p>
+<p><strong>Multilayer Neural Network (10,10)</strong></p>
+<p><strong>Layer 1:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">0.45</td>
+<td align="center">3.97</td>
+<td align="center">2.26</td>
+<td align="center">-1.69</td>
+<td align="center">1.02</td>
+<td align="center">-0.57</td>
+<td align="center">-0.76</td>
+<td align="center">1.46</td>
+<td align="center">-2.36</td>
+<td align="center">0.83</td>
+</tr>
+<tr class="even">
+<td align="center">-0.39</td>
+<td align="center">-1.03</td>
+<td align="center">0.77</td>
+<td align="center">0.65</td>
+<td align="center">-1.59</td>
+<td align="center">-0.73</td>
+<td align="center">3.9</td>
+<td align="center">-0.58</td>
+<td align="center">0.42</td>
+<td align="center">-0.09</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.98</td>
+<td align="center">-0.85</td>
+<td align="center">-1.36</td>
+<td align="center">2.25</td>
+<td align="center">0</td>
+<td align="center">1.27</td>
+<td align="center">0.29</td>
+<td align="center">2.81</td>
+<td align="center">-1.3</td>
+<td align="center">0.33</td>
+</tr>
+<tr class="even">
+<td align="center">-0.48</td>
+<td align="center">0.02</td>
+<td align="center">1.86</td>
+<td align="center">-1.64</td>
+<td align="center">-0.93</td>
+<td align="center">-0.81</td>
+<td align="center">0.8</td>
+<td align="center">-2.19</td>
+<td align="center">0.82</td>
+<td align="center">0.52</td>
+</tr>
+<tr class="odd">
+<td align="center">0.32</td>
+<td align="center">-1.25</td>
+<td align="center">0.12</td>
+<td align="center">-1.06</td>
+<td align="center">-1.75</td>
+<td align="center">1.37</td>
+<td align="center">0.03</td>
+<td align="center">0.58</td>
+<td align="center">0.07</td>
+<td align="center">0.38</td>
+</tr>
+<tr class="even">
+<td align="center">-1.15</td>
+<td align="center">-0.24</td>
+<td align="center">-0.28</td>
+<td align="center">-3.27</td>
+<td align="center">3.21</td>
+<td align="center">-0.04</td>
+<td align="center">1.27</td>
+<td align="center">-0.74</td>
+<td align="center">0.66</td>
+<td align="center">1.05</td>
+</tr>
+<tr class="odd">
+<td align="center">1.06</td>
+<td align="center">-0.98</td>
+<td align="center">-0.02</td>
+<td align="center">0.9</td>
+<td align="center">-1.06</td>
+<td align="center">-0.05</td>
+<td align="center">1.49</td>
+<td align="center">-1.54</td>
+<td align="center">0.95</td>
+<td align="center">-1.02</td>
+</tr>
+<tr class="even">
+<td align="center">-1.18</td>
+<td align="center">-0.52</td>
+<td align="center">-0.5</td>
+<td align="center">0.95</td>
+<td align="center">2.02</td>
+<td align="center">-0.86</td>
+<td align="center">0.4</td>
+<td align="center">-0.43</td>
+<td align="center">0.83</td>
+<td align="center">0.24</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.48</td>
+<td align="center">-1.19</td>
+<td align="center">-0.38</td>
+<td align="center">0.23</td>
+<td align="center">1.08</td>
+<td align="center">-0.58</td>
+<td align="center">1.22</td>
+<td align="center">-0.96</td>
+<td align="center">1.06</td>
+<td align="center">-0.17</td>
+</tr>
+<tr class="even">
+<td align="center">-0.35</td>
+<td align="center">-1.08</td>
+<td align="center">0.79</td>
+<td align="center">1.37</td>
+<td align="center">-1.77</td>
+<td align="center">-0.39</td>
+<td align="center">-0.76</td>
+<td align="center">-2.38</td>
+<td align="center">1.09</td>
+<td align="center">-0.33</td>
+</tr>
+<tr class="odd">
+<td align="center">-1.32</td>
+<td align="center">-0.01</td>
+<td align="center">-1.21</td>
+<td align="center">7.48</td>
+<td align="center">-0.13</td>
+<td align="center">0.94</td>
+<td align="center">4.74</td>
+<td align="center">2.98</td>
+<td align="center">-1.62</td>
+<td align="center">10.44</td>
+</tr>
+<tr class="even">
+<td align="center">1.06</td>
+<td align="center">-0.88</td>
+<td align="center">0.06</td>
+<td align="center">2.12</td>
+<td align="center">-1.63</td>
+<td align="center">0.68</td>
+<td align="center">-0.72</td>
+<td align="center">-0.41</td>
+<td align="center">0.05</td>
+<td align="center">-0.82</td>
+</tr>
+<tr class="odd">
+<td align="center">0.73</td>
+<td align="center">-0.86</td>
+<td align="center">0.72</td>
+<td align="center">0.99</td>
+<td align="center">-4.31</td>
+<td align="center">0.56</td>
+<td align="center">-2.41</td>
+<td align="center">-0.08</td>
+<td align="center">-0.07</td>
+<td align="center">-0.48</td>
+</tr>
+<tr class="even">
+<td align="center">-0.66</td>
+<td align="center">-0.38</td>
+<td align="center">0.55</td>
+<td align="center">1.8</td>
+<td align="center">-1.26</td>
+<td align="center">-0.6</td>
+<td align="center">0.18</td>
+<td align="center">0.11</td>
+<td align="center">-0.33</td>
+<td align="center">-0.3</td>
+</tr>
+<tr class="odd">
+<td align="center">1.2</td>
+<td align="center">1.22</td>
+<td align="center">-0.11</td>
+<td align="center">1.88</td>
+<td align="center">1.46</td>
+<td align="center">0.62</td>
+<td align="center">-1.07</td>
+<td align="center">0.41</td>
+<td align="center">-0.71</td>
+<td align="center">-1.07</td>
+</tr>
+<tr class="even">
+<td align="center">0.58</td>
+<td align="center">0.5</td>
+<td align="center">-0.13</td>
+<td align="center">-0.1</td>
+<td align="center">-0.73</td>
+<td align="center">0.01</td>
+<td align="center">0.28</td>
+<td align="center">0.96</td>
+<td align="center">-0.6</td>
+<td align="center">-0.37</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.9</td>
+<td align="center">0.01</td>
+<td align="center">0.24</td>
+<td align="center">-0.05</td>
+<td align="center">2.08</td>
+<td align="center">-1.02</td>
+<td align="center">0.18</td>
+<td align="center">1.58</td>
+<td align="center">-0.94</td>
+<td align="center">0.02</td>
+</tr>
+<tr class="even">
+<td align="center">5.94</td>
+<td align="center">-1.37</td>
+<td align="center">1</td>
+<td align="center">7.58</td>
+<td align="center">15.99</td>
+<td align="center">1.26</td>
+<td align="center">-19.29</td>
+<td align="center">1.2</td>
+<td align="center">-1.42</td>
+<td align="center">-4.46</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.48</td>
+<td align="center">0.62</td>
+<td align="center">0.11</td>
+<td align="center">-1.54</td>
+<td align="center">-3.68</td>
+<td align="center">0.52</td>
+<td align="center">3.8</td>
+<td align="center">0.41</td>
+<td align="center">-0.8</td>
+<td align="center">0.83</td>
+</tr>
+<tr class="even">
+<td align="center">-0.4</td>
+<td align="center">-0.85</td>
+<td align="center">-0.46</td>
+<td align="center">1.81</td>
+<td align="center">1.65</td>
+<td align="center">-0.51</td>
+<td align="center">0.75</td>
+<td align="center">-2.48</td>
+<td align="center">1.79</td>
+<td align="center">-0.66</td>
+</tr>
+<tr class="odd">
+<td align="center">2.37</td>
+<td align="center">-1.87</td>
+<td align="center">-0.09</td>
+<td align="center">3.29</td>
+<td align="center">-0.27</td>
+<td align="center">1.59</td>
+<td align="center">-1.33</td>
+<td align="center">-0.25</td>
+<td align="center">0.43</td>
+<td align="center">-1.53</td>
+</tr>
+<tr class="even">
+<td align="center">0.98</td>
+<td align="center">0.76</td>
+<td align="center">0.92</td>
+<td align="center">-4.9</td>
+<td align="center">-3.67</td>
+<td align="center">1.2</td>
+<td align="center">-0.41</td>
+<td align="center">0.91</td>
+<td align="center">-0.93</td>
+<td align="center">0.89</td>
+</tr>
+<tr class="odd">
+<td align="center">1.32</td>
+<td align="center">0.91</td>
+<td align="center">0.26</td>
+<td align="center">-0.81</td>
+<td align="center">8.13</td>
+<td align="center">0.32</td>
+<td align="center">-8.41</td>
+<td align="center">-0.52</td>
+<td align="center">-0.01</td>
+<td align="center">-0.21</td>
+</tr>
+<tr class="even">
+<td align="center">0.5</td>
+<td align="center">-1.3</td>
+<td align="center">0.11</td>
+<td align="center">0.07</td>
+<td align="center">1.63</td>
+<td align="center">1.12</td>
+<td align="center">0.2</td>
+<td align="center">-0.73</td>
+<td align="center">0.39</td>
+<td align="center">0.04</td>
+</tr>
+<tr class="odd">
+<td align="center">-1.09</td>
+<td align="center">1.19</td>
+<td align="center">-0.18</td>
+<td align="center">-6.81</td>
+<td align="center">-1.53</td>
+<td align="center">-0.96</td>
+<td align="center">0.43</td>
+<td align="center">-1.04</td>
+<td align="center">0.69</td>
+<td align="center">1.88</td>
+</tr>
+<tr class="even">
+<td align="center">1.42</td>
+<td align="center">1.12</td>
+<td align="center">-0.7</td>
+<td align="center">1.95</td>
+<td align="center">-0.7</td>
+<td align="center">0.03</td>
+<td align="center">0.57</td>
+<td align="center">-0.1</td>
+<td align="center">-0.17</td>
+<td align="center">-1.27</td>
+</tr>
+<tr class="odd">
+<td align="center">-1.31</td>
+<td align="center">0.28</td>
+<td align="center">-0.24</td>
+<td align="center">-3.21</td>
+<td align="center">-4.56</td>
+<td align="center">-1.42</td>
+<td align="center">0.48</td>
+<td align="center">0.59</td>
+<td align="center">-0.36</td>
+<td align="center">1.17</td>
+</tr>
+<tr class="even">
+<td align="center">-1.28</td>
+<td align="center">-1.77</td>
+<td align="center">0.66</td>
+<td align="center">0</td>
+<td align="center">1.67</td>
+<td align="center">-1.83</td>
+<td align="center">0.46</td>
+<td align="center">-0.97</td>
+<td align="center">0.6</td>
+<td align="center">-0.13</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.32</td>
+<td align="center">1.01</td>
+<td align="center">1.33</td>
+<td align="center">1.78</td>
+<td align="center">5.99</td>
+<td align="center">-0.51</td>
+<td align="center">6.63</td>
+<td align="center">-0.55</td>
+<td align="center">0.11</td>
+<td align="center">-0.66</td>
+</tr>
+<tr class="even">
+<td align="center">-1.07</td>
+<td align="center">0.15</td>
+<td align="center">0.04</td>
+<td align="center">-4.02</td>
+<td align="center">3.49</td>
+<td align="center">-3.16</td>
+<td align="center">-2.11</td>
+<td align="center">0.42</td>
+<td align="center">-0.45</td>
+<td align="center">-1.42</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Layer 2:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">0.23</td>
+<td align="center">-0.92</td>
+<td align="center">2.13</td>
+<td align="center">-0.12</td>
+<td align="center">-0.69</td>
+<td align="center">2.83</td>
+<td align="center">1.32</td>
+<td align="center">0.01</td>
+<td align="center">-0.09</td>
+<td align="center">-0.1</td>
+</tr>
+<tr class="even">
+<td align="center">-0.59</td>
+<td align="center">0.67</td>
+<td align="center">4.7</td>
+<td align="center">-0.26</td>
+<td align="center">0.3</td>
+<td align="center">1.16</td>
+<td align="center">4.68</td>
+<td align="center">5.09</td>
+<td align="center">0.54</td>
+<td align="center">-0.27</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.99</td>
+<td align="center">1.06</td>
+<td align="center">-8.36</td>
+<td align="center">2.25</td>
+<td align="center">-1.89</td>
+<td align="center">1.26</td>
+<td align="center">-8.34</td>
+<td align="center">1.1</td>
+<td align="center">0.96</td>
+<td align="center">2.25</td>
+</tr>
+<tr class="even">
+<td align="center">0.64</td>
+<td align="center">-1.39</td>
+<td align="center">3.55</td>
+<td align="center">0.54</td>
+<td align="center">5.25</td>
+<td align="center">2.48</td>
+<td align="center">2.73</td>
+<td align="center">-0.49</td>
+<td align="center">-0.59</td>
+<td align="center">0.42</td>
+</tr>
+<tr class="odd">
+<td align="center">1.74</td>
+<td align="center">-5.14</td>
+<td align="center">0.03</td>
+<td align="center">-1.38</td>
+<td align="center">1.33</td>
+<td align="center">3.71</td>
+<td align="center">0.03</td>
+<td align="center">0.34</td>
+<td align="center">-1.71</td>
+<td align="center">-1.37</td>
+</tr>
+<tr class="even">
+<td align="center">3.2</td>
+<td align="center">0.29</td>
+<td align="center">-1.74</td>
+<td align="center">-0.28</td>
+<td align="center">1.35</td>
+<td align="center">1.85</td>
+<td align="center">1.4</td>
+<td align="center">-1.14</td>
+<td align="center">-3.84</td>
+<td align="center">-0.77</td>
+</tr>
+<tr class="odd">
+<td align="center">-3.29</td>
+<td align="center">3.95</td>
+<td align="center">2.69</td>
+<td align="center">2.12</td>
+<td align="center">-3.33</td>
+<td align="center">-0.54</td>
+<td align="center">2.64</td>
+<td align="center">4.38</td>
+<td align="center">3.33</td>
+<td align="center">2.19</td>
+</tr>
+<tr class="even">
+<td align="center">-0.59</td>
+<td align="center">-1.97</td>
+<td align="center">3.22</td>
+<td align="center">0.55</td>
+<td align="center">-2.49</td>
+<td align="center">-3.34</td>
+<td align="center">3.13</td>
+<td align="center">2.41</td>
+<td align="center">0.5</td>
+<td align="center">0.53</td>
+</tr>
+<tr class="odd">
+<td align="center">-1.18</td>
+<td align="center">-1.8</td>
+<td align="center">3.45</td>
+<td align="center">0.98</td>
+<td align="center">2.44</td>
+<td align="center">0.22</td>
+<td align="center">3.31</td>
+<td align="center">1.44</td>
+<td align="center">1.06</td>
+<td align="center">0.95</td>
+</tr>
+<tr class="even">
+<td align="center">0.72</td>
+<td align="center">-0.1</td>
+<td align="center">-0.62</td>
+<td align="center">0.58</td>
+<td align="center">-3.79</td>
+<td align="center">0.12</td>
+<td align="center">-0.65</td>
+<td align="center">2.26</td>
+<td align="center">-0.45</td>
+<td align="center">0.58</td>
+</tr>
+<tr class="odd">
+<td align="center">-2.72</td>
+<td align="center">9.69</td>
+<td align="center">-0.21</td>
+<td align="center">4.13</td>
+<td align="center">-1.46</td>
+<td align="center">-1.54</td>
+<td align="center">1.38</td>
+<td align="center">11.12</td>
+<td align="center">2.05</td>
+<td align="center">3.6</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output Layer:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">2.27</td>
+<td align="center">-0.14</td>
+<td align="center">-0.1</td>
+<td align="center">1.17</td>
+<td align="center">-0.01</td>
+<td align="center">0.01</td>
+<td align="center">0.1</td>
+<td align="center">0.16</td>
+<td align="center">2.5</td>
+<td align="center">-1.19</td>
+<td align="center">-0.02</td>
+</tr>
+</tbody>
+</table>
+<p>
+ 
+</p>
+<p><em>Proxy model</em> untuk laju alir minyak saat produksi berhenti:</p>
+<p><strong>Multilayer Neural Network (10,10)</strong></p>
+<p><strong>Layer 1:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">-0.55</td>
+<td align="center">-0.73</td>
+<td align="center">1.3</td>
+<td align="center">0.17</td>
+<td align="center">0.17</td>
+<td align="center">-1.1</td>
+<td align="center">-0.37</td>
+<td align="center">1.45</td>
+<td align="center">-0.39</td>
+<td align="center">0.52</td>
+</tr>
+<tr class="even">
+<td align="center">0.14</td>
+<td align="center">1.33</td>
+<td align="center">0.73</td>
+<td align="center">1.99</td>
+<td align="center">0.62</td>
+<td align="center">-0.31</td>
+<td align="center">1.26</td>
+<td align="center">-0.69</td>
+<td align="center">0.56</td>
+<td align="center">0.96</td>
+</tr>
+<tr class="odd">
+<td align="center">-1.12</td>
+<td align="center">-0.81</td>
+<td align="center">-1.72</td>
+<td align="center">0.12</td>
+<td align="center">0.63</td>
+<td align="center">-2.6</td>
+<td align="center">7 1.47</td>
+<td align="center">-0.02</td>
+<td align="center">-0.29</td>
+<td align="center">-0.97</td>
+</tr>
+<tr class="even">
+<td align="center">-0.1</td>
+<td align="center">0.</td>
+<td align="center">2 -0.52</td>
+<td align="center">0.55</td>
+<td align="center">-0.18</td>
+<td align="center">0.51</td>
+<td align="center">0.36</td>
+<td align="center">0.23</td>
+<td align="center">0.5</td>
+<td align="center">0.35</td>
+</tr>
+<tr class="odd">
+<td align="center">0.48</td>
+<td align="center">-1.41</td>
+<td align="center">-0.13</td>
+<td align="center">0.16</td>
+<td align="center">0.46</td>
+<td align="center">1.83</td>
+<td align="center">0.58</td>
+<td align="center">1.8</td>
+<td align="center">-0.26</td>
+<td align="center">0.13</td>
+</tr>
+<tr class="even">
+<td align="center">-0.03</td>
+<td align="center">1.54</td>
+<td align="center">0.89</td>
+<td align="center">-0.43</td>
+<td align="center">0.92</td>
+<td align="center">-1.35</td>
+<td align="center">-1.16</td>
+<td align="center">-0.35</td>
+<td align="center">-0.09</td>
+<td align="center">1.41</td>
+</tr>
+<tr class="odd">
+<td align="center">0.7</td>
+<td align="center">-0.13</td>
+<td align="center">0.41</td>
+<td align="center">-0.78</td>
+<td align="center">-1.12</td>
+<td align="center">1.52</td>
+<td align="center">0.78</td>
+<td align="center">-1.75</td>
+<td align="center">0.44</td>
+<td align="center">-1.6</td>
+</tr>
+<tr class="even">
+<td align="center">0.67</td>
+<td align="center">-0.77</td>
+<td align="center">-0.73</td>
+<td align="center">1.49</td>
+<td align="center">0.47</td>
+<td align="center">-0.86</td>
+<td align="center">-0.28</td>
+<td align="center">0.81</td>
+<td align="center">1.9</td>
+<td align="center">-2.01</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.69</td>
+<td align="center">0.2</td>
+<td align="center">-0.12</td>
+<td align="center">1.11</td>
+<td align="center">-0.35</td>
+<td align="center">-1.15</td>
+<td align="center">2.28</td>
+<td align="center">-1.51</td>
+<td align="center">1.98</td>
+<td align="center">-1.36</td>
+</tr>
+<tr class="even">
+<td align="center">-0.8</td>
+<td align="center">0.91</td>
+<td align="center">2</td>
+<td align="center">-0.48</td>
+<td align="center">-0.49</td>
+<td align="center">0.57</td>
+<td align="center">-0.93</td>
+<td align="center">-1.35</td>
+<td align="center">-0.02</td>
+<td align="center">-0.79</td>
+</tr>
+<tr class="odd">
+<td align="center">1.64</td>
+<td align="center">1.85</td>
+<td align="center">-2.64</td>
+<td align="center">0.02</td>
+<td align="center">-0.07</td>
+<td align="center">-1.99</td>
+<td align="center">4.29</td>
+<td align="center">0.39</td>
+<td align="center">0</td>
+<td align="center">-0.24</td>
+</tr>
+<tr class="even">
+<td align="center">-0.46</td>
+<td align="center">0.75</td>
+<td align="center">-0.69</td>
+<td align="center">-0.92</td>
+<td align="center">-1.53</td>
+<td align="center">0.97</td>
+<td align="center">-0.05</td>
+<td align="center">-0.72</td>
+<td align="center">-0.63</td>
+<td align="center">-1.15</td>
+</tr>
+<tr class="odd">
+<td align="center">0.81</td>
+<td align="center">0.62</td>
+<td align="center">2.29</td>
+<td align="center">-0.51</td>
+<td align="center">-0.28</td>
+<td align="center">0.04</td>
+<td align="center">-2.12</td>
+<td align="center">-0.12</td>
+<td align="center">-0.25</td>
+<td align="center">-0.62</td>
+</tr>
+<tr class="even">
+<td align="center">-0.36</td>
+<td align="center">-1.33</td>
+<td align="center">1.38</td>
+<td align="center">-0.48</td>
+<td align="center">-0.17</td>
+<td align="center">-0.66</td>
+<td align="center">-0.45</td>
+<td align="center">0.51</td>
+<td align="center">0.3</td>
+<td align="center">0.39</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.23</td>
+<td align="center">-0.5</td>
+<td align="center">1.97</td>
+<td align="center">-0.15</td>
+<td align="center">-1.62</td>
+<td align="center">0.79</td>
+<td align="center">1.27</td>
+<td align="center">-1.28</td>
+<td align="center">0.34</td>
+<td align="center">1.36</td>
+</tr>
+<tr class="even">
+<td align="center">0.05</td>
+<td align="center">-0.33</td>
+<td align="center">-2.06</td>
+<td align="center">-0.26</td>
+<td align="center">0.02</td>
+<td align="center">0.12</td>
+<td align="center">1.06</td>
+<td align="center">1.39</td>
+<td align="center">1.24</td>
+<td align="center">-0.62</td>
+</tr>
+<tr class="odd">
+<td align="center">0.66</td>
+<td align="center">-0.72</td>
+<td align="center">-0.91</td>
+<td align="center">1.05</td>
+<td align="center">0.72</td>
+<td align="center">-2.7</td>
+<td align="center">-2.07</td>
+<td align="center">-0.33</td>
+<td align="center">-0.92</td>
+<td align="center">-1.75</td>
+</tr>
+<tr class="even">
+<td align="center">0.92</td>
+<td align="center">-0.53</td>
+<td align="center">-0.77</td>
+<td align="center">2.97</td>
+<td align="center">-0.54</td>
+<td align="center">3.73</td>
+<td align="center">-0.93</td>
+<td align="center">-0.71</td>
+<td align="center">-2.21</td>
+<td align="center">-0.17</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.48</td>
+<td align="center">0.03</td>
+<td align="center">0.35</td>
+<td align="center">-2.37</td>
+<td align="center">0.42</td>
+<td align="center">-4.81</td>
+<td align="center">-0.7</td>
+<td align="center">1.1</td>
+<td align="center">-0.74</td>
+<td align="center">-0.09</td>
+</tr>
+<tr class="even">
+<td align="center">-0.93</td>
+<td align="center">0.96</td>
+<td align="center">2.02</td>
+<td align="center">0.57</td>
+<td align="center">0.5</td>
+<td align="center">-0.55</td>
+<td align="center">0.77</td>
+<td align="center">-0.42</td>
+<td align="center">1.69</td>
+<td align="center">-0.38</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.28</td>
+<td align="center">-1.11</td>
+<td align="center">0.96</td>
+<td align="center">2.35</td>
+<td align="center">0.6</td>
+<td align="center">0.67</td>
+<td align="center">-0.18</td>
+<td align="center">2.94</td>
+<td align="center">1.1</td>
+<td align="center">-0.14</td>
+</tr>
+<tr class="even">
+<td align="center">1.16</td>
+<td align="center">-1.43</td>
+<td align="center">1.62</td>
+<td align="center">0.11</td>
+<td align="center">0.15</td>
+<td align="center">-0.42</td>
+<td align="center">0.32</td>
+<td align="center">0.51</td>
+<td align="center">0.22</td>
+<td align="center">-0.48</td>
+</tr>
+<tr class="odd">
+<td align="center">0.51</td>
+<td align="center">0.4</td>
+<td align="center">0.99</td>
+<td align="center">0.88</td>
+<td align="center">1.14</td>
+<td align="center">-0.89</td>
+<td align="center">-1.32</td>
+<td align="center">-0.42</td>
+<td align="center">0.57</td>
+<td align="center">0.53</td>
+</tr>
+<tr class="even">
+<td align="center">1.2</td>
+<td align="center">0.33</td>
+<td align="center">-0.14</td>
+<td align="center">-0.33</td>
+<td align="center">0.17</td>
+<td align="center">-1.89</td>
+<td align="center">-2.06</td>
+<td align="center">-0.1</td>
+<td align="center">5 0.64</td>
+<td align="center">-1.69</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.33</td>
+<td align="center">-1.14</td>
+<td align="center">-0.17</td>
+<td align="center">-0.6</td>
+<td align="center">-1.03</td>
+<td align="center">0.08</td>
+<td align="center">0.57</td>
+<td align="center">0</td>
+<td align="center">-0.61</td>
+<td align="center">0.13</td>
+</tr>
+<tr class="even">
+<td align="center">0.52</td>
+<td align="center">0.39</td>
+<td align="center">0.88</td>
+<td align="center">-0.33</td>
+<td align="center">-1.59</td>
+<td align="center">1.53</td>
+<td align="center">-1.56</td>
+<td align="center">1.79</td>
+<td align="center">0.51</td>
+<td align="center">-0.74</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.05</td>
+<td align="center">-1.93</td>
+<td align="center">-0.88</td>
+<td align="center">1.04</td>
+<td align="center">0.33</td>
+<td align="center">-1.92</td>
+<td align="center">1.56</td>
+<td align="center">-0.42</td>
+<td align="center">0.15</td>
+<td align="center">-0.99</td>
+</tr>
+<tr class="even">
+<td align="center">-0.1</td>
+<td align="center">-1.87</td>
+<td align="center">2.32</td>
+<td align="center">0.87</td>
+<td align="center">0.48</td>
+<td align="center">1.06</td>
+<td align="center">0.08</td>
+<td align="center">-0.23</td>
+<td align="center">0.5</td>
+<td align="center">0.58</td>
+</tr>
+<tr class="odd">
+<td align="center">0.28</td>
+<td align="center">1.09</td>
+<td align="center">-0.31</td>
+<td align="center">-0.16</td>
+<td align="center">0.27</td>
+<td align="center">4.25</td>
+<td align="center">1.08</td>
+<td align="center">-1.04</td>
+<td align="center">2.19</td>
+<td align="center">1.22</td>
+</tr>
+<tr class="even">
+<td align="center">-0.79</td>
+<td align="center">0.04</td>
+<td align="center">-0.74</td>
+<td align="center">-1.3</td>
+<td align="center">1.15</td>
+<td align="center">-3.24</td>
+<td align="center">-0.56</td>
+<td align="center">1.34</td>
+<td align="center">-1.04</td>
+<td align="center">-1.49</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Layer 2:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">1.29</td>
+<td align="center">-0.82</td>
+<td align="center">-1.72</td>
+<td align="center">-0.21</td>
+<td align="center">-0.37</td>
+<td align="center">-0.01</td>
+<td align="center">-1.71</td>
+<td align="center">0.56</td>
+<td align="center">0.7</td>
+<td align="center">-0.3</td>
+</tr>
+<tr class="even">
+<td align="center">-0.12</td>
+<td align="center">0.47</td>
+<td align="center">1.13</td>
+<td align="center">-0.21</td>
+<td align="center">-1.46</td>
+<td align="center">1.28</td>
+<td align="center">1.13</td>
+<td align="center">0.43</td>
+<td align="center">2.13</td>
+<td align="center">0.74</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.2</td>
+<td align="center">-0.32</td>
+<td align="center">-1.27</td>
+<td align="center">0</td>
+<td align="center">-2.17</td>
+<td align="center">0.06</td>
+<td align="center">-1.26</td>
+<td align="center">1.05</td>
+<td align="center">3.7</td>
+<td align="center">0.02</td>
+</tr>
+<tr class="even">
+<td align="center">0.36</td>
+<td align="center">-0.22</td>
+<td align="center">0.22</td>
+<td align="center">0.71</td>
+<td align="center">-0.63</td>
+<td align="center">1.1</td>
+<td align="center">0.22</td>
+<td align="center">-0.01</td>
+<td align="center">-4.15</td>
+<td align="center">0</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.3</td>
+<td align="center">-0.79</td>
+<td align="center">-0.33</td>
+<td align="center">-0.78</td>
+<td align="center">-0.48</td>
+<td align="center">-0.14</td>
+<td align="center">-0.33</td>
+<td align="center">0.33</td>
+<td align="center">2.8</td>
+<td align="center">-0.4</td>
+</tr>
+<tr class="even">
+<td align="center">2.06</td>
+<td align="center">0.3</td>
+<td align="center">1.35</td>
+<td align="center">-3.23</td>
+<td align="center">1.18</td>
+<td align="center">-0.01</td>
+<td align="center">1.49</td>
+<td align="center">-1.61</td>
+<td align="center">-3.42</td>
+<td align="center">0.95</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.11</td>
+<td align="center">-0.06</td>
+<td align="center">3.33</td>
+<td align="center">0.33</td>
+<td align="center">-1.38</td>
+<td align="center">0.37</td>
+<td align="center">3.31</td>
+<td align="center">0.92</td>
+<td align="center">2.57</td>
+<td align="center">0.94</td>
+</tr>
+<tr class="even">
+<td align="center">0.18</td>
+<td align="center">0.36</td>
+<td align="center">0.57</td>
+<td align="center">0.71</td>
+<td align="center">-1.66</td>
+<td align="center">0.03</td>
+<td align="center">0.56</td>
+<td align="center">0.85</td>
+<td align="center">3.77</td>
+<td align="center">0.49</td>
+</tr>
+<tr class="odd">
+<td align="center">-1.14</td>
+<td align="center">0.79</td>
+<td align="center">-0.23</td>
+<td align="center">0.4</td>
+<td align="center">2.12</td>
+<td align="center">-1.98</td>
+<td align="center">-0.23</td>
+<td align="center">-0.68</td>
+<td align="center">2.36</td>
+<td align="center">-0.03</td>
+</tr>
+<tr class="even">
+<td align="center">0.79</td>
+<td align="center">0.32</td>
+<td align="center">-0.57</td>
+<td align="center">-0.06</td>
+<td align="center">2.15</td>
+<td align="center">0.08</td>
+<td align="center">-0.58</td>
+<td align="center">-0.89</td>
+<td align="center">-2.93</td>
+<td align="center">-0.26</td>
+</tr>
+<tr class="odd">
+<td align="center">-0.59</td>
+<td align="center">0.57</td>
+<td align="center">-0.12</td>
+<td align="center">0.71</td>
+<td align="center">-1.19</td>
+<td align="center">0.81</td>
+<td align="center">0.01</td>
+<td align="center">1.06</td>
+<td align="center">1.46</td>
+<td align="center">0.52</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Output Layer:</strong></p>
+<table>
+<tbody>
+<tr class="odd">
+<td align="center">0.01</td>
+<td align="center">0</td>
+<td align="center">0.24</td>
+<td align="center">0.02</td>
+<td align="center">-0.23</td>
+<td align="center">0</td>
+<td align="center">-0.24</td>
+<td align="center">-0.23</td>
+<td align="center">1.17</td>
+<td align="center">0</td>
+<td align="center">-0.97</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="11-co2hnp.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

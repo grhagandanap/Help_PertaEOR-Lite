@@ -1,0 +1,858 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Bab 3 Waterflood Predictive Model | Technical Guide PertaEOR-Lite</title>
+  <meta name="description" content="Bab 3 Waterflood Predictive Model | Technical Guide PertaEOR-Lite" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Bab 3 Waterflood Predictive Model | Technical Guide PertaEOR-Lite" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/PertaEOR.png" />
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Bab 3 Waterflood Predictive Model | Technical Guide PertaEOR-Lite" />
+  
+  
+  <meta name="twitter:image" content="images/PertaEOR.png" />
+
+<meta name="author" content="PT LAPI ITB &amp; PERTAMINA INV" />
+
+
+<meta name="date" content="2021-03-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="01-prophet.html"/>
+<link rel="next" href="03-chemical.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Help PertaEOR-Lite</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="00-screening.html"><a href="00-screening.html"><i class="fa fa-check"></i><b>1</b> Screening EOR</a><ul>
+<li class="chapter" data-level="1.1" data-path="00-screening.html"><a href="00-screening.html#teori-dasar-statistik-distribusi-probabilitas-dan-metode-numerik"><i class="fa fa-check"></i><b>1.1</b> Teori Dasar Statistik, Distribusi Probabilitas, dan Metode Numerik</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="00-screening.html"><a href="00-screening.html#teori-dasar-statistik-dan-probabilitas"><i class="fa fa-check"></i><b>1.1.1</b> Teori Dasar Statistik dan Probabilitas</a></li>
+<li class="chapter" data-level="1.1.2" data-path="00-screening.html"><a href="00-screening.html#metode-numerik"><i class="fa fa-check"></i><b>1.1.2</b> Metode Numerik</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="00-screening.html"><a href="00-screening.html#metode-analisis-eor-screening"><i class="fa fa-check"></i><b>1.2</b> Metode Analisis EOR Screening</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="00-screening.html"><a href="00-screening.html#metode-analisis-eor-screening-untuk-input-data-single-value"><i class="fa fa-check"></i><b>1.2.1</b> Metode Analisis EOR Screening Untuk <em>Input</em> Data <em>Single-Value</em></a></li>
+<li class="chapter" data-level="1.2.2" data-path="00-screening.html"><a href="00-screening.html#metode-analisis-eor-screening-untuk-input-data-distribusi"><i class="fa fa-check"></i><b>1.2.2</b> Metode Analisis EOR <em>Screening</em> Untuk <em>Input</em> Data Distribusi</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="00-screening.html"><a href="00-screening.html#update-screening-eor"><i class="fa fa-check"></i><b>1.3</b> Update <em>Screening</em> EOR</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="00-screening.html"><a href="00-screening.html#update-database-screening-eor"><i class="fa fa-check"></i><b>1.3.1</b> Update <em>Database</em> <em>Screening</em> EOR</a></li>
+<li class="chapter" data-level="1.3.2" data-path="00-screening.html"><a href="00-screening.html#penambahan-parameter-pada-screening-eor"><i class="fa fa-check"></i><b>1.3.2</b> Penambahan Parameter pada <em>Screening</em> EOR</a></li>
+<li class="chapter" data-level="1.3.3" data-path="00-screening.html"><a href="00-screening.html#benchmark-eor-screening"><i class="fa fa-check"></i><b>1.3.3</b> <em>Benchmark</em> EOR <em>Screening</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="01-prophet.html"><a href="01-prophet.html"><i class="fa fa-check"></i><b>2</b> CO<sub>2</sub> Prophet Predictive Model</a><ul>
+<li class="chapter" data-level="2.1" data-path="01-prophet.html"><a href="01-prophet.html#pendahuluan"><i class="fa fa-check"></i><b>2.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="2.2" data-path="01-prophet.html"><a href="01-prophet.html#asumsi-yang-digunakan-dalam-model"><i class="fa fa-check"></i><b>2.2</b> Asumsi yang Digunakan Dalam Model</a></li>
+<li class="chapter" data-level="2.3" data-path="01-prophet.html"><a href="01-prophet.html#parameter-parameter-penting-yang-digunakan-dalam-model"><i class="fa fa-check"></i><b>2.3</b> Parameter-Parameter Penting yang Digunakan Dalam Model</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="01-prophet.html"><a href="01-prophet.html#koefisien-permeabilitas-dykstra-parsons"><i class="fa fa-check"></i><b>2.3.1</b> Koefisien Permeabilitas Dykstra-Parsons</a></li>
+<li class="chapter" data-level="2.3.2" data-path="01-prophet.html"><a href="01-prophet.html#temperatur-reservoir"><i class="fa fa-check"></i><b>2.3.2</b> Temperatur Reservoir</a></li>
+<li class="chapter" data-level="2.3.3" data-path="01-prophet.html"><a href="01-prophet.html#tekanan-rata-rata-reservoir-average-reservoir-pressure"><i class="fa fa-check"></i><b>2.3.3</b> Tekanan Rata-Rata Reservoir (<em>Average Reservoir Pressure</em>)</a></li>
+<li class="chapter" data-level="2.3.4" data-path="01-prophet.html"><a href="01-prophet.html#minimum-miscibility-pressure-mmp"><i class="fa fa-check"></i><b>2.3.4</b> <em>Minimum Miscibility Pressure (MMP)</em></a></li>
+<li class="chapter" data-level="2.3.5" data-path="01-prophet.html"><a href="01-prophet.html#viskositas-minyak-mu_o"><i class="fa fa-check"></i><b>2.3.5</b> Viskositas Minyak (<span class="math inline">\(\mu_o\)</span>)</a></li>
+<li class="chapter" data-level="2.3.6" data-path="01-prophet.html"><a href="01-prophet.html#viskositas-air-mu_w"><i class="fa fa-check"></i><b>2.3.6</b> Viskositas Air (<span class="math inline">\(\mu_w\)</span>)</a></li>
+<li class="chapter" data-level="2.3.7" data-path="01-prophet.html"><a href="01-prophet.html#faktor-volume-formasi-minyak-bo"><i class="fa fa-check"></i><b>2.3.7</b> Faktor Volume Formasi Minyak (B<sub><em>o</em></sub>)</a></li>
+<li class="chapter" data-level="2.3.8" data-path="01-prophet.html"><a href="01-prophet.html#solution-gas-oil-ratio-rs"><i class="fa fa-check"></i><b>2.3.8</b> <em>Solution Gas-Oil Ratio</em> (R<sub><em>s</em></sub>)</a></li>
+<li class="chapter" data-level="2.3.9" data-path="01-prophet.html"><a href="01-prophet.html#permeabilitas-relatif-kr"><i class="fa fa-check"></i><b>2.3.9</b> Permeabilitas Relatif (k<sub><em>r</em></sub>)</a></li>
+<li class="chapter" data-level="2.3.10" data-path="01-prophet.html"><a href="01-prophet.html#waterco2-injection-ratio"><i class="fa fa-check"></i><b>2.3.10</b> <em>Water/CO<sub>2</sub> Injection Ratio</em></a></li>
+<li class="chapter" data-level="2.3.11" data-path="01-prophet.html"><a href="01-prophet.html#mixing-parameter-omega"><i class="fa fa-check"></i><b>2.3.11</b> <em>Mixing Parameter (<span class="math inline">\(\omega\)</span>)</em></a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="01-prophet.html"><a href="01-prophet.html#tiga-kondisi-aliran-fluida"><i class="fa fa-check"></i><b>2.4</b> Tiga Kondisi Aliran Fluida</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="01-prophet.html"><a href="01-prophet.html#immiscible-flow"><i class="fa fa-check"></i><b>2.4.1</b> <em>Immiscible Flow</em></a></li>
+<li class="chapter" data-level="2.4.2" data-path="01-prophet.html"><a href="01-prophet.html#miscible-flow"><i class="fa fa-check"></i><b>2.4.2</b> <em>Miscible Flow</em></a></li>
+<li class="chapter" data-level="2.4.3" data-path="01-prophet.html"><a href="01-prophet.html#partially-miscible-flow"><i class="fa fa-check"></i><b>2.4.3</b> <em>Partially Miscible Flow</em></a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="01-prophet.html"><a href="01-prophet.html#hasil-perhitungan-dan-tampilan-perangkat-lunak"><i class="fa fa-check"></i><b>2.5</b> Hasil Perhitungan dan Tampilan Perangkat Lunak</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="02-waterflood.html"><a href="02-waterflood.html"><i class="fa fa-check"></i><b>3</b> Waterflood Predictive Model</a><ul>
+<li class="chapter" data-level="3.1" data-path="02-waterflood.html"><a href="02-waterflood.html#pendahuluan-1"><i class="fa fa-check"></i><b>3.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="3.2" data-path="02-waterflood.html"><a href="02-waterflood.html#teori-frontal-displacement-untuk-waterflooding"><i class="fa fa-check"></i><b>3.2</b> Teori <em>Frontal Displacement</em> Untuk <em>Waterflooding</em></a><ul>
+<li class="chapter" data-level="3.2.1" data-path="02-waterflood.html"><a href="02-waterflood.html#teori-fractional-flow-untuk-waterflooding"><i class="fa fa-check"></i><b>3.2.1</b> Teori <em>Fractional Flow</em> Untuk <em>Waterflooding</em></a></li>
+<li class="chapter" data-level="3.2.2" data-path="02-waterflood.html"><a href="02-waterflood.html#teori-frontal-advance-untuk-waterflooding"><i class="fa fa-check"></i><b>3.2.2</b> Teori <em>Frontal Advance</em> Untuk <em>Waterflooding</em></a></li>
+<li class="chapter" data-level="3.2.3" data-path="02-waterflood.html"><a href="02-waterflood.html#penentuan-parameter-left-fracpartial-f_wpartial-s_w-right_s_w-dan-saturasi-air-rata-rata-reservoir-bar-s_w"><i class="fa fa-check"></i><b>3.2.3</b> Penentuan parameter <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)_{S_w}\)</span> dan Saturasi Air Rata-Rata Reservoir (<span class="math inline">\(\bar S_w\)</span>)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="02-waterflood.html"><a href="02-waterflood.html#penentuan-parameter-efisiensi-waterflooding"><i class="fa fa-check"></i><b>3.3</b> Penentuan Parameter Efisiensi <em>Waterflooding</em></a><ul>
+<li class="chapter" data-level="3.3.1" data-path="02-waterflood.html"><a href="02-waterflood.html#displacement-efficiency-ed"><i class="fa fa-check"></i><b>3.3.1</b> <em>Displacement Efficiency</em> (E<sub>D</sub>)</a></li>
+<li class="chapter" data-level="3.3.2" data-path="02-waterflood.html"><a href="02-waterflood.html#areal-sweep-efficiency-ea"><i class="fa fa-check"></i><b>3.3.2</b> <em>Areal Sweep Efficiency</em> (E<sub>A</sub>)</a></li>
+<li class="chapter" data-level="3.3.3" data-path="02-waterflood.html"><a href="02-waterflood.html#vertical-sweep-efficiency-ev"><i class="fa fa-check"></i><b>3.3.3</b> <em>Vertical Sweep Efficiency</em> (E<sub>V</sub>)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="02-waterflood.html"><a href="02-waterflood.html#persamaan-persamaan-yang-digunakan-dalam-prediksi-performa-waterflooding"><i class="fa fa-check"></i><b>3.4</b> Persamaan-Persamaan yang Digunakan Dalam Prediksi Performa <em>Waterflooding</em></a></li>
+<li class="chapter" data-level="3.5" data-path="02-waterflood.html"><a href="02-waterflood.html#persamaan-persamaan-dasar-dan-nilai-default-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>3.5</b> Persamaan-Persamaan Dasar dan Nilai <em>Default</em> yang Digunakan Dalam <em>Predictive Model</em></a><ul>
+<li class="chapter" data-level="3.5.1" data-path="02-waterflood.html"><a href="02-waterflood.html#viskositas-minyak"><i class="fa fa-check"></i><b>3.5.1</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="3.5.2" data-path="02-waterflood.html"><a href="02-waterflood.html#solution-gas-oil-ratio"><i class="fa fa-check"></i><b>3.5.2</b> <em>SolUtion Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="3.5.3" data-path="02-waterflood.html"><a href="02-waterflood.html#faktor-volume-formasi-minyak"><i class="fa fa-check"></i><b>3.5.3</b> Faktor Volume Formasi Minyak</a></li>
+<li class="chapter" data-level="3.5.4" data-path="02-waterflood.html"><a href="02-waterflood.html#permeabilitas-relatif"><i class="fa fa-check"></i><b>3.5.4</b> Permeabilitas Relatif</a></li>
+<li class="chapter" data-level="3.5.5" data-path="02-waterflood.html"><a href="02-waterflood.html#nilai-default-parameter-yang-digunakan-dalam-model"><i class="fa fa-check"></i><b>3.5.5</b> Nilai <em>Default</em> Parameter yang Digunakan Dalam Model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="03-chemical.html"><a href="03-chemical.html"><i class="fa fa-check"></i><b>4</b> Chemical Flood Predictive Model</a><ul>
+<li class="chapter" data-level="4.1" data-path="03-chemical.html"><a href="03-chemical.html#pendahuluan-2"><i class="fa fa-check"></i><b>4.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="4.2" data-path="03-chemical.html"><a href="03-chemical.html#tinjauan-sifat-fisis-dan-mekanisme-kerja-dari-surfaktan-dan-alkali"><i class="fa fa-check"></i><b>4.2</b> Tinjauan Sifat Fisis dan Mekanisme Kerja Dari Surfaktan dan Alkali</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="03-chemical.html"><a href="03-chemical.html#sifat-fisis-dan-mekanisme-kerja-surfaktan"><i class="fa fa-check"></i><b>4.2.1</b> Sifat Fisis dan Mekanisme Kerja Surfaktan</a></li>
+<li class="chapter" data-level="4.2.2" data-path="03-chemical.html"><a href="03-chemical.html#sifat-fisis-dan-mekanisme-kerja-alkali"><i class="fa fa-check"></i><b>4.2.2</b> Sifat Fisis dan Mekanisme Kerja Alkali</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="03-chemical.html"><a href="03-chemical.html#mekanisme-proses-injeksi-kimia"><i class="fa fa-check"></i><b>4.3</b> Mekanisme Proses Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.4" data-path="03-chemical.html"><a href="03-chemical.html#asumsi-dan-batasan-dalam-predictive-model"><i class="fa fa-check"></i><b>4.4</b> Asumsi dan Batasan Dalam <em>Predictive Model</em></a></li>
+<li class="chapter" data-level="4.5" data-path="03-chemical.html"><a href="03-chemical.html#konsep-dan-algoritma-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>4.5</b> Konsep dan Algoritma yang Digunakan Dalam <em>Predictive Model</em></a><ul>
+<li class="chapter" data-level="4.5.1" data-path="03-chemical.html"><a href="03-chemical.html#perhitungan-target-oil"><i class="fa fa-check"></i><b>4.5.1</b> Perhitungan <em>Target Oil</em></a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="03-chemical.html"><a href="03-chemical.html#laju-alir-dan-bilangan-kapiler"><i class="fa fa-check"></i><b>4.6</b> Laju Alir dan Bilangan Kapiler</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="03-chemical.html"><a href="03-chemical.html#surfactant-retention-pada-batuan-sandstone"><i class="fa fa-check"></i><b>4.6.1</b> <em>Surfactant Retention</em> Pada Batuan <em>Sandstone</em></a></li>
+<li class="chapter" data-level="4.6.2" data-path="03-chemical.html"><a href="03-chemical.html#perhitungan-oil-recovery"><i class="fa fa-check"></i><b>4.6.2</b> Perhitungan <em>Oil Recovery</em></a></li>
+<li class="chapter" data-level="4.6.3" data-path="03-chemical.html"><a href="03-chemical.html#karakteristik-produksi-minyak-dan-koreksi-terhadap-crossflow"><i class="fa fa-check"></i><b>4.6.3</b> Karakteristik Produksi Minyak dan Koreksi Terhadap <em>Crossflow</em></a></li>
+<li class="chapter" data-level="4.6.4" data-path="03-chemical.html"><a href="03-chemical.html#karakteristik-injeksi-kimia"><i class="fa fa-check"></i><b>4.6.4</b> Karakteristik Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.6.5" data-path="03-chemical.html"><a href="03-chemical.html#modifikasi-predictive-model-untuk-caustic-dan-caustic-polymer-flood"><i class="fa fa-check"></i><b>4.6.5</b> Modifikasi <em>Predictive Model</em> Untuk <em>Caustic</em> dan <em>Caustic-Polymer Flood</em></a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="03-chemical.html"><a href="03-chemical.html#persamaan-persamaan-dasar-dan-nilai-default-yang-digunakan-dalam-model"><i class="fa fa-check"></i><b>4.7</b> Persamaan-Persamaan Dasar dan Nilai <em>Default</em> yang Digunakan Dalam Model</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="03-chemical.html"><a href="03-chemical.html#viskositas-minyak-1"><i class="fa fa-check"></i><b>4.7.1</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="4.7.2" data-path="03-chemical.html"><a href="03-chemical.html#solution-gas-oil-ratio-1"><i class="fa fa-check"></i><b>4.7.2</b> <em>Solution Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="4.7.3" data-path="03-chemical.html"><a href="03-chemical.html#faktor-volume-formasi-minyak-1"><i class="fa fa-check"></i><b>4.7.3</b> Faktor Volume Formasi Minyak</a></li>
+<li class="chapter" data-level="4.7.4" data-path="03-chemical.html"><a href="03-chemical.html#permeabilitas-relatif-dan-fraksi-aliran-air"><i class="fa fa-check"></i><b>4.7.4</b> Permeabilitas Relatif dan Fraksi Aliran Air</a></li>
+<li class="chapter" data-level="4.7.5" data-path="03-chemical.html"><a href="03-chemical.html#nilai-default-yang-dignakan-dalam-predictive-model"><i class="fa fa-check"></i><b>4.7.5</b> Nilai <em>Default</em> yang Dignakan Dalam <em>Predictive Model</em></a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="03-chemical.html"><a href="03-chemical.html#penambahan-jenis-pattern-pada-injeksi-kimia"><i class="fa fa-check"></i><b>4.8</b> Penambahan Jenis <em>Pattern</em> pada Injeksi Kimia</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="03-chemical.html"><a href="03-chemical.html#injeksi-kimia"><i class="fa fa-check"></i><b>4.8.1</b> Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.8.2" data-path="03-chemical.html"><a href="03-chemical.html#penentuan-pola-sumur-injeksi"><i class="fa fa-check"></i><b>4.8.2</b> Penentuan Pola Sumur Injeksi</a></li>
+<li class="chapter" data-level="4.8.3" data-path="03-chemical.html"><a href="03-chemical.html#sejarah-injeksi-kimia"><i class="fa fa-check"></i><b>4.8.3</b> Sejarah Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.8.4" data-path="03-chemical.html"><a href="03-chemical.html#derivasi-persamaan-model-pattern-injeksi-kimia"><i class="fa fa-check"></i><b>4.8.4</b> Derivasi Persamaan Model <em>Pattern</em> Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.8.5" data-path="03-chemical.html"><a href="03-chemical.html#simulasi-sintetik-injeksi-kimia"><i class="fa fa-check"></i><b>4.8.5</b> Simulasi Sintetik Injeksi Kimia</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="04-polymer.html"><a href="04-polymer.html"><i class="fa fa-check"></i><b>5</b> Polymer Predictive Model</a><ul>
+<li class="chapter" data-level="5.1" data-path="04-polymer.html"><a href="04-polymer.html#pendahuluan-3"><i class="fa fa-check"></i><b>5.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="5.2" data-path="04-polymer.html"><a href="04-polymer.html#teori-fractional-flow"><i class="fa fa-check"></i><b>5.2</b> Teori <em>Fractional Flow</em></a><ul>
+<li class="chapter" data-level="5.2.1" data-path="04-polymer.html"><a href="04-polymer.html#penentuan-nilai-saturasi-air-rata-rata-di-reservoir-selama-periode-injeksi-polimer"><i class="fa fa-check"></i><b>5.2.1</b> Penentuan Nilai Saturasi Air Rata-Rata di Reservoir Selama Periode Injeksi Polimer</a></li>
+<li class="chapter" data-level="5.2.2" data-path="04-polymer.html"><a href="04-polymer.html#rangkuman-persamaan-persamaan-yang-digunakan-dalam-teori-fractional-flow"><i class="fa fa-check"></i><b>5.2.2</b> Rangkuman Persamaan-Persamaan yang Digunakan Dalam Teori <em>Fractional Flow</em></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="04-polymer.html"><a href="04-polymer.html#metode-perhitungan-areal-dan-vertical-sweep-efficiency-menggunakan-pendekatan-streamtube"><i class="fa fa-check"></i><b>5.3</b> Metode Perhitungan <em>Areal</em> dan <em>Vertical Sweep Efficiency</em> Menggunakan Pendekatan <em>Streamtube</em></a></li>
+<li class="chapter" data-level="5.4" data-path="04-polymer.html"><a href="04-polymer.html#perhitungan-injectivity"><i class="fa fa-check"></i><b>5.4</b> Perhitungan <em>Injectivity</em></a></li>
+<li class="chapter" data-level="5.5" data-path="04-polymer.html"><a href="04-polymer.html#penentuan-nilai-permeabilitas-di-setiap-lapisan-reservoir"><i class="fa fa-check"></i><b>5.5</b> Penentuan Nilai Permeabilitas di Setiap Lapisan Reservoir</a></li>
+<li class="chapter" data-level="5.6" data-path="04-polymer.html"><a href="04-polymer.html#koreksi-terhadap-pengaruh-slug-polimer"><i class="fa fa-check"></i><b>5.6</b> Koreksi Terhadap Pengaruh <em>Slug</em> Polimer</a></li>
+<li class="chapter" data-level="5.7" data-path="04-polymer.html"><a href="04-polymer.html#pengaruh-sifat-fisis-larutan-polimer-terhadap-performa-injeksi-polimer"><i class="fa fa-check"></i><b>5.7</b> Pengaruh Sifat Fisis Larutan Polimer Terhadap Performa Injeksi Polimer</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="04-polymer.html"><a href="04-polymer.html#efek-pengurangan-permeabilitas-untuk-fasa-aqueous"><i class="fa fa-check"></i><b>5.7.1</b> Efek Pengurangan Permeabilitas Untuk Fasa <em>Aqueous</em></a></li>
+<li class="chapter" data-level="5.7.2" data-path="04-polymer.html"><a href="04-polymer.html#efek-aliran-non-newtonian-larutan-polimer-di-daerah-sekitar-sumur-injeksi"><i class="fa fa-check"></i><b>5.7.2</b> Efek Aliran <em>Non-Newtonian</em> Larutan Polimer di Daerah Sekitar Sumur Injeksi</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="04-polymer.html"><a href="04-polymer.html#persamaan-persamaan-dasar-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>5.8</b> Persamaan-Persamaan Dasar yang Digunakan Dalam <em>Predictive Model</em></a><ul>
+<li class="chapter" data-level="5.8.1" data-path="04-polymer.html"><a href="04-polymer.html#viskositas-minyak-2"><i class="fa fa-check"></i><b>5.8.1</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="5.8.2" data-path="04-polymer.html"><a href="04-polymer.html#solution-gas-oil-ratio-2"><i class="fa fa-check"></i><b>5.8.2</b> <em>Solution Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="5.8.3" data-path="04-polymer.html"><a href="04-polymer.html#faktor-volume-formasi-minyak-2"><i class="fa fa-check"></i><b>5.8.3</b> Faktor Volume Formasi Minyak</a></li>
+<li class="chapter" data-level="5.8.4" data-path="04-polymer.html"><a href="04-polymer.html#faktor-volume-formasi-air"><i class="fa fa-check"></i><b>5.8.4</b> Faktor Volume Formasi Air</a></li>
+<li class="chapter" data-level="5.8.5" data-path="04-polymer.html"><a href="04-polymer.html#permeabilitas-relatf-dan-fraksi-aliran-air"><i class="fa fa-check"></i><b>5.8.5</b> Permeabilitas Relatf dan Fraksi Aliran Air</a></li>
+<li class="chapter" data-level="5.8.6" data-path="04-polymer.html"><a href="04-polymer.html#persamaan-persamaan-dasar-dan-nilai-default-yang-digunakan"><i class="fa fa-check"></i><b>5.8.6</b> Persamaan-Persamaan Dasar dan Nilai <em>Default</em> yang Digunakan</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="05-co2miscible.html"><a href="05-co2miscible.html"><i class="fa fa-check"></i><b>6</b> CO<sub>2</sub> Miscible Predictive Model</a><ul>
+<li class="chapter" data-level="6.1" data-path="05-co2miscible.html"><a href="05-co2miscible.html#pendahuluan-4"><i class="fa fa-check"></i><b>6.1</b> Pendahuluan</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="05-co2miscible.html"><a href="05-co2miscible.html#kondisi-pvt"><i class="fa fa-check"></i><b>6.1.1</b> Kondisi PVT</a></li>
+<li class="chapter" data-level="6.1.2" data-path="05-co2miscible.html"><a href="05-co2miscible.html#wettability"><i class="fa fa-check"></i><b>6.1.2</b> Wettability</a></li>
+<li class="chapter" data-level="6.1.3" data-path="05-co2miscible.html"><a href="05-co2miscible.html#keuntungan-dan-kerugian-melakukan-injeksi-co2"><i class="fa fa-check"></i><b>6.1.3</b> Keuntungan dan Kerugian Melakukan Injeksi CO<sub>2</sub></a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="05-co2miscible.html"><a href="05-co2miscible.html#miscible-co2-predictive-model"><i class="fa fa-check"></i><b>6.2</b> <em>Miscible CO<sub>2</sub> Predictive Model</em></a><ul>
+<li class="chapter" data-level="6.2.1" data-path="05-co2miscible.html"><a href="05-co2miscible.html#sifat-sifat-fisik-fluida"><i class="fa fa-check"></i><b>6.2.1</b> Sifat-Sifat Fisik Fluida</a></li>
+<li class="chapter" data-level="6.2.2" data-path="05-co2miscible.html"><a href="05-co2miscible.html#fractional-flow-model"><i class="fa fa-check"></i><b>6.2.2</b> <em>Fractional Flow</em> Model</a></li>
+<li class="chapter" data-level="6.2.3" data-path="05-co2miscible.html"><a href="05-co2miscible.html#parameter-parameter-performa-miscible-co2"><i class="fa fa-check"></i><b>6.2.3</b> Parameter-Parameter Performa <em>Miscible</em> CO<sub>2</sub></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html"><i class="fa fa-check"></i><b>7</b> CO<sub>2</sub> Immiscible Predictive Model</a><ul>
+<li class="chapter" data-level="7.1" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#pendahuluan-5"><i class="fa fa-check"></i><b>7.1</b> Pendahuluan</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#mekanisme-pendesakan-secara-immiscible"><i class="fa fa-check"></i><b>7.1.1</b> Mekanisme Pendesakan Secara <em>Immiscible</em></a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#immiscible-co2-predictive-model"><i class="fa fa-check"></i><b>7.2</b> <em>Immiscible</em> CO<sub>2</sub> <em>Predictive Model</em></a><ul>
+<li class="chapter" data-level="7.2.1" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#sifat-sifat-fisik-fluida-1"><i class="fa fa-check"></i><b>7.2.1</b> Sifat-Sifat Fisik Fluida</a></li>
+<li class="chapter" data-level="7.2.2" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#fractional-flow-model-1"><i class="fa fa-check"></i><b>7.2.2</b> <em>Fractional Flow Model</em></a></li>
+<li class="chapter" data-level="7.2.3" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#material-balance-equation"><i class="fa fa-check"></i><b>7.2.3</b> <em>Material Balance Equation</em></a></li>
+<li class="chapter" data-level="7.2.4" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#parameter-parameter-performa-immiscible-co2"><i class="fa fa-check"></i><b>7.2.4</b> Parameter-Parameter Performa <em>Immiscible</em> CO<sub>2</sub></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="07-steam.html"><a href="07-steam.html"><i class="fa fa-check"></i><b>8</b> Steamflood Predictive Model</a><ul>
+<li class="chapter" data-level="8.1" data-path="07-steam.html"><a href="07-steam.html#pendahuluan-6"><i class="fa fa-check"></i><b>8.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="8.2" data-path="07-steam.html"><a href="07-steam.html#fenomena-heat-loss"><i class="fa fa-check"></i><b>8.2</b> Fenomena <em>Heat Loss</em></a><ul>
+<li class="chapter" data-level="8.2.1" data-path="07-steam.html"><a href="07-steam.html#fenomena-heat-loss-di-pipa-permukaan"><i class="fa fa-check"></i><b>8.2.1</b> Fenomena <em>Heat Loss</em> di Pipa Permukaan</a></li>
+<li class="chapter" data-level="8.2.2" data-path="07-steam.html"><a href="07-steam.html#fenomena-heat-loss-di-sumur-injeksi"><i class="fa fa-check"></i><b>8.2.2</b> Fenomena <em>Heat Loss</em> di Sumur Injeksi</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="07-steam.html"><a href="07-steam.html#perhitungan-sejumlah-parameter-penting-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>8.3</b> Perhitungan Sejumlah Parameter Penting yang Digunakan Dalam <em>Predictive Model</em></a><ul>
+<li class="chapter" data-level="8.3.1" data-path="07-steam.html"><a href="07-steam.html#permeabilitas-relatif-tiga-fasa"><i class="fa fa-check"></i><b>8.3.1</b> Permeabilitas Relatif Tiga Fasa</a></li>
+<li class="chapter" data-level="8.3.2" data-path="07-steam.html"><a href="07-steam.html#pembagian-daerah-reservoir"><i class="fa fa-check"></i><b>8.3.2</b> Pembagian Daerah Reservoir</a></li>
+<li class="chapter" data-level="8.3.3" data-path="07-steam.html"><a href="07-steam.html#initial-injectivity-index"><i class="fa fa-check"></i><b>8.3.3</b> <em>Initial Injectivity Index</em></a></li>
+<li class="chapter" data-level="8.3.4" data-path="07-steam.html"><a href="07-steam.html#viskositas-fluida"><i class="fa fa-check"></i><b>8.3.4</b> Viskositas Fluida</a></li>
+<li class="chapter" data-level="8.3.5" data-path="07-steam.html"><a href="07-steam.html#solution-gas-oil-ratio-4"><i class="fa fa-check"></i><b>8.3.5</b> <em>Solution Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="8.3.6" data-path="07-steam.html"><a href="07-steam.html#faktor-volume-formasi-minyak-4"><i class="fa fa-check"></i><b>8.3.6</b> Faktor Volume Formasi Minyak</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="07-steam.html"><a href="07-steam.html#steamflood-predictive-model-1"><i class="fa fa-check"></i><b>8.4</b> <em>Steamflood Predictive Model</em></a><ul>
+<li class="chapter" data-level="8.4.1" data-path="07-steam.html"><a href="07-steam.html#metode-williams-metode-stanford-university"><i class="fa fa-check"></i><b>8.4.1</b> Metode Williams (Metode Stanford University)</a></li>
+<li class="chapter" data-level="8.4.2" data-path="07-steam.html"><a href="07-steam.html#metode-jones"><i class="fa fa-check"></i><b>8.4.2</b> Metode Jones</a></li>
+<li class="chapter" data-level="8.4.3" data-path="07-steam.html"><a href="07-steam.html#model-gomaa"><i class="fa fa-check"></i><b>8.4.3</b> Model Gomaa</a></li>
+<li class="chapter" data-level="8.4.4" data-path="07-steam.html"><a href="07-steam.html#model-aydelotte-pope-model-intercomp"><i class="fa fa-check"></i><b>8.4.4</b> Model Aydelotte-Pope (Model Intercomp)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="08-insitu.html"><a href="08-insitu.html"><i class="fa fa-check"></i><b>9</b> In-Situ Combustion Predictive Model</a><ul>
+<li class="chapter" data-level="9.1" data-path="08-insitu.html"><a href="08-insitu.html#pendahuluan-7"><i class="fa fa-check"></i><b>9.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="9.2" data-path="08-insitu.html"><a href="08-insitu.html#in-situ-combustion-predictive-model-1"><i class="fa fa-check"></i><b>9.2</b> <em>In-Situ Combustion Predictive Model</em></a><ul>
+<li class="chapter" data-level="9.2.1" data-path="08-insitu.html"><a href="08-insitu.html#model-brigham-et-al-untuk-dry-in-situ-combustion"><i class="fa fa-check"></i><b>9.2.1</b> Model Brigham, et al Untuk <em>Dry In-Situ Combustion</em></a></li>
+<li class="chapter" data-level="9.2.2" data-path="08-insitu.html"><a href="08-insitu.html#perhitungan-parameter-parameter-penting-ynag-dgunakan-dalam-model"><i class="fa fa-check"></i><b>9.2.2</b> Perhitungan Parameter-Parameter Penting ynag Dgunakan Dalam Model</a></li>
+<li class="chapter" data-level="9.2.3" data-path="08-insitu.html"><a href="08-insitu.html#viskositas-minyak-4"><i class="fa fa-check"></i><b>9.2.3</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="9.2.4" data-path="08-insitu.html"><a href="08-insitu.html#parameter-parameter-performa-in-situ-combustion"><i class="fa fa-check"></i><b>9.2.4</b> Parameter-Parameter Performa <em>In-Situ Combustion</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="09-infill.html"><a href="09-infill.html"><i class="fa fa-check"></i><b>10</b> Infill Drilling Predictive Model</a><ul>
+<li class="chapter" data-level="10.1" data-path="09-infill.html"><a href="09-infill.html#pendahuluan-8"><i class="fa fa-check"></i><b>10.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="10.2" data-path="09-infill.html"><a href="09-infill.html#asumsi-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>10.2</b> Asumsi yang Digunakan Dalam <em>Predictive Model</em></a></li>
+<li class="chapter" data-level="10.3" data-path="09-infill.html"><a href="09-infill.html#analisis-streamtube"><i class="fa fa-check"></i><b>10.3</b> Analisis <em>Streamtube</em></a></li>
+<li class="chapter" data-level="10.4" data-path="09-infill.html"><a href="09-infill.html#pemodelan-continuity-reservoir"><i class="fa fa-check"></i><b>10.4</b> Pemodelan <em>Continuity</em> Reservoir</a></li>
+<li class="chapter" data-level="10.5" data-path="09-infill.html"><a href="09-infill.html#persamaan-persamaan-dasar-dan-nilai-default-yang-digunakan-dalam-predcitive-model"><i class="fa fa-check"></i><b>10.5</b> Persamaan-Persamaan Dasar dan Nilai <em>Default</em> yang Digunakan Dalam <em>Predcitive Model</em></a><ul>
+<li class="chapter" data-level="10.5.1" data-path="09-infill.html"><a href="09-infill.html#viskositas-minyak-5"><i class="fa fa-check"></i><b>10.5.1</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="10.5.2" data-path="09-infill.html"><a href="09-infill.html#solution-gas-oil-ratio-5"><i class="fa fa-check"></i><b>10.5.2</b> <em>Solution Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="10.5.3" data-path="09-infill.html"><a href="09-infill.html#faktor-volume-formasi-minyak-6"><i class="fa fa-check"></i><b>10.5.3</b> Faktor Volume Formasi Minyak</a></li>
+<li class="chapter" data-level="10.5.4" data-path="09-infill.html"><a href="09-infill.html#permeabilitas-relatif-1"><i class="fa fa-check"></i><b>10.5.4</b> Permeabilitas Relatif</a></li>
+<li class="chapter" data-level="10.5.5" data-path="09-infill.html"><a href="09-infill.html#nilai-default-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>10.5.5</b> Nilai <em>Default</em> yang Digunakan Dalam <em>Predictive Model</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="10-hc.html"><a href="10-hc.html"><i class="fa fa-check"></i><b>11</b> Hydrocarbon Gas Injection Predictive Model</a><ul>
+<li class="chapter" data-level="11.1" data-path="10-hc.html"><a href="10-hc.html#pendahuluan-9"><i class="fa fa-check"></i><b>11.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="11.2" data-path="10-hc.html"><a href="10-hc.html#mekanisme-injeksi-hidrokarbon"><i class="fa fa-check"></i><b>11.2</b> Mekanisme Injeksi Hidrokarbon</a></li>
+<li class="chapter" data-level="11.3" data-path="10-hc.html"><a href="10-hc.html#pembuatan-predictive-model"><i class="fa fa-check"></i><b>11.3</b> Pembuatan <em>Predictive Model</em></a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="11-co2hnp.html"><a href="11-co2hnp.html"><i class="fa fa-check"></i><b>12</b> CO<sub>2</sub> Huff &amp; Puff Predictive Model</a><ul>
+<li class="chapter" data-level="12.1" data-path="11-co2hnp.html"><a href="11-co2hnp.html#pendahuluan-10"><i class="fa fa-check"></i><b>12.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="12.2" data-path="11-co2hnp.html"><a href="11-co2hnp.html#pembutan-predictive-model"><i class="fa fa-check"></i><b>12.2</b> Pembutan <em>Predictive Model</em></a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="12-chemicalhnp.html"><a href="12-chemicalhnp.html"><i class="fa fa-check"></i><b>13</b> Chemical Injection Huff &amp; Puff Predictive Model</a><ul>
+<li class="chapter" data-level="13.1" data-path="12-chemicalhnp.html"><a href="12-chemicalhnp.html#pendahuluan-11"><i class="fa fa-check"></i><b>13.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="13.2" data-path="12-chemicalhnp.html"><a href="12-chemicalhnp.html#mekanisme-injeksi-chemical-huff-and-puff"><i class="fa fa-check"></i><b>13.2</b> Mekanisme Injeksi <em>Chemical Huff and Puff</em></a></li>
+<li class="chapter" data-level="13.3" data-path="12-chemicalhnp.html"><a href="12-chemicalhnp.html#pembuatan-model-prediktif"><i class="fa fa-check"></i><b>13.3</b> Pembuatan Model Prediktif</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Technical Guide PertaEOR-Lite</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="waterflood-predictive-model" class="section level1">
+<h1><span class="header-section-number">Bab 3</span> Waterflood Predictive Model</h1>
+<div id="pendahuluan-1" class="section level2">
+<h2><span class="header-section-number">3.1</span> Pendahuluan</h2>
+<p><strong><em>Waterflooding</em></strong> adalah istilah yang digunakan untuk menggambarkan proses injeksi air ke dalam reservoir dengan tujuan untuk menambah tingkat perolehan minyak. <em>Waterflood predictive model</em> merupakan suatu model yang dapat memprediksi performa reservoir di bawah proses <em>waterflood</em>.</p>
+Analisis performa <em>waterflood</em> membutuhkan informasi mengenai profil saturasi air di reservoir selama periode injeksi air dilakukan. Teori <strong><em>frontal displacement</em></strong> dari Buckley dan Leverett merupakan teori yang membahas mengenai cara menentukan profil saturasi air di reservoir selama proses <em>secondary</em> atau <em>tertiary recovery</em>. Teori ini tidak hanya berlaku untuk prediksi performa reservoir di bawah proses <em>waterflooding</em>, tetapi juga berlaku umum untuk seluruh proses <em>secondary</em> dan <em>tertiary flooding</em>. Pemahaman mengenai teori <em>frontal displacement</em>, yang terdiri dari teori <strong>fractional flow</strong> dan teori <strong>frontal advance</strong>, sangat penting untuk memprediksi performa reservoir di bawah proses <em>secondary</em> maupun <em>tertiary flooding</em>. Berikut akan diberikan pnjelasan mengenai teori <em>frontal displacement</em>.
+<p>
+ 
+</p>
+</div>
+<div id="teori-frontal-displacement-untuk-waterflooding" class="section level2">
+<h2><span class="header-section-number">3.2</span> Teori <em>Frontal Displacement</em> Untuk <em>Waterflooding</em></h2>
+<div id="teori-fractional-flow-untuk-waterflooding" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> Teori <em>Fractional Flow</em> Untuk <em>Waterflooding</em></h3>
+<p>Teori <em>fractional flow</em> merupakan teori yang membahas mengenai fraksi aliran suatu fasa fluida dalam total aliran yang terdiri atas sejumlah fasa fluida. Melalui teori <em>fractional flow</em>, nilai dari fraksi aliran air sebagai fungsi dari saturasi air di reservoir dapat diketahui. Berikut akan dijelaskan mengenai penurunan persamaan <em>fractional flow</em>.</p>
+<p>Tinjau dua fasa fluida yang mengalir bersamaan di reservoir, yaitu fasa air (<em>water</em>) dan fasa minyak (<em>oil</em>). Persamaan Darcy (dalam bentuk kecepatan alir Darcy) untuk masing-masing fasa ini dinyatakan sebagai berikut.
+<span class="math display">\[u_o = -\frac{k_o}{\mu_o} \left[ \frac{\partial P_o}{\partial x}+ \rho_o\ g\ \sin \alpha \right]\]</span>
+<span class="math display">\[u_w = -\frac{k_w}{\mu_w} \left[ \frac{\partial P_w}{\partial x}+\rho_w\ g\ \sin \alpha \right] ... (1)\]</span>Pada persamaan (1) di atas, <em>k<sub>i</sub></em> menyatakan permeabilitas efektif dari masing-masing fasa. Selanjutnya, dari definisi kecepatan Darcy,
+<span class="math display">\[u = \frac{q}{A}...(2)\]</span>
+Maka substitusi persamaan (2) ke persamaan (1) akan memberikan persamaan berikut.
+<span class="math display">\[q_o = \frac{-k_o A}{\mu_o} \left[ \frac{\partial P_o}{\partial x}+ \rho_o\ g\ \sin \alpha \right] \]</span>
+<span class="math display">\[q_w = \frac{-k_w A}{\mu_w} \left[ \frac{\partial P_w}{\partial x}+ \rho_w\ g\ \sin \alpha \right]...(3) \]</span>
+Fraksi aliran air (<em>fractional flow of water - f<sub>w</sub></em>) dari total aliran didefinisikan sebagai laju alir fasa air dibagi dengan laju alir total,
+<span class="math display">\[f_w = \frac{q_w}{q_t} = \frac{q_w}{q_w+q_o}...(4)\]</span>
+Dari persamaan (4), diperoleh dua persamaan berikut:
+<span class="math display">\[q_w = f_w\ q_t\]</span>
+<span class="math display">\[q_o = (1-f_w)\ q_t\]</span>
+Substitusi persamaan (5) ke persamaan (3), maka persamaan aliran untuk fasa minyak dan fasa air menjadi:
+<span class="math display">\[(1-f_w)\ q_t = -\frac{k_o A}{\mu_o} \left[ \frac{\partial P_o}{\partial x}+ \rho_o\ g\ \sin \alpha \right]\]</span>
+<span class="math display">\[f_w\ q_t = -\frac{k_w A}{\mu_w} \left[ \frac{\partial P_w}{\partial x}+ \rho_w\ g\ \sin \alpha \right]\]</span>
+Persamaan di atas dapat pula dituliskan sebagai:
+<span class="math display">\[-(1-f_w) \frac{q_t}{A} \frac{\mu_o}{k_o} = \frac{\partial P_o}{\partial x}+ \rho_o\ g\ \sin \alpha \]</span>
+<span class="math display">\[-f_w \frac{q_t}{A} \frac{\mu_w}{k_w} = \frac{\partial P_w}{\partial x}+ \rho_o\ g\ \sin \alpha...(6) \]</span>
+Selanjutnya, dari definisi tekanan kapiler, <em>P<sub>c</sub> = P<sub>o</sub> - P<sub>w</sub></em>, diperoleh
+<span class="math display">\[\frac{\partial P_c}{\partial x} = \frac{\partial P_o}{\partial x} - \frac{\partial P_w}{\partial x}...(7)\]</span>
+Selisihkan persamaan aliran fasa minyak dan fasa air dari persamaan (6), kemudian lakukan substitusi persamaan (7) ke persamaan (6), diperoleh:
+<span class="math display">\[\frac{q_t f_w}{A} \left( \frac{\mu_o}{k_o} +\frac{\mu_w}{k_w} \right) = \frac{\partial P_c}{\partial x} + (\rho_o - \rho_g)\ g\ sin\ \alpha\ + \frac{q_t}{A} \frac{\mu_o}{k_o} \]</span>
+<span class="math display">\[\frac{q_t f_w}{A} = \frac{\frac{\partial P_c}{\partial x} + (\rho_o - \rho_g)\ g\ sin\ \alpha\ + \frac{q_t}{A} \frac{\mu_o}{k_o}}{\left( \frac{\mu_o}{k_o} +\frac{\mu_w}{k_w} \right)}\]</span>
+<span class="math display">\[f_w = \frac{1+\frac{k_o}{\mu_o}\frac{A}{q_t} \left( \frac{\partial P_c}{\partial x} + (\rho_o - \rho_g)\ g\ sin\ \alpha\ \right)}{1+\frac{k_o}{k_w}\frac{\mu_w}{\mu_o}}...(8)\]</span>
+Persamaan (8) merupakan persamaan <em>fractional flow</em> untuk fasa air. Jika faktor tekanan kapiler dapat diabaikan, dan reservoir berada pada bidang horizontal ( = 0), maka bentuk persamaan <em>fractional flow of water</em> dapat menjadi lebih sederhana, yaitu:
+<span class="math display">\[f_w = \frac{1}{1+\frac{k_o}{k_w}\frac{\mu_w}{\mu_o}}...(9)\]</span>
+Persamaan (9) dapat pula dinyatakan dalam bentuk permeabilitas relatif, yaitu:
+<span class="math display">\[f_w = \frac{1}{1+\frac{k_{ro}}{k_{rw}}\frac{\mu_w}{\mu_o}}...(10)\]</span>
+Analisis lebih lanjut perlu dilakukan terhadap persamaan fraksi aliran air sehingga informasi mengenai nilai fraksi aliran air (<em>f<sub>w</sub></em>) sebagai fungsi dari saturasi air (<em>S<sub>w</sub></em>) di reservoir dapat diperoleh. Plot fraksi aliran air (<em>f<sub>w</sub></em>) terhadap saturasi air (<em>S<sub>w</sub></em>) memiliki bentuk kurva seperti pada gambar berikut.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<img src="images/waterflood/fraksiair.png" alt="Kurva fraksi aliran air sebagai fungsi dari saturasi air" width="50%" />
+<p class="caption">
+Gambar 1.1: Kurva fraksi aliran air sebagai fungsi dari saturasi air
+</p>
+</div>
+<p>
+ 
+</p>
+<p>Untuk menyusun kurva <em>f<sub>w</sub></em> versus <em>S<sub>w</sub></em> seperti di atas, perlu diketahui pernyataan <em>f<sub>w</sub></em> sebagai fungsi dari <em>S<sub>w</sub></em>, <span class="math inline">\({f_w = f_w(S_w)}\)</span>. Approksimasi pernyataan <span class="math inline">\({f_w = f_w(S_w)}\)</span> dapat diperoleh melalui analisis kurva rasio permeabilitas relatif terhadap <em>S<sub>w</sub></em>. Beberapa persamaan berikut memberikan approksimasi nilai fraksi aliran air sebagai fungsi dari saturasi air.
+<span class="math display">\[\frac{k_{ro}}{k_{rw}} = ae^{bS_w} ...(11)\]</span>
+<span class="math display">\[f_w = \frac{1}{1+ \left( \frac{\mu_w}{\mu_o} \right)ae^{bS_w}}...(12)\]</span>
+<span class="math display">\[\left( \frac{\partial f_w}{\partial S_w} \right)_{S_w} = \frac{- \left( \frac{\mu_w}{\mu_o} \right)abe^{bS_w}}{\left[ 1+ \left( \frac{\mu_w}{\mu_o} \right)ae^{bS_w} \right]^2}...(13)\]</span>
+Dari kurva rasio permeabilitas relatif (k<sub>ro</sub>/k<sub>rw</sub>) terhadap saturasi air (<em>S<sub>w</sub></em>), nilai koefisien <em>a</em> dan <em>b</em> pada persamaan (11) dapat diketahui. Setelah koefisien <em>a</em> dan <em>b</em> diketahui, maka persamaan (12) dapat digunakan sebagai approksimasi untuk mengetahui nilai <em>f<sub>w</sub></em> sebagai fungsi <em>S<sub>w</sub></em>. Turunan dari <em>f<sub>w</sub></em> terhadap <em>S<sub>w</sub></em>, yaitu (<span class="math inline">\(\frac{\partial f_w}{\partial S_w}\)</span>), merupakan parameter yang sangat penting dalam penentuan profil saturasi air. Penjelasan mengenai parameter (<span class="math inline">\(\frac{\partial f_w}{\partial S_w}\)</span>) akan diberikan kemudian pada subbab tentang teori <em>frontal advance</em>.</p>
+<p>Kembali ke pembahasan mengenai persamaan <em>fractional flow</em>, seperti dijelaskan di awal subbab, persamaan <em>fractional flow</em> adalah persamaan yang memberikan nilai fraksi aliran air sebagai fungsi dari saturasi air. Kurva <em>f<sub>w</sub></em> versus <em>S<sub>w</sub></em>. seperti yang diperlihatkan pada gambar (1) merupakan kurva yang sangat penting. Sejumlah analisis grafik dapat dilakukan terhadap kurva ini untuk memperoleh sejumlah informasi mengenai parameter-parameter yang akan digunakan dalam analisis performa <em>waterflooding.</em> Selain itu, analisis kurva <em>fractional flow</em> terkait erat dengan solusi dari persamaan <em>frontal</em> <em>advance</em> untuk memprediksi profil saturasi air di reservoir selama periode <em>flooding.</em> Penjelasan lebih lanjut mengenai hal ini akan diberikan di subbab teori <em>frontal advance</em>.</p>
+</div>
+<div id="teori-frontal-advance-untuk-waterflooding" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> Teori <em>Frontal Advance</em> Untuk <em>Waterflooding</em></h3>
+<p>Seperti yang telah disebutkan sebelumnya bahwa teori <em>frontal advance</em> adalah teori yang membahas mengenai cara menentukan profil saturasi air di reservoir selama periode injeksi. Persamaan <em>frontal advance</em> (atau dikenal juga dengan <strong>persamaan Buckley-Leverett</strong>) adalah persamaan dasar yang memberikan kecepatan gerak saturasi air di reservoir sebagai fungsi dari fraksi aliran air. Penurunan persamaan <em>frontal advance</em> adalah sebagai berikut.</p>
+Tinjau aliran air melalui suatu elemen volume di dalam pori-pori batuan reservoir. Dengan asumsi: (1) tidak ada transfer massa antara fasa air dan fasa minyak, (2) aliran bersifat <em>incompressible</em>, dan (3) fraksi aliran air hanya merupakan fungsi dari saturasi air, maka laju akumulasi massa air di dalam elemen volume tersebut dinyatakan oleh persamaan berikut.
+<span class="math display">\[A\phi\Delta L \frac{\partial}{\partial t} = (q_w\rho_w)_x - (q_w\rho_w)_{x+\Delta x}...(14)\]</span>
+Dengan menggunakan teorema dalam kalukulus, maka persamaan (14) dapat dinyatakan dalam bentuk persamaan diferensioal orde satu sebagai berikut.
+<span class="math display">\[ \frac{\partial}{\partial x}(q_w\rho_w) + A\phi \frac{\partial}{\partial t}(q_w\rho_w) = 0 \]</span>
+<span class="math display">\[ -\frac{\partial}{\partial x}(q_w\rho_w) = A\phi \frac{\partial}{\partial t}(q_w\rho_w)...(15) \]</span>
+Dengan asumsi aliran bersifat <em>incompressible</em>, maka densitas bernilai konstan sehingga persamaan (15) menjadi:
+<span class="math display">\[ -\frac{\partial q_w}{\partial x} = A\phi \frac{\partial S_w}{\partial t}...(16) \]</span>
+Substitusi persamaan (5) ke dalam persamaan (16), diperoleh:
+<span class="math display">\[ -\frac{\partial (f_wq_t)}{\partial x} = A\phi \frac{\partial S_w}{\partial t} \]</span>
+<span class="math display">\[ -q_t\frac{\partial f_w}{\partial x} = A\phi \frac{\partial S_w}{\partial t} \]</span>
+<span class="math display">\[ -\frac{\partial f_w}{\partial x} = \frac{A\phi}{q_t} \frac{\partial S_w}{\partial t} ...(17)\]</span>
+Saturasi air (<em>S<sub>w</sub></em>) merupakan fungsi dari posisi (<em>x</em>) dan waktu (<em>t</em>) sehingga:
+<span class="math display">\[S_w = S_w(x,t) \]</span>
+<span class="math display">\[dS_w = \left( \frac{\partial S_w}{\partial x} \right)dx\ + \left( \frac{\partial S_w}{\partial t} \right)dt ... (18)\]</span>
+Selanjutnya, tinjau suatu nilai saturasi air konstan pada elemen volume tersebut sehingga d<em>S<sub>w</sub></em> = 0. Maka persamaan (18) menjadi:
+<span class="math display">\[\left( \frac{\partial S_w}{\partial x} \right)_tdx\ + \left( \frac{\partial S_w}{\partial t} \right)_xdt = 0\]</span>
+<span class="math display">\[\left( \frac{\partial S_w}{\partial x} \right)_t \frac{dx}{dt}\ + \left( \frac{\partial S_w}{\partial t} \right)_x = 0\]</span>
+<span class="math display">\[\frac{dx}{dt} = - \frac{\left( \frac{\partial S_w}{\partial t} \right)_x}{\left( \frac{\partial S_w}{\partial x} \right)_t}\]</span>
+<span class="math display">\[ \left( \frac{\partial S_w}{\partial t} \right)_x = -\frac{dx}{dt} \left( \frac{\partial S_w}{\partial x} \right)_t \]</span>
+<center>
+atau
+</center>
+<p><span class="math display">\[ \left( \frac{\partial S_w}{\partial t} \right)_x = -\left( \frac{dx}{dt} \right)_{S_w} \left( \frac{\partial S_w}{\partial x} \right)_t ...(19)\]</span>
+Karena fraksi aliran air (<em>fractional flow of water, f<sub>w</sub></em>) hanya merupakan fungsi dari saturasi air (<em>S<sub>w</sub></em>), maka:
+<span class="math display">\[f_w = f_w (S_w)\]</span>
+<span class="math display">\[ \frac{\partial f_w}{\partial x} = \left( \frac{\partial f_w}{\partial S_w} \right) \left( \frac{\partial S_w}{\partial x} \right)...(20) \]</span>
+Selanjutnya, lakukan substitusi persamaan (19) dan (20) ke dalam persamaan (17), akan diperoleh:
+<span class="math display">\[ -\left( \frac{\partial f_w}{\partial S_w} \right) \left( \frac{\partial S_w}{\partial x} \right) = -\frac{A\phi}{q_t} \left( \frac{\partial S_w}{\partial x} \right) \left( \frac{\partial x}{\partial t} \right)_{S_w} \]</span>
+<span class="math display">\[ \left( \frac{dx}{dt} \right)_{S_w} = \frac{q_t}{A\phi} \left( \frac{\partial f_w}{\partial S_w} \right)_{S_w}...(21)\]</span>
+Persamaan (21) merupakan persamaan <em>frontal advance</em> yang menyatakan bahwa kecepatan gerak suatu nilai saturasi air di reservoir berbanding lurus dengan parameter turunan <em>fractional flow</em> terhadap saturasi air, <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)\)</span>. Dengan melakukan integral terhadap persamaan (21), maka profil saturasi air di reservoir dapat diperoleh, yaitu:
+<span class="math display">\[(x)_{S_w} = \frac{q_t}{A\phi} \left( \frac{\partial f_w}{\partial S_w} \right)_{S_w} = \frac{q_tt}{A\phi} \left( \frac{f_w - f_{wi}}{S_w - S_{wi}} \right)...(22)\]</span>
+Sebelum <em>waterflooding</em> dilakukan, saturasi air di reservoir berada pada keadaan <em>irreducible</em> (<em>S<sub>wc</sub></em>). Saat <em>waterflooding</em> dimulai, air injeksi akan bergerak sepanjang pori-pori batuan reservoir. Pergerakan air injeksi ini memiliki sisi depan yang disebut sebagai <em>flood front</em> (atau disebut juga <em>shock front</em>) dengan nilai saturasi <em>S<sub>wf</sub></em> (disebut <em>front water saturation</em>). Bentuk profil saturasi air di reservoir berdasarkan prediksi dari persamaan (22) adalah seperti pada gambar berikut.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<img src="images/waterflood/saturasiair.png" alt="Profil saturasi air di reservoir selama periode _waterflooding_" width="50%" />
+<p class="caption">
+Gambar 1.2: Profil saturasi air di reservoir selama periode <em>waterflooding</em>
+</p>
+</div>
+<p>
+ 
+</p>
+<p>Dari gambar (2) di atas, terlihat bahwa interval nilai saturasi air diantara <em>S<sub>wc</sub></em> dan <em>S<sub>wf</sub></em> memiliki profil yang sama, yaitu garis lurus vertikal. Hal ini berarti semua nilai saturasi yang berada di antara <em>S<sub>wc</sub></em> dan <em>S<sub>wf</sub></em> (<em>S<sub>wc</sub></em> &lt; <em>S<sub>w</sub></em> &lt; <em>S<sub>wf</sub></em>) bergerak dengan kecepatan yang sama, yaitu kecepatan <em>flood</em> <em>front</em> (atau kecepatan <em>shock</em>) yang dinyatakan oleh:
+<span class="math display">\[(v)_{S_{wc} &lt; S_w &lt; S_{wf}} = \frac{q_t}{A\phi} \left( \frac{\partial f_w}{\partial S_w} \right)_{S_{wf}}\]</span>
+Sehingga jarak tempuh dari setiap nilai saturasi dalam interval ini adalah sama, yaitu
+<span class="math display">\[(x)_{S_{wc} &lt; S_w &lt; S_{wf}} = \frac{q_tt}{A\phi} \left( \frac{\partial f_w}{\partial S_w} \right)_{S_{wf}} = \frac{q_tt}{A\phi} \left( \frac{f_{wf} - f_{wi}}{S_{wf} - S_{wi}} \right)...(23)\]</span>
+Zona dimana semua nilai saturasi air dalam interval tersebut bergerak dengan kecepatan yang sama di dalam pori-pori batuan reservoir disebut sebagai zona stabil (<strong><em>stabilized zone</em></strong>). Garis biru vertikal pada gambar (2) merupakan <em>stabilized zone</em>. Interval nilai saturasi air yang berada di luar interval <em>stabilized zone</em> disebut sebagai <em>non-stabilized zone</em>, yaitu interval nilai saturasi di atas <em>S<sub>wf</sub></em> (<em>S<sub>wf</sub></em> &lt; <em>S<sub>w</sub></em> &lt; 1 − <em>S<sub>or</sub></em>) dimana setiap nilai saturasi air bergerak dengan kecepatan yang berbeda sehingga membentuk profil saturasi air yang tidak konstan. Profil saturasi air untuk interval <em>non-stabilized zone</em> dinyatakan oleh modifikasi dari persamaan (22) untuk interval saturasi air <em>non-stabilized zone</em>. Bentuk profil saturasi selama periode injeksi air terdiri atas tiga zona, yaitu <em>unswept zone</em> yang memiliki saturasi air <em>S<sub>wc</sub></em>, <em>stabilized</em> <em>zone</em> dengan nilai saturasi air <em>S<sub>wf</sub></em>, dan <em>non-stabilized zone</em> dengan nilai saturasi air yang berubah-ubah antara <em>S<sub>wf</sub></em> dan (1 – <em>S<sub>or</sub></em>).</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<img src="images/waterflood/saturasiair2.png" alt="Profil saturasi air di reservoir seiring dengan berjalannya waktu" width="50%" />
+<p class="caption">
+Gambar 1.3: Profil saturasi air di reservoir seiring dengan berjalannya waktu
+</p>
+</div>
+<p>
+ 
+</p>
+<p>Profil saturasi air di reservoir selama periode <em>flooding</em> dapat diketahui dengan menggunakan persamaan (22) dan (23). Penggunaan kedua persamaan ini membutuhkan informasi mengenai nilai turunan <em>fractional</em> <em>flow</em> terhadap saturasi air, yaitu <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)_{S_w}\)</span> dan <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)_{S_{wf}}\)</span>. Nilai kedua parameter ini dapat diperoleh dengan melakukan analisis grafik terhadap kurva <em>fractional</em> <em>flow</em> <em>of</em> <em>water</em>, yaitu kurva <em>f<sub>w</sub></em> versus <em>S<sub>w</sub></em>. Berikut akan diberikan penjelasan mengenai hal ini.</p>
+<p>Tinjau interval nilai saturasi air antara <em>S<sub>wc</sub></em> dan <em>S<sub>wf</sub></em>. Pada interval ini, semua nilai saturasi air bergerak dengan kecepatan yang sama, yaitu kecepatan <em>flood front</em>. Garis lurus yang ditarik dari Swc dan menyinggung kurva <em>fractional flow water</em> menyatakan parameter <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)_{S_{wf}}\)</span>, sehingga koordinat titik singgung garis ini terhadap kurva <em>f<sub>w</sub></em> merupakan koordinat dari <em>front water</em>, yaitu (<em>S<sub>wf</sub></em>, <em>f<sub>wf</sub></em>). Dari analisis grafik ini, nilai <em>S<sub>wf</sub></em> dan <em>f<sub>wf</sub></em> dapat diketahui sehingga persamaan (23) dapat digunakan untuk mendapatkan profil saturasi air untuk interval <em>S<sub>wc</sub></em> &lt; <em>S<sub>w</sub></em> &lt; <em>S<sub>wf</sub></em>.</p>
+<p>Analisis grafik yang serupa juga berlaku untuk interval <em>non-stabilized zone</em>, yaitu interval saturasi air <em>S<sub>wf</sub></em> &lt; <em>S<sub>w</sub></em> &lt; <em>S<sub>or</sub></em>. Titik singgung terhadap kurva <em>f<sub>w</sub></em> dari setiap nilai saturasi air yang dipilih pada interval ini (dilambangkan <em>S<sub>w2</sub></em>) akan memberikan nilai fraksi aliran air yang bersesuaian, yaitu <em>f<sub>w2</sub></em>. Dengan diketahuinya nilai (<em>f<sub>w2</sub></em>,<em>S<sub>w2</sub></em>), maka modifikasi dari persamaan (22) dapat digunakan untuk mendapatkan profil saturasi air pada interval ini, yaitu:
+<span class="math display">\[(x)_{S_{w2}} = \frac{q_tt}{A\phi} \left( \frac{\partial f_w}{\partial S_w} \right)_{S_{w2}} = \frac{q_tt}{A\phi} \left( \frac{f_{w2} - f_{wi}}{S_{w2} - S_{wi}} \right)...(24)\]</span>
+Konsep analisis grafik untuk menentukan nilai <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)_{S_{wf}}\)</span> dan <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)_{S_{w2}}\)</span> diperlihatkan pada kedua gambar berikut.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<img src="images/waterflood/perbandingan.png" alt="Analisis grafik pada kurva _f~w~_ untuk menentukan nilai $\left( \frac{\partial f_w}{\partial S_w} \right)_{S_{wf}}$ dan $\left( \frac{\partial f_w}{\partial S_w} \right)_{S_{w2}}$" width="75%" />
+<p class="caption">
+Gambar 1.4: Analisis grafik pada kurva <em>f<sub>w</sub></em> untuk menentukan nilai <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)_{S_{wf}}\)</span> dan <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)_{S_{w2}}\)</span>
+</p>
+</div>
+<p>
+ 
+</p>
+<p>Analisis grafik untuk menentukan <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)_{S_w}\)</span> merupakan metode dasar dari teori <em>frontal advance</em> dan diberikan penjelasannya sebagai dasar teori. Pada penelitian ini, metode grafik tidak digunakan. Approksimasi dari nilai <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)_{S_w}\)</span> ditentukan dengan menggunakan metode numerik. Subbab selanjutnya akan membahas mengenai hal ini.</p>
+</div>
+<div id="penentuan-parameter-left-fracpartial-f_wpartial-s_w-right_s_w-dan-saturasi-air-rata-rata-reservoir-bar-s_w" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> Penentuan parameter <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)_{S_w}\)</span> dan Saturasi Air Rata-Rata Reservoir (<span class="math inline">\(\bar S_w\)</span>)</h3>
+<p>Untuk melakukan analisis prediksi performa <em>waterflooding</em>, informasi penting yang perlu diketahui selain parameter <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)_{S_w}\)</span> adalah nilai saturasi air rata-rata di reservoir selama periode flooding <span class="math inline">\(\bar S_w\)</span>. Nilai dari <span class="math inline">\(\bar S_w\)</span> di setiap periode injeksi akan digunakan dalam perhitungan parameter-parameter performa <em>flooding</em>.</p>
+<div id="metode-numerik-untuk-menentukan-nilai-left-fracpartial-f_wpartial-s_w-right_s_w" class="section level4">
+<h4><span class="header-section-number">3.2.3.1</span> Metode Numerik Untuk Menentukan Nilai <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)_{S_w}\)</span></h4>
+<p>Seperti yang telah diutarakan pada subbab sebelumnya, nilai dari parameter <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)_{S_w}\)</span> penting untuk diketahui karena akan digunakan dalam persamaan (22), (23), dan (24) untuk menghitung profil saturasi air di reservoir. Selain itu, parameter ini pun akan banyak digunakan dalam persamaan-persamaan mengenai parameter performa <em>flooding</em> lainnya.</p>
+Penelitian ini menggunakan hampiran numerik untuk mencari nilai dari <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)_{S_w}\)</span> persamaan hampiran yang digunakan adalah sebagai berikut.
+<span class="math display">\[k_{ro} = \alpha _1 (1-S_{wD})^m\]</span>
+<span class="math display">\[k_{ro} = \alpha _2 S_{wD}^n...(25)\]</span>
+<span class="math display">\[\left( \frac{\partial f_w}{\partial S_w} \right)_{S_w} = \frac{f_{S_w}-f_{S_{wi}}}{S_w - S_{wi}} ...(26) \]</span>
+<span class="math display">\[f_w = \frac{S_{wD}^n}{[S_{wD}^n\ + A(1-S_{wD})^m ]}...(27)\]</span>
+<span class="math display">\[\frac{\partial f_w}{\partial S_w} = \frac{AB[nS_{wD}^{n-1}(1-S_{wD})^m\ + S_{wD}^n(1-S_{wD})^{m-1}]}{[S_{wD}^n\ + A(1-S_{wD})^m ]^2}...(28)\]</span>
+Dimana <em>S<sub>wD</sub></em> adalah nilai air <em>dimensionless</em>, <span class="math inline">\(\alpha _1\)</span>, <span class="math inline">\(\alpha _2\)</span>, <span class="math inline">\(n\)</span>, dan <span class="math inline">\(m\)</span> adalah koefisien-koefisien numerik.
+<span class="math display">\[A = \frac{\alpha _1}{\alpha _2}\frac{\mu_w}{\mu_o};B = \frac{1}{1-S_{or}-S_{wi}}\]</span>
+<span class="math display">\[S_{wD} = \frac{S_{w}-S_{wi}}{1-S_{or}-S_{wi}} = B(S_{w}-S_{wi})...(29)\]</span>
+Substitusi persamaan (28) ke persamaan (26)
+<span class="math display">\[ \frac{f_{S_w}-f_{S_{wi}}}{S_w - S_{wi}} = \frac{AB[nS_{wD}^{n-1}(1-S_{wD})^m\ + S_{wD}^n(1-S_{wD})^{m-1}]}{[S_{wD}^n\ + A(1-S_{wD})^m ]^2} \]</span>
+<span class="math display">\[ \frac{f_{S_w}}{S_w - S_{wi}} = \frac{AB[nS_{wD}^{n-1}(1-S_{wD})^m\ + S_{wD}^n(1-S_{wD})^{m-1}]}{[S_{wD}^n\ + A(1-S_{wD})^m ]^2} \]</span>
+Substitusi pernyataan <em>f<sub>Sw</sub></em> dari persamaan (27),
+<span class="math display">\[  \frac{\left( \frac{S_{wD}^n}{[S_{wD}^n\ + A(1-S_{wD})^m ]}\right)}  {S_w - S_{wi}} = \frac{AB[nS_{wD}^{n-1}(1-S_{wD})^m\ + S_{wD}^n(1-S_{wD})^{m-1}]}{[S_{wD}^n\ + A(1-S_{wD})^m ]^2} \]</span>
+Substitusi pernyataan <em>S<sub>w</sub></em> dari persamaan (29),
+<span class="math display">\[  \frac{\left( \frac{S_{wD}^n}{[S_{wD}^n\ + A(1-S_{wD})^m ]}\right)}  {\left(\frac{S_{wD}}{B} + S_{wi} \right) - S_{wi}} = \frac{AB[nS_{wD}^{n-1}(1-S_{wD})^m\ + S_{wD}^n(1-S_{wD})^{m-1}]}{[S_{wD}^n\ + A(1-S_{wD})^m ]^2} \]</span>
+<span class="math display">\[S_{wD}^n\ + A(1-S_{wD})^m = AnS_{wD}^{n-1}(1-S_{wD})^m\ + AmS_{wD}^n(1-S_{wD})^{m-1} \]</span>
+<span class="math display">\[A(1-S_{wD})^m[nS_{wD}^{n-1}-1]\ + S_{wD}^n[Am(1-S_{wD})^{m-1}-1] = 0 ...(30)\]</span>
+<p>
+ 
+</p>
+Solusi dari persamaan (30) untuk <em>S<sub>wD</sub></em> dapat diperoleh secara iterasi numerik menggunakan <strong>metode Newton</strong> dengan mendefinisikan fungsi berikut:
+<span class="math display">\[g(S_{wD}) = A(1-S_{wD})^m[nS_{wD}^{n-1}-1]\ + S_{wD}^n[Am(1-S_{wD})^{m-1}-1]\]</span>
+Jika <em>E</em> melambangkan batas toleransi <em>error</em> dari solusi, maka metode Newton diterapkan dengan mengulangi langkah berikut untuk <em>k</em> = 1, 2 … sampai diperoleh |<em>(S<sub>wD</sub>)<sub>k+1</sub> - (S<sub>wD</sub>)<sub>k</sub></em>| &lt; <em>E</em>. Nilai <em>E</em> yang digunakan adalah 10<sup>-7</sup>.
+<span class="math display">\[(S_{wD})_{k+1} = S_{wD})_k - \frac{g((S_{wD})_k)}{g&#39;((S_{wD})_k)}...(31)\]</span>
+<p>
+ 
+</p>
+<p>Setelah solusi <em>S<sub>wD</sub></em> diperoleh, lakukan substitusi ke persamaan (27), (28), dan (29), untuk mendapatkan nilai dari <em>f<sub>w</sub></em>, <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)_{S_w}\)</span>, dan <em>S<sub>w</sub></em>. Maka persamaan (22) dapat digunakan untuk mendapatkan profil saturasi air. Prosedur numerik yang sama berlaku dalam penentuan parameter-parameter <em>front saturation</em>, yaitu <em>f<sub>wf</sub></em>, <em>S<sub>wf</sub></em>, dan <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)_{S_wf}\)</span>.</p>
+</div>
+<div id="penentuan-nilai-saturasi-air-rata-rata-di-reservoir-selama-periode-waterflooding" class="section level4">
+<h4><span class="header-section-number">3.2.3.2</span> Penentuan Nilai Saturasi Air Rata-Rata di Reservoir Selama Periode <em>Waterflooding</em></h4>
+<p>Nilai saturasi air rata-rata di reservoir (<span class="math inline">\(\bar S_w\)</span>) untuk periode tertentu selama proses <em>waterflooding</em> dapat ditentukan dengan dua cara, yaitu analisis grafik dan analisis numerik. Penentuan nilai <span class="math inline">\(\bar S_w\)</span> dari analisis grafik diperlihatkan pada gambar (4). Titik potong garis singgung dengan kurva <em>f<sub>w</sub></em> di nilai <em>f<sub>w</sub></em> = 1 memberikan nilai saturasi air rata-rata di reservoir, <span class="math inline">\(\bar S_w\)</span>. Untuk periode sebelum dan saat terjadi <em>water breakthrough</em>, nilai saturasi air rata-rata di reservoir dinyatakan oleh <span class="math inline">\(\bar S_{wBT}\)</span>, sedangkan nilai saturasi air rata-rata di reservoir setelah periode <em>water breakthrough</em> dinyatakan oleh <span class="math inline">\(\bar S_{w2}\)</span>.</p>
+<p>Metode penentuan nilai <span class="math inline">\(\bar S_w\)</span> yang digunakan pada penelitian ini adalah metode numerik. Penurunan dari persamaan hampiran numerik yang akan digunakan untuk menentukan <span class="math inline">\(\bar S_w\)</span> adalah sebagai berikut.</p>
+<p>Nilai saturasi air rata-rata di posisi antara <em>x<sub>1</sub></em> dan <em>x<sub>2</sub></em>, (<em>x<sub>1</sub></em> <span class="math inline">\(\leq\)</span> <em>x</em> <span class="math inline">\(\leq\)</span> <em>x<sub>2</sub></em>) dinyatakan oleh:
+<span class="math display">\[\bar S_w = \frac{\int_{x_1}^{x_2}S_wA\phi dx}{\int_{x_1}^{x_2}A\phi dx}\]</span>
+<span class="math display">\[\bar S_w = \frac{\int_{x_1}^{x_2}S_w dx}{x_1-x_2}...(32)\]</span>
+Tinjau turunan dari <em>d(xS<sub>w</sub>)</em>:
+<span class="math display">\[d(xS_w) = S_wdx + xdS_w\]</span>
+<span class="math display">\[S_wdx = d(xS_w) - xdS_w...(33)\]</span>
+Substitusi persamaan (33) ke persamaan (32),
+<span class="math display">\[\bar S_w = \frac{1}{x_1 - x_2} \int_1^2 d(xS_w)-xdS_w\]</span>
+<span class="math display">\[\bar S_w = \left[ \frac{1}{x_1 - x_2} \int_{x_1S_{w1}}^{x_2S_{w2}} d(xS_w) \right]-\left[ \frac{1}{x_1 - x_2} \int_{1}^{2} xdS_w \right]\]</span>
+<span class="math display">\[\bar S_w = \frac{x_2S_{w2}-x_1S_{w1}}{x_2-x_1}-\frac{1}{x_2-x_1}\int_1^2xdS_w ...(34)\]</span>
+Subtitusi persamaan (22) ke persamaan (34),
+<span class="math display">\[\bar S_w = \frac{x_2S_{w2}-x_1S_{w1}}{x_2-x_1}-\frac{1}{x_2-x_1}\int_1^2\frac{q_tt}{A\phi} \left( \frac{\partial f_w}{\partial S_w} \right)_{S_w}dS_w\]</span>
+<span class="math display">\[\bar S_w = \frac{x_2S_{w2}-x_1S_{w1}}{x_2-x_1}-\frac{q_tt}{A\phi}\frac{1}{x_2-x_1}\int_1^2 df_w\]</span>
+<span class="math display">\[\bar S_w = \frac{x_2S_{w2}-x_1S_{w1}}{x_2-x_1}-\left( \frac{q_tt}{A\phi} \right)\frac{1}{x_2-x_1}\int_1^2 df_w\]</span>
+<span class="math display">\[\bar S_w = \frac{x_2S_{w2}-x_1S_{w1}}{x_2-x_1}-\left( \frac{q_tt}{A\phi} \right) \left(\frac{f_{w2}-f_{w1}}{x_2-x_1} \right)....(35)\]</span>
+Persamaan (35) merupakan persamaan hampiran umum yang digunakan untuk menghitung nilai saturasi air rata-rata di reservoir pada periode tertentu selama waterflooding. Persamaan (35) dapat dibagi atas perhitungan <span class="math inline">\(\bar S_w\)</span> sebelum dan saat terjadi <em>water breakthrough</em>, dan perhitungan <span class="math inline">\(\bar S_w\)</span> setelah <em>water breakthrough</em>.</p>
+<p>Sebelum dan saat <em>water breakthrough</em> terjadi, nilai saturasi air rata-rata di reservoir dinyatakan oleh <em>S<sub>wBT</sub></em>. Posisi 1 (<em>x<sub>1</sub></em>) adalah sumur injeksi dan posisi 2 (<em>x<sub>2s</sub></em>) adalah sumur produksi, sehingga pada persamaan (5), <em>S<sub>w1</sub></em> menyatakan nilai saturasi air di sumur injeksi dan <em>S<sub>w2</sub></em> menyatakan nilai saturasi air di sumur produksi. Untuk periode sebelum dan saat <em>water breakthrough</em> terjadi, <em>S<sub>w2</sub></em> menyatakan nilai saturasi air di sumur produksi saat terjadi <em>water breakthrough</em>, yaitu <em>S<sub>wBT</sub></em> atau <em>S<sub>wf</sub></em> (nilai saturasi air di sumur produksi saat water <em>breakthrough</em> sama dengan nilai saturasi air <em>flood front</em>, karena saat terjadi <em>water breakthrough</em>, <em>flood front</em> sudah mencapai sumur produksi). Maka, persamaan (5) menjadi:</p>
+<p><span class="math display">\[\bar S_{wBT} = \frac{LS_{wBT}}{L} - \left( \frac{q_tt}{A\phi} \right) \left( \frac{f_{wBT}-1}{L} \right) = \bar S_{wBT} -\left( \frac{q_tt}{A\phi L} \right)(f_{wBT}-1)\]</span>
+<span class="math display">\[\bar S_{wBT} = \left( \frac{q_tt}{A\phi L} \right)(f_{wBT}-1)...(36)\]</span>
+Nilai saturasi air rata-rata di reservoir pada periode sebelum dan saat <em>water breakthrough</em> dapat dihitung menggunakan persamaan (36). Nilai <em>S<sub>wf</sub></em> dan <em>f<sub>wf</sub></em> diperoleh dari metode numerik yang telah dijelaskan sebelumnya.</p>
+<p>Dengan cara yang sama, nilai saturasi air rata-rata di reservoir setelah periode <em>water breakthrough</em> (<span class="math inline">\(\bar S_{w2}\)</span>) dapat dihitung menggunakan persamaan berikut:
+<span class="math display">\[\bar S_{w2} = S_{w2}-\left( \frac{q_tt}{A\phi L} \right)(f_{wBT}-1)...(37)\]</span>
+dimana <em>S<sub>w2</sub></em> adalah nilai saturasi air di sumur produksi setelah periode <em>water breakthrough</em>.</p>
+<p>Gambar berikut memperlihatkan konsep saturasi air rata-rata di reservoir pada periode sebelum dan saat terjadi <em>water breakthrough</em>, dan periode setelah <em>water breakthrough</em>. Gambar di bawah juga memperlihatkan nilai saturasi air di sumur injeksi dan sumur produksi untuk kedua periode ini.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
+<img src="images/waterflood/saturasi3.png" alt="(a) Profil saturasi air di reservoir sebelum sampai saat terjadi water breakthrough dengan __$\bar S_{wBT}$__ menyatakan nilai saturasi air rata-rata di reservoir selama periode ini terjadi;(b) Profil saturasi air setelah periode water breakthrough dengan __$\bar S_{w2}$__ menyatakan nilai saturasi air rata-rata di reservoir selama periode ini" width="75%" />
+<p class="caption">
+Gambar 1.5: (a) Profil saturasi air di reservoir sebelum sampai saat terjadi water breakthrough dengan <strong><span class="math inline">\(\bar S_{wBT}\)</span></strong> menyatakan nilai saturasi air rata-rata di reservoir selama periode ini terjadi;(b) Profil saturasi air setelah periode water breakthrough dengan <strong><span class="math inline">\(\bar S_{w2}\)</span></strong> menyatakan nilai saturasi air rata-rata di reservoir selama periode ini
+</p>
+</div>
+<p>
+ 
+</p>
+</div>
+</div>
+</div>
+<div id="penentuan-parameter-efisiensi-waterflooding" class="section level2">
+<h2><span class="header-section-number">3.3</span> Penentuan Parameter Efisiensi <em>Waterflooding</em></h2>
+<p>Prediksi performa reservoir di bawah proses waterflood dilakukan melalui perhitungan terhadap tiga parameter efisiensi <em>flooding</em>, yaitu <strong><em>displacement efficiency (E<em>D</em>), areal sweep efficiency (E<em>A</em>), dan vertical sweep efficiency (E<em>V</em>)</em></strong>. Ketiga parameter efisiensi di atas merupakan parameter yang berlaku baik pada proses <em>secondary recovery</em> maupun <em>tertiary recovery</em>. Nilai dari ketiga parameter efisiensi di atas akan meningkat selama proses <em>waterflood</em> dilakukan dan akan mencapai nilai maksimum di <em>economic limit</em> dari proyek <em>waterflood.</em> Berikut akan diberikan penjelasan singkat dari ketiga parameter ini.</p>
+<div id="displacement-efficiency-ed" class="section level3">
+<h3><span class="header-section-number">3.3.1</span> <em>Displacement Efficiency</em> (E<sub>D</sub>)</h3>
+<p><em>Displacement efficiency (E<sub>D</sub>)</em> merupakan parameter yang menyatakan fraksi minyak residu yang telah tersapu oleh fluida injeksi setiap waktu. Persamaan untuk menghitung <em>E<sub>D</sub></em> adalah:
+<span class="math display">\[E_D = \frac{volume\ minyak\ saat\ awal\ flooding\ - volume\ minyak\ residu}{volume\ minyak\ saat\ awal\ flooding}\]</span>
+<span class="math display">\[E_D = \frac{(pore\ volume)(\frac{S_{oi}}{B_{oi}})-(pore\ volume)(\frac{S_{o}}{B_{o}})}{(pore\ volume)(\frac{S_{oi}}{B_{oi}})} = \frac{\frac{S_{oi}}{B_{oi}}-\frac{\bar S_{o}}{B_{o}}}{\frac{S_{oi}}{B_{oi}}}\]</span>
+Dengan mengasumsikan nilai konstan dari faktor volume formasi minyak, persamaan di atas menjadi:
+<span class="math display">\[E_D = \frac{S_{oi}-S_{oi}}{\bar S_{o}}=\frac{\bar S_{w} - S_{wi} - S_{gi}}{1 - S_{wi} - S_{gi}}...(38)\]</span>
+Jika tidak terdapat <em>initial gas saturation</em> (<em>S<sub>gi</sub></em> = 0) saat awal <em>flooding</em>,
+<span class="math display">\[E_D = \frac{\bar S_{w} - S_{wi}}{1-S_{wi}}\]</span></p>
+</div>
+<div id="areal-sweep-efficiency-ea" class="section level3">
+<h3><span class="header-section-number">3.3.2</span> <em>Areal Sweep Efficiency</em> (E<sub>A</sub>)</h3>
+<p><em>Areal sweep efficiency</em> (<em>E<sub>A</sub></em>) merupakan parameter yang menyatakan fraksi total area injeksi yang telah tersapu oleh fluida injeksi. Nilai <em>E<sub>A</sub></em> bergantung pada beberapa parameter, diantaranya <em>mobility ratio</em>, pola injeksi yang digunakan, volume air injeksi kumulatif, distribusi tekanan antara sumur injeksi dengan sumur produksi, dan keheterogenan areal. Diantara parameter-parameter ini, <em>mobility ratio</em> merupakan parameter yang paling penting.</p>
+<p>Mobilitas suatu fluida (dilambangkan <span class="math inline">\(\lambda\)</span>) didefinisikan sebagai perbandingan antara permeabilitas efektif suatu fasa fluida dengan viskositas fasa fluida tersebut. Mobilitas fluida sangat dipengaruhi oleh saturasi fluida yang bersangkutan. Mobilitas untuk setiap fasa fluida reservoir dinyatakan sebagai berikut.</p>
+<span class="math display">\[\lambda_o = \frac{k_o}{\mu_o}=\frac{kk_{ro}}{\mu_o}\]</span>
+<span class="math display">\[\lambda_w = \frac{k_w}{\mu_w}=\frac{kk_{rw}}{\mu_w}\]</span>
+<span class="math display">\[\lambda_g = \frac{k_g}{\mu_g}=\frac{kk_{rg}}{\mu_g}...(40)\]</span>
+<p>
+ 
+</p>
+Dari definisi mobilitas fluida, maka <strong><em>mobility ratio</em></strong> (dilambangkan <strong><em>M</em></strong>) didefinisikan sebagai perbandingan antara mobilitas fasa fluida injeksi terhadap mobilitas fasa fluida terpindahkan. Dalam hal <em>waterflooding</em>, fasa fluida pendorong (fluida injeksi) adalah air dan fasa fluida terpindahkan adalah minyak, sehingga
+<span class="math display">\[M = \frac{\lambda_{pendorong}}{\lambda_{terpindahkan}}=\frac{\lambda_w}{\lambda_o}=\frac{kk_{rw}}{\mu_w}\frac{\mu_o}{kk_{ro}}=\frac{k_{rw}}{k_{ro}}\frac{\mu_o}{\mu_w}...(41)\]</span>
+Perhitungan <em>M</em> sepanjang periode <em>waterflooding</em> untuk periode sebelum water breakthrough dan setelah <em>water breakthrough</em> diberikan oleh persamaan (42) dan (43). Persamaan (42) adalah persamaan yang digunakan untuk menghitung nilai <em>M</em> untuk periode awal injeksi hingga <em>water breakthrough</em>, sedangkan persamaan (43) adalah persamaan yang digunakan untuk menghitung nilai <em>M</em> dari mulai periode <em>water breakthrough</em> hingga akhir periode injeksi.
+<span class="math display">\[M= \frac{k_{rw}@\bar S_{wBT}}{k_{ro}@\bar S_{wi}}\frac{\mu_o}{\mu_w}...(42)\]</span>
+<span class="math display">\[M= \frac{k_{rw}@\bar S_{w2}}{k_{ro}@\bar S_{wi}}\frac{\mu_o}{\mu_w}...(43)\]</span>
+Nilai <em>E<sub>A</sub></em> untuk setiap periode injeksi dinyatakan oleh:
+<em>E<sub>A</sub></em> sebelum periode <em>water breakthrough</em>:
+<span class="math display">\[E_A = \frac{W_{inj}}{(PV)(\bar S_{wBT}- S_{wi})}...(44)\]</span>
+<em>E<sub>A</sub></em> saat <em>water breakthrough</em>:
+<span class="math display">\[E-A = 0.54602036 + \frac{0.03170817}{M} + \frac{0.30222997}{e^M} - 0.00509693M...(45)\]</span>
+<em>E<sub>A</sub></em> setelah periode <em>water breakthrough</em>:
+<span class="math display">\[E_A = E_{ABT} + 0.633log\left( \frac{W-{inj}}{W-{iBT}} \right)\]</span>
+<center>
+atau
+</center>
+<p><span class="math display">\[E_A = E_{ABT} + 0.2749ln\left( \frac{W-{inj}}{W-{iBT}} \right)...(46)\]</span></p>
+</div>
+<div id="vertical-sweep-efficiency-ev" class="section level3">
+<h3><span class="header-section-number">3.3.3</span> <em>Vertical Sweep Efficiency</em> (E<sub>V</sub>)</h3>
+<p><em>Vertical Sweep Efficiency</em> <em>(E<sub>V</sub>)</em> merupakan parameter yang menyatakan fraksi vertikal reservoir yang telah tersentuh oleh fluida injeksi. Variasi permeabilitas secara vertikal merupakan parameter yang pengaruhnya dianggap paling signifikan terhadap nilai <em>E<sub>V</sub></em>.</p>
+<p>Dykstra-Parsons menyusun korelasi yang menghubungkan <em>E<sub>V</sub></em> dengan parameter <em>V<sub>DP</sub></em> (koefisien variasi permeabilitas Dykstra-Parsons), <em>mobility ratio M</em>, dan <em>water-oil ratio</em> (WOR). Korelasi ini dinyatakan dalam bentuk parameter korelasi <em>Y</em> yang dinyatakan sebagai:
+<span class="math display">\[Y = \frac{(WOR+0.4)(18.948 - 2.499V_{DP})}{(M - 0.8094V_{DP}+1.137)10^x} ...(47)\]</span>
+dimana
+<span class="math display">\[x = 1.6453V^2 + 0.935V - 0.6891\]</span>
+Nilai <em>E<sub>V</sub></em> dihitung menggunakan metode iterasi terhadap persamaan berikut:
+<span class="math display">\[\alpha_1E_V^{\alpha_2}(1-E_V)^{\alpha_3} - y = 0 ...(48)\]</span>
+Pada persamaan (48), nilai Y diperoleh dari persamaan (47) sedangkan nilai dari parameter-parameter <span class="math inline">\(\alpha_1\)</span>, <span class="math inline">\(\alpha_2\)</span>, dan <span class="math inline">\(\alpha_3\)</span> berturut-turut adalah 3.334088568, 0.7737348199, dan 1.225859406.</p>
+</div>
+</div>
+<div id="persamaan-persamaan-yang-digunakan-dalam-prediksi-performa-waterflooding" class="section level2">
+<h2><span class="header-section-number">3.4</span> Persamaan-Persamaan yang Digunakan Dalam Prediksi Performa <em>Waterflooding</em></h2>
+<p>Beberapa parameter performa <em>waterflooding</em> beserta persamaan yang digunakan untuk menghitung parameter tersebut dirangkum pada tabel berikut, dimana masing-masing kolom mewakili dua periode <em>waterflood</em>, yaitu periode sebelum <em>water breakthrough</em> dan setelah <em>water breakthrough</em>.</p>
+<table>
+<caption><span style="color: grey;"> Tabel 3.1: Persamaan-persamaan yang digunakan dalam perhitungan performa <em>waterflood</em> </span></caption>
+<colgroup>
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+<col width="25%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">No</th>
+<th align="center">Parameter</th>
+<th align="center">Sebelum dan Saat <em>Water Breakthrough</em></th>
+<th align="center">Setelah <em>Water Breakthrough</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">Jumlah <em>pore volume</em>(PV) injeksi air, (<span class="math inline">\(Q_i\)</span>)</td>
+<td align="center"><span class="math inline">\(Q_{iBT}=\frac{1}{\left( \frac{\partial f_w}{\partial S_w} \right)_{S_{wf}}}=\bar S_{wBT} - S_{wi}\)</span></td>
+<td align="center"><span class="math inline">\(Q_i = \frac{1}{\left( \frac{\partial f_w}{\partial S_w} \right)_{S_{w2}}}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">Volume injeksi air kumulatif, (<span class="math inline">\(W_i\)</span>)</td>
+<td align="center"><span class="math inline">\(W_{iBT} = (PV)(\bar S_{wBT}-S_{wi})E_{ABT}E_{VBT}\)</span> <span class="math inline">\(W_{iBT}=(PV)Q_{iBT}E_{ABT}E_{VBT}\)</span></td>
+<td align="center"><span class="math inline">\(W_{inj}=(PV)(\bar S_{w2}-S_{wi}E_AE_V)\)</span> <span class="math inline">\(W_{inj} = (PV)Q_iE_AE_V\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center"><em>Displacement efficiency</em> (<span class="math inline">\(E_D\)</span>)</td>
+<td align="center"><span class="math inline">\(E_{DBT} = \frac{\bar S_{wBT} - S_{wi}}{1-S_{wi}}\)</span></td>
+<td align="center"><span class="math inline">\(E_{D} = \frac{\bar S_{w2} - S_{wi}}{1-S_{wi}}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center"><em>Displacement efficiency</em> (<span class="math inline">\(E_A\)</span>)</td>
+<td align="center">Sebelum BT: persamaan (44) </br> Saat BT: persamaan (45)</td>
+<td align="center">Persamaan (46)</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center"><em>Displacement efficiency</em> (<span class="math inline">\(E_V\)</span>)</td>
+<td align="center">Persamaan (48)</td>
+<td align="center">Persamaan (48)</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">Waktu <em>breakthrough</em>, <em>t</em></td>
+<td align="center"><span class="math inline">\(t_{BT} = \frac{W_{iBT}}{q_t}=\frac{W_{iBT}}{i_w}\)</span></td>
+<td align="center"><span class="math inline">\(t_{BT} = \frac{W_{inj}}{q_t}=\frac{W_{inj}}{i_w}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="center">Koefisien Variasi Permeabilitas Dystra-Parsons, <span class="math inline">\(V_{DP}\)</span></td>
+<td align="center"><span class="math inline">\(V_{DP}=\frac{k_{50}-k_{84.1}}{k_{50}}\)</span></td>
+<td align="center"><span class="math inline">\(V_{DP}=\frac{k_{50}-k_{84.1}}{k_{50}}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="center"><em>Mobiity Ratio, M</em></td>
+<td align="center"><span class="math inline">\(M=\frac{k_{rw}@\bar S_{wBT}}{k_{ro}@\bar S_{wi}}\frac{\mu_o}{\mu_w}\)</span></td>
+<td align="center"><span class="math inline">\(M=\frac{k_{rw}@\bar S_{w2}}{k_{ro}@\bar S_{wi}}\frac{\mu_o}{\mu_w}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">9</td>
+<td align="center"><em>Water-Oil-ratio</em> (WOR)</td>
+<td align="center">Sebelum BT: <em>WOR</em> = 0 </br> Saat BT: (<em>WOR</em>)<sub>s</sub> = <span class="math inline">\(\frac{B_o}{B_w \left(\frac{1}{f_{wBT}} \right)-1}\)</span></td>
+<td align="center">(<em>WOR</em>)<sub>s</sub> = <span class="math inline">\(\frac{B_o}{B_w \left(\frac{1}{f_{w2}} \right)-1}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="center">Kumulatif produksi minyak, <span class="math inline">\(N_p\)</span></td>
+<td align="center">Saat BT: <span class="math inline">\(N_{PBT}=N_sE_{DBT}E_{ABT}E_{VBT}\)</span></td>
+<td align="center"><span class="math inline">\(N_{P}=N_sE_{D}E_{A}E_{V}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">11</td>
+<td align="center">Kumulatif produksi air, <span class="math inline">\(W_p\)</span></td>
+<td align="center">Sebelum BT: <span class="math inline">\(W_p = 0\)</span></td>
+<td align="center"><span class="math inline">\(W_p = \frac{W-{inj}- (N_pB_o)}{B_w}\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">12</td>
+<td align="center">Laju produski minyak, <span class="math inline">\(Q_o\)</span></td>
+<td align="center"><span class="math inline">\(Q_o = \frac{q_t}{B_o}=\frac{i_w}{B_o}\)</span></td>
+<td align="center"><span class="math inline">\(Q_o=\frac{i_w}{B_o+B_w(WOR)_s}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">13</td>
+<td align="center">Laju produski air, <span class="math inline">\(Q_w\)</span></td>
+<td align="center">Sebelum BT: <span class="math inline">\(Q_w = 0\)</span></td>
+<td align="center"><span class="math inline">\(Q_w = Q_o(WOR)_s\)</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="persamaan-persamaan-dasar-dan-nilai-default-yang-digunakan-dalam-predictive-model" class="section level2">
+<h2><span class="header-section-number">3.5</span> Persamaan-Persamaan Dasar dan Nilai <em>Default</em> yang Digunakan Dalam <em>Predictive Model</em></h2>
+<div id="viskositas-minyak" class="section level3">
+<h3><span class="header-section-number">3.5.1</span> Viskositas Minyak</h3>
+<p>Viskositas minyak, <span class="math inline">\(\mu_o\)</span> dihitung menggunakan korelasi Beggs-Robinson. Korelasi Beggs-Robinson terlebih dahulu menghitung nilai viskositas <em>dead oil</em>, <span class="math inline">\(\mu_{od}\)</span>.
+<span class="math display">\[\mu_{od}=10^x-1...(49)\]</span>
+dengan:
+<span class="math display">\[X = \frac{Y}{T^{1.163}}\]</span>
+<span class="math display">\[Y=10^Z\]</span>
+<span class="math display">\[Z=3.0324-0.022023(API)\]</span>
+Selanjutnya, viskositas <em>live oil</em> dihitung dengan menggunakan persamaan berikut.
+<span class="math display">\[\mu_o= A(\mu_{od})^B...(50)\]</span>
+dengan:
+<span class="math display">\[A=\frac{10.715}{(R_s + 100)^{0.515}}\]</span>
+<span class="math display">\[B = \frac{5.44}{(R_s + 150)^{0.338}}\]</span>
+dimana: </br>
+<em>T</em> = temperatur reservoir, <span class="math inline">\(^\circ\)</span>F </br>
+<em>R<sub>s</sub></em> = <em>solution gas-oil ratio</em>, SCF/STB</p>
+</div>
+<div id="solution-gas-oil-ratio" class="section level3">
+<h3><span class="header-section-number">3.5.2</span> <em>SolUtion Gas-Oil Ratio</em></h3>
+<p><em>Solution gas-oil ratio</em>, <em>R<sub>s</sub></em>, dihitung menggunakan korelasi Vasquez-Beggs. Dalam korelasi Vasquez-Beggs, nilai <em>specific gravity gas</em>, <span class="math inline">\(\gamma_g\)</span>, terlebih dahulu dikoreksi ke dalam kondisi tekanan <em>separator</em> 100 psig dan temperatur <em>separator</em> (temperatur <em>separator</em> diasumsikan sama dengan temperatur reservoir).
+<span class="math display">\[\gamma_{g.100} = \gamma_g \left[ 1+\left( (5.912(10)^{-5}(API)(T)log \left( \frac{64.7}{114.7} \right) \right) \right]...(51)\]</span>
+Selanjutnya, nilai <em>soultion gas-oil ratio</em> dihitung sebagai berikut. </br>
+Untuk <em>API</em> <span class="math inline">\(\leq\)</span> 30:
+<span class="math display">\[R_s = 0.0362 \gamma_{g.100} P_{form}^{1.0937}exp \left[ 25.724 \left( \frac{API}{T+460} \right)\right]...(52)\]</span>
+Untuk <em>API</em> &gt; 30:
+<span class="math display">\[R_s = 0.0178 \gamma_{g.100} P_{form}^{1.187}exp \left[ 23.931 \left( \frac{API}{T+460} \right)\right]...(53)\]</span></p>
+</div>
+<div id="faktor-volume-formasi-minyak" class="section level3">
+<h3><span class="header-section-number">3.5.3</span> Faktor Volume Formasi Minyak</h3>
+<p>Faktor volume formasi minyak, <em>B<sub>o</sub></em>, dihitung menggunakan korelasi Vasquez-Beggs.
+<span class="math display">\[B_o = 1 + C_1R_s+(C_2+C_3R_s)(T-60) \left( \frac{API}{\gamma_{g.100}} \right) ...(54)\]</span>
+dimana: </br>
+Untuk <em>API</em> <span class="math inline">\(\leq\)</span> 30:
+<span class="math display">\[C_1 =4.677(10^{-4})\]</span>
+<span class="math display">\[C_2 =1.751(10^{-5})\]</span>
+<span class="math display">\[C_3 =-1.811(10^{-8})\]</span>
+Untuk <em>API</em> &gt; 30:
+<span class="math display">\[C_1 = 4.67 (10^{-4})\]</span>
+<span class="math display">\[C_2 = 1.1 (10^{-5})\]</span>
+<span class="math display">\[C_3 = 1.337 (10^{-9})\]</span></p>
+</div>
+<div id="permeabilitas-relatif" class="section level3">
+<h3><span class="header-section-number">3.5.4</span> Permeabilitas Relatif</h3>
+<p>Nilai permeabilitas relatif minyak (<em>k<sub>ro</sub></em>) dan air (<em>k<sub>rw</sub></em>) dihitung menggunakan korelasi Corey.
+<span class="math display">\[u_o = \frac{1-S_{w}-S_{orw}}{1-S_{wc}-S_{orw}}...(55)\]</span>
+<span class="math display">\[k_{ro}=X_{k_{roe}}u_o^{X_{no}}...(56)\]</span>
+<span class="math display">\[u_w = \frac{S_{w}-S_{wc}}{1-S_{wc}-S_{orw}}...(57)\]</span>
+<span class="math display">\[k_{rw}=X_{k_{rwe}}u_w^{X_{nw}}...(58)\]</span>
+dimana: </br>
+<span class="math inline">\(S_w\)</span> = saturasi air </br>
+<span class="math inline">\(S_{wc}\)</span> = <em>connate water saturation</em> </br>
+<span class="math inline">\(S_{orw}\)</span> = saturasi minyak residu </br>
+<span class="math inline">\(X_{k_{roe}}\)</span> = nilai permeabilitas relatif minyak saat <span class="math inline">\(S_{wc}\)</span> </br>
+<span class="math inline">\(X_{k_{rwe}}\)</span> = nilai permeabilitas relatif air saat <span class="math inline">\(S_{orw}\)</span> </br>
+<span class="math inline">\(X_{no}\)</span> = eksponen kurva permeabilitas relatif minyak </br>
+<span class="math inline">\(X_{nw}\)</span> = eksponen kurva permeabilitas relatif air </br></p>
+</div>
+<div id="nilai-default-parameter-yang-digunakan-dalam-model" class="section level3">
+<h3><span class="header-section-number">3.5.5</span> Nilai <em>Default</em> Parameter yang Digunakan Dalam Model</h3>
+<p>Tabel berikut merangkum persamaan dan nilai <em>default</em> yang digunakan dari sejumlah parameter dalam <em>predictive model</em>.</p>
+<table>
+<caption><span style="color: grey;"> Tabel 3.2: Nilai <em>default</em> yang digunakan dari sejumlah parameter dalam <em>predictive model</em> </span></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="center">Parameter</th>
+<th align="center">Nilai <em>Default</em> yang Digunakan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Tekanan formasi, <span class="math inline">\(P_{form}\)</span></td>
+<td align="center"><span class="math inline">\(P_{form}=15+0.433 (depth)\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">Temperatur formasi, <span class="math inline">\(T\)</span></td>
+<td align="center"><span class="math inline">\(T=60+0.017(depth)\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center"><em>Specific gravity gas</em>, <span class="math inline">\(\gamma_g\)</span></td>
+<td align="center"><span class="math inline">\(\gamma_g = 0.8\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">Koefisien variasi permeabilitas Dystra-Parsons, <span class="math inline">\(V_{DP}\)</span></td>
+<td align="center"><span class="math inline">\(V_{DP}=0.72\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">Jumlah lapisan reservoir</td>
+<td align="center">Minimum = 1 </br> Maksimum = 10</td>
+</tr>
+<tr class="even">
+<td align="center">Faktor volume formasi air, <span class="math inline">\(B_w\)</span></td>
+<td align="center">Korelasi Keenan dan Keyes: </br> <span class="math inline">\(B_w=1+1.2(10^{-4})(T-60)+1(10^{-6})(T-60)^2-3.33(10^{-6})P_{form}\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">Viskositas air, <span class="math inline">\(\mu_w\)</span></td>
+<td align="center">Korelasi Van Wingen: </br> <span class="math inline">\(\mu_w = exp[1.003-1.479(10^{-2})T+1.982(10^{-5})T^2]\)</span></td>
+</tr>
+<tr class="even">
+<td align="center"><em>Connate water saturation</em>, <span class="math inline">\(S_{wc}\)</span></td>
+<td align="center"><span class="math inline">\(S_{wc}=0.3\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">Saturasi minyak residu, <span class="math inline">\(S_{orw}\)</span></td>
+<td align="center">Untuk tipe batuan <em>sandstone</em>, <span class="math inline">\(S_{orw}=0.25\)</span> </br> Untuk tipe batuan karbonat, <span class="math inline">\(S_{orw}=0.38\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">Permeabilitas relatif minyak saat <span class="math inline">\(S_{wc}\)</span>, <span class="math inline">\(X_{k_{roe}}\)</span></td>
+<td align="center">Untuk tipe batuan <em>sandstone</em>, <span class="math inline">\(X_{k_{roe}}=0.8\)</span> </br> Untuk tipe batuan karbonat, <span class="math inline">\(X_{k_{roe}}=0.4\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">Permeabilitas relatif air saat <span class="math inline">\(S_{orw}\)</span>, <span class="math inline">\(X_{k_{rwe}}\)</span></td>
+<td align="center">Untuk tipe batuan <em>sandstone</em>, <span class="math inline">\(X_{k_{rwe}}=0.2\)</span> </br> Untuk tipe batuan karbonat, <span class="math inline">\(X_{k_{rwe}}=0.3\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">Eksponen kurva permeabilitas relatif minyak, <span class="math inline">\(X_{no}\)</span></td>
+<td align="center"><span class="math inline">\(X_{no}=2\)</span></td>
+</tr>
+<tr class="odd">
+<td align="center">Eksponen kurva permeabilitas relatif air, <span class="math inline">\(X_{nw}\)</span></td>
+<td align="center"><span class="math inline">\(X_{nw}=2\)</span></td>
+</tr>
+<tr class="even">
+<td align="center">Radius sumur, <span class="math inline">\(r_w\)</span></td>
+<td align="center"><span class="math inline">\(r_w=0.5ft\)</span></td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="01-prophet.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="03-chemical.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

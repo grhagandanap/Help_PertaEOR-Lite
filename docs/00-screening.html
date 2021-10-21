@@ -1,0 +1,1211 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Bab 1 Screening EOR | Technical Guide PertaEOR-Lite</title>
+  <meta name="description" content="Bab 1 Screening EOR | Technical Guide PertaEOR-Lite" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Bab 1 Screening EOR | Technical Guide PertaEOR-Lite" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/PertaEOR.png" />
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Bab 1 Screening EOR | Technical Guide PertaEOR-Lite" />
+  
+  
+  <meta name="twitter:image" content="images/PertaEOR.png" />
+
+<meta name="author" content="PT LAPI ITB &amp; PERTAMINA INV" />
+
+
+<meta name="date" content="2021-03-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="index.html"/>
+<link rel="next" href="01-prophet.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Help PertaEOR-Lite</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="00-screening.html"><a href="00-screening.html"><i class="fa fa-check"></i><b>1</b> Screening EOR</a><ul>
+<li class="chapter" data-level="1.1" data-path="00-screening.html"><a href="00-screening.html#teori-dasar-statistik-distribusi-probabilitas-dan-metode-numerik"><i class="fa fa-check"></i><b>1.1</b> Teori Dasar Statistik, Distribusi Probabilitas, dan Metode Numerik</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="00-screening.html"><a href="00-screening.html#teori-dasar-statistik-dan-probabilitas"><i class="fa fa-check"></i><b>1.1.1</b> Teori Dasar Statistik dan Probabilitas</a></li>
+<li class="chapter" data-level="1.1.2" data-path="00-screening.html"><a href="00-screening.html#metode-numerik"><i class="fa fa-check"></i><b>1.1.2</b> Metode Numerik</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="00-screening.html"><a href="00-screening.html#metode-analisis-eor-screening"><i class="fa fa-check"></i><b>1.2</b> Metode Analisis EOR Screening</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="00-screening.html"><a href="00-screening.html#metode-analisis-eor-screening-untuk-input-data-single-value"><i class="fa fa-check"></i><b>1.2.1</b> Metode Analisis EOR Screening Untuk <em>Input</em> Data <em>Single-Value</em></a></li>
+<li class="chapter" data-level="1.2.2" data-path="00-screening.html"><a href="00-screening.html#metode-analisis-eor-screening-untuk-input-data-distribusi"><i class="fa fa-check"></i><b>1.2.2</b> Metode Analisis EOR <em>Screening</em> Untuk <em>Input</em> Data Distribusi</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="00-screening.html"><a href="00-screening.html#update-screening-eor"><i class="fa fa-check"></i><b>1.3</b> Update <em>Screening</em> EOR</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="00-screening.html"><a href="00-screening.html#update-database-screening-eor"><i class="fa fa-check"></i><b>1.3.1</b> Update <em>Database</em> <em>Screening</em> EOR</a></li>
+<li class="chapter" data-level="1.3.2" data-path="00-screening.html"><a href="00-screening.html#penambahan-parameter-pada-screening-eor"><i class="fa fa-check"></i><b>1.3.2</b> Penambahan Parameter pada <em>Screening</em> EOR</a></li>
+<li class="chapter" data-level="1.3.3" data-path="00-screening.html"><a href="00-screening.html#benchmark-eor-screening"><i class="fa fa-check"></i><b>1.3.3</b> <em>Benchmark</em> EOR <em>Screening</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="01-prophet.html"><a href="01-prophet.html"><i class="fa fa-check"></i><b>2</b> CO<sub>2</sub> Prophet Predictive Model</a><ul>
+<li class="chapter" data-level="2.1" data-path="01-prophet.html"><a href="01-prophet.html#pendahuluan"><i class="fa fa-check"></i><b>2.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="2.2" data-path="01-prophet.html"><a href="01-prophet.html#asumsi-yang-digunakan-dalam-model"><i class="fa fa-check"></i><b>2.2</b> Asumsi yang Digunakan Dalam Model</a></li>
+<li class="chapter" data-level="2.3" data-path="01-prophet.html"><a href="01-prophet.html#parameter-parameter-penting-yang-digunakan-dalam-model"><i class="fa fa-check"></i><b>2.3</b> Parameter-Parameter Penting yang Digunakan Dalam Model</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="01-prophet.html"><a href="01-prophet.html#koefisien-permeabilitas-dykstra-parsons"><i class="fa fa-check"></i><b>2.3.1</b> Koefisien Permeabilitas Dykstra-Parsons</a></li>
+<li class="chapter" data-level="2.3.2" data-path="01-prophet.html"><a href="01-prophet.html#temperatur-reservoir"><i class="fa fa-check"></i><b>2.3.2</b> Temperatur Reservoir</a></li>
+<li class="chapter" data-level="2.3.3" data-path="01-prophet.html"><a href="01-prophet.html#tekanan-rata-rata-reservoir-average-reservoir-pressure"><i class="fa fa-check"></i><b>2.3.3</b> Tekanan Rata-Rata Reservoir (<em>Average Reservoir Pressure</em>)</a></li>
+<li class="chapter" data-level="2.3.4" data-path="01-prophet.html"><a href="01-prophet.html#minimum-miscibility-pressure-mmp"><i class="fa fa-check"></i><b>2.3.4</b> <em>Minimum Miscibility Pressure (MMP)</em></a></li>
+<li class="chapter" data-level="2.3.5" data-path="01-prophet.html"><a href="01-prophet.html#viskositas-minyak-mu_o"><i class="fa fa-check"></i><b>2.3.5</b> Viskositas Minyak (<span class="math inline">\(\mu_o\)</span>)</a></li>
+<li class="chapter" data-level="2.3.6" data-path="01-prophet.html"><a href="01-prophet.html#viskositas-air-mu_w"><i class="fa fa-check"></i><b>2.3.6</b> Viskositas Air (<span class="math inline">\(\mu_w\)</span>)</a></li>
+<li class="chapter" data-level="2.3.7" data-path="01-prophet.html"><a href="01-prophet.html#faktor-volume-formasi-minyak-bo"><i class="fa fa-check"></i><b>2.3.7</b> Faktor Volume Formasi Minyak (B<sub><em>o</em></sub>)</a></li>
+<li class="chapter" data-level="2.3.8" data-path="01-prophet.html"><a href="01-prophet.html#solution-gas-oil-ratio-rs"><i class="fa fa-check"></i><b>2.3.8</b> <em>Solution Gas-Oil Ratio</em> (R<sub><em>s</em></sub>)</a></li>
+<li class="chapter" data-level="2.3.9" data-path="01-prophet.html"><a href="01-prophet.html#permeabilitas-relatif-kr"><i class="fa fa-check"></i><b>2.3.9</b> Permeabilitas Relatif (k<sub><em>r</em></sub>)</a></li>
+<li class="chapter" data-level="2.3.10" data-path="01-prophet.html"><a href="01-prophet.html#waterco2-injection-ratio"><i class="fa fa-check"></i><b>2.3.10</b> <em>Water/CO<sub>2</sub> Injection Ratio</em></a></li>
+<li class="chapter" data-level="2.3.11" data-path="01-prophet.html"><a href="01-prophet.html#mixing-parameter-omega"><i class="fa fa-check"></i><b>2.3.11</b> <em>Mixing Parameter (<span class="math inline">\(\omega\)</span>)</em></a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="01-prophet.html"><a href="01-prophet.html#tiga-kondisi-aliran-fluida"><i class="fa fa-check"></i><b>2.4</b> Tiga Kondisi Aliran Fluida</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="01-prophet.html"><a href="01-prophet.html#immiscible-flow"><i class="fa fa-check"></i><b>2.4.1</b> <em>Immiscible Flow</em></a></li>
+<li class="chapter" data-level="2.4.2" data-path="01-prophet.html"><a href="01-prophet.html#miscible-flow"><i class="fa fa-check"></i><b>2.4.2</b> <em>Miscible Flow</em></a></li>
+<li class="chapter" data-level="2.4.3" data-path="01-prophet.html"><a href="01-prophet.html#partially-miscible-flow"><i class="fa fa-check"></i><b>2.4.3</b> <em>Partially Miscible Flow</em></a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="01-prophet.html"><a href="01-prophet.html#hasil-perhitungan-dan-tampilan-perangkat-lunak"><i class="fa fa-check"></i><b>2.5</b> Hasil Perhitungan dan Tampilan Perangkat Lunak</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="02-waterflood.html"><a href="02-waterflood.html"><i class="fa fa-check"></i><b>3</b> Waterflood Predictive Model</a><ul>
+<li class="chapter" data-level="3.1" data-path="02-waterflood.html"><a href="02-waterflood.html#pendahuluan-1"><i class="fa fa-check"></i><b>3.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="3.2" data-path="02-waterflood.html"><a href="02-waterflood.html#teori-frontal-displacement-untuk-waterflooding"><i class="fa fa-check"></i><b>3.2</b> Teori <em>Frontal Displacement</em> Untuk <em>Waterflooding</em></a><ul>
+<li class="chapter" data-level="3.2.1" data-path="02-waterflood.html"><a href="02-waterflood.html#teori-fractional-flow-untuk-waterflooding"><i class="fa fa-check"></i><b>3.2.1</b> Teori <em>Fractional Flow</em> Untuk <em>Waterflooding</em></a></li>
+<li class="chapter" data-level="3.2.2" data-path="02-waterflood.html"><a href="02-waterflood.html#teori-frontal-advance-untuk-waterflooding"><i class="fa fa-check"></i><b>3.2.2</b> Teori <em>Frontal Advance</em> Untuk <em>Waterflooding</em></a></li>
+<li class="chapter" data-level="3.2.3" data-path="02-waterflood.html"><a href="02-waterflood.html#penentuan-parameter-left-fracpartial-f_wpartial-s_w-right_s_w-dan-saturasi-air-rata-rata-reservoir-bar-s_w"><i class="fa fa-check"></i><b>3.2.3</b> Penentuan parameter <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)_{S_w}\)</span> dan Saturasi Air Rata-Rata Reservoir (<span class="math inline">\(\bar S_w\)</span>)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="02-waterflood.html"><a href="02-waterflood.html#penentuan-parameter-efisiensi-waterflooding"><i class="fa fa-check"></i><b>3.3</b> Penentuan Parameter Efisiensi <em>Waterflooding</em></a><ul>
+<li class="chapter" data-level="3.3.1" data-path="02-waterflood.html"><a href="02-waterflood.html#displacement-efficiency-ed"><i class="fa fa-check"></i><b>3.3.1</b> <em>Displacement Efficiency</em> (E<sub>D</sub>)</a></li>
+<li class="chapter" data-level="3.3.2" data-path="02-waterflood.html"><a href="02-waterflood.html#areal-sweep-efficiency-ea"><i class="fa fa-check"></i><b>3.3.2</b> <em>Areal Sweep Efficiency</em> (E<sub>A</sub>)</a></li>
+<li class="chapter" data-level="3.3.3" data-path="02-waterflood.html"><a href="02-waterflood.html#vertical-sweep-efficiency-ev"><i class="fa fa-check"></i><b>3.3.3</b> <em>Vertical Sweep Efficiency</em> (E<sub>V</sub>)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="02-waterflood.html"><a href="02-waterflood.html#persamaan-persamaan-yang-digunakan-dalam-prediksi-performa-waterflooding"><i class="fa fa-check"></i><b>3.4</b> Persamaan-Persamaan yang Digunakan Dalam Prediksi Performa <em>Waterflooding</em></a></li>
+<li class="chapter" data-level="3.5" data-path="02-waterflood.html"><a href="02-waterflood.html#persamaan-persamaan-dasar-dan-nilai-default-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>3.5</b> Persamaan-Persamaan Dasar dan Nilai <em>Default</em> yang Digunakan Dalam <em>Predictive Model</em></a><ul>
+<li class="chapter" data-level="3.5.1" data-path="02-waterflood.html"><a href="02-waterflood.html#viskositas-minyak"><i class="fa fa-check"></i><b>3.5.1</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="3.5.2" data-path="02-waterflood.html"><a href="02-waterflood.html#solution-gas-oil-ratio"><i class="fa fa-check"></i><b>3.5.2</b> <em>SolUtion Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="3.5.3" data-path="02-waterflood.html"><a href="02-waterflood.html#faktor-volume-formasi-minyak"><i class="fa fa-check"></i><b>3.5.3</b> Faktor Volume Formasi Minyak</a></li>
+<li class="chapter" data-level="3.5.4" data-path="02-waterflood.html"><a href="02-waterflood.html#permeabilitas-relatif"><i class="fa fa-check"></i><b>3.5.4</b> Permeabilitas Relatif</a></li>
+<li class="chapter" data-level="3.5.5" data-path="02-waterflood.html"><a href="02-waterflood.html#nilai-default-parameter-yang-digunakan-dalam-model"><i class="fa fa-check"></i><b>3.5.5</b> Nilai <em>Default</em> Parameter yang Digunakan Dalam Model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="03-chemical.html"><a href="03-chemical.html"><i class="fa fa-check"></i><b>4</b> Chemical Flood Predictive Model</a><ul>
+<li class="chapter" data-level="4.1" data-path="03-chemical.html"><a href="03-chemical.html#pendahuluan-2"><i class="fa fa-check"></i><b>4.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="4.2" data-path="03-chemical.html"><a href="03-chemical.html#tinjauan-sifat-fisis-dan-mekanisme-kerja-dari-surfaktan-dan-alkali"><i class="fa fa-check"></i><b>4.2</b> Tinjauan Sifat Fisis dan Mekanisme Kerja Dari Surfaktan dan Alkali</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="03-chemical.html"><a href="03-chemical.html#sifat-fisis-dan-mekanisme-kerja-surfaktan"><i class="fa fa-check"></i><b>4.2.1</b> Sifat Fisis dan Mekanisme Kerja Surfaktan</a></li>
+<li class="chapter" data-level="4.2.2" data-path="03-chemical.html"><a href="03-chemical.html#sifat-fisis-dan-mekanisme-kerja-alkali"><i class="fa fa-check"></i><b>4.2.2</b> Sifat Fisis dan Mekanisme Kerja Alkali</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="03-chemical.html"><a href="03-chemical.html#mekanisme-proses-injeksi-kimia"><i class="fa fa-check"></i><b>4.3</b> Mekanisme Proses Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.4" data-path="03-chemical.html"><a href="03-chemical.html#asumsi-dan-batasan-dalam-predictive-model"><i class="fa fa-check"></i><b>4.4</b> Asumsi dan Batasan Dalam <em>Predictive Model</em></a></li>
+<li class="chapter" data-level="4.5" data-path="03-chemical.html"><a href="03-chemical.html#konsep-dan-algoritma-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>4.5</b> Konsep dan Algoritma yang Digunakan Dalam <em>Predictive Model</em></a><ul>
+<li class="chapter" data-level="4.5.1" data-path="03-chemical.html"><a href="03-chemical.html#perhitungan-target-oil"><i class="fa fa-check"></i><b>4.5.1</b> Perhitungan <em>Target Oil</em></a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="03-chemical.html"><a href="03-chemical.html#laju-alir-dan-bilangan-kapiler"><i class="fa fa-check"></i><b>4.6</b> Laju Alir dan Bilangan Kapiler</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="03-chemical.html"><a href="03-chemical.html#surfactant-retention-pada-batuan-sandstone"><i class="fa fa-check"></i><b>4.6.1</b> <em>Surfactant Retention</em> Pada Batuan <em>Sandstone</em></a></li>
+<li class="chapter" data-level="4.6.2" data-path="03-chemical.html"><a href="03-chemical.html#perhitungan-oil-recovery"><i class="fa fa-check"></i><b>4.6.2</b> Perhitungan <em>Oil Recovery</em></a></li>
+<li class="chapter" data-level="4.6.3" data-path="03-chemical.html"><a href="03-chemical.html#karakteristik-produksi-minyak-dan-koreksi-terhadap-crossflow"><i class="fa fa-check"></i><b>4.6.3</b> Karakteristik Produksi Minyak dan Koreksi Terhadap <em>Crossflow</em></a></li>
+<li class="chapter" data-level="4.6.4" data-path="03-chemical.html"><a href="03-chemical.html#karakteristik-injeksi-kimia"><i class="fa fa-check"></i><b>4.6.4</b> Karakteristik Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.6.5" data-path="03-chemical.html"><a href="03-chemical.html#modifikasi-predictive-model-untuk-caustic-dan-caustic-polymer-flood"><i class="fa fa-check"></i><b>4.6.5</b> Modifikasi <em>Predictive Model</em> Untuk <em>Caustic</em> dan <em>Caustic-Polymer Flood</em></a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="03-chemical.html"><a href="03-chemical.html#persamaan-persamaan-dasar-dan-nilai-default-yang-digunakan-dalam-model"><i class="fa fa-check"></i><b>4.7</b> Persamaan-Persamaan Dasar dan Nilai <em>Default</em> yang Digunakan Dalam Model</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="03-chemical.html"><a href="03-chemical.html#viskositas-minyak-1"><i class="fa fa-check"></i><b>4.7.1</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="4.7.2" data-path="03-chemical.html"><a href="03-chemical.html#solution-gas-oil-ratio-1"><i class="fa fa-check"></i><b>4.7.2</b> <em>Solution Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="4.7.3" data-path="03-chemical.html"><a href="03-chemical.html#faktor-volume-formasi-minyak-1"><i class="fa fa-check"></i><b>4.7.3</b> Faktor Volume Formasi Minyak</a></li>
+<li class="chapter" data-level="4.7.4" data-path="03-chemical.html"><a href="03-chemical.html#permeabilitas-relatif-dan-fraksi-aliran-air"><i class="fa fa-check"></i><b>4.7.4</b> Permeabilitas Relatif dan Fraksi Aliran Air</a></li>
+<li class="chapter" data-level="4.7.5" data-path="03-chemical.html"><a href="03-chemical.html#nilai-default-yang-dignakan-dalam-predictive-model"><i class="fa fa-check"></i><b>4.7.5</b> Nilai <em>Default</em> yang Dignakan Dalam <em>Predictive Model</em></a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="03-chemical.html"><a href="03-chemical.html#penambahan-jenis-pattern-pada-injeksi-kimia"><i class="fa fa-check"></i><b>4.8</b> Penambahan Jenis <em>Pattern</em> pada Injeksi Kimia</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="03-chemical.html"><a href="03-chemical.html#injeksi-kimia"><i class="fa fa-check"></i><b>4.8.1</b> Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.8.2" data-path="03-chemical.html"><a href="03-chemical.html#penentuan-pola-sumur-injeksi"><i class="fa fa-check"></i><b>4.8.2</b> Penentuan Pola Sumur Injeksi</a></li>
+<li class="chapter" data-level="4.8.3" data-path="03-chemical.html"><a href="03-chemical.html#sejarah-injeksi-kimia"><i class="fa fa-check"></i><b>4.8.3</b> Sejarah Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.8.4" data-path="03-chemical.html"><a href="03-chemical.html#derivasi-persamaan-model-pattern-injeksi-kimia"><i class="fa fa-check"></i><b>4.8.4</b> Derivasi Persamaan Model <em>Pattern</em> Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.8.5" data-path="03-chemical.html"><a href="03-chemical.html#simulasi-sintetik-injeksi-kimia"><i class="fa fa-check"></i><b>4.8.5</b> Simulasi Sintetik Injeksi Kimia</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="04-polymer.html"><a href="04-polymer.html"><i class="fa fa-check"></i><b>5</b> Polymer Predictive Model</a><ul>
+<li class="chapter" data-level="5.1" data-path="04-polymer.html"><a href="04-polymer.html#pendahuluan-3"><i class="fa fa-check"></i><b>5.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="5.2" data-path="04-polymer.html"><a href="04-polymer.html#teori-fractional-flow"><i class="fa fa-check"></i><b>5.2</b> Teori <em>Fractional Flow</em></a><ul>
+<li class="chapter" data-level="5.2.1" data-path="04-polymer.html"><a href="04-polymer.html#penentuan-nilai-saturasi-air-rata-rata-di-reservoir-selama-periode-injeksi-polimer"><i class="fa fa-check"></i><b>5.2.1</b> Penentuan Nilai Saturasi Air Rata-Rata di Reservoir Selama Periode Injeksi Polimer</a></li>
+<li class="chapter" data-level="5.2.2" data-path="04-polymer.html"><a href="04-polymer.html#rangkuman-persamaan-persamaan-yang-digunakan-dalam-teori-fractional-flow"><i class="fa fa-check"></i><b>5.2.2</b> Rangkuman Persamaan-Persamaan yang Digunakan Dalam Teori <em>Fractional Flow</em></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="04-polymer.html"><a href="04-polymer.html#metode-perhitungan-areal-dan-vertical-sweep-efficiency-menggunakan-pendekatan-streamtube"><i class="fa fa-check"></i><b>5.3</b> Metode Perhitungan <em>Areal</em> dan <em>Vertical Sweep Efficiency</em> Menggunakan Pendekatan <em>Streamtube</em></a></li>
+<li class="chapter" data-level="5.4" data-path="04-polymer.html"><a href="04-polymer.html#perhitungan-injectivity"><i class="fa fa-check"></i><b>5.4</b> Perhitungan <em>Injectivity</em></a></li>
+<li class="chapter" data-level="5.5" data-path="04-polymer.html"><a href="04-polymer.html#penentuan-nilai-permeabilitas-di-setiap-lapisan-reservoir"><i class="fa fa-check"></i><b>5.5</b> Penentuan Nilai Permeabilitas di Setiap Lapisan Reservoir</a></li>
+<li class="chapter" data-level="5.6" data-path="04-polymer.html"><a href="04-polymer.html#koreksi-terhadap-pengaruh-slug-polimer"><i class="fa fa-check"></i><b>5.6</b> Koreksi Terhadap Pengaruh <em>Slug</em> Polimer</a></li>
+<li class="chapter" data-level="5.7" data-path="04-polymer.html"><a href="04-polymer.html#pengaruh-sifat-fisis-larutan-polimer-terhadap-performa-injeksi-polimer"><i class="fa fa-check"></i><b>5.7</b> Pengaruh Sifat Fisis Larutan Polimer Terhadap Performa Injeksi Polimer</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="04-polymer.html"><a href="04-polymer.html#efek-pengurangan-permeabilitas-untuk-fasa-aqueous"><i class="fa fa-check"></i><b>5.7.1</b> Efek Pengurangan Permeabilitas Untuk Fasa <em>Aqueous</em></a></li>
+<li class="chapter" data-level="5.7.2" data-path="04-polymer.html"><a href="04-polymer.html#efek-aliran-non-newtonian-larutan-polimer-di-daerah-sekitar-sumur-injeksi"><i class="fa fa-check"></i><b>5.7.2</b> Efek Aliran <em>Non-Newtonian</em> Larutan Polimer di Daerah Sekitar Sumur Injeksi</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="04-polymer.html"><a href="04-polymer.html#persamaan-persamaan-dasar-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>5.8</b> Persamaan-Persamaan Dasar yang Digunakan Dalam <em>Predictive Model</em></a><ul>
+<li class="chapter" data-level="5.8.1" data-path="04-polymer.html"><a href="04-polymer.html#viskositas-minyak-2"><i class="fa fa-check"></i><b>5.8.1</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="5.8.2" data-path="04-polymer.html"><a href="04-polymer.html#solution-gas-oil-ratio-2"><i class="fa fa-check"></i><b>5.8.2</b> <em>Solution Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="5.8.3" data-path="04-polymer.html"><a href="04-polymer.html#faktor-volume-formasi-minyak-2"><i class="fa fa-check"></i><b>5.8.3</b> Faktor Volume Formasi Minyak</a></li>
+<li class="chapter" data-level="5.8.4" data-path="04-polymer.html"><a href="04-polymer.html#faktor-volume-formasi-air"><i class="fa fa-check"></i><b>5.8.4</b> Faktor Volume Formasi Air</a></li>
+<li class="chapter" data-level="5.8.5" data-path="04-polymer.html"><a href="04-polymer.html#permeabilitas-relatf-dan-fraksi-aliran-air"><i class="fa fa-check"></i><b>5.8.5</b> Permeabilitas Relatf dan Fraksi Aliran Air</a></li>
+<li class="chapter" data-level="5.8.6" data-path="04-polymer.html"><a href="04-polymer.html#persamaan-persamaan-dasar-dan-nilai-default-yang-digunakan"><i class="fa fa-check"></i><b>5.8.6</b> Persamaan-Persamaan Dasar dan Nilai <em>Default</em> yang Digunakan</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="05-co2miscible.html"><a href="05-co2miscible.html"><i class="fa fa-check"></i><b>6</b> CO<sub>2</sub> Miscible Predictive Model</a><ul>
+<li class="chapter" data-level="6.1" data-path="05-co2miscible.html"><a href="05-co2miscible.html#pendahuluan-4"><i class="fa fa-check"></i><b>6.1</b> Pendahuluan</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="05-co2miscible.html"><a href="05-co2miscible.html#kondisi-pvt"><i class="fa fa-check"></i><b>6.1.1</b> Kondisi PVT</a></li>
+<li class="chapter" data-level="6.1.2" data-path="05-co2miscible.html"><a href="05-co2miscible.html#wettability"><i class="fa fa-check"></i><b>6.1.2</b> Wettability</a></li>
+<li class="chapter" data-level="6.1.3" data-path="05-co2miscible.html"><a href="05-co2miscible.html#keuntungan-dan-kerugian-melakukan-injeksi-co2"><i class="fa fa-check"></i><b>6.1.3</b> Keuntungan dan Kerugian Melakukan Injeksi CO<sub>2</sub></a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="05-co2miscible.html"><a href="05-co2miscible.html#miscible-co2-predictive-model"><i class="fa fa-check"></i><b>6.2</b> <em>Miscible CO<sub>2</sub> Predictive Model</em></a><ul>
+<li class="chapter" data-level="6.2.1" data-path="05-co2miscible.html"><a href="05-co2miscible.html#sifat-sifat-fisik-fluida"><i class="fa fa-check"></i><b>6.2.1</b> Sifat-Sifat Fisik Fluida</a></li>
+<li class="chapter" data-level="6.2.2" data-path="05-co2miscible.html"><a href="05-co2miscible.html#fractional-flow-model"><i class="fa fa-check"></i><b>6.2.2</b> <em>Fractional Flow</em> Model</a></li>
+<li class="chapter" data-level="6.2.3" data-path="05-co2miscible.html"><a href="05-co2miscible.html#parameter-parameter-performa-miscible-co2"><i class="fa fa-check"></i><b>6.2.3</b> Parameter-Parameter Performa <em>Miscible</em> CO<sub>2</sub></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html"><i class="fa fa-check"></i><b>7</b> CO<sub>2</sub> Immiscible Predictive Model</a><ul>
+<li class="chapter" data-level="7.1" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#pendahuluan-5"><i class="fa fa-check"></i><b>7.1</b> Pendahuluan</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#mekanisme-pendesakan-secara-immiscible"><i class="fa fa-check"></i><b>7.1.1</b> Mekanisme Pendesakan Secara <em>Immiscible</em></a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#immiscible-co2-predictive-model"><i class="fa fa-check"></i><b>7.2</b> <em>Immiscible</em> CO<sub>2</sub> <em>Predictive Model</em></a><ul>
+<li class="chapter" data-level="7.2.1" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#sifat-sifat-fisik-fluida-1"><i class="fa fa-check"></i><b>7.2.1</b> Sifat-Sifat Fisik Fluida</a></li>
+<li class="chapter" data-level="7.2.2" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#fractional-flow-model-1"><i class="fa fa-check"></i><b>7.2.2</b> <em>Fractional Flow Model</em></a></li>
+<li class="chapter" data-level="7.2.3" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#material-balance-equation"><i class="fa fa-check"></i><b>7.2.3</b> <em>Material Balance Equation</em></a></li>
+<li class="chapter" data-level="7.2.4" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#parameter-parameter-performa-immiscible-co2"><i class="fa fa-check"></i><b>7.2.4</b> Parameter-Parameter Performa <em>Immiscible</em> CO<sub>2</sub></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="07-steam.html"><a href="07-steam.html"><i class="fa fa-check"></i><b>8</b> Steamflood Predictive Model</a><ul>
+<li class="chapter" data-level="8.1" data-path="07-steam.html"><a href="07-steam.html#pendahuluan-6"><i class="fa fa-check"></i><b>8.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="8.2" data-path="07-steam.html"><a href="07-steam.html#fenomena-heat-loss"><i class="fa fa-check"></i><b>8.2</b> Fenomena <em>Heat Loss</em></a><ul>
+<li class="chapter" data-level="8.2.1" data-path="07-steam.html"><a href="07-steam.html#fenomena-heat-loss-di-pipa-permukaan"><i class="fa fa-check"></i><b>8.2.1</b> Fenomena <em>Heat Loss</em> di Pipa Permukaan</a></li>
+<li class="chapter" data-level="8.2.2" data-path="07-steam.html"><a href="07-steam.html#fenomena-heat-loss-di-sumur-injeksi"><i class="fa fa-check"></i><b>8.2.2</b> Fenomena <em>Heat Loss</em> di Sumur Injeksi</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="07-steam.html"><a href="07-steam.html#perhitungan-sejumlah-parameter-penting-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>8.3</b> Perhitungan Sejumlah Parameter Penting yang Digunakan Dalam <em>Predictive Model</em></a><ul>
+<li class="chapter" data-level="8.3.1" data-path="07-steam.html"><a href="07-steam.html#permeabilitas-relatif-tiga-fasa"><i class="fa fa-check"></i><b>8.3.1</b> Permeabilitas Relatif Tiga Fasa</a></li>
+<li class="chapter" data-level="8.3.2" data-path="07-steam.html"><a href="07-steam.html#pembagian-daerah-reservoir"><i class="fa fa-check"></i><b>8.3.2</b> Pembagian Daerah Reservoir</a></li>
+<li class="chapter" data-level="8.3.3" data-path="07-steam.html"><a href="07-steam.html#initial-injectivity-index"><i class="fa fa-check"></i><b>8.3.3</b> <em>Initial Injectivity Index</em></a></li>
+<li class="chapter" data-level="8.3.4" data-path="07-steam.html"><a href="07-steam.html#viskositas-fluida"><i class="fa fa-check"></i><b>8.3.4</b> Viskositas Fluida</a></li>
+<li class="chapter" data-level="8.3.5" data-path="07-steam.html"><a href="07-steam.html#solution-gas-oil-ratio-4"><i class="fa fa-check"></i><b>8.3.5</b> <em>Solution Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="8.3.6" data-path="07-steam.html"><a href="07-steam.html#faktor-volume-formasi-minyak-4"><i class="fa fa-check"></i><b>8.3.6</b> Faktor Volume Formasi Minyak</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="07-steam.html"><a href="07-steam.html#steamflood-predictive-model-1"><i class="fa fa-check"></i><b>8.4</b> <em>Steamflood Predictive Model</em></a><ul>
+<li class="chapter" data-level="8.4.1" data-path="07-steam.html"><a href="07-steam.html#metode-williams-metode-stanford-university"><i class="fa fa-check"></i><b>8.4.1</b> Metode Williams (Metode Stanford University)</a></li>
+<li class="chapter" data-level="8.4.2" data-path="07-steam.html"><a href="07-steam.html#metode-jones"><i class="fa fa-check"></i><b>8.4.2</b> Metode Jones</a></li>
+<li class="chapter" data-level="8.4.3" data-path="07-steam.html"><a href="07-steam.html#model-gomaa"><i class="fa fa-check"></i><b>8.4.3</b> Model Gomaa</a></li>
+<li class="chapter" data-level="8.4.4" data-path="07-steam.html"><a href="07-steam.html#model-aydelotte-pope-model-intercomp"><i class="fa fa-check"></i><b>8.4.4</b> Model Aydelotte-Pope (Model Intercomp)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="08-insitu.html"><a href="08-insitu.html"><i class="fa fa-check"></i><b>9</b> In-Situ Combustion Predictive Model</a><ul>
+<li class="chapter" data-level="9.1" data-path="08-insitu.html"><a href="08-insitu.html#pendahuluan-7"><i class="fa fa-check"></i><b>9.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="9.2" data-path="08-insitu.html"><a href="08-insitu.html#in-situ-combustion-predictive-model-1"><i class="fa fa-check"></i><b>9.2</b> <em>In-Situ Combustion Predictive Model</em></a><ul>
+<li class="chapter" data-level="9.2.1" data-path="08-insitu.html"><a href="08-insitu.html#model-brigham-et-al-untuk-dry-in-situ-combustion"><i class="fa fa-check"></i><b>9.2.1</b> Model Brigham, et al Untuk <em>Dry In-Situ Combustion</em></a></li>
+<li class="chapter" data-level="9.2.2" data-path="08-insitu.html"><a href="08-insitu.html#perhitungan-parameter-parameter-penting-ynag-dgunakan-dalam-model"><i class="fa fa-check"></i><b>9.2.2</b> Perhitungan Parameter-Parameter Penting ynag Dgunakan Dalam Model</a></li>
+<li class="chapter" data-level="9.2.3" data-path="08-insitu.html"><a href="08-insitu.html#viskositas-minyak-4"><i class="fa fa-check"></i><b>9.2.3</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="9.2.4" data-path="08-insitu.html"><a href="08-insitu.html#parameter-parameter-performa-in-situ-combustion"><i class="fa fa-check"></i><b>9.2.4</b> Parameter-Parameter Performa <em>In-Situ Combustion</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="09-infill.html"><a href="09-infill.html"><i class="fa fa-check"></i><b>10</b> Infill Drilling Predictive Model</a><ul>
+<li class="chapter" data-level="10.1" data-path="09-infill.html"><a href="09-infill.html#pendahuluan-8"><i class="fa fa-check"></i><b>10.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="10.2" data-path="09-infill.html"><a href="09-infill.html#asumsi-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>10.2</b> Asumsi yang Digunakan Dalam <em>Predictive Model</em></a></li>
+<li class="chapter" data-level="10.3" data-path="09-infill.html"><a href="09-infill.html#analisis-streamtube"><i class="fa fa-check"></i><b>10.3</b> Analisis <em>Streamtube</em></a></li>
+<li class="chapter" data-level="10.4" data-path="09-infill.html"><a href="09-infill.html#pemodelan-continuity-reservoir"><i class="fa fa-check"></i><b>10.4</b> Pemodelan <em>Continuity</em> Reservoir</a></li>
+<li class="chapter" data-level="10.5" data-path="09-infill.html"><a href="09-infill.html#persamaan-persamaan-dasar-dan-nilai-default-yang-digunakan-dalam-predcitive-model"><i class="fa fa-check"></i><b>10.5</b> Persamaan-Persamaan Dasar dan Nilai <em>Default</em> yang Digunakan Dalam <em>Predcitive Model</em></a><ul>
+<li class="chapter" data-level="10.5.1" data-path="09-infill.html"><a href="09-infill.html#viskositas-minyak-5"><i class="fa fa-check"></i><b>10.5.1</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="10.5.2" data-path="09-infill.html"><a href="09-infill.html#solution-gas-oil-ratio-5"><i class="fa fa-check"></i><b>10.5.2</b> <em>Solution Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="10.5.3" data-path="09-infill.html"><a href="09-infill.html#faktor-volume-formasi-minyak-6"><i class="fa fa-check"></i><b>10.5.3</b> Faktor Volume Formasi Minyak</a></li>
+<li class="chapter" data-level="10.5.4" data-path="09-infill.html"><a href="09-infill.html#permeabilitas-relatif-1"><i class="fa fa-check"></i><b>10.5.4</b> Permeabilitas Relatif</a></li>
+<li class="chapter" data-level="10.5.5" data-path="09-infill.html"><a href="09-infill.html#nilai-default-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>10.5.5</b> Nilai <em>Default</em> yang Digunakan Dalam <em>Predictive Model</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="10-hc.html"><a href="10-hc.html"><i class="fa fa-check"></i><b>11</b> Hydrocarbon Gas Injection Predictive Model</a><ul>
+<li class="chapter" data-level="11.1" data-path="10-hc.html"><a href="10-hc.html#pendahuluan-9"><i class="fa fa-check"></i><b>11.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="11.2" data-path="10-hc.html"><a href="10-hc.html#mekanisme-injeksi-hidrokarbon"><i class="fa fa-check"></i><b>11.2</b> Mekanisme Injeksi Hidrokarbon</a></li>
+<li class="chapter" data-level="11.3" data-path="10-hc.html"><a href="10-hc.html#pembuatan-predictive-model"><i class="fa fa-check"></i><b>11.3</b> Pembuatan <em>Predictive Model</em></a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="11-co2hnp.html"><a href="11-co2hnp.html"><i class="fa fa-check"></i><b>12</b> CO<sub>2</sub> Huff &amp; Puff Predictive Model</a><ul>
+<li class="chapter" data-level="12.1" data-path="11-co2hnp.html"><a href="11-co2hnp.html#pendahuluan-10"><i class="fa fa-check"></i><b>12.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="12.2" data-path="11-co2hnp.html"><a href="11-co2hnp.html#pembutan-predictive-model"><i class="fa fa-check"></i><b>12.2</b> Pembutan <em>Predictive Model</em></a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="12-chemicalhnp.html"><a href="12-chemicalhnp.html"><i class="fa fa-check"></i><b>13</b> Chemical Injection Huff &amp; Puff Predictive Model</a><ul>
+<li class="chapter" data-level="13.1" data-path="12-chemicalhnp.html"><a href="12-chemicalhnp.html#pendahuluan-11"><i class="fa fa-check"></i><b>13.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="13.2" data-path="12-chemicalhnp.html"><a href="12-chemicalhnp.html#mekanisme-injeksi-chemical-huff-and-puff"><i class="fa fa-check"></i><b>13.2</b> Mekanisme Injeksi <em>Chemical Huff and Puff</em></a></li>
+<li class="chapter" data-level="13.3" data-path="12-chemicalhnp.html"><a href="12-chemicalhnp.html#pembuatan-model-prediktif"><i class="fa fa-check"></i><b>13.3</b> Pembuatan Model Prediktif</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Technical Guide PertaEOR-Lite</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="screening-eor" class="section level1">
+<h1><span class="header-section-number">Bab 1</span> Screening EOR</h1>
+<div id="teori-dasar-statistik-distribusi-probabilitas-dan-metode-numerik" class="section level2">
+<h2><span class="header-section-number">1.1</span> Teori Dasar Statistik, Distribusi Probabilitas, dan Metode Numerik</h2>
+<div id="teori-dasar-statistik-dan-probabilitas" class="section level3">
+<h3><span class="header-section-number">1.1.1</span> Teori Dasar Statistik dan Probabilitas</h3>
+<p>Statistik adalah ilmu yang mempelajari cara mengumpulkan, mengatur, menganalisis, dan menginterpretasi data. Statistik dibagi menjadi dua, yaitu statistik deskriptif dan statistik inferensial. Statistik deskriptif membahas mengenai cara mengumpulkan dan mengatur data, sedangkan statistik inferensial membahas mengenai cara menganalisis data, yaitu analisis terhadap data sampel untuk memberikan kesimpulan mengenai populasi. Beberapa istilah yang digunakan dalam statistik, diantaranya:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Populasi</strong>, yaitu total data dari sistem yang ingin dipelajari. Variabel yang menggambarkan populasi disebut <strong>parameter populasi</strong>. Parameter populasi yang penting untuk diketahui diantaranya: (a) <strong>Rata-rata (mean) populasi</strong> (dilambangkan <span class="math inline">\(\mu\)</span> ), yaitu parameter yang memberikan informasi mengenai titik pusat dari data populasi; (b) <strong><em>Variance</em> populasi</strong> (dilambangkan <span class="math inline">\(\sigma\)</span><sup>2</sup>, yaitu parameter yang memberikan informasi mengenai sebaran dat apopulasi. <strong>Standard deviasi populasi</strong> (dilambangkan <span class="math inline">\(\sigma\)</span>) didefinisikan sebagai akar kuadrat dari <em>variance</em> populasi (<span class="math inline">\(\sqrt{\sigma^2}\)</span>). Sama halnya dengan <em>variance</em> populasi, standard deviasi populasi juga memberikan informasi mengenai sebaran data populasi.</li>
+<li><strong>Sampel</strong>, yaitu bagian dari populasi. Sampel harus dapat mewakili populasi. Sampel yang memenuhi kriteria ini disebut sebagai <strong><em>random</em> sampel</strong>. Variabel yang menggambarkan sampel disebut <strong>statistik sampel</strong>. Statistik sampel yang penting untuk diketahui diantaranya: (a) <strong>Rata-rata (<em>mean</em>) sampel</strong> (dilambangkan <span class="math inline">\(\bar{x}\)</span>), yaitu statistik yang memberikan informasi mengenai titik pusat dari data sampel. <em>Mean</em> sampel dihitung dengan menjumlahkan semua nilai numerik sampel, kemudian dibagi dengan jumlah anggota sampel; (b) <strong><em>Variance</em> sampel</strong> (dilambangkan <em>s<sup>2</sup></em>), yaitu parameter yang memberikan informasi mengenai sebaran data sampel. <strong>Standard deviasi sampel</strong> (dilambangkan <em>s</em>) didefinisikan sebagai akar kuadrat dari <em>variance</em> sampel (<span class="math inline">\(\sqrt{s^2}\)</span>). Sama halnya dengan <em>variance</em> sampel, standard deviasi sampel memberikan informasi mengenai sebaran data sampel.</li>
+</ol>
+<p>Dalam aplikasi, informasi mengenai parameter populasi seringkali tidak diketahui. Dalam kasus seperti ini, akan terlihat peranan penting dari statistik, yaitu kesimpulan mengenai populasi dapat dibuat melalui analisis sampel. Konsekuensi dari hal ini adalah terdapatnya ketidakpastian pada kesimpulan yang diperoleh. Adanya ketidakpastian <em>uncertainty</em> dalam kesimpulan merupakan hal yang tidak dapat dipisahkan dari statistik.</p>
+<p>Dalam probabilitas dikenal istilah <em>event</em>, yaitu suatu kejadian yang muncul sebagai akibat dari eksperimen. <strong>Eksperimen</strong> didefinisikan sebagai suatu kegiatan yang dilakukan untuk memperoleh data atau nilai. Himpunan event keluaran (<em>output</em>) dari seluruh kemungkinan <em>event</em> yang muncul sebagai hasil dari suatu eksperimen disebut sebagai himpunan semesta atau <strong>ruang sampel</strong>. Ruang sampel disimbolkan dengan <em>S</em>.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<img src="images/screening/himpunan.png" alt="Definisi ruang sampel dan anggota sampel" width="50%" />
+<p class="caption">
+Gambar 1.1: Definisi ruang sampel dan anggota sampel
+</p>
+</div>
+Gambar di atas memberikan ilustrasi mengenai konsep ruang sampel dan anggota sampel. Pada gambar, <em>event</em> A merupakan anggota dari ruang sampel <em>S</em>. Konsep probabilitas erat kaitannya dengan konsep frekuensi relatif. Jika suatu eksperimen diulang sebanyak <em>n</em> kali, kemudian dicatat banyaknya jumlah keluaran dari <em>n</em> jumlah eksperimen yang berupa <em>event A</em>, maka frekuensi dari <em>event A</em>, disimbolkan <em>N</em>(<em>A</em>), didefinisikan sebagai berikut. <span class="math display">\[N(A)=\frac{banyaknya\ keluaran\ event\ A}{n}...(1)\]</span>
+Frekuensi relatif <em>event</em> A dinyatakan sebagai frekuensi <em>event</em> A dibagi banyaknya jumlah sampel <em>n</em>. <span class="math display">\[frekuensi\ relatif\ (A)=\frac{N(A)}{n}...(2)\]</span>
+Nilai frekuensi relatif suatu <em>event</em> bergantung pada jumlah sampel <em>n</em>. Semakin banyak <em>n</em>, maka nilai frekuensi relatif akan semakin stabil. Probabilitas suatu <em>event</em> bersesuaian dengan nilai stabil dari frekuensi relatif <em>event</em> tersebut. <strong>Probabilitas suatu <em>event</em> didefinisikan sebagai proporsi kemunculan suatu <em>event</em> dari total <em>n</em> jumlah random eksperimen</strong>. Probabilitas kemunculan atau kejadian suatu <em>event</em> disimbolkan P(<em>event</em>). Maka, probabilitas kejadian <em>event</em> <em>A</em> dalam ruang sampel <em>S</em> disimbolkan dengan <em>P(A)</em>. Dua aturan dasar terkait teori probabilitas adalah probabilitas suatu <em>event</em> tidak pernah bernilai negatif, dan probabilitas dari ruang sampel <em>S</em> adalah 1.
+<p>
+ 
+</p>
+<div id="distribusi-probabilitas-kontinu" class="section level4">
+<h4><span class="header-section-number">1.1.1.1</span> Distribusi Probabilitas Kontinu</h4>
+<p>Seperti yang telah dijelaskan sebelumnya, probabilitas dapat didefinisikan sebagai peluang terjadinya suatu <em>event</em> atau peluang kemunculan suatu nilai dari suatu eksperimen. Eksperimen yang dimaksud di sini adalah <strong><em>ekperimen statistik</em></strong>, yaitu suatu proses yang menghasilkan data atau nilai numerik. Nilai probabilitas berada diantara 0 dan 1. Jika terdapat sekumpulan nilai, dan masing-masing nilai tersebut dikaitkan dengan probabilitas kejadiannya, maka akan diperoleh distribusi probabilitas.</p>
+<p>Distribusi probabilitas dapat dibagi menjadi dua, yaitu distribusi probabilitas diskrit dan distribusi probabilitas kontinu. Fungsi yang menjelaskan suatu distribusi probabilitas dari variabel random diskrit disebut sebagai <strong><em>probability mass function</em></strong>, sedangkan fungsi yang menjelaskan suatu distribusi probabilitas dari variabel random kontinu disebut sebagai <strong><em>probability density function</em></strong>. Karena parameter reservoir merupakan variable random kontinu, maka penjelasan akan ditekankan pada teori <em>probability density function</em>.</p>
+<p><em>Probability Density Funtion</em> (disingkat PDF) adalah suatu fungsi <em>f(x)</em> yang memberikan bentuk distribusi probabilitas dari suatu variabel random kontinu. Konsep PDF sangat penting karena dengan mengetahui PDF dari suatu parameter, maka bentuk distribusi probabilitas dari parameter tersebut akan dapat diketahui. Misalkan, untuk parameter porositas reservoir, dengan mengetahui PDF dari porositas reservoir maka bentuk distribusi dari porositas akan diketahui. Secara matematis, PDF didefinisikan oleh persamaan berikut.<span class="math display">\[P(a&lt;X&lt;b)=\int_a^{b}f(x)dx\]</span>
+Beberapa sifat dari PDF adalah sebagai berikut:</p>
+<ol style="list-style-type: decimal">
+<li>f(x) &gt; 0, x <span class="math inline">\(\in\)</span> S. Maksud dari simbol ini adalah PDF <em>f</em> selalu bernilai positif, dimana variabel random <em>x</em> merupakan anggota dari ruang sampel <em>S</em>.</li>
+<li><span class="math inline">\(\int_s f(x)dx=1\)</span>. Maksudnya adalah total luas daerah di bawah kurva PDF selalu sama dengan 1, artinya nilai probabilitas total (untuk seluruh anggota ruang sampel <em>S</em>) adalah 1.</li>
+</ol>
+Informasi PDF dapat digunakan untuk mencari nilai rata-rata (<span class="math inline">\(\mu\)</span>) dan <em>variance</em> (<span class="math inline">\(\sigma^2\)</span>) dari PDF tersebut. Nilai rata-rata (<span class="math inline">\(\mu\)</span>) dan <em>variance</em> (<span class="math inline">\(\sigma^2\)</span>) dapat dihitung menggunakan persamaan berikut.<span class="math display">\[\mu=\int_s xf(x)dx\]</span> <span class="math display">\[\sigma^2=\int_s (x-\mu)^2f(x)dx=\int_s x^2f(x)dx-\mu^2...(3)\]</span>
+Terdapat beberapa bentuk distribusi kontinu yang akan digunakan dalam analisis EOR <em>screening.</em> Berikut akan dijelaskan empat bentuk distribusi kontinu yang akan digunakan dalam algoritma EOR <em>screening</em>.
+<p>
+ 
+</p>
+</div>
+<div id="distribusi-normal-dan-standard-normal" class="section level4">
+<h4><span class="header-section-number">1.1.1.2</span> Distribusi Normal dan Standard Normal</h4>
+<p><strong>Distribusi normal</strong> (disebut juga <strong>distribusi <em>Gaussian</em></strong>) merupakan distribusi dari variabel random kontinu yang berbentuk mirip lonceng (“<em>bell-shaped</em>”). Distribusi normal didefinisikan oleh dua parameter, yaitu nilai rata-rata (<span class="math inline">\(\mu\)</span>) dan standard deviasi (<span class="math inline">\(\sigma\)</span>).</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<img src="images/screening/distribusi_normal.png" alt="Bentuk distribusi normal" width="50%" />
+<p class="caption">
+Gambar 1.2: Bentuk distribusi normal
+</p>
+</div>
+<p>Beberapa sifat dari distribusi normal adalah:</p>
+<ol style="list-style-type: decimal">
+<li>Kurva distribusi normal berbentuk mirip lonceng (“<em>bell-shaped</em>”) dengan titik puncak kurva berada di atas nilai rata-rata (<span class="math inline">\(\mu\)</span>),</li>
+<li>Kurva distribusi normal berbentuk simetri melalui nilai rata-rata (<span class="math inline">\(\mu\)</span>), dan</li>
+<li>Kurva distribusi normal semakin mendekati sumbu horizontal namun tidak pernah menyentuh atau melewati sumbu horizontal.</li>
+</ol>
+<p>Hal yang terpenting dari kurva distribusi normal adalah luas daerah di bawah kurva distribusi normal. Hal ini penting karena luas daerah di bawah kurva distribusi normal pada suatu interval tertentu menyatakan <strong>probabilitas</strong> suatu nilai berada pada interval tersebut. Sama seperti aturan distribusi probabilitas untuk semua distribusi probabilitas kontinu yang telah dijelaskan sebelumnya, total luas daerah di bawah kurva distribusi normal adalah 1. Gambar berikut memperlihatkan konsep ini.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<img src="images/screening/distribusi_normal_1.png" alt="Total luas daerah di bawah kurva distribusi normal adalah 1" width="50%" />
+<p class="caption">
+Gambar 1.3: Total luas daerah di bawah kurva distribusi normal adalah 1
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<img src="images/screening/distribusi_normal_0.5.png" alt="Total luas daerah setengah dari total distribusi normal adalah 0.5" width="50%" />
+<p class="caption">
+Gambar 1.4: Total luas daerah setengah dari total distribusi normal adalah 0.5
+</p>
+</div>
+<p>Maka, dengan mengetahui luas daerah di bawah kurva distribusi normal dalam suatu interval, probabilitas suatu nilai ada di dalam interval tersebut dapat diketahui. Hal lain yang perlu diketahui dari kurva distribusi normal adalah sebagai berikut:</p>
+<ol style="list-style-type: decimal">
+<li>Sekitar 68.2% dari luas daerah di bawah kurva distribusi normal berada dalam interval satu
+standard deviasi dari nilai rata-ratanya, yaitu <span class="math inline">\(\mu\)</span> + <span class="math inline">\(\sigma\)</span> dan <span class="math inline">\(\mu\)</span> – <span class="math inline">\(\sigma\)</span>,</li>
+<li>Sekitar 95.4% dari luas daerah di bawah kurva distribusi normal berada dalam interval dua
+standard deviasi dari nilai rata-ratanya, yaitu <span class="math inline">\(\mu\)</span> + 2<span class="math inline">\(\sigma\)</span> dan <span class="math inline">\(\mu\)</span> – 2<span class="math inline">\(\sigma\)</span>, dan</li>
+<li>Sekitar 99.7% dari luas daerah di bawah kurva distribusi normal berada dalam interval tiga
+standard deviasi dari nilai rata-ratanya, yaitu <span class="math inline">\(\mu\)</span> + 3<span class="math inline">\(\sigma\)</span> dan <span class="math inline">\(\mu\)</span> – 3<span class="math inline">\(\sigma\)</span>.</li>
+</ol>
+<p>Dengan kata lain, suatu nilai yang merupakan anggota dari populasi nilai distribusi normal yang bersangkutan akan berada pada <em>range</em> ± 3 standard deviasi dari <em>mean</em> <span class="math inline">\(\mu\)</span>. Karena hampir seluruh nilai yang merupakan anggota populasi berada pada <em>range</em> ± 3 standard deviasi dari μ (dengan probabilitas 99.7%), maka dapat disimpulkan bahwa suatu nilai yang berada di luar <em>range</em> ± 3 standard deviasi dari <span class="math inline">\(\mu\)</span> bukan merupakan anggota dari populasi yang bersangkutan (probabilitas nilai ini merupakan anggota dari populasi terkait sangat kecil, yaitu 100% - 99.7% = 0.3%).</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
+<img src="images/screening/distribusi_normal_range.png" alt="Luas daerah (probabilitas) di bawah kurva distribusi normal untuk masing-masing _range_ standard deviasi dari _mean_" width="50%" />
+<p class="caption">
+Gambar 1.5: Luas daerah (probabilitas) di bawah kurva distribusi normal untuk masing-masing <em>range</em> standard deviasi dari <em>mean</em>
+</p>
+</div>
+<p><em>
+Probability Density Function</em> (PDF) distribusi normal diberikan oleh persamaan berikut. <span class="math display">\[f(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}...(4)\]</span></p>
+<p>Menentukan luas daerah di bawah kurva distribusi normal tidaklah selalu mudah karena masing- masing distribusi normal memiliki nilai rata-rata <span class="math inline">\(\mu\)</span> dan standard deviasi <span class="math inline">\(\sigma\)</span> yang berbeda satu sama lain. Oleh karena itu, digunakanlah teori <strong>distribusi standard normal</strong> untuk mempermudah menghitung luas daerah di bawah kurva distribusi normal. Prosedur dalam menentukan luas daerah di bawah kurva normal adalah mentransformasi nilai <em>x</em> pada distribusi normal original menjadi nilai <em>z</em> pada distribusi standard normal. Statistik <em>z</em> disebut sebagai statistik standard normal, yaitu suatu parameter yang mengkarakterisasi nilai distribusi standard normal. Kemudian, luas daerah di bawah kurva standard normal ditentukan dengan melihat tabel luas daerah kurva standard normal yang telah disusun oleh para ahli statistik.</p>
+<p>Konsep untuk mentransformasi kurva distribusi normal menjadi kurva standard normal adalah dengan menghitung berapa standard deviasi jauhnya suatu nilai x pada distribusi normal dari <em>mean</em>-nya. Setelah hal ini diketahui, maka nilai <em>x</em> dikonversi menjadi nilai <em>z</em> menggunakan persamaan berikut. <span class="math display">\[z=\frac{x-\mu}{\sigma}...(5)\]</span></p>
+Distribusi normal <em>original</em> kini telah ditransformasi ke dalam distribusi standard normal dengan variabel <em>z</em>. Distribusi standard normal dicirikan dengan nilai rata-rata <span class="math inline">\(\mu\)</span> = 0 dan standard deviasi <span class="math inline">\(\sigma\)</span> = 1. Luas daerah (probabilitas) suatu nilai standard normal akan jatuh pada interval 0 dan <em>z</em> diperoleh dari kurva standard normal. Distribusi standard normal sangat berguna karena dapat mempermudah perhitungan probabilitas suatu nilai dalam distribusi normal.
+<p>
+ 
+</p>
+</div>
+<div id="distribusi-segitiga-triangular" class="section level4">
+<h4><span class="header-section-number">1.1.1.3</span> Distribusi Segitiga (Triangular)</h4>
+<p>Distribusi segitiga merupakan bentuk distribusi kontinu yang dikarakterisasi oleh tiga titik, yaitu titik ujung bawah a, titik ujung atas b, dan titik tengah c, dimana a &lt; b dan a ≤ c ≤ b.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-7"></span>
+<img src="images/screening/distribusi_segitiga.png" alt="Distribusi segitiga" width="50%" />
+<p class="caption">
+Gambar 1.6: Distribusi segitiga
+</p>
+</div>
+<p><em>Probability Density Function</em> (PDF) untuk distribusi segitiga diberikan oleh:</p>
+<span class="math display">\[
+f(x) =
+\begin{cases}
+  0,\ untuk\ x &lt; a\ dan\ x &gt; b\\ 
+  \frac{2(x-a)}{(b-a)(c-a)},\ untuk\ a \leq x \leq c \\
+  \frac{2(b-x)}{(b-a)(b-c)},\ untuk\ c \leq x \leq b
+\end{cases}       
+\]</span>
+<p>
+ 
+</p>
+</div>
+<div id="distribusi-uniform" class="section level4">
+<h4><span class="header-section-number">1.1.1.4</span> Distribusi Uniform</h4>
+<p>Distribusi <em>uniform</em> kontinu adalah bentuk distribusi dimana setiap anggota distribusi memiliki probabilitas kemunculan yang sama. Bentuk distribusi ini dicirikan oleh dua parameter, yaitu nilai minimum <em>a</em>, dan nilai maksimum <em>b</em>. <em>Probability Density Function</em> (PDF) dari distribusi <em>uniform</em> adalah:</p>
+<p><span class="math display">\[
+f(x)=
+\begin{cases}
+  \frac{1}{b-a},\ untuk\ a \leq x \leq b\\
+  0,\ untuk\ x &gt; a\ atau\ x &gt; b
+\end{cases}
+\]</span></p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-8"></span>
+<img src="images/screening/distribusi_uniform.png" alt="Distribusi uniform" width="50%" />
+<p class="caption">
+Gambar 1.7: Distribusi uniform
+</p>
+</div>
+<p>
+ 
+</p>
+</div>
+<div id="distribusi-log-normal" class="section level4">
+<h4><span class="header-section-number">1.1.1.5</span> Distribusi Log Normal</h4>
+<p>Distribusi log normal berkaitan dengan distribusi normal, sehingga parameter-parameter distribusi log normal dapat dinyatakan dalam bentuk parameter distribusi normal. Misalkan Y adalah suatu variabel random kontinu yang terdistribusi normal, maka variabel random kontinu = D akan terdistribusi log normal dengan:</p>
+<center>
+<em>Mean</em> log normal = E[ln(X)] = E(Y) = <span class="math inline">\(\mu\)</span>
+</center>
+<center>
+<em>Variance</em> log normal = Var[ln(X)] = Var[Y] = <span class="math inline">\(\sigma\)</span><sup>2</sup>
+</center>
+<center>
+dimana ln(X) = ln(e<sup>Y</sup>) = Y
+</center>
+<p>
+ 
+</p>
+Bentuk distribusi log normal adalah seperti distribusi normal namun miring ke kiri. Hal ini disebabkan karena distribusi normal memiliki <em>skewness</em> nol, sedangkan distribusi log normal memiliki <em>skewness</em> positif.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-9"></span>
+<img src="images/screening/distribusi_log_normal.png" alt="Distribusi log normal" width="50%" />
+<p class="caption">
+Gambar 1.8: Distribusi log normal
+</p>
+</div>
+<p><em>Mean</em> dan <em>variance</em> dari variabel log normal <em>X</em> adalah:
+<span class="math display">\[\mu_X = e^{(\mu+\frac{\sigma^2}{2})}\]</span>
+<span class="math display">\[\sigma^2_X = (e^{2\mu+\sigma^2})(e^{\sigma^2}-1\]</span>
+Dimana <span class="math inline">\(\mu\)</span> dan <span class="math inline">\(\sigma\)</span><sup>2</sup> adalah <em>mean</em> dan <em>variance</em> dari variabel normal <em>Y</em>. Terlihat bahwa <em>mean</em> dan <em>variance</em> dari variabel log normal adalah fungsi dari <em>mean</em> dan <em>variance</em> variabel normal. Karena distribusi log normal dan distribusi normal saling berkaitan, maka <em>Probability Density Function</em> (PDF) dari distribusi log normal dinyatakan oleh parameter-parameter distribusi normal.
+<span class="math display">\[f(x) = \frac{1}{x\sigma\sqrt{2\pi}}\ exp\ [-\frac{1}{2\sigma^2}(ln\ x-\mu)^2]\]</span>
+Pada persamaan (8) di atas, <span class="math inline">\(\mu\)</span> dan <span class="math inline">\(\sigma\)</span><sup>2</sup> adalah <em>mean</em> dan <em>variance</em> dari variabel normal <em>Y</em>.</p>
+</div>
+</div>
+<div id="metode-numerik" class="section level3">
+<h3><span class="header-section-number">1.1.2</span> Metode Numerik</h3>
+<p>Dalam aplikasi, seringkali dijumpai permasalahan berupa penentuan akar (solusi) dari sebuah persamaan <em>f(x)</em> = 0. Jika <em>f(x)</em> adalah suatu fungsi sederhana, tentu solusinya akan mudah diperoleh secara eksak. Permasalahan timbul apabila fungsi <em>f(x)</em> adalah suatu fungsi kompleks yang solusinya tidak dapat diperoleh secara eksak. Untuk kasus-kasus dimana solusi dari fungsi <em>f(x)</em> tidak dapat diperoleh secara eksak, dilakukan pendekatan pencarian solusi secara numerik, yaitu dilakukan perubahan solusi secara bertahap dengan sedikit demi sedikit menambah tingkat ketelitian sampai diperoleh solusi dengan tingkat ketelitian yang diinginkan. Metode mencarisolusi seperti ini disebut sebagai <strong>metode approksimasi berurutan <em>(method of successive approximation)</em></strong> atau disebut juga dengan <strong>metode iterasi</strong>. Metode iterasi tidak hanya harus diterapkan pada kasus-kasus yang tidak memiliki solusi eksak. Kasus-kasus sederhana yang solusi eksaknya ada pun dapat dicari pendekatan solusinya menggunakan metode iterasi. Bahkan, metode iterasi lebih disukai untuk digunakan di kasus-kasus sederhana oleh banyak orang karena metode ini kadang lebih mudah diterapkan dibandingkan mencari solusi eksak secara analitik.</p>
+<p>Terdapat beberapa metode iterasi yang dapat digunakan untuk mencari solusi. Pada penelitian ini, metode iterasi yang digunakan adalah metode Newton-Raphson. Oleh karena itu, pada subbab ini, penjelasan metode numerik dibatasi pada metode Newton-Raphson.</p>
+<strong>Metode Newton-Raphson</strong>, yang juga sering disebut sebagai <strong>metode Newton</strong> adalah suatu metode numerik yang melibatkan turunan pertama dari fungsi <em>f(x)</em> dalam proses iterasi. Pada penelitian ini, metode Newton digunakan untuk mencari titik potong antara dua kurva distribusi, yaitu kurva distribusi <em>database</em> dan kurva distribusi <em>input</em>. Jika distribusi <em>database</em> memiliki <em>density function</em> <em>f(x)</em> dan distribusi <em>input</em> memiliki <em>density function</em> <em>g(x)</em>, maka fungsi <em>h(x)</em> = <em>f(x)</em> - <em>g(x)</em> menyatakan selisih antara <em>density database</em> dengan <em>density input</em>. Nilai fungsi <em>h(x)</em> = 0 menyatakan titik potong antara kedua kurva <em>f(x)</em> dan <em>g(x)</em>. Metode Newton diterapkan terhadap fungsi <em>h(x)</em> untuk mencari pendekatan solusi <em>h(x)</em> = 0. Hasil dari penerapan metode Newton adalah diperolehnya pendekatan nilai x dimana <em>h(x)</em> sangat dekat ke nol. Nilai <em>x</em> ini merupakan titik potong yang dicari.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-10"></span>
+<img src="images/screening/newton_rhapson.png" alt="Titik x~p~ merupakan titik potong antara kurva distribusi database dengan kurva distribusi input. Titik potong ini dicari menggunakan metode Newton-Raphson" width="50%" />
+<p class="caption">
+Gambar 1.9: Titik x<sub>p</sub> merupakan titik potong antara kurva distribusi database dengan kurva distribusi input. Titik potong ini dicari menggunakan metode Newton-Raphson
+</p>
+</div>
+<p>Misalkan <em>h(x)</em> adalah fungsi yang dapat didiferensialkan dan misalkan <em>x<sub>1</sub></em> adalah tebakan awal solusi untuk <em>h(x)</em> = 0. Jika <em>E</em> melambangkan batas toleransi error dari solusi, maka metode Newton diterapkan dengan mengulangi langkah berikut untuk <em>n</em> = 1, 2 … sampai diperoleh |<em>x<sub>n+1</sub> - x<sub>n</sub></em>| &lt; <em>E</em>:
+<span class="math display">\[x_{n+1} = x_n - \frac{h(x_n)}{h&#39;(x_n)}...(9)\]</span>
+Persamaan (9) di atas merupakan prosedur perulangan (iterasi) untuk mencari solusi <em>x</em> yang sangat mendekati <em>h(x)</em> = 0. Prosedur iterasi dilakukan sampai dicapai suatu nilai konvergen (yang kemudian diambil sebagai solusi), atau sampai suatu batas <em>error</em> tertentu <em>E</em>, dimana <em>E</em> = |<em>x<sub>n+1</sub> - x<sub>n</sub></em>| Hal yang perlu diperhatikan dalam penggunaan metode Newton-Raphson adalah pemilihan tebakan awal untuk solusi. Permasalahan yang sering timbul adalah pemilihan tebakan awal yang terlalu jauh sehingga kekonvergenan lambat diperoleh, atau bahkan solusi konvergen tidak dapat diperoleh.</p>
+<p>Setelah titik potong dari dua kurva distribusi diperoleh dari metode Newton, maka langkah selanjutnya adalah mencari luas daerah irisan dari kedua kurva distribusi tersebut (arsiran merah pada Gambar 9). Luas daerah irisan ini menyatakan probabilitas kecocokan distribusi <em>input</em> terhadap distribusi <em>database</em>.</p>
+<p>Penentuan luas daerah irisan melibatkan penggunaan integral dari fungsi distribusi dalam suatu interval [<em>a</em>, <em>b</em>]. Metode numerik yang digunakan dalam penentuan luas daerah (integral) adalah <strong>metode Simpson</strong> (disebut juga <strong>metode Parabolik</strong>). Metode Simpson mencari pendekatan terhadap luas daerah dari suatu bangun ruang dengan membagi interval [<em>a</em>, <em>b</em>] ke dalam <em>n</em> jumlah sub-interval (<em>n</em> harus genap), dimana pada masing-masing sub-interval ditempatkan suatu bangun ruang parabola. Sehingga, akan terdapat <em>n</em> buah parabola di bawah suatu kurva <em>f(x)</em>. Luas daerah di bawah kurva <em>f(x)</em> dapat didekati dengan menjumlahkan seluruh n buah parabola dalam interval [<em>a</em>, <em>b</em>].</p>
+Metode Simpson dinyatakan sebagai berikut.
+<span class="math display">\[\int_a^bf(x)dx \approx \frac{h}{3}[f(x_0)+4f(x_1)+2f(x_2)+...+4f(x_{n-1})+f(x_n)]...(10)\]</span>
+Pada persamaan (10) di atas, <em>h</em> adalah lebar sub-interval dan nilai-nilai 1, 4, 2, 4, 2, 4, 2,…, 2, 4, 1 adalah koefisien-koefisien yang terkait dengan setiap suku <em>f(x)</em>.
+<p>
+ 
+</p>
+</div>
+</div>
+<div id="metode-analisis-eor-screening" class="section level2">
+<h2><span class="header-section-number">1.2</span> Metode Analisis EOR Screening</h2>
+<p>Teori dasar yang telah dijelaskan di subbab pertama merupakan dasar yang akan digunakan untuk analisis EOR <em>screening</em> dalam subbab ini. Seperti yang telah disebutkan pada bagian pendahuluan, analisis dilakukan untuk mengetahui probabilitas kecocokan dari setiap parameter <em>input</em> reservoir (untuk setiap metode EOR) terhadap <em>database</em>. <em>Database</em> ini berupa interval nilai parameter reservoir untuk setiap metode EOR yang telah berhasil diterapkan di seluruh dunia. <em>Database</em> yang digunakan diambil dari paper Aladasani dan Baojun Bai (2010). Tabel berikut memperlihatkan <em>database</em> yang digunakan untuk EOR <em>screening</em>.</p>
+<img src="images/screening/miscible.png" width="100%" style="display: block; margin: auto;" />
+<img src="images/screening/immiscible.png" width="100%" style="display: block; margin: auto;" />
+<img src="images/screening/waterflooding.png" width="100%" style="display: block; margin: auto;" />
+<img src="images/screening/thermal.png" width="100%" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-15"></span>
+<img src="images/screening/microbial.png" alt="_Range_ nilai dari beberapa parameter reservoir terhadap setiap metode EOR yang telah sukses diterapkan di beberapa tempat di seluruh dunia. _Range_ nilai ini akan dijadikan data acuan dalam analisis statistik. (Sumber: Ahmad Aladasani and Baojun Bai, 2010, _Recent Developments and Updated Screening Criteria of Enhanced Oil Recovery Techniques_, SPE Paper 130726)" width="100%" />
+<p class="caption">
+Gambar 1.10: <em>Range</em> nilai dari beberapa parameter reservoir terhadap setiap metode EOR yang telah sukses diterapkan di beberapa tempat di seluruh dunia. <em>Range</em> nilai ini akan dijadikan data acuan dalam analisis statistik. (Sumber: Ahmad Aladasani and Baojun Bai, 2010, <em>Recent Developments and Updated Screening Criteria of Enhanced Oil Recovery Techniques</em>, SPE Paper 130726)
+</p>
+</div>
+<p>Interval nilai parameter reservoir yang tertera di Gambar 10 akan digunakan sebagai acuan <em>database</em> dalam analisis. Metode analisis EOR <em>screening</em> terbagi atas <strong>metode analisis untuk <em>input</em> data <em>single-value</em></strong> dan <strong>metode analisis untuk <em>input</em> data distribusi</strong>. Berikut akan dijelaskan kedua metode analisis ini.</p>
+<div id="metode-analisis-eor-screening-untuk-input-data-single-value" class="section level3">
+<h3><span class="header-section-number">1.2.1</span> Metode Analisis EOR Screening Untuk <em>Input</em> Data <em>Single-Value</em></h3>
+<p><em>Input</em> data <em>single-value</em> yang dimaksud di sini adalah parameter <em>input</em> berupa nilai tunggal, misalnya <em>input</em> porositas berupa satu nilai porositas yang mewakili distribusi porositas. Terdapat dua algoritma yang digunakan dalam EOR <em>screening</em>, yaitu algoritma normal dan algoritma <em>tight</em>. Bentuk distribusi probabilitas yang digunakan dalam analisis <em>input</em> data <em>single value</em> adalah distribusi segitiga.</p>
+<div id="algoritma-normal-normal-screening-algorithm" class="section level4">
+<h4><span class="header-section-number">1.2.1.1</span> Algoritma Normal (Normal Screening Algorithm)</h4>
+<p>Algoritma normal yang digunakan dalam EOR screening dibagi menjadi dua, yaitu <strong>algoritma statistik (<em>statistics algorithm</em>)</strong> dan <strong>algoritma teknik (<em>engineering algorithm</em>)</strong>. Algoritma statistik adalah algoritma yang murni menggunakan konsep statistik dalam penentuan kriteria <em>screen</em>ing, sedangkan algoritma teknik adalah algoritma yang menyertakan faktor <em>engineering sense</em> ke dalam perhitungan <em>screening</em>.</p>
+Pada kedua algoritma, disertakan parameter <strong><em>cut-off</em></strong>. Parameter <em>cut-off</em> menyatakan tambahan data (berupa luas daerah) sebesar ±<span class="math inline">\(\alpha\)</span>% dari distribusi data original. Parameter ini memungkinkan <em>user</em> untuk menentukan nilai probabilitas (sebesar <span class="math inline">\(\alpha\)</span>%) saat parameter input <em>x</em> tepat jatuh di nilai maksimum atau nilai minimum <em>database</em>.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-16"></span>
+<img src="images/screening/cut-off.png" alt="Konsep _cut-off_ dalam algoritma EOR _screening_" width="50%" />
+<p class="caption">
+Gambar 1.11: Konsep <em>cut-off</em> dalam algoritma EOR <em>screening</em>
+</p>
+</div>
+<p>
+ 
+</p>
+<strong>a. Algoritma Statistik (Statistics Algoritm)</strong> <br/>
+Pada algoritma statistik, nilai rata-rata (<em>mean</em>) dari distribusi <em>database</em> digunakan sebagai acuan penentuan kecocokan 100% terhadap suatu metode EOR.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-17"></span>
+<img src="images/screening/algoritma_statistik.png" alt="Konsep algoritma statistik" width="50%" />
+<p class="caption">
+Gambar 1.12: Konsep algoritma statistik
+</p>
+</div>
+Berdasarkan <em>database</em>, maka variabel yang diketahui nilainya adalah A, B, dan C (mengacu pada gambar di atas). <em>X<sub>0</sub></em> dan <em>X<sub>1</sub></em> merupakan dua variabel <em>unknown</em> yang harus dicari nilainya. Penentuan nilai <em>X<sub>0</sub></em> adalah sebagai berikut.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-18"></span>
+<img src="images/screening/X0.png" alt="Konsep penentuan __X~0~__" width="50%" />
+<p class="caption">
+Gambar 1.13: Konsep penentuan <strong>X<sub>0</sub></strong>
+</p>
+</div>
+<p><span class="math display">\[X_0 = \frac{-b\ ±\ \sqrt{D} }{2a}...(11)\]</span>
+Dimana: <br/>
+D = b<sup>2</sup> - 4a <br/>
+a = 1 - 2P <br/>
+b = 4BP - 2A <br/>
+c = A<sup>2</sup> - 2PB<sup>2</sup> <br/>
+A = nilai minimum dari <em>database original</em> <br/>
+B = nilai rata-rata (<em>mean</em>) dari <em>database original</em> <br/>
+P = probabilitas nilai di x = <em>A</em> (nyatakan P = <span class="math inline">\(\frac{\alpha}{100}\)</span>). <br/>
+Solusi <em>X<sub>0</sub></em> yang dipilih adalah yang memenuhi <em>X<sub>0</sub></em> &lt; A</p>
+Penentuan nilai <em>X<sub>1</sub></em> adalah sebagai berikut.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-19"></span>
+<img src="images/screening/X1.png" alt="Konsep penentuan __X~1~__" width="50%" />
+<p class="caption">
+Gambar 1.14: Konsep penentuan <strong>X<sub>1</sub></strong>
+</p>
+</div>
+<p><span class="math display">\[X_1 = \frac{-b\ ±\ \sqrt{D} }{2a}...(12)\]</span>
+Dimana: <br/>
+D = b<sup>2</sup> - 4a <br/>
+a = 1 - 2P <br/>
+b = 4BP - 2C <br/>
+c = C<sup>2</sup> - 2PB<sup>2</sup> <br/>
+A = nilai maksimum dari <em>database original</em> <br/>
+B = nilai rata-rata (<em>mean</em>) dari <em>database original</em> <br/>
+P = probabilitas nilai di x = <em>C</em> (nyatakan P = <span class="math inline">\(\frac{\alpha}{100}\)</span>). <br/>
+Solusi <em>X<sub>1</sub></em> yang dipilih adalah yang memenuhi <em>X<sub>1</sub></em> &gt; A</p>
+<p>Setelah nilai <em>X<sub>0</sub></em> dan <em>X<sub>1</sub></em> diperoleh, maka langkah selanjutnya adalah menentukan probabilitas kecocokan. Probabilitas kecocokan suatu parameter input <em>x</em> terhadap <em>database</em> (dinyatakan oleh P(<em>x</em>) adalah sebagai berikut.</p>
+<ul>
+<li><p>Untuk parameter <em>input</em> di bawah nilai <em>mean</em> dari <em>database original</em> (<em>x</em> &lt; B)</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-20"></span>
+<img src="images/screening/kecilB.png" alt="Perhitungan P(x) untuk nilai input x &lt; B" width="50%" />
+<p class="caption">
+Gambar 1.15: Perhitungan P(x) untuk nilai input x &lt; B
+</p>
+</div>
+<p><span class="math display">\[P(x) = \left( \frac{1}{2}\frac{(x-X_0)^2}{(B-X_0)^2} \right) \times 2\  ...(13)\]</span>
+Dimana: <br/>
+<em>x</em> = nilai parameter <em>input single value</em> <br/>
+<em>X<sub>0</sub></em> = nilai minimum <em>database</em> baru <br/>
+<em>B</em> = nilai <em>mean database original</em> <br/></p></li>
+<li><p>Untuk parameter <em>input</em> di bawah nilai <em>mean</em> dari <em>database original</em> (<em>x</em> &gt; B)</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-21"></span>
+<img src="images/screening/besarB.png" alt="Perhitungan P(x) untuk nilai input x &gt; B" width="50%" />
+<p class="caption">
+Gambar 1.16: Perhitungan P(x) untuk nilai input x &gt; B
+</p>
+</div>
+<p><span class="math display">\[P(x) = \left( \frac{1}{2}\frac{(X_0-x)^2}{(X_1-B)^2} \right) \times 2\  ...(14)\]</span>
+Dimana: <br/>
+<em>x</em> = nilai parameter <em>input single value</em> <br/>
+<em>X<sub>1</sub></em> = nilai maksimum <em>database</em> baru <br/>
+<em>B</em> = nilai <em>mean database original</em> <br/></p>
+<p>
+<p> </p>
+</p></li>
+</ul>
+<strong>b. Algoritma Teknik (Engineering Algoritm)</strong> <br/>
+Pada algoritma teknik, terdapat tiga tipe algoritma yang dapat dipilih oleh <em>user</em>, yaitu algoritma tipe <em>average</em>, algoritma tipe maksimum, dan algoritma tipe minimum.
+<p>
+ 
+</p>
+<strong>(1) Algoritma Teknik Tipe <em>Average</em></strong> <br/>
+Algoritma tipe ini adalah algoritma yang sama dengan yang diterapkan pada algoritma statistik, dimana <em>mean</em> dari <em>database</em> dijadikan titik acuan penentuan kecocokan 100%.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-22"></span>
+<img src="images/screening/tipe_average.png" alt="Konsep algoritma teknik tipe _average_" width="50%" />
+<p class="caption">
+Gambar 1.17: Konsep algoritma teknik tipe <em>average</em>
+</p>
+</div>
+<p>
+ 
+</p>
+<strong>(2) Algoritma Teknik Tipe Minimum</strong> <br/>
+Algoritma tipe ini menetapkan nilai kecocokan 100% untuk nilai parameter <em>input</em> di bawah nilai <em>mean database original</em>. Bentuk distribusi data yang digunakan adalah sebagai berikut.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-23"></span>
+<img src="images/screening/tipe_minimum.png" alt="Konsep algoritma teknik tipe minimum" width="50%" />
+<p class="caption">
+Gambar 1.18: Konsep algoritma teknik tipe minimum
+</p>
+</div>
+<p>Langkah pertama dari algoritma adalah mencari nilai <em>X<sub>1</sub></em>. Nilai <em>X<sub>1</sub></em> ditentukan sebagai berikut.
+<span class="math display">\[X_1 = \frac{-b\ ±\ \sqrt{D} }{2a}...(15)\]</span>
+Dimana: <br/>
+D = b<sup>2</sup> - 4a <br/>
+a = 1 - P <br/>
+b = 4BP - 2C <br/>
+c = C<sup>2</sup> - 2PB<sup>2</sup> <br/>
+A = nilai maksimum dari <em>database original</em> <br/>
+B = nilai rata-rata (<em>mean</em>) dari <em>database original</em> <br/>
+P = probabilitas nilai di x = <em>C</em> (nyatakan P = <span class="math inline">\(\frac{\alpha}{100}\)</span>). <br/>
+Solusi <em>X<sub>1</sub></em> yang dipilih adalah yang memenuhi <em>X<sub>1</sub></em> &gt; C</p>
+<p>Setelah nilai <em>X<sub>1</sub></em> diperoleh, maka langkah selanjutnya adalah menentukan probabilitas kecocokan. Probabilitas kecocokan suatu parameter input <em>x</em> terhadap <em>database</em> (dinyatakan oleh P(<em>x</em>)) adalah sebagai berikut.</p>
+<ul>
+<li>Untuk parameter <em>input</em> di atas nilai <em>mean</em> dari <em>database original</em> (<em>x</em> &gt; B)
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-24"></span>
+<img src="images/screening/besarB1.png" alt="Perhitungan P(x) untuk nilai input x &gt; B" width="50%" />
+<p class="caption">
+Gambar 1.19: Perhitungan P(x) untuk nilai input x &gt; B
+</p>
+</div>
+<span class="math display">\[P(x) = \left[\frac{(X_1-x)^2}{(X_1-B)^2} \right]...(16)\]</span>
+<p>
+ 
+</p></li>
+<li>Untuk parameter <em>input</em> di bawah nilai <em>mean</em> dari <em>database original</em> (<em>x</em> &lt; B)
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-25"></span>
+<img src="images/screening/kecilB1.png" alt="Perhitungan P(x) untuk nilai input x &lt; B" width="50%" />
+<p class="caption">
+Gambar 1.20: Perhitungan P(x) untuk nilai input x &lt; B
+</p>
+</div>
+<span class="math display">\[P(x) = 1...(17)\]</span>
+<p>
+ 
+</p></li>
+</ul>
+<strong>(3) Algoritma Teknik Tipe Maksimum</strong> <br/>
+Algoritma tipe ini menetapkan nilai kecocokan 100% untuk nilai parameter <em>input</em> di atas nilai <em>mean database original</em>. Bentuk distribusi data yang digunakan adalah sebagai berikut.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-26"></span>
+<img src="images/screening/tipe_maksimum.png" alt="Konsep algoritma teknik tipe maksimum" width="50%" />
+<p class="caption">
+Gambar 1.21: Konsep algoritma teknik tipe maksimum
+</p>
+</div>
+<p>Langkah pertama dari algoritma adalah mencari nilai <em>X<sub>0</sub></em>. Nilai <em>X<sub>0</sub></em> ditentukan sebagai berikut.
+<span class="math display">\[X_0 = \frac{-b\ ±\ \sqrt{D} }{2a}...(18)\]</span>
+Dimana: <br/>
+D = b<sup>2</sup> - 4a <br/>
+a = 1 - P <br/>
+b = 2BP - 2A <br/>
+c = A<sup>2</sup> - 2PB<sup>2</sup> <br/>
+A = nilai minimum dari <em>database original</em> <br/>
+B = nilai rata-rata (<em>mean</em>) dari <em>database original</em> <br/>
+P = probabilitas nilai di x = <em>A</em> (nyatakan P = <span class="math inline">\(\frac{\alpha}{100}\)</span>). <br/>
+Solusi <em>X<sub>0</sub></em> yang dipilih adalah yang memenuhi <em>X<sub>0</sub></em> &lt; A.</p>
+<p>Setelah nilai <em>X<sub>0</sub></em> diperoleh, maka langkah selanjutnya adalah menentukan probabilitas kecocokan. Probabilitas kecocokan suatu parameter input <em>x</em> terhadap <em>database</em> (dinyatakan oleh P(<em>x</em>)) adalah sebagai berikut.</p>
+<ul>
+<li>Untuk parameter <em>input</em> di bawah nilai <em>mean</em> dari <em>database original</em> (<em>x</em> &lt; B)
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-27"></span>
+<img src="images/screening/kecilB2.png" alt="Perhitungan P(x) untuk nilai input x &lt; B" width="50%" />
+<p class="caption">
+Gambar 1.22: Perhitungan P(x) untuk nilai input x &lt; B
+</p>
+</div>
+<span class="math display">\[P(x) = \left[\frac{(x-X_0)^2}{(B-X_0)^2}\right] ...(19)\]</span>
+<p>
+ 
+</p></li>
+<li>Untuk parameter <em>input</em> di atas nilai <em>mean</em> dari <em>database original</em> (<em>x</em> &lt; B)
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-28"></span>
+<img src="images/screening/besarB2.png" alt="Perhitungan P(x) untuk nilai input x &gt; B" width="50%" />
+<p class="caption">
+Gambar 1.23: Perhitungan P(x) untuk nilai input x &gt; B
+</p>
+</div>
+<span class="math display">\[P(x) = 1...(17)\]</span>
+<p>
+ 
+</p></li>
+</ul>
+</div>
+<div id="algoritma-tight-tight-screening-algorithm" class="section level4">
+<h4><span class="header-section-number">1.2.1.2</span> Algoritma <em>Tight (Tight Screening Algorithm)</em></h4>
+<p>Algoritma <em>tight</em> diterapkan pada hasil (<em>score</em>) algoritma normal. Algoritma ini menerapkan prosedur tambahan dalam perhitungan dengan cara mempertimbangkan banyak dan besarnya nilai <em>unmatch</em> dari <em>score</em> algoritma normal, sehingga metode EOR yang memiliki nilai <em>unmatch</em> akan mengalami perubahan peringkat sesuai dengan banyaknya jumlah nilai <em>unmatch</em> dan besarnya nilai <em>unmatch</em>.</p>
+Algoritma <em>tight</em> diterapkan menggunakan sejumlah parameter berikut.</br>
+<center>
+<strong>Average Match and Unmatch Score</strong> = <span class="math inline">\(\frac{Total\ Match\ Score\ +\ Total\ Unmatch\ Score}{Number\ of\ Match\ +\ Number\ of\ Unmatch}\)</span>
+</center>
+<center>
+<strong>Average Match Score</strong> = <span class="math inline">\(\frac{Total\ Match\ Score}{Number\ of\ Match}\)</span>
+</center>
+<center>
+<strong>Ratio</strong> = <span class="math inline">\(\frac{Average\ Match\ and\ Unmatch\ Score}{Average\ Match\ Score}\)</span>
+</center>
+<p>
+ 
+</p>
+<em>Score</em> dari algoritma <em>tight screening</em> dinyatakan oleh:
+<center>
+<strong>Tight Screening Score</strong> = <strong>(Normal Screening Score)</strong> <span class="math inline">\(\times\)</span> Ratio … (21)
+</center>
+<p>
+ 
+</p>
+</div>
+<div id="perhitungan-total-probabilitas-kecocokan" class="section level4">
+<h4><span class="header-section-number">1.2.1.3</span> Perhitungan Total Probabilitas Kecocokan</h4>
+<p>Total probabilitas kecocokan suatu metode EOR terhadap <em>database</em> dihitung menggunakan persamaan yang melibatkan hasil kali antara probabilitas kecocokan individu per parameter dengan nilai <em>weighting factor</em>. Persamaan ini berlaku baik pada algoritma statistik maupun algoritma teknik.
+<span class="math display">\[Probability\ (average\ score) = \frac{w_1F_1+w_2F_2+...+w_8F_8}{w_1+w_2+...+w_8}\]</span>
+<span class="math display">\[Probability\ (average\ score) = \frac{\sum_{j=1}^{8}w_jF_j }{\sum_{j=1}^{8}w_j}...(22)\]</span>
+Dimana: <br/>
+<em>w<sub>i</sub></em> = <em>weighting factor</em> parameter ke-<em>i</em> <br/>
+<em>F<sub>i</sub></em> = parameter <em>input</em> ke-<em>i</em> <br/></p>
+Metode EOR dengan nilai probabilitas kecocokan terbesar terhadap <em>database</em> akan dipilih sebagai <em>the most probable EOR method</em> bagi reservoir target tersebut.
+<p>
+ 
+</p>
+</div>
+<div id="algoritma-penalty-factor-dalam-eor-screening" class="section level4">
+<h4><span class="header-section-number">1.2.1.4</span> Algoritma <em>Penalty Factor</em> Dalam EOR <em>Screening</em></h4>
+<p>Dalam EOR <em>screening</em>, diterapkan algoritma tambahan untuk mengakomodasi <em>input</em> <em>user</em> yang berada di luar <em>database.</em> Algoritma ini disebut dengan algoritma <em>penalty</em> <em>factor.</em> Algoritma <em>penalty</em> <em>factor</em> mengakomodasi seberapa jauh nilai <em>input</em> <em>user</em> yang berada di luar <em>database.</em> Maka, semakin jauh nilai <em>input</em> <em>user</em> dari <em>database</em>, nilai probabilitas total menjadi semakin kecil dan menurunkan peringkat metode EOR terkait dalam peringkat kecocokan. Algoritma <em>penalty</em> <em>factor</em> memberikan nilai kecocokan negatif.</p>
+<p>Algoritma <em>penalty</em> <em>factor</em> diterapkan untuk setiap tipe algoritma <em>screening</em> yang digunakan, termasuk algoritma <em>screening</em> tipe <em>average</em>, maksimum, dan minimum. Persamaan-persamaan yang digunakan untuk setiap algoritma adalah sebagai berikut.</p>
+<strong>a. Algoritma Tipe <em>Average</em></strong> <br/>
+Untuk algoritma tipe <em>average</em>, <em>penalty factor</em> diterapkan baik untuk kasus <em>input user</em> di bawah minimum <em>database</em> maupun untuk kasus <em>input user</em> di atas maksimum <em>database</em>.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-29"></span>
+<img src="images/screening/tipe_average1.png" alt="*Penalty factor* untuk algoritma tipe _average_" width="50%" />
+<p class="caption">
+Gambar 1.24: <em>Penalty factor</em> untuk algoritma tipe <em>average</em>
+</p>
+</div>
+<p>
+ 
+</p>
+Untuk nilai input &gt; nilai maksimum <em>database</em>,
+<span class="math display">\[Penalty\ Factor\ = \frac{maxDB\ -\ nilai\ input}{maxDB\ -\ minDB}...(23)\]</span>
+Untuk nilai input &lt; nilai minimum <em>database</em>,
+<span class="math display">\[Penalty\ Factor\ = \frac{nilai\ input\ -\ minDB}{maxDB\ -\ minDB}...(24)\]</span>
+<p>
+ 
+</p>
+<strong>b. Algoritma Tipe Minimum <br/></strong>
+Untuk algoritma tipe minimum, <em>penalty factor</em> diterapkan hanya untuk untuk kasus <em>input user</em> yang berada di atas nilai maksimum <em>database</em>.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-30"></span>
+<img src="images/screening/tipe_minimum1.png" alt="*Penalty factor* untuk algoritma tipe minimum" width="50%" />
+<p class="caption">
+Gambar 1.25: <em>Penalty factor</em> untuk algoritma tipe minimum
+</p>
+</div>
+<span class="math display">\[Penalty\ Factor\ = \frac{maxDB\ -\ nilai\ input}{maxDB\ -\ minDB}...(25)\]</span>
+<p>
+ 
+</p>
+<strong>b. Algoritma Tipe Maksimum <br/></strong>
+Untuk algoritma tipe minimum, <em>penalty factor</em> diterapkan hanya untuk untuk kasus <em>input user</em> yang berada di bawah nilai maksimum <em>database</em>.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-31"></span>
+<img src="images/screening/tipe_maksimum1.png" alt="*Penalty factor* untuk algoritma tipe maksimum" width="50%" />
+<p class="caption">
+Gambar 1.26: <em>Penalty factor</em> untuk algoritma tipe maksimum
+</p>
+</div>
+<p><span class="math display">\[Penalty\ Factor\ = \frac{nilai\ input\ -\ minDB}{maxDB\ -\ minDB}...(26)\]</span></p>
+Sedangkan, untuk kasus <em>input</em> distribusi, algoritma <em>penalty factor</em> diterapkan sama seperti pada kasus <em>input single value</em> untuk tipe algoritma <em>average</em>.
+<p>
+ 
+</p>
+</div>
+</div>
+<div id="metode-analisis-eor-screening-untuk-input-data-distribusi" class="section level3">
+<h3><span class="header-section-number">1.2.2</span> Metode Analisis EOR <em>Screening</em> Untuk <em>Input</em> Data Distribusi</h3>
+<p>Untuk kasus <em>input</em> data distribusi, maka <em>input</em> dari <em>user</em> berupa parameter-parameter dari distribusi <em>input</em>, seperti <em>mean</em>, standard deviasi, nilai minimum, dan nilai maksimum. Pada kasus distribusi,terdapat dua jenis distribusi yang terlibat, yaitu <strong>distribusi <em>database</em></strong> dan <strong>distribusi <em>input</em></strong>.</p>
+<em>Database</em> yang digunakan adalah interval nilai dengan nilai minimum, nilai maksimum, dan nilai rata-rata, sehingga hanya ada tiga nilai yang diketahui. Oleh karena itu, pada penelitian ini,distribusi <em>database</em> selalu diasumsikan mengikuti <strong>distribusi <em>triangular</em> (segitiga)</strong> dengan <em>density</em> <em>function</em> seperti yang dinyatakan dalam persamaan (6). Untuk distribusi <em>input</em>, <em>user</em> dapat memilihempat pilihan distribusi, yaitu <strong>distribusi segitiga, distribusi normal, distribusi uniform, dan distribusi log normal</strong>. Probabilitas kecocokan distribusi input terhadap distribusi <em>database</em> diperoleh dengan menghitung luas daerah irisan antara dua distribusi probabilitas ini. Gambar berikut memperlihatkan ide dari metode analisis yang digunakan untuk kasus <em>input</em> distribusi.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-32"></span>
+<img src="images/screening/irisan.png" alt="Daerah irisan dari distribusi _input_ dan distribusi _database_" width="50%" />
+<p class="caption">
+Gambar 1.27: Daerah irisan dari distribusi <em>input</em> dan distribusi <em>database</em>
+</p>
+</div>
+<p>Bagian kurva yang diarsir dengan warna merah pada gambar di atas memperlihatkan contoh daerah irisan dari dua kurva distribusi, yaitu kurva distribusi <em>database</em> (segitiga) dan kurva distribusi <em>input</em> (normal). Titik potong kurva (<em>x</em>) dicari dengan menggunakan metode numerik Newton-Raphson. Setelah titik potong kurva diperoleh, luas daerah irisan dihitung menggunakan aturan Simpson, seperti yang telah dijelaskan sebelumnya.</p>
+<p>Berdasarkan penjelasan sebelumnya, maka terdapat empat kasus yang melibatkan pasangan distribusi <em>database</em> – distribusi <em>input</em>, yaitu:</p>
+<ol style="list-style-type: decimal">
+<li>Kasus pasangan distribusi segitiga – distribusi segitiga</li>
+<li>Kasus pasangan distribusi segitiga – distribusi normal</li>
+<li>Kasus pasangan distribusi segitiga – distribusi uniform</li>
+<li>Kasus pasangan distribusi segitiga – distribusi log normal.</li>
+</ol>
+<p>Secara umum, pengembangan algoritma untuk setiap pasangan distribusi <em>database</em> distribusi <em>input</em> dibagi ke dalam enam tipe algoritma yang berlaku untuk enam kasus berikut:</p>
+<strong>(1) Distribusi <em>database</em> dan distribusi <em>input</em> tidak berpotongan</strong> <br/>
+Distribusi <em>database</em> dan distribusi <em>input</em> tidak berpotongan jika interval distribusi <em>input</em> berada di luar interval distribusi <em>database</em>. Gambar di bawah memperlihatkan contoh kasus ini untuk pasangan distribusi <em>database</em> segitiga distribusi <em>input</em> normal. Karena kedua kurva distribusi tidak berpotongan, maka tidak terdapat daerah irisan antara dua distribusi ini, sehingga probabilitas kecocokan distribusi input terhadap distribusi database adalah nol.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-33"></span>
+<img src="images/screening/tidak_berpotongan.png" alt="Distribusi _input_ dan distribusi _database_ tidak berpotongan" width="50%" />
+<p class="caption">
+Gambar 1.28: Distribusi <em>input</em> dan distribusi <em>database</em> tidak berpotongan
+</p>
+</div>
+<p>
+ 
+</p>
+<strong>(2) Distribusi <em>database</em> dan distribusi <em>input</em> identik</strong> <br/>
+Hal ini terjadi jika distribusi <em>database</em> dan distribusi <em>input</em> memiliki bentuk distribusi yang sama dengan parameter-parameter nilai minimum, nilai maksimum, nilai <em>mean</em>, dan nilai standard deviasi yang sama. Dengan kata lain, distribusi <em>database</em> dan distribusi <em>input</em> adalah dua distribusi identik. Karena dua distribusi identik, maka daerah irisan antara kedua distribusi ini meliputi seluruh daerah di bawah kurva kedua distribusi, sehingga probabilitas kecocokan distribusi <em>input</em> terhadap distribusi <em>database</em> adalah 100%.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-34"></span>
+<img src="images/screening/distribusi_identik.png" alt="Distribusi _input_ dan distribusi _database_ merupakan distribusi identik" width="50%" />
+<p class="caption">
+Gambar 1.29: Distribusi <em>input</em> dan distribusi <em>database</em> merupakan distribusi identik
+</p>
+</div>
+<p>
+ 
+</p>
+<strong>(3) Distribusi <em>input</em> beririsan dengan distribusi <em>database</em> di sisi kiri distribusi <em>database</em></strong> <br/>
+Untuk kasus ini, terdapat satu titik potong antara kurva distribusi <em>database</em> dan kurva distribusi <em>input.</em> Gambar di bawah memperlihatkan contoh untuk kasus ini.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-35"></span>
+<img src="images/screening/irisan1.png" alt="Daerah irisan berada di sisi kiri kurva distribusi _database_" width="50%" />
+<p class="caption">
+Gambar 1.30: Daerah irisan berada di sisi kiri kurva distribusi <em>database</em>
+</p>
+</div>
+<p>Pengembangan algoritma untuk kasus ini adalah sebagai berikut. Pertama, titik potong kurva dicari dengan menggunakan metode Newton. Fungsi yang digunakan dalam iterasi Newton adalah selisih antara kedua <em>density function</em> dari distribusi <em>database</em> dan distribusi <em>input.</em> Jika distribusi <em>database</em> memiliki <em>density function f(x)</em> dan distribusi <em>input</em> memiliki <em>density function g(x)</em>, maka fungsi <em>h(x) = f(x) − g(x)</em> menyatakan selisih dari fungsi distribusi <em>database</em> dan fungsi distribusi <em>input.</em></p>
+<p>Titik potong antara kedua kurva adalah suatu titik <em>x</em> pada kurva dimana nilai fungsi <em>h(x)</em> adalah nol. Nilai <em>h(x)</em> nol adalah solusi eksak, sedangkan metode Newton adalah metode mencari solusi secara numerik. Oleh karena itu, dibutuhkan penyesuaian terhadap solusi numerik. Untuk solusi numerik, titik potong kurva dinyatakan oleh suatu titik <em>x</em> pada kurva dimana nilai fungsi <em>h(x)</em> sangat dekat dengan nol dengan tingkat kesalahan <em>E</em>. Tingkat kesalahan <em>E</em> yang digunakan pada algoritma adalah 10<sup>-7</sup>. Sehingga, solusi titik potong x secara numerik adalah nilai dimana titik perulangan <em>x<sub>n+1</sub></em> memenuhi |<em>x<sub>n+1</sub></em> − <em>x<sub>n</sub></em>| ≤ <em>E</em>.</p>
+Setelah titik potong kurva diperoleh, langkah selanjutnya adalah menghitung luas daerah irisan antara dua kurva distribusi. Luas daerah irisan ini diperlihatkan di gambar dengan arsiran merah. Luas daerah irisan menyatakan probabilitas kecocokan ditribusi <em>input</em> terhadap distribusi <em>database</em>. Secara umum, untuk daerah irisan berada di sisi kiri kurva distribusi <em>database</em>, luas daerah dihitung dengan cara berikut. <span class="math display">\[Luas\ Daerah\ arsiran\ = \int_{min.db}^{x_p}g(x)dx\ +\ \int_{x_p}^{max.input}f(x)dx...(27) \]</span>
+Dimana <span class="math inline">\(\int_{min.db}^{x_p}g(x)dx\)</span> dan <span class="math inline">\(\int_{x_p}^{max.input}f(x)dx\)</span> dihitung menggunakan aturan Simpson.
+<p>
+ 
+</p>
+<strong>(4) Distribusi <em>input</em> beririsan dengan distribusi <em>database</em> di sisi kanan distribusi <em>database</em></strong> <br/>
+Kasus ini masih melibatkan satu titik potong. Contoh kasus ini diperlihatkan pada hambar berikut.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-36"></span>
+<img src="images/screening/irisan2.png" alt="Daerah irisan berada di sisi kanan kurva distribusi _database_" width="50%" />
+<p class="caption">
+Gambar 1.31: Daerah irisan berada di sisi kanan kurva distribusi <em>database</em>
+</p>
+</div>
+Langkah-langkah pengembangan algoritma untuk kasus ini sama seperti kasus (3) di atas, yaitu penentuan titik potong x<sub>p</sub> yang diikuti oleh perhitungan luas daerah arsiran untuk mengetahui probabilitas kecocokan distribusi <em>input</em> terhadap distribusi <em>database</em>. Secara umum, perhitungan luas daerah arsiran adalah: <span class="math display">\[Luas\ daerah\ arsiran\ = \int_{min.input}^{x_p}g(x)dx\ +\ \int_{x_p}^{max.db}f(x)dx...(28) \]</span>
+Dimana <span class="math inline">\(\int_{min.input}^{x_p}g(x)dx\)</span> dan <span class="math inline">\(\int_{x_p}^{max.db}f(x)dx\)</span> dihitung menggunakan aturan Simpson.
+<p>
+ 
+</p>
+<strong>(5) Interval distribusi <em>input</em> berada di dalam interval distribusi <em>database</em></strong> <br/>
+Berbeda dengan kasus (3) dan (4), kasus ini memiliki dua titik potong. Pada dasarnya, langkah-langkah pengembangan algoritma untuk dua titik potong sama seperti kasus satu titik potong, yaitu penentuan titik potong (dalam hal ini terdapat dua titik potong) kemudian menghitung luas daerah arsiran untuk mengetahui probabilitas kecocokan distribusi <em>input</em> terhadap distribusi <em>database</em>.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-37"></span>
+<img src="images/screening/interval_dalam.png" alt="Kasus interval distribusi _input_ berada di dalam distribusi _database_" width="50%" />
+<p class="caption">
+Gambar 1.32: Kasus interval distribusi <em>input</em> berada di dalam distribusi <em>database</em>
+</p>
+</div>
+Luas daerah arsiran dihitung menggunkn persamaan berikut. <span class="math display">\[Luas\ Daerah\ arsiran\ = \int_{min.input}^{x_{p_1}}g(x)dx\ +\ \int_{x_{p_1}}^{avg.db}f_1(x)dx\ +\ \int_{avg.db}^{x_{p_2}}f_2(x)dx\ +\ \int_{x_{p_2}}^{max.input}g(x)dx...(29)\]</span>
+Masing-masing integral di atas dihitung menggunakan aturan Simpson.
+<p>
+ 
+</p>
+<strong>(6) Interval distribusi <em>database</em> berada di dalam interval distribusi <em>input</em></strong> <br/>
+Sama seperti kasus (5), kasus ini melibatkan dua titik potong. Langkah-langkah pengembangan algoritma sama seperti kasus-kasus sebelumnya, yaitu penentuan titik potong yang dilanjutkan dengan perhitungan luas daerah arsiran untuk mengetahui probabilitas kecocokan distribusi <em>input</em> terhadap distribusi <em>database</em>.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-38"></span>
+<img src="images/screening/interval_dalam1.png" alt="Kasus interval distribusi _database_ berada di dalam distribusi _input_" width="50%" />
+<p class="caption">
+Gambar 1.33: Kasus interval distribusi <em>database</em> berada di dalam distribusi <em>input</em>
+</p>
+</div>
+<p>Luas daerah arsiran adalah: <span class="math display">\[Luas\ daerah\ arsiran\ = \int_{min.input}^{x_{p_1}}f_1(x)dx\ +\ \int_{x_{p_1}}^{\mu}g(x)dx\ +\ \int_{\mu}^{x_{p_2}}g(x)dx\ +\ \int_{x_{p_2}}^{max.input}f_2(x)dx...(30)\]</span>
+Masing-masing integral di atas dihitung menggunakan aturan Simpson.</p>
+<p>Masing-masing keenam kasus di atas berlaku untuk keempat pasangan distribusi <em>database</em> – distribusi <em>input</em>. Langkah-langkah pengembangan algoritma adalah sama untuk setiap pasangan distribusi <em>database</em> – distribusi <em>input</em>. Perbedaannya terletak pada fungsi <em>g(x)</em> yang menyatakan <em>density</em> <em>function</em> dari distribusi <em>input</em>. Karena terdapat empat pilihan distribusi input, maka terdapat empat pilihan fungsi <em>g(x)</em> yang berbeda bersesuaian dengan tipe distribusi <em>input</em> yang dipilih oleh <em>user.</em> Secara umum, diagram alir algoritma untuk kasus input berupa distribusi diperlihatkan pada gambar berikut.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-39"></span>
+<img src="images/screening/flowchart.png" alt="Diagram alir algoritma EOR _screening_ untuk kasus distribusi" width="75%" />
+<p class="caption">
+Gambar 1.34: Diagram alir algoritma EOR <em>screening</em> untuk kasus distribusi
+</p>
+</div>
+</div>
+</div>
+<div id="update-screening-eor" class="section level2">
+<h2><span class="header-section-number">1.3</span> Update <em>Screening</em> EOR</h2>
+<div id="update-database-screening-eor" class="section level3">
+<h3><span class="header-section-number">1.3.1</span> Update <em>Database</em> <em>Screening</em> EOR</h3>
+<p>Untuk menambah tingkat akurasi proses <em>screening</em> EOR yang lebih baik maka perlu dilakukan penambahan data-data proyek EOR terbaru untuk memperbanyak referensi. Sebelum dilakukan penambahan data terbaru, Perta-EOR memiliki tiga sumber data, yaitu Aladasani dan Baoujun Bai, Taber, dan Combination.</p>
+<p>Kemudian saat ini, data diperbarui dengan menambah data yang bersumber dari <em>Oil &amp; Gas Journal</em> seperti yang dapat dilihat pada Tabel 1.1. Adapun data Oil &amp; Gas Journal diperoleh dengan menggabungkan data <em>Oil &amp; Gas Journal</em> 2016 dan data EOR Data Group yang dimuat oleh <em>Missouri University of Science and Technology</em>. Nilai-nilai untuk setiap parameter <em>screening</em> EOR yang bersumber dari <em>Oil &amp; Gas Journal</em> secara umum terlihat seperti pada Gambar 1.35. Data-data yang sudah dikumpulkan tersebut juga telah diperiksa kualitas datanya karena tidak semua data dapat digunakan. Data yang dipilih hanya data yang menghasilkan proyek yang sukses dan menguntungkan sedangkan untuk data yang menghasilkan proyek yang gagal tidak dipilih.</p>
+<table>
+<caption><span style="color: grey;"> Tabel 1.1: Penambahan <em>Database</em> <em>Screening</em> EOR </span></caption>
+<thead>
+<tr class="header">
+<th align="center">Sebelum <em>Update</em></th>
+<th align="center">Setelah <em>Update</em></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Aladasani &amp; Baoujun Bai</td>
+<td align="center">Aladasani &amp; Baoujun Bai (2010)</td>
+</tr>
+<tr class="even">
+<td align="center">Taber</td>
+<td align="center">Taber (1997)</td>
+</tr>
+<tr class="odd">
+<td align="center">Combination</td>
+<td align="center">Aladasani &amp; Baoujun Bai + Taber</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center">Oil &amp; Gas Journal (2016/2020)</td>
+</tr>
+</tbody>
+</table>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-40"></span>
+<img src="images/screening/ogj.png" alt="Persebaran penerapan metode EOR di seluruh dunia" width="75%" />
+<p class="caption">
+Gambar 1.35: Persebaran penerapan metode EOR di seluruh dunia
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-41"></span>
+<img src="images/screening/negara.png" alt="Peta persebaran aplikasi EOR" width="75%" />
+<p class="caption">
+Gambar 1.36: Peta persebaran aplikasi EOR
+</p>
+</div>
+<p>Setelah data digabungkan, persebaran metode EOR yang berada di beberapa negara secara umum dapat dilihat pada Gambar 1.35 dan Gambar 1.36. Data proyek EOR yang dimiliki saat ini tersebar di beberapa negara dan benua. Data-data untuk menjadi refrensi screening EOR saat ini didominasi dari proyek-proyek EOR yang dilakukan di Amerika Serikat dengan jumlah 226 proyek yang terdiri dari 11 metode EOR. Kemudian dari data-data tersebut juga dapat disimpulkan bahwa terdapat dua metode EOR yang umum dilakukan, yaitu <em>Steam Injection</em> dan <em>Miscible CO<sub>2</sub> Injection</em>.</p>
+<img src="images/screening/sum1.png" width="100%" style="display: block; margin: auto;" />
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-43"></span>
+<img src="images/screening/sum2.png" alt="_Summary database_ EOR" width="100%" />
+<p class="caption">
+Gambar 1.37: <em>Summary database</em> EOR
+</p>
+</div>
+</div>
+<div id="penambahan-parameter-pada-screening-eor" class="section level3">
+<h3><span class="header-section-number">1.3.2</span> Penambahan Parameter pada <em>Screening</em> EOR</h3>
+<p>Untuk melakukan <em>screening</em> EOR yang lebih komprehensif dan akurat, diperlukan data-data karakteristik reservoir yang lengkap guna mengurangi banyaknya asumsi yang dipakai dalam analisa perhitungan kualitatif. Pada perangkat lunak PertaEOR-Lite versi sebelumnya belum didapat ada pertimbangan mengenai ketebalan reservoir beserta kemiringannya dan komposisi rantai hidrokarbon yang terdapat pada fluida terproduksi, padahal karakteristik tersebut cukup penting dalam tahap <em>screening</em> EOR yang pernah dilakukan sebelumnya. Tabel. 2 memperlihatkan perbedaan karakteristik reservoir pada PertaEOR-Lite versi 3 dan PertaEOR-Lite versi 4.</p>
+<table>
+<caption><span style="color: grey;"> Tabel 1.2: Perbedaan parameter reservoir <em>screening</em> EOR pada PertaEOR-Lite versi 3 dan versi 4 </span></caption>
+<thead>
+<tr class="header">
+<th align="center">Parameter</th>
+<th align="center">PertaEOR-Lite V3</th>
+<th align="center">PertaEOR-Lite V4</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">API Gravity</td>
+<td align="center">v</td>
+<td align="center">v</td>
+</tr>
+<tr class="even">
+<td align="center">Oil Viscosity</td>
+<td align="center">v</td>
+<td align="center">v</td>
+</tr>
+<tr class="odd">
+<td align="center">Porosity</td>
+<td align="center">v</td>
+<td align="center">v</td>
+</tr>
+<tr class="even">
+<td align="center">Oil Saturation</td>
+<td align="center">v</td>
+<td align="center">v</td>
+</tr>
+<tr class="odd">
+<td align="center">Depth</td>
+<td align="center">v</td>
+<td align="center">v</td>
+</tr>
+<tr class="even">
+<td align="center">Temperature</td>
+<td align="center">v</td>
+<td align="center">v</td>
+</tr>
+<tr class="odd">
+<td align="center">Permeability</td>
+<td align="center">v</td>
+<td align="center">v</td>
+</tr>
+<tr class="even">
+<td align="center">Formation</td>
+<td align="center">v</td>
+<td align="center">v</td>
+</tr>
+<tr class="odd">
+<td align="center"><em>Thickness</em></td>
+<td align="center">-</td>
+<td align="center">v</td>
+</tr>
+<tr class="even">
+<td align="center"><em>Composition</em></td>
+<td align="center">-</td>
+<td align="center">v</td>
+</tr>
+</tbody>
+</table>
+<div id="penambahan-parameter-net-thickness" class="section level4">
+<h4><span class="header-section-number">1.3.2.1</span> Penambahan Parameter Net <em>Thickness</em></h4>
+<div id="update-database-net-thickness-pada-data-referensi" class="section level5">
+<h5><span class="header-section-number">1.3.2.1.1</span> <em>Update Database</em> Net <em>Thickness</em> pada Data Referensi</h5>
+Untuk penambahan parameter net thickness, perlu terlebih dahulu melihat karakteristik data <em>reference</em> untuk mengetahui tipe data seperti apa yang tersedia. Tipe data parameter net <em>thickness</em> yang didapat ternyata memiliki kesamaan terhadap parameter-parameter lainnya yaitu bertipe <em>single value</em> dan <em>distribution value</em> dimana artinya beberapa data net <em>thickness</em> lapangan-lapangan yang didapat, memiliki satu <em>value</em>= atau berbentuk <em>range</em> (maksimum minimum).
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-44"></span>
+<img src="images/screening/value.png" alt="Tampilan input net thickness pada PertaEOR untuk _single value_ dan _distribution value_" width="75%" />
+<p class="caption">
+Gambar 1.38: Tampilan input net thickness pada PertaEOR untuk <em>single value</em> dan <em>distribution value</em>
+</p>
+</div>
+</div>
+<div id="scoring-net-thickness" class="section level5">
+<h5><span class="header-section-number">1.3.2.1.2</span> <em>Scoring</em> Net <em>Thickness</em></h5>
+<p>Perhitungan <em>score</em> dari parameter net <em>thickness</em> didapat dengan menggunakan algoritma yang sama dengan algoritma yang dipakai PertaEOR-Lite versi 3 dalam menghitung parameter-parameter lainnya. <em>Scoring</em> net <em>thickness</em> menggunakan <em>weighting</em> sebesar 1 dan <em>average algorithm</em> dalam perhitungannya serta dilibatkannya juga parameter net <em>thickness</em> tambahan yaitu sudut kemiringan (<em>dipping</em>) dikarenakan pada metode EOR gas kemiringan sangat berpengaruh pada hasil produksinya akibat dari bertambah besarnya <em>gravity drainage driving mechanism</em> pada reservoir tersebut. Berikut adalah daftar EOR yang terpengaruh akibat adanya <em>dipping</em>:</p>
+<ul>
+<li>Miscible Gas Injection: Hydrocarbon</li>
+<li>Miscible Gas Injection: CO2</li>
+<li>Miscible Gas Injection: WAG</li>
+<li>Miscible Gas Injection: Nitrogen</li>
+<li>Immiscible Gas Injection: Nitrogen</li>
+<li>Immiscible Gas Injection: CO2</li>
+<li>Immiscible Gas Injection: Hydrocarbon</li>
+<li>Immiscible Gas Injection: Hydrocarbon + WAG</li>
+</ul>
+Pada reservoir yang <em>dipping</em> akan membuat <em>score</em> net <em>thickness</em> menjadi lebih besar, sehingga pada proses <em>scoring</em> net <em>thickness</em>, <em>score</em> akan ditambah dengan nilai 100% jika reservoir <em>dipping</em>.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-45"></span>
+<img src="images/screening/dipping.png" alt="Perbandingan hasil perhitungan menggunakan parameter _dipping_" width="100%" />
+<p class="caption">
+Gambar 1.39: Perbandingan hasil perhitungan menggunakan parameter <em>dipping</em>
+</p>
+</div>
+</div>
+</div>
+<div id="penambahan-parameter-composition" class="section level4">
+<h4><span class="header-section-number">1.3.2.2</span> Penambahan Parameter <em>Composition</em></h4>
+<div id="update-data-composition-pada-data-referensi" class="section level5">
+<h5><span class="header-section-number">1.3.2.2.1</span> <em>Update</em> Data <em>Composition</em> pada Data Referensi</h5>
+<p>Database <em>screening</em> EOR diperbaharui menggunakan rangkuman data milik Taber (1997) dimana ada konsiderasi parameter tambahan yaitu <em>favourable composition</em> atau bisa disebut juga sebagai komponen-komponen yang berdampak baik dalam perhitungan <em>screening</em> EOR, dimana setiap metode EOR memiliki <em>favourable composition</em> yang berbeda-beda dari rentang C1 sampai dengan C12, dan juga komponen-komponen lain penunjang EOR seperti <em>organic acid</em> dan <em>asphaltic component</em>. Dalam menentukan nilai <em>min</em>, <em>mean</em>, dan <em>max</em>, telah dilakukan studi literatur untuk mencari data komposisi untuk setiap <em>favourable component</em>. Berdasarkan data yang telah ditabulasikan pada Tabel 1.3, dapat diambil suatu nilai tengah dari setiap <em>favourable component</em> untuk menentukan nilai <em>mean</em> dan untuk penentuan nilai <em>min</em> dan <em>max</em> dilakukan pendekatan secara <em>engineering sense</em> dengan menggunakan <em>margin</em> 0.3 sebagai dasar penentuan yang dapat dilihat pada Tabel 1.3.</p>
+<table>
+<caption><span style="color: grey;"> Tabel 1.3: Komposisi Berdasarkan <em>Favourable Composition</em> Beberapa Lapangan EOR </span></caption>
+<thead>
+<tr class="header">
+<th align="center"><strong>Field/Reservoir/Well</strong></th>
+<th align="center"><strong>EOR Method</strong></th>
+<th align="center"><strong>Favourable Based on Taber</strong></th>
+<th align="center"><strong>Mole Fration</strong></th>
+<th align="center"></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">Niobrara</td>
+<td align="center">Miscible HC</td>
+<td align="center">C1-C7</td>
+<td align="center">0.676</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">Cario Mulata</td>
+<td align="center">Miscible HC</td>
+<td align="center">C1-C7</td>
+<td align="center">0.6725</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">Eagle Ford, Texas</td>
+<td align="center">Miscible CO<sub>2</sub></td>
+<td align="center">C2-C7</td>
+<td align="center">0.4</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">Pilot Field X</td>
+<td align="center">Miscible CO<sub>2</sub></td>
+<td align="center">C2-C7</td>
+<td align="center">0.35</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">Schrader Bluff Alaska</td>
+<td align="center">Miscible CO<sub>2</sub></td>
+<td align="center">C2-C7</td>
+<td align="center">0.3</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">Weyburn</td>
+<td align="center">Miscible CO<sub>2</sub></td>
+<td align="center">C2-C7</td>
+<td align="center">0.458</td>
+<td align="center"></td>
+</tr>
+<tr class="odd">
+<td align="center">Pourhadi, Iran</td>
+<td align="center">Miscible CO<sub>2</sub></td>
+<td align="center">C2-C7</td>
+<td align="center">0.45</td>
+<td align="center"></td>
+</tr>
+<tr class="even">
+<td align="center">Iran ideal solution</td>
+<td align="center">Immiscible CO<sub>2</sub></td>
+<td align="center">C5-C12</td>
+<td align="center">0.564</td>
+<td align="center"></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="scoring-composition" class="section level5">
+<h5><span class="header-section-number">1.3.2.2.2</span> <em>Scoring Composition</em></h5>
+<p><em>Scoring</em> pada parameter <em>composition</em> menggunakan algoritma yang sama dengan yang digunakan PertaEOR-Lite dalam menghitung parameter-parameter lainnya. <em>Scoring</em> ini menggunakan <em>weighting factor</em> sebesar 1 dan <em>maximum algorithm</em>.</p>
+<p>Apabila terdapat <em>Organic Acid</em> pada reservoir tersebut, skor untuk metode <em>Enhanced Waterflooding ASP</em> dan <em>Enhanced Waterflooding Surfactant + P/A</em>, akan diberi multiplier sebesar 1.25 dikarenakan <em>organic acid</em> dapat menurunkan efek <em>interfacial tensions</em> pada metode EOR tersebut. Untuk metode <em>Thermal Combustion</em> akan diberi <em>additional score</em> sebesar 100% apabila reservoir memiliki <em>asphaltic component</em> dan nilai 50% apabila tidak memiliki <em>asphaltic component</em>, karena <em>thermal combustion</em> dapat menyebabkan efek <em>coke</em> <em>deposition</em> dimana reservoir yang tidak memiliki cukup <em>coke deposition</em> akan menyebabkan proses <em>thermal combustion</em> tidak bertahan lama dan mengakibatkan terbentuknya parafin pada minyak.</p>
+</div>
+</div>
+</div>
+<div id="benchmark-eor-screening" class="section level3">
+<h3><span class="header-section-number">1.3.3</span> <em>Benchmark</em> EOR <em>Screening</em></h3>
+Implementasi algoritma baru pada proses screening EOR yang telah ditambahkan dua parameter baru: <em>thickness</em> dan <em>composition</em>, perlu melalui proses validasi untuk mengetahui tingkat akurasinya. Validasi dilakukan dengan menggunakan data proyek-proyek EOR yang telah berhasil mengimplementasikan EOR di beberapa lapangan seperti yang dapat dilihat pada tabel di bawah ini.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-46"></span>
+<img src="images/screening/parameter.png" alt="Parameter _screening_ EOR di beberapa lapangan" width="75%" />
+<p class="caption">
+Gambar 1.40: Parameter <em>screening</em> EOR di beberapa lapangan
+</p>
+</div>
+Hasil <em>screening</em> dianggap benar untuk metode - metode EOR yang berada pada lima ranking teratas. Validasi <em>screening</em> EOR menggunakan 9 data lapangan yang telah berhasil mengimplementasikan EOR. Dari tabel di bawah ini dapat dilihat bahwa dari 9 data lapangan yang diuji, terdapat 2 lapangan memberikan hasil metode EOR pada <em>ranking</em> pertama, 5 lapangan memberikan hasil metode EOR pada <em>ranking</em> kedua dan 2 lapangan memberikan hasil metode EOR pada <em>rangking</em> ketiga.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-47"></span>
+<img src="images/screening/hasil.png" alt="Hasil _screening_ PertaEOR-Lite" width="125%" />
+<p class="caption">
+Gambar 1.41: Hasil <em>screening</em> PertaEOR-Lite
+</p>
+</div>
+Lapangan yang digunakan pada kasus <em>benchmark</em> ini tidak tersedia data komposisi fluidanya. Untuk memvalidasi <em>tool composition</em> dilakukan validasi terhadap satu data lapangan yang tersedia nilai parameter reservoir dan komposisi fluidanya. Hasil dari validasi menunjukkan bahwa perangkat lunak PertaEOR-Lite yang terbaru berhasil memberikan <em>ranking</em> yang baik, yang mana pada tabel hasil, <em>ranking</em> pertama <em>screening</em> EOR oleh PertaEOR-Lite sesuai dengan metode EOR yang diaplikasikan pada lapangan di <em>Southwest of Iran</em>.
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-48"></span>
+<img src="images/screening/iran1.png" alt="Parameter _screening_ EOR di Lapangan Southwest of Iran" width="50%" />
+<p class="caption">
+Gambar 1.42: Parameter <em>screening</em> EOR di Lapangan Southwest of Iran
+</p>
+</div>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-49"></span>
+<img src="images/screening/iran2.png" alt="Hasil _screening_ EOR di apangan Southwest of Iran" width="50%" />
+<p class="caption">
+Gambar 1.43: Hasil <em>screening</em> EOR di apangan Southwest of Iran
+</p>
+</div>
+
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="01-prophet.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

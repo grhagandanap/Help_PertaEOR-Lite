@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Bab 8 Steamflood Predictive Model | Technical Guide PertaEOR-Lite</title>
+  <meta name="description" content="Bab 8 Steamflood Predictive Model | Technical Guide PertaEOR-Lite" />
+  <meta name="generator" content="bookdown 0.21 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Bab 8 Steamflood Predictive Model | Technical Guide PertaEOR-Lite" />
+  <meta property="og:type" content="book" />
+  
+  <meta property="og:image" content="images/PertaEOR.png" />
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Bab 8 Steamflood Predictive Model | Technical Guide PertaEOR-Lite" />
+  
+  
+  <meta name="twitter:image" content="images/PertaEOR.png" />
+
+<meta name="author" content="PT LAPI ITB &amp; PERTAMINA INV" />
+
+
+<meta name="date" content="2021-03-14" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="06-co2immiscible.html"/>
+<link rel="next" href="08-insitu.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
+
+
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Help PertaEOR-Lite</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="00-screening.html"><a href="00-screening.html"><i class="fa fa-check"></i><b>1</b> Screening EOR</a><ul>
+<li class="chapter" data-level="1.1" data-path="00-screening.html"><a href="00-screening.html#teori-dasar-statistik-distribusi-probabilitas-dan-metode-numerik"><i class="fa fa-check"></i><b>1.1</b> Teori Dasar Statistik, Distribusi Probabilitas, dan Metode Numerik</a><ul>
+<li class="chapter" data-level="1.1.1" data-path="00-screening.html"><a href="00-screening.html#teori-dasar-statistik-dan-probabilitas"><i class="fa fa-check"></i><b>1.1.1</b> Teori Dasar Statistik dan Probabilitas</a></li>
+<li class="chapter" data-level="1.1.2" data-path="00-screening.html"><a href="00-screening.html#metode-numerik"><i class="fa fa-check"></i><b>1.1.2</b> Metode Numerik</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="00-screening.html"><a href="00-screening.html#metode-analisis-eor-screening"><i class="fa fa-check"></i><b>1.2</b> Metode Analisis EOR Screening</a><ul>
+<li class="chapter" data-level="1.2.1" data-path="00-screening.html"><a href="00-screening.html#metode-analisis-eor-screening-untuk-input-data-single-value"><i class="fa fa-check"></i><b>1.2.1</b> Metode Analisis EOR Screening Untuk <em>Input</em> Data <em>Single-Value</em></a></li>
+<li class="chapter" data-level="1.2.2" data-path="00-screening.html"><a href="00-screening.html#metode-analisis-eor-screening-untuk-input-data-distribusi"><i class="fa fa-check"></i><b>1.2.2</b> Metode Analisis EOR <em>Screening</em> Untuk <em>Input</em> Data Distribusi</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="00-screening.html"><a href="00-screening.html#update-screening-eor"><i class="fa fa-check"></i><b>1.3</b> Update <em>Screening</em> EOR</a><ul>
+<li class="chapter" data-level="1.3.1" data-path="00-screening.html"><a href="00-screening.html#update-database-screening-eor"><i class="fa fa-check"></i><b>1.3.1</b> Update <em>Database</em> <em>Screening</em> EOR</a></li>
+<li class="chapter" data-level="1.3.2" data-path="00-screening.html"><a href="00-screening.html#penambahan-parameter-pada-screening-eor"><i class="fa fa-check"></i><b>1.3.2</b> Penambahan Parameter pada <em>Screening</em> EOR</a></li>
+<li class="chapter" data-level="1.3.3" data-path="00-screening.html"><a href="00-screening.html#benchmark-eor-screening"><i class="fa fa-check"></i><b>1.3.3</b> <em>Benchmark</em> EOR <em>Screening</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="01-prophet.html"><a href="01-prophet.html"><i class="fa fa-check"></i><b>2</b> CO<sub>2</sub> Prophet Predictive Model</a><ul>
+<li class="chapter" data-level="2.1" data-path="01-prophet.html"><a href="01-prophet.html#pendahuluan"><i class="fa fa-check"></i><b>2.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="2.2" data-path="01-prophet.html"><a href="01-prophet.html#asumsi-yang-digunakan-dalam-model"><i class="fa fa-check"></i><b>2.2</b> Asumsi yang Digunakan Dalam Model</a></li>
+<li class="chapter" data-level="2.3" data-path="01-prophet.html"><a href="01-prophet.html#parameter-parameter-penting-yang-digunakan-dalam-model"><i class="fa fa-check"></i><b>2.3</b> Parameter-Parameter Penting yang Digunakan Dalam Model</a><ul>
+<li class="chapter" data-level="2.3.1" data-path="01-prophet.html"><a href="01-prophet.html#koefisien-permeabilitas-dykstra-parsons"><i class="fa fa-check"></i><b>2.3.1</b> Koefisien Permeabilitas Dykstra-Parsons</a></li>
+<li class="chapter" data-level="2.3.2" data-path="01-prophet.html"><a href="01-prophet.html#temperatur-reservoir"><i class="fa fa-check"></i><b>2.3.2</b> Temperatur Reservoir</a></li>
+<li class="chapter" data-level="2.3.3" data-path="01-prophet.html"><a href="01-prophet.html#tekanan-rata-rata-reservoir-average-reservoir-pressure"><i class="fa fa-check"></i><b>2.3.3</b> Tekanan Rata-Rata Reservoir (<em>Average Reservoir Pressure</em>)</a></li>
+<li class="chapter" data-level="2.3.4" data-path="01-prophet.html"><a href="01-prophet.html#minimum-miscibility-pressure-mmp"><i class="fa fa-check"></i><b>2.3.4</b> <em>Minimum Miscibility Pressure (MMP)</em></a></li>
+<li class="chapter" data-level="2.3.5" data-path="01-prophet.html"><a href="01-prophet.html#viskositas-minyak-mu_o"><i class="fa fa-check"></i><b>2.3.5</b> Viskositas Minyak (<span class="math inline">\(\mu_o\)</span>)</a></li>
+<li class="chapter" data-level="2.3.6" data-path="01-prophet.html"><a href="01-prophet.html#viskositas-air-mu_w"><i class="fa fa-check"></i><b>2.3.6</b> Viskositas Air (<span class="math inline">\(\mu_w\)</span>)</a></li>
+<li class="chapter" data-level="2.3.7" data-path="01-prophet.html"><a href="01-prophet.html#faktor-volume-formasi-minyak-bo"><i class="fa fa-check"></i><b>2.3.7</b> Faktor Volume Formasi Minyak (B<sub><em>o</em></sub>)</a></li>
+<li class="chapter" data-level="2.3.8" data-path="01-prophet.html"><a href="01-prophet.html#solution-gas-oil-ratio-rs"><i class="fa fa-check"></i><b>2.3.8</b> <em>Solution Gas-Oil Ratio</em> (R<sub><em>s</em></sub>)</a></li>
+<li class="chapter" data-level="2.3.9" data-path="01-prophet.html"><a href="01-prophet.html#permeabilitas-relatif-kr"><i class="fa fa-check"></i><b>2.3.9</b> Permeabilitas Relatif (k<sub><em>r</em></sub>)</a></li>
+<li class="chapter" data-level="2.3.10" data-path="01-prophet.html"><a href="01-prophet.html#waterco2-injection-ratio"><i class="fa fa-check"></i><b>2.3.10</b> <em>Water/CO<sub>2</sub> Injection Ratio</em></a></li>
+<li class="chapter" data-level="2.3.11" data-path="01-prophet.html"><a href="01-prophet.html#mixing-parameter-omega"><i class="fa fa-check"></i><b>2.3.11</b> <em>Mixing Parameter (<span class="math inline">\(\omega\)</span>)</em></a></li>
+</ul></li>
+<li class="chapter" data-level="2.4" data-path="01-prophet.html"><a href="01-prophet.html#tiga-kondisi-aliran-fluida"><i class="fa fa-check"></i><b>2.4</b> Tiga Kondisi Aliran Fluida</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="01-prophet.html"><a href="01-prophet.html#immiscible-flow"><i class="fa fa-check"></i><b>2.4.1</b> <em>Immiscible Flow</em></a></li>
+<li class="chapter" data-level="2.4.2" data-path="01-prophet.html"><a href="01-prophet.html#miscible-flow"><i class="fa fa-check"></i><b>2.4.2</b> <em>Miscible Flow</em></a></li>
+<li class="chapter" data-level="2.4.3" data-path="01-prophet.html"><a href="01-prophet.html#partially-miscible-flow"><i class="fa fa-check"></i><b>2.4.3</b> <em>Partially Miscible Flow</em></a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="01-prophet.html"><a href="01-prophet.html#hasil-perhitungan-dan-tampilan-perangkat-lunak"><i class="fa fa-check"></i><b>2.5</b> Hasil Perhitungan dan Tampilan Perangkat Lunak</a></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="02-waterflood.html"><a href="02-waterflood.html"><i class="fa fa-check"></i><b>3</b> Waterflood Predictive Model</a><ul>
+<li class="chapter" data-level="3.1" data-path="02-waterflood.html"><a href="02-waterflood.html#pendahuluan-1"><i class="fa fa-check"></i><b>3.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="3.2" data-path="02-waterflood.html"><a href="02-waterflood.html#teori-frontal-displacement-untuk-waterflooding"><i class="fa fa-check"></i><b>3.2</b> Teori <em>Frontal Displacement</em> Untuk <em>Waterflooding</em></a><ul>
+<li class="chapter" data-level="3.2.1" data-path="02-waterflood.html"><a href="02-waterflood.html#teori-fractional-flow-untuk-waterflooding"><i class="fa fa-check"></i><b>3.2.1</b> Teori <em>Fractional Flow</em> Untuk <em>Waterflooding</em></a></li>
+<li class="chapter" data-level="3.2.2" data-path="02-waterflood.html"><a href="02-waterflood.html#teori-frontal-advance-untuk-waterflooding"><i class="fa fa-check"></i><b>3.2.2</b> Teori <em>Frontal Advance</em> Untuk <em>Waterflooding</em></a></li>
+<li class="chapter" data-level="3.2.3" data-path="02-waterflood.html"><a href="02-waterflood.html#penentuan-parameter-left-fracpartial-f_wpartial-s_w-right_s_w-dan-saturasi-air-rata-rata-reservoir-bar-s_w"><i class="fa fa-check"></i><b>3.2.3</b> Penentuan parameter <span class="math inline">\(\left( \frac{\partial f_w}{\partial S_w} \right)_{S_w}\)</span> dan Saturasi Air Rata-Rata Reservoir (<span class="math inline">\(\bar S_w\)</span>)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="02-waterflood.html"><a href="02-waterflood.html#penentuan-parameter-efisiensi-waterflooding"><i class="fa fa-check"></i><b>3.3</b> Penentuan Parameter Efisiensi <em>Waterflooding</em></a><ul>
+<li class="chapter" data-level="3.3.1" data-path="02-waterflood.html"><a href="02-waterflood.html#displacement-efficiency-ed"><i class="fa fa-check"></i><b>3.3.1</b> <em>Displacement Efficiency</em> (E<sub>D</sub>)</a></li>
+<li class="chapter" data-level="3.3.2" data-path="02-waterflood.html"><a href="02-waterflood.html#areal-sweep-efficiency-ea"><i class="fa fa-check"></i><b>3.3.2</b> <em>Areal Sweep Efficiency</em> (E<sub>A</sub>)</a></li>
+<li class="chapter" data-level="3.3.3" data-path="02-waterflood.html"><a href="02-waterflood.html#vertical-sweep-efficiency-ev"><i class="fa fa-check"></i><b>3.3.3</b> <em>Vertical Sweep Efficiency</em> (E<sub>V</sub>)</a></li>
+</ul></li>
+<li class="chapter" data-level="3.4" data-path="02-waterflood.html"><a href="02-waterflood.html#persamaan-persamaan-yang-digunakan-dalam-prediksi-performa-waterflooding"><i class="fa fa-check"></i><b>3.4</b> Persamaan-Persamaan yang Digunakan Dalam Prediksi Performa <em>Waterflooding</em></a></li>
+<li class="chapter" data-level="3.5" data-path="02-waterflood.html"><a href="02-waterflood.html#persamaan-persamaan-dasar-dan-nilai-default-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>3.5</b> Persamaan-Persamaan Dasar dan Nilai <em>Default</em> yang Digunakan Dalam <em>Predictive Model</em></a><ul>
+<li class="chapter" data-level="3.5.1" data-path="02-waterflood.html"><a href="02-waterflood.html#viskositas-minyak"><i class="fa fa-check"></i><b>3.5.1</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="3.5.2" data-path="02-waterflood.html"><a href="02-waterflood.html#solution-gas-oil-ratio"><i class="fa fa-check"></i><b>3.5.2</b> <em>SolUtion Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="3.5.3" data-path="02-waterflood.html"><a href="02-waterflood.html#faktor-volume-formasi-minyak"><i class="fa fa-check"></i><b>3.5.3</b> Faktor Volume Formasi Minyak</a></li>
+<li class="chapter" data-level="3.5.4" data-path="02-waterflood.html"><a href="02-waterflood.html#permeabilitas-relatif"><i class="fa fa-check"></i><b>3.5.4</b> Permeabilitas Relatif</a></li>
+<li class="chapter" data-level="3.5.5" data-path="02-waterflood.html"><a href="02-waterflood.html#nilai-default-parameter-yang-digunakan-dalam-model"><i class="fa fa-check"></i><b>3.5.5</b> Nilai <em>Default</em> Parameter yang Digunakan Dalam Model</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="03-chemical.html"><a href="03-chemical.html"><i class="fa fa-check"></i><b>4</b> Chemical Flood Predictive Model</a><ul>
+<li class="chapter" data-level="4.1" data-path="03-chemical.html"><a href="03-chemical.html#pendahuluan-2"><i class="fa fa-check"></i><b>4.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="4.2" data-path="03-chemical.html"><a href="03-chemical.html#tinjauan-sifat-fisis-dan-mekanisme-kerja-dari-surfaktan-dan-alkali"><i class="fa fa-check"></i><b>4.2</b> Tinjauan Sifat Fisis dan Mekanisme Kerja Dari Surfaktan dan Alkali</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="03-chemical.html"><a href="03-chemical.html#sifat-fisis-dan-mekanisme-kerja-surfaktan"><i class="fa fa-check"></i><b>4.2.1</b> Sifat Fisis dan Mekanisme Kerja Surfaktan</a></li>
+<li class="chapter" data-level="4.2.2" data-path="03-chemical.html"><a href="03-chemical.html#sifat-fisis-dan-mekanisme-kerja-alkali"><i class="fa fa-check"></i><b>4.2.2</b> Sifat Fisis dan Mekanisme Kerja Alkali</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="03-chemical.html"><a href="03-chemical.html#mekanisme-proses-injeksi-kimia"><i class="fa fa-check"></i><b>4.3</b> Mekanisme Proses Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.4" data-path="03-chemical.html"><a href="03-chemical.html#asumsi-dan-batasan-dalam-predictive-model"><i class="fa fa-check"></i><b>4.4</b> Asumsi dan Batasan Dalam <em>Predictive Model</em></a></li>
+<li class="chapter" data-level="4.5" data-path="03-chemical.html"><a href="03-chemical.html#konsep-dan-algoritma-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>4.5</b> Konsep dan Algoritma yang Digunakan Dalam <em>Predictive Model</em></a><ul>
+<li class="chapter" data-level="4.5.1" data-path="03-chemical.html"><a href="03-chemical.html#perhitungan-target-oil"><i class="fa fa-check"></i><b>4.5.1</b> Perhitungan <em>Target Oil</em></a></li>
+</ul></li>
+<li class="chapter" data-level="4.6" data-path="03-chemical.html"><a href="03-chemical.html#laju-alir-dan-bilangan-kapiler"><i class="fa fa-check"></i><b>4.6</b> Laju Alir dan Bilangan Kapiler</a><ul>
+<li class="chapter" data-level="4.6.1" data-path="03-chemical.html"><a href="03-chemical.html#surfactant-retention-pada-batuan-sandstone"><i class="fa fa-check"></i><b>4.6.1</b> <em>Surfactant Retention</em> Pada Batuan <em>Sandstone</em></a></li>
+<li class="chapter" data-level="4.6.2" data-path="03-chemical.html"><a href="03-chemical.html#perhitungan-oil-recovery"><i class="fa fa-check"></i><b>4.6.2</b> Perhitungan <em>Oil Recovery</em></a></li>
+<li class="chapter" data-level="4.6.3" data-path="03-chemical.html"><a href="03-chemical.html#karakteristik-produksi-minyak-dan-koreksi-terhadap-crossflow"><i class="fa fa-check"></i><b>4.6.3</b> Karakteristik Produksi Minyak dan Koreksi Terhadap <em>Crossflow</em></a></li>
+<li class="chapter" data-level="4.6.4" data-path="03-chemical.html"><a href="03-chemical.html#karakteristik-injeksi-kimia"><i class="fa fa-check"></i><b>4.6.4</b> Karakteristik Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.6.5" data-path="03-chemical.html"><a href="03-chemical.html#modifikasi-predictive-model-untuk-caustic-dan-caustic-polymer-flood"><i class="fa fa-check"></i><b>4.6.5</b> Modifikasi <em>Predictive Model</em> Untuk <em>Caustic</em> dan <em>Caustic-Polymer Flood</em></a></li>
+</ul></li>
+<li class="chapter" data-level="4.7" data-path="03-chemical.html"><a href="03-chemical.html#persamaan-persamaan-dasar-dan-nilai-default-yang-digunakan-dalam-model"><i class="fa fa-check"></i><b>4.7</b> Persamaan-Persamaan Dasar dan Nilai <em>Default</em> yang Digunakan Dalam Model</a><ul>
+<li class="chapter" data-level="4.7.1" data-path="03-chemical.html"><a href="03-chemical.html#viskositas-minyak-1"><i class="fa fa-check"></i><b>4.7.1</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="4.7.2" data-path="03-chemical.html"><a href="03-chemical.html#solution-gas-oil-ratio-1"><i class="fa fa-check"></i><b>4.7.2</b> <em>Solution Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="4.7.3" data-path="03-chemical.html"><a href="03-chemical.html#faktor-volume-formasi-minyak-1"><i class="fa fa-check"></i><b>4.7.3</b> Faktor Volume Formasi Minyak</a></li>
+<li class="chapter" data-level="4.7.4" data-path="03-chemical.html"><a href="03-chemical.html#permeabilitas-relatif-dan-fraksi-aliran-air"><i class="fa fa-check"></i><b>4.7.4</b> Permeabilitas Relatif dan Fraksi Aliran Air</a></li>
+<li class="chapter" data-level="4.7.5" data-path="03-chemical.html"><a href="03-chemical.html#nilai-default-yang-dignakan-dalam-predictive-model"><i class="fa fa-check"></i><b>4.7.5</b> Nilai <em>Default</em> yang Dignakan Dalam <em>Predictive Model</em></a></li>
+</ul></li>
+<li class="chapter" data-level="4.8" data-path="03-chemical.html"><a href="03-chemical.html#penambahan-jenis-pattern-pada-injeksi-kimia"><i class="fa fa-check"></i><b>4.8</b> Penambahan Jenis <em>Pattern</em> pada Injeksi Kimia</a><ul>
+<li class="chapter" data-level="4.8.1" data-path="03-chemical.html"><a href="03-chemical.html#injeksi-kimia"><i class="fa fa-check"></i><b>4.8.1</b> Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.8.2" data-path="03-chemical.html"><a href="03-chemical.html#penentuan-pola-sumur-injeksi"><i class="fa fa-check"></i><b>4.8.2</b> Penentuan Pola Sumur Injeksi</a></li>
+<li class="chapter" data-level="4.8.3" data-path="03-chemical.html"><a href="03-chemical.html#sejarah-injeksi-kimia"><i class="fa fa-check"></i><b>4.8.3</b> Sejarah Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.8.4" data-path="03-chemical.html"><a href="03-chemical.html#derivasi-persamaan-model-pattern-injeksi-kimia"><i class="fa fa-check"></i><b>4.8.4</b> Derivasi Persamaan Model <em>Pattern</em> Injeksi Kimia</a></li>
+<li class="chapter" data-level="4.8.5" data-path="03-chemical.html"><a href="03-chemical.html#simulasi-sintetik-injeksi-kimia"><i class="fa fa-check"></i><b>4.8.5</b> Simulasi Sintetik Injeksi Kimia</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="04-polymer.html"><a href="04-polymer.html"><i class="fa fa-check"></i><b>5</b> Polymer Predictive Model</a><ul>
+<li class="chapter" data-level="5.1" data-path="04-polymer.html"><a href="04-polymer.html#pendahuluan-3"><i class="fa fa-check"></i><b>5.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="5.2" data-path="04-polymer.html"><a href="04-polymer.html#teori-fractional-flow"><i class="fa fa-check"></i><b>5.2</b> Teori <em>Fractional Flow</em></a><ul>
+<li class="chapter" data-level="5.2.1" data-path="04-polymer.html"><a href="04-polymer.html#penentuan-nilai-saturasi-air-rata-rata-di-reservoir-selama-periode-injeksi-polimer"><i class="fa fa-check"></i><b>5.2.1</b> Penentuan Nilai Saturasi Air Rata-Rata di Reservoir Selama Periode Injeksi Polimer</a></li>
+<li class="chapter" data-level="5.2.2" data-path="04-polymer.html"><a href="04-polymer.html#rangkuman-persamaan-persamaan-yang-digunakan-dalam-teori-fractional-flow"><i class="fa fa-check"></i><b>5.2.2</b> Rangkuman Persamaan-Persamaan yang Digunakan Dalam Teori <em>Fractional Flow</em></a></li>
+</ul></li>
+<li class="chapter" data-level="5.3" data-path="04-polymer.html"><a href="04-polymer.html#metode-perhitungan-areal-dan-vertical-sweep-efficiency-menggunakan-pendekatan-streamtube"><i class="fa fa-check"></i><b>5.3</b> Metode Perhitungan <em>Areal</em> dan <em>Vertical Sweep Efficiency</em> Menggunakan Pendekatan <em>Streamtube</em></a></li>
+<li class="chapter" data-level="5.4" data-path="04-polymer.html"><a href="04-polymer.html#perhitungan-injectivity"><i class="fa fa-check"></i><b>5.4</b> Perhitungan <em>Injectivity</em></a></li>
+<li class="chapter" data-level="5.5" data-path="04-polymer.html"><a href="04-polymer.html#penentuan-nilai-permeabilitas-di-setiap-lapisan-reservoir"><i class="fa fa-check"></i><b>5.5</b> Penentuan Nilai Permeabilitas di Setiap Lapisan Reservoir</a></li>
+<li class="chapter" data-level="5.6" data-path="04-polymer.html"><a href="04-polymer.html#koreksi-terhadap-pengaruh-slug-polimer"><i class="fa fa-check"></i><b>5.6</b> Koreksi Terhadap Pengaruh <em>Slug</em> Polimer</a></li>
+<li class="chapter" data-level="5.7" data-path="04-polymer.html"><a href="04-polymer.html#pengaruh-sifat-fisis-larutan-polimer-terhadap-performa-injeksi-polimer"><i class="fa fa-check"></i><b>5.7</b> Pengaruh Sifat Fisis Larutan Polimer Terhadap Performa Injeksi Polimer</a><ul>
+<li class="chapter" data-level="5.7.1" data-path="04-polymer.html"><a href="04-polymer.html#efek-pengurangan-permeabilitas-untuk-fasa-aqueous"><i class="fa fa-check"></i><b>5.7.1</b> Efek Pengurangan Permeabilitas Untuk Fasa <em>Aqueous</em></a></li>
+<li class="chapter" data-level="5.7.2" data-path="04-polymer.html"><a href="04-polymer.html#efek-aliran-non-newtonian-larutan-polimer-di-daerah-sekitar-sumur-injeksi"><i class="fa fa-check"></i><b>5.7.2</b> Efek Aliran <em>Non-Newtonian</em> Larutan Polimer di Daerah Sekitar Sumur Injeksi</a></li>
+</ul></li>
+<li class="chapter" data-level="5.8" data-path="04-polymer.html"><a href="04-polymer.html#persamaan-persamaan-dasar-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>5.8</b> Persamaan-Persamaan Dasar yang Digunakan Dalam <em>Predictive Model</em></a><ul>
+<li class="chapter" data-level="5.8.1" data-path="04-polymer.html"><a href="04-polymer.html#viskositas-minyak-2"><i class="fa fa-check"></i><b>5.8.1</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="5.8.2" data-path="04-polymer.html"><a href="04-polymer.html#solution-gas-oil-ratio-2"><i class="fa fa-check"></i><b>5.8.2</b> <em>Solution Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="5.8.3" data-path="04-polymer.html"><a href="04-polymer.html#faktor-volume-formasi-minyak-2"><i class="fa fa-check"></i><b>5.8.3</b> Faktor Volume Formasi Minyak</a></li>
+<li class="chapter" data-level="5.8.4" data-path="04-polymer.html"><a href="04-polymer.html#faktor-volume-formasi-air"><i class="fa fa-check"></i><b>5.8.4</b> Faktor Volume Formasi Air</a></li>
+<li class="chapter" data-level="5.8.5" data-path="04-polymer.html"><a href="04-polymer.html#permeabilitas-relatf-dan-fraksi-aliran-air"><i class="fa fa-check"></i><b>5.8.5</b> Permeabilitas Relatf dan Fraksi Aliran Air</a></li>
+<li class="chapter" data-level="5.8.6" data-path="04-polymer.html"><a href="04-polymer.html#persamaan-persamaan-dasar-dan-nilai-default-yang-digunakan"><i class="fa fa-check"></i><b>5.8.6</b> Persamaan-Persamaan Dasar dan Nilai <em>Default</em> yang Digunakan</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="05-co2miscible.html"><a href="05-co2miscible.html"><i class="fa fa-check"></i><b>6</b> CO<sub>2</sub> Miscible Predictive Model</a><ul>
+<li class="chapter" data-level="6.1" data-path="05-co2miscible.html"><a href="05-co2miscible.html#pendahuluan-4"><i class="fa fa-check"></i><b>6.1</b> Pendahuluan</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="05-co2miscible.html"><a href="05-co2miscible.html#kondisi-pvt"><i class="fa fa-check"></i><b>6.1.1</b> Kondisi PVT</a></li>
+<li class="chapter" data-level="6.1.2" data-path="05-co2miscible.html"><a href="05-co2miscible.html#wettability"><i class="fa fa-check"></i><b>6.1.2</b> Wettability</a></li>
+<li class="chapter" data-level="6.1.3" data-path="05-co2miscible.html"><a href="05-co2miscible.html#keuntungan-dan-kerugian-melakukan-injeksi-co2"><i class="fa fa-check"></i><b>6.1.3</b> Keuntungan dan Kerugian Melakukan Injeksi CO<sub>2</sub></a></li>
+</ul></li>
+<li class="chapter" data-level="6.2" data-path="05-co2miscible.html"><a href="05-co2miscible.html#miscible-co2-predictive-model"><i class="fa fa-check"></i><b>6.2</b> <em>Miscible CO<sub>2</sub> Predictive Model</em></a><ul>
+<li class="chapter" data-level="6.2.1" data-path="05-co2miscible.html"><a href="05-co2miscible.html#sifat-sifat-fisik-fluida"><i class="fa fa-check"></i><b>6.2.1</b> Sifat-Sifat Fisik Fluida</a></li>
+<li class="chapter" data-level="6.2.2" data-path="05-co2miscible.html"><a href="05-co2miscible.html#fractional-flow-model"><i class="fa fa-check"></i><b>6.2.2</b> <em>Fractional Flow</em> Model</a></li>
+<li class="chapter" data-level="6.2.3" data-path="05-co2miscible.html"><a href="05-co2miscible.html#parameter-parameter-performa-miscible-co2"><i class="fa fa-check"></i><b>6.2.3</b> Parameter-Parameter Performa <em>Miscible</em> CO<sub>2</sub></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html"><i class="fa fa-check"></i><b>7</b> CO<sub>2</sub> Immiscible Predictive Model</a><ul>
+<li class="chapter" data-level="7.1" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#pendahuluan-5"><i class="fa fa-check"></i><b>7.1</b> Pendahuluan</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#mekanisme-pendesakan-secara-immiscible"><i class="fa fa-check"></i><b>7.1.1</b> Mekanisme Pendesakan Secara <em>Immiscible</em></a></li>
+</ul></li>
+<li class="chapter" data-level="7.2" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#immiscible-co2-predictive-model"><i class="fa fa-check"></i><b>7.2</b> <em>Immiscible</em> CO<sub>2</sub> <em>Predictive Model</em></a><ul>
+<li class="chapter" data-level="7.2.1" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#sifat-sifat-fisik-fluida-1"><i class="fa fa-check"></i><b>7.2.1</b> Sifat-Sifat Fisik Fluida</a></li>
+<li class="chapter" data-level="7.2.2" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#fractional-flow-model-1"><i class="fa fa-check"></i><b>7.2.2</b> <em>Fractional Flow Model</em></a></li>
+<li class="chapter" data-level="7.2.3" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#material-balance-equation"><i class="fa fa-check"></i><b>7.2.3</b> <em>Material Balance Equation</em></a></li>
+<li class="chapter" data-level="7.2.4" data-path="06-co2immiscible.html"><a href="06-co2immiscible.html#parameter-parameter-performa-immiscible-co2"><i class="fa fa-check"></i><b>7.2.4</b> Parameter-Parameter Performa <em>Immiscible</em> CO<sub>2</sub></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="07-steam.html"><a href="07-steam.html"><i class="fa fa-check"></i><b>8</b> Steamflood Predictive Model</a><ul>
+<li class="chapter" data-level="8.1" data-path="07-steam.html"><a href="07-steam.html#pendahuluan-6"><i class="fa fa-check"></i><b>8.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="8.2" data-path="07-steam.html"><a href="07-steam.html#fenomena-heat-loss"><i class="fa fa-check"></i><b>8.2</b> Fenomena <em>Heat Loss</em></a><ul>
+<li class="chapter" data-level="8.2.1" data-path="07-steam.html"><a href="07-steam.html#fenomena-heat-loss-di-pipa-permukaan"><i class="fa fa-check"></i><b>8.2.1</b> Fenomena <em>Heat Loss</em> di Pipa Permukaan</a></li>
+<li class="chapter" data-level="8.2.2" data-path="07-steam.html"><a href="07-steam.html#fenomena-heat-loss-di-sumur-injeksi"><i class="fa fa-check"></i><b>8.2.2</b> Fenomena <em>Heat Loss</em> di Sumur Injeksi</a></li>
+</ul></li>
+<li class="chapter" data-level="8.3" data-path="07-steam.html"><a href="07-steam.html#perhitungan-sejumlah-parameter-penting-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>8.3</b> Perhitungan Sejumlah Parameter Penting yang Digunakan Dalam <em>Predictive Model</em></a><ul>
+<li class="chapter" data-level="8.3.1" data-path="07-steam.html"><a href="07-steam.html#permeabilitas-relatif-tiga-fasa"><i class="fa fa-check"></i><b>8.3.1</b> Permeabilitas Relatif Tiga Fasa</a></li>
+<li class="chapter" data-level="8.3.2" data-path="07-steam.html"><a href="07-steam.html#pembagian-daerah-reservoir"><i class="fa fa-check"></i><b>8.3.2</b> Pembagian Daerah Reservoir</a></li>
+<li class="chapter" data-level="8.3.3" data-path="07-steam.html"><a href="07-steam.html#initial-injectivity-index"><i class="fa fa-check"></i><b>8.3.3</b> <em>Initial Injectivity Index</em></a></li>
+<li class="chapter" data-level="8.3.4" data-path="07-steam.html"><a href="07-steam.html#viskositas-fluida"><i class="fa fa-check"></i><b>8.3.4</b> Viskositas Fluida</a></li>
+<li class="chapter" data-level="8.3.5" data-path="07-steam.html"><a href="07-steam.html#solution-gas-oil-ratio-4"><i class="fa fa-check"></i><b>8.3.5</b> <em>Solution Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="8.3.6" data-path="07-steam.html"><a href="07-steam.html#faktor-volume-formasi-minyak-4"><i class="fa fa-check"></i><b>8.3.6</b> Faktor Volume Formasi Minyak</a></li>
+</ul></li>
+<li class="chapter" data-level="8.4" data-path="07-steam.html"><a href="07-steam.html#steamflood-predictive-model-1"><i class="fa fa-check"></i><b>8.4</b> <em>Steamflood Predictive Model</em></a><ul>
+<li class="chapter" data-level="8.4.1" data-path="07-steam.html"><a href="07-steam.html#metode-williams-metode-stanford-university"><i class="fa fa-check"></i><b>8.4.1</b> Metode Williams (Metode Stanford University)</a></li>
+<li class="chapter" data-level="8.4.2" data-path="07-steam.html"><a href="07-steam.html#metode-jones"><i class="fa fa-check"></i><b>8.4.2</b> Metode Jones</a></li>
+<li class="chapter" data-level="8.4.3" data-path="07-steam.html"><a href="07-steam.html#model-gomaa"><i class="fa fa-check"></i><b>8.4.3</b> Model Gomaa</a></li>
+<li class="chapter" data-level="8.4.4" data-path="07-steam.html"><a href="07-steam.html#model-aydelotte-pope-model-intercomp"><i class="fa fa-check"></i><b>8.4.4</b> Model Aydelotte-Pope (Model Intercomp)</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="08-insitu.html"><a href="08-insitu.html"><i class="fa fa-check"></i><b>9</b> In-Situ Combustion Predictive Model</a><ul>
+<li class="chapter" data-level="9.1" data-path="08-insitu.html"><a href="08-insitu.html#pendahuluan-7"><i class="fa fa-check"></i><b>9.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="9.2" data-path="08-insitu.html"><a href="08-insitu.html#in-situ-combustion-predictive-model-1"><i class="fa fa-check"></i><b>9.2</b> <em>In-Situ Combustion Predictive Model</em></a><ul>
+<li class="chapter" data-level="9.2.1" data-path="08-insitu.html"><a href="08-insitu.html#model-brigham-et-al-untuk-dry-in-situ-combustion"><i class="fa fa-check"></i><b>9.2.1</b> Model Brigham, et al Untuk <em>Dry In-Situ Combustion</em></a></li>
+<li class="chapter" data-level="9.2.2" data-path="08-insitu.html"><a href="08-insitu.html#perhitungan-parameter-parameter-penting-ynag-dgunakan-dalam-model"><i class="fa fa-check"></i><b>9.2.2</b> Perhitungan Parameter-Parameter Penting ynag Dgunakan Dalam Model</a></li>
+<li class="chapter" data-level="9.2.3" data-path="08-insitu.html"><a href="08-insitu.html#viskositas-minyak-4"><i class="fa fa-check"></i><b>9.2.3</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="9.2.4" data-path="08-insitu.html"><a href="08-insitu.html#parameter-parameter-performa-in-situ-combustion"><i class="fa fa-check"></i><b>9.2.4</b> Parameter-Parameter Performa <em>In-Situ Combustion</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="09-infill.html"><a href="09-infill.html"><i class="fa fa-check"></i><b>10</b> Infill Drilling Predictive Model</a><ul>
+<li class="chapter" data-level="10.1" data-path="09-infill.html"><a href="09-infill.html#pendahuluan-8"><i class="fa fa-check"></i><b>10.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="10.2" data-path="09-infill.html"><a href="09-infill.html#asumsi-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>10.2</b> Asumsi yang Digunakan Dalam <em>Predictive Model</em></a></li>
+<li class="chapter" data-level="10.3" data-path="09-infill.html"><a href="09-infill.html#analisis-streamtube"><i class="fa fa-check"></i><b>10.3</b> Analisis <em>Streamtube</em></a></li>
+<li class="chapter" data-level="10.4" data-path="09-infill.html"><a href="09-infill.html#pemodelan-continuity-reservoir"><i class="fa fa-check"></i><b>10.4</b> Pemodelan <em>Continuity</em> Reservoir</a></li>
+<li class="chapter" data-level="10.5" data-path="09-infill.html"><a href="09-infill.html#persamaan-persamaan-dasar-dan-nilai-default-yang-digunakan-dalam-predcitive-model"><i class="fa fa-check"></i><b>10.5</b> Persamaan-Persamaan Dasar dan Nilai <em>Default</em> yang Digunakan Dalam <em>Predcitive Model</em></a><ul>
+<li class="chapter" data-level="10.5.1" data-path="09-infill.html"><a href="09-infill.html#viskositas-minyak-5"><i class="fa fa-check"></i><b>10.5.1</b> Viskositas Minyak</a></li>
+<li class="chapter" data-level="10.5.2" data-path="09-infill.html"><a href="09-infill.html#solution-gas-oil-ratio-5"><i class="fa fa-check"></i><b>10.5.2</b> <em>Solution Gas-Oil Ratio</em></a></li>
+<li class="chapter" data-level="10.5.3" data-path="09-infill.html"><a href="09-infill.html#faktor-volume-formasi-minyak-6"><i class="fa fa-check"></i><b>10.5.3</b> Faktor Volume Formasi Minyak</a></li>
+<li class="chapter" data-level="10.5.4" data-path="09-infill.html"><a href="09-infill.html#permeabilitas-relatif-1"><i class="fa fa-check"></i><b>10.5.4</b> Permeabilitas Relatif</a></li>
+<li class="chapter" data-level="10.5.5" data-path="09-infill.html"><a href="09-infill.html#nilai-default-yang-digunakan-dalam-predictive-model"><i class="fa fa-check"></i><b>10.5.5</b> Nilai <em>Default</em> yang Digunakan Dalam <em>Predictive Model</em></a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="11" data-path="10-hc.html"><a href="10-hc.html"><i class="fa fa-check"></i><b>11</b> Hydrocarbon Gas Injection Predictive Model</a><ul>
+<li class="chapter" data-level="11.1" data-path="10-hc.html"><a href="10-hc.html#pendahuluan-9"><i class="fa fa-check"></i><b>11.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="11.2" data-path="10-hc.html"><a href="10-hc.html#mekanisme-injeksi-hidrokarbon"><i class="fa fa-check"></i><b>11.2</b> Mekanisme Injeksi Hidrokarbon</a></li>
+<li class="chapter" data-level="11.3" data-path="10-hc.html"><a href="10-hc.html#pembuatan-predictive-model"><i class="fa fa-check"></i><b>11.3</b> Pembuatan <em>Predictive Model</em></a></li>
+</ul></li>
+<li class="chapter" data-level="12" data-path="11-co2hnp.html"><a href="11-co2hnp.html"><i class="fa fa-check"></i><b>12</b> CO<sub>2</sub> Huff &amp; Puff Predictive Model</a><ul>
+<li class="chapter" data-level="12.1" data-path="11-co2hnp.html"><a href="11-co2hnp.html#pendahuluan-10"><i class="fa fa-check"></i><b>12.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="12.2" data-path="11-co2hnp.html"><a href="11-co2hnp.html#pembutan-predictive-model"><i class="fa fa-check"></i><b>12.2</b> Pembutan <em>Predictive Model</em></a></li>
+</ul></li>
+<li class="chapter" data-level="13" data-path="12-chemicalhnp.html"><a href="12-chemicalhnp.html"><i class="fa fa-check"></i><b>13</b> Chemical Injection Huff &amp; Puff Predictive Model</a><ul>
+<li class="chapter" data-level="13.1" data-path="12-chemicalhnp.html"><a href="12-chemicalhnp.html#pendahuluan-11"><i class="fa fa-check"></i><b>13.1</b> Pendahuluan</a></li>
+<li class="chapter" data-level="13.2" data-path="12-chemicalhnp.html"><a href="12-chemicalhnp.html#mekanisme-injeksi-chemical-huff-and-puff"><i class="fa fa-check"></i><b>13.2</b> Mekanisme Injeksi <em>Chemical Huff and Puff</em></a></li>
+<li class="chapter" data-level="13.3" data-path="12-chemicalhnp.html"><a href="12-chemicalhnp.html#pembuatan-model-prediktif"><i class="fa fa-check"></i><b>13.3</b> Pembuatan Model Prediktif</a></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Technical Guide PertaEOR-Lite</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="steamflood-predictive-model" class="section level1">
+<h1><span class="header-section-number">Bab 8</span> Steamflood Predictive Model</h1>
+<div id="pendahuluan-6" class="section level2">
+<h2><span class="header-section-number">8.1</span> Pendahuluan</h2>
+<p><strong><em>Steamflooding</em></strong> (atau disebut juga <strong><em>steam-drive</em></strong>) merupakan bagian dari metode <em>Thermal Enhanced Oil Recovery</em> (EOR) yang paling banyak digunakan sampai saat ini. <em>Thermal</em> EOR merupakan mekanisme penting yang berperan dalam produksi minyak untuk reservoir-reservoir dengan tipe <em>heavy oil</em>.</p>
+<p>Studi awal terhadap proses <em>steamflood</em> sangat penting untuk dilakukan sebelum penerapan di lapangan. Melalui studi awal, prediksi performa reservoir dari penerapan <em>steamflood</em> dapat diketahui. Terkait dengan hal ini, dibutuhkan suatu model yang dapat memprediksi performa reservoir di bawah proses steamflood. Model prediksi performa ini disebut sebagai <em>steamflood</em> <em>predictive model</em>. <em>Predictive model</em> ini mampu memberikan informasi awal mengenai prediksi performa reservoir di bawah proses <em>steamflood</em> sehingga dapat digunakan sebagai bahan pertimbangan untuk studi lebih lanjut.</p>
+<p>Terdapat empat metode yang digunakan dalam <em>steamflood</em> <em>predictive model</em>, yaitu:</p>
+<ol style="list-style-type: decimal">
+<li><strong>Metode Williams</strong>, atau disebut juga <strong>Metode Stanford University Petroleum Research Institute (SUPRI)</strong></li>
+<li><strong>Metode Jones</strong></li>
+<li><strong>Metode Gomaa</strong></li>
+<li><strong>Metode Aydelotte – Pope</strong>, disebut juga <strong>Metode Intercomp</strong>.</li>
+</ol>
+<p><strong><em>Steamflood</em></strong> (injeksi uap) merupakan salah satu metode peningkatan perolehan minyak lanjut yang termasuk ke dalam kelompok peningkatan perolehan minyak termal. Konsep dari peningkatan perolehan minyak termal adalah mengurangi viskositas minyak di reservoir, sekaligus juga menambah mobilitas minyak, dengan cara meningkatkan temperatur reservoir melalui injeksi panas ke dalam reservoir. Khusus untuk <em>steamflood</em>, injeksi panas ke dalam reservoir dilakukan dalam bentuk injeksi uap (<em>steam</em>) secara kontinu ke dalam reservoir.</p>
+<p>Penjelasan mengenai teori steamflood pertama kali dilakukan oleh Marx dan Langenheim di tahun 1959, dimana mereka menjelaskan mengenai pertumbuhan zona <em>steam</em> (<em>steam zone growth</em>) di reservoir selama proses <em>steamflood</em>. Mandl dan Volek (1969) kemudian mengembangkan teori Marx-Langenheim dengan mengenalkan parameter <em>critical time</em> dalam perhitungan. Myhill dan Stegemeier (1978) kemudian mengembangkan kembali teori Mandl-Volek dengan menambahkan parameter efisiensi termal dalam perhitungan.</p>
+<p>Selanjutnya, Van Lookeren (1977) membahas mengenai fenomena <em>steam override</em> dalam proses <em>steamflood</em>, yaitu kecenderungan <em>steam</em> untuk mengalir ke bagian <em>top</em> reservoir sebagai akibat dari pengaruh gaya gravitasi. Van Lookeren menyatakan bahwa <em>steam overrid</em>e dipengaruhi oleh sifat-sifat <em>steam</em>, viskositas minyak, temperatur zona <em>steam</em>, dan permeabilitas vertikal reservoir. Sifat <em>buoyancy</em> yang dimiliki oleh <em>steam</em> beserta tingginya mobilitas minyak di zona <em>steam</em> merupakan dua faktor yang mendukung terjadinya <em>steam override</em>. Selain itu, adanya saturasi gas di zona <em>steam</em> akan mempercepat terjadinya <em>steam override</em>. Dengan terjadinya <em>steam override</em>, maka steam cenderung bergerak menuju zona <em>top</em> reservoir, menyebabkan zona bawah (<em>bottom</em>) reservoir tidak terlewati oleh steam. Pada <em>steamflooding</em>, <em>steam override</em> akan terjadi di hampir semua kasus, dimana laju terjadinya <em>steam override</em> akan lebih lambat untuk reservoir dengan viskositas minyak yang lebih tinggi.</p>
+<p>Proses <em>steamflood</em> akan menyebabkan terbentuknya zona <em>steam</em> di reservoir. Zona <em>steam</em> adalah bagian reservoir dimana saturasi <em>steam</em> mendominasi fluida lainnya. Zona <em>steam</em> berada pada temperatur <em>steam</em>, <em>T<sub>steam</sub></em>. Terbentuknya zona <em>steam</em> di reservoir dalam proses <em>steamflooding</em> merupakan fenomena yang kompleks. Oleh karena itu, digunakan beberapa asumsi sebagai penyederhanaan. Asumsi-asumsi yang digunakan dalam menjelaskan pembentukan zona <em>steam</em> adalah sebagai berikut:</p>
+<ol style="list-style-type: decimal">
+<li>Zona <em>steam</em> berada dalam kondisi temperatur konstan, <em>T<sub>S</sub></em></li>
+<li><em>Heat loss</em> ke <em>overburden</em> dan <em>underburden</em> terjadi melalui mekanisme konduksi.</li>
+</ol>
+<p>Di zona <em>steam</em>, nilai saturasi minyak diasumsikan berkurang dari mulai saturasi awal saat awal <em>flooding</em> (S<sub>oi</sub>) hingga saturasi minyak residu (S<sub>orst</sub>). Viskositas minyak akan berkurang dimana orde pengurangan viskositas minyak berbanding lurus dengan nilai <em>T<sub>steam</sub></em> (semakin tinggi nilai temperatur <em>steam</em>, semakin besar orde pengurangan viskositas minyak). Minyak yang berada di zona <em>steam</em> (yang mana viskositasnya sudah berkurang) akan didorong oleh <em>steam drive</em> sehingga saturasi minyak di zona <em>steam</em> akan berkurang hingga nilai residualnya (S<sub>orst</sub>), dimana nilai residual minyak ini diasumsikan konstan.</p>
+</div>
+<div id="fenomena-heat-loss" class="section level2">
+<h2><span class="header-section-number">8.2</span> Fenomena <em>Heat Loss</em></h2>
+<p><em>Predictive model</em> yang dibangun menyertakan terjadinya <em>heat loss</em> saat steam mengalir di sepanjang pipa permukaan dan di sumur injeksi.</p>
+<div id="fenomena-heat-loss-di-pipa-permukaan" class="section level3">
+<h3><span class="header-section-number">8.2.1</span> Fenomena <em>Heat Loss</em> di Pipa Permukaan</h3>
+<p><em>Heat loss</em> di permukaan terjadi saat <em>steam</em> mengalir di sepanjang pipa permukaan menuju <em>wellhead choke</em>. Untuk menjelaskan fenomena ini, dibangun suatu model yang membagi pipa permukaan ke dalam beberapa segmen, dimana perubahan tekanan, laju <em>heat loss</em>, dan <em>steam quality</em> akan dihitung untuk setiap segmen. Jumlah segmen maksimum ditentukan sebanyak 20 segmen.</p>
+<p>Perubahan tekanan (antara <em>steam generator</em> dan <em>wellhead choke</em>) diasumsikan terjadi hanya disebabkan oleh faktor gesekan. Perubahan tekanan di sepanjang pipa permukaan dihitung untuk setiap segmen I.
+<span class="math display">\[\Delta P_{friction}(I) = \frac{4.219(10)^{-13}W^2.SPCT(I).DELS(I).F(I)}{r_{SURI}^5}...(1)\]</span>
+dimana: </br>
+<span class="math inline">\(W\)</span> = laju alir massa = laju injeksi <em>steam</em>, lb/hr </br>
+<span class="math inline">\(r_{SURI}\)</span> = radius dalam pipa permukaan, ft (nilai <em>default</em> = <span class="math inline">\(r_{TI}\)</span> = 0.102) </br>
+<span class="math inline">\(SPCT(I)\)</span> = volume spesifik campuran <em>steam</em> dengan air untuk segmen ke-<em>I</em>, cuft/bbl </br>
+<span class="math inline">\(\Delta P _{friction}(I)\)</span> = perubahan tekanan untuk segmen ke-<em>I</em> </br>
+<span class="math inline">\(F(I)\)</span> = <em>moody friction factor</em> untuk segmen ke-<em>I</em>, <em>dimensionless</em> </br>
+<span class="math inline">\(DELS(I)\)</span> = panjang segmen pipa permukaan ke-<em>I</em>, ft</p>
+<p>Volume spesifik campuran <em>steam</em> dengan air (SPCT) dihitung menggunakan persamaan berikut:
+<span class="math display">\[SPCT(I) = X(I).SPCG(I)+(1-X(I)).SPCL(I)...(2)\]</span>
+dimana: </br>
+<span class="math inline">\(SPCG(I)\)</span> = volume spesifik <em>steam</em> untuk segmen ke-<em>I</em> (cuft/bbl) </br>
+<span class="math inline">\(SPCL(I)\)</span> = volume spesifik air untuk segmen ke-<em>I</em> (cuft/bbl) </br>
+<span class="math inline">\(X(I)\)</span> = <em>steam quality</em>, frkasi massa</p>
+<p>Nilai <em>moody friction factor</em>, <em>F(I)</em>, ditentukan dari bilangan Reynolds untuk aliran dua fasa. Bilangan Reynolds dihitung sebagai berikut.
+<span class="math display">\[N_{Re} = \frac{2967W_T}{\pi. r_{SURI}.\mu_M}...(3)\]</span>
+dengan:
+<span class="math display">\[\mu_M = (\mu_{SL}(I))^{HL}(\mu_{G}(I))^{1-HL}...(4)\]</span>
+<span class="math display">\[HL = \frac{[1-X(I)].SPCL(I)}{SPCT(I)}...(5)\]</span>
+dimana: </br>
+<span class="math inline">\(N_{Re}\)</span> = bilangan Reynolds </br>
+<span class="math inline">\(W_T\)</span> = laju alir massa, lb/sec </br>
+<span class="math inline">\(r_{SURI}\)</span> = radius dalam pipa permukaan, ft </br>
+<span class="math inline">\(\mu_M\)</span> = viskositas campuran <em>steam</em> dengan air, cp </br>
+<span class="math inline">\(\mu_{SL}(I)\)</span> = viskositas air saturasi <em>steam</em> di segmen pipa permukaan ke-<em>I</em> </br>
+<span class="math inline">\(\mu_G(I)\)</span> = viskositas <em>steam</em> di segmen pipa permukaan ke-<em>I</em> </br>
+<span class="math inline">\(HL\)</span> = <em>liquid holdup</em></p>
+<p>Nilai <em>F(I)</em> ditentukan sebagai berikut.</p>
+<ul>
+<li>Jika <span class="math inline">\(N_{Re} \leq 2000\)</span>, maka
+<span class="math display">\[F(I) = \frac{64}{N_{Re}}...(6)\]</span></li>
+<li>Jika <span class="math inline">\(N_{Re} &gt; 4000\)</span>, maka
+<span class="math display">\[F(I) = 1.14 - 0.86858 \log \left[ED + \frac{9.34}{N_{Re}F(I)}\right]...(7)\]</span>
+dimana: </br>
+<span class="math inline">\(ED = \frac{EPSC}{\frac{r_{SURI}}{24}}\)</span> = <em>dimensionless roughness ratio</em> </br>
+<span class="math inline">\(EPSC\)</span> = <em>roughness factor</em> dari pipa permukaan, in (nilai <em>default</em> = 0.0008)</li>
+</ul>
+<p>Solusi <em>F(I)</em> dari persamaan (7) diperoleh dengan prosedur iterasi</p>
+<ul>
+<li>Jika 2000 &lt; <span class="math inline">\(N_{Re}\)</span> &lt; 4000, maka
+<span class="math display">\[F(I) = F(I)&#39; + \frac{(N_{Re}-2000)(F(I)&quot;-F(I)&#39;)}{2000}...(8)\]</span>
+dengan
+<span class="math display">\[F(I)&#39; = \frac{64}{N_{Re}}...(9)\]</span>
+<span class="math display">\[F(I)&quot; = 1.14 - 0.86858 \log \left[ED + \frac{9.34}{N_{Re}F(I)}\right]...(10)\]</span></li>
+</ul>
+<p><em>Heat loss</em> di pipa permukaan dihitung dengan persamaan berikut.
+<span class="math display">\[Q_{surface}(I) = 2\pi K_{surface}.r_{SURI}.DELS(I)[T_{surface}-T_{ground}]...(11)\]</span>
+<span class="math display">\[T_{surface} = \frac{T(I+1)+T(I)}{2}...(12)\]</span>
+dimana: </br>
+<span class="math inline">\(Q_{surface}(I)\)</span> = laju <em>heat loss</em> di pipa permukaan, Btu/hr </br>
+<span class="math inline">\(K_{surface}\)</span> = koefisien transfer panas untuk pipa permukaan, Btu/hr-ft<sup>2</sup>-°F (nilai <em>default</em> = 0.5) </br>
+<span class="math inline">\(DELS(I)\)</span> = panjang segmen pipa permukaan ke-<em>I</em>, ft = <span class="math inline">\(\frac{500}{jumlah\ segmen\ permukaan}\)</span> </br>
+<span class="math inline">\(T_{surface}\)</span> = temperatur rata-rata segmen pipa permukaan, °F </br>
+<span class="math inline">\(T_{ground}\)</span> = temperatur tanah pada kondisi permukaan, °F (nilai <em>default</em> = 70°F) </br>
+<span class="math inline">\(T(I)\)</span> = temperatur segmen pipa permukaan ke-<em>I</em>, °F</p>
+<p>Nilai <em>steam quality</em> dihitung di sisi <em>downstream</em> dari setiap segmen pipa permukaan.
+<span class="math display">\[X(I+1) = \frac{X(I)\left( [H_G(I)-H_{SL}(I)] + [H_{SL}(I)-H_{SL}(I+1)]-\frac{Q_{surface}(I)}{W} \right)}{H_G(I+1)-H_{SL}(I+1)}...(13)\]</span>
+dimana: </br>
+<span class="math inline">\(X(I)\)</span> = <em>steam quality</em> di segmen pipa permukaan ke-<em>I</em> </br>
+<span class="math inline">\(X(I+1)\)</span> = <em>steam quality</em> di segmen pipa permukaan ke-(<em>I</em>+1) </br>
+<span class="math inline">\(H_G(I)\)</span> = entalpi <em>steam</em> di segmen pipa permukaan ke-<em>I</em> </br>
+<span class="math inline">\(H_{SL}(I)\)</span> = entalpi air tersaturasi <em>steam</em> di segmen pipa permukaan ke-<em>I</em>.</p>
+</div>
+<div id="fenomena-heat-loss-di-sumur-injeksi" class="section level3">
+<h3><span class="header-section-number">8.2.2</span> Fenomena <em>Heat Loss</em> di Sumur Injeksi</h3>
+<p>Selain <em>heat loss</em> yang terjadi di pipa permukaan saat <em>steam</em> bergerak dari <em>steam generator</em> ke <em>wellhead</em>, <em>predictive model</em> yang dibangun juga menyertakan <em>heat loss</em> yang terjadi saat <em>steam</em> bergerak dari <em>wellhead</em> ke <em>sandface</em>. <em>Heat loss</em> yang terjadi pada kondisi ini dikelompokkan ke dalam fenomena <em>heat loss</em> di sumur injeksi.</p>
+<p>Perhitungan <em>heat loss</em> di sumur injeksi dilakukan menggunakan metode Earlougher dan Willhite. Sama seperti perhitungan <em>heat loss</em> di pipa permukaan, sumur injeksi akan dibagi ke dalam beberapa segmen, kemudian perhitungan perubahan tekanan, laju <em>heat loss</em>, dan <em>steam quality</em> akan dilakukan di setiap segmen. Jumlah segmen maksimum dibatasi sebanyak 20 segmen.</p>
+<p>Perubahan tekanan antara <em>wellhead</em> dengan <em>sandface</em> diasumsikan dipengaruhi oleh tiga faktor, yaitu berat kolom fluida, energi kinetik, dan gesekan. Sehingga, perubahan tekanan antara <em>wellhead</em> dengan <em>sandface</em> (untuk setiap segmen sumur injeksi) dinyatakan oleh persamaan berikut.
+<span class="math display">\[P(Z+1) = P(Z) + \Delta P_{KE}(Z) + \Delta P_{F_{weight}}(Z) - \Delta P_{friction}(Z)...(14)\]</span>
+dengan:
+<span class="math display">\[\Delta P_{KE}(Z) = \frac{1.686(10)^{-12}[SPCT(Z)-SPCT(Z+1)]W^2}{r_{TI}^4}...(15)\]</span>
+<span class="math display">\[\Delta P_{F_{weight}}(Z) = \frac{6.944(10)^{-3}.DELZ(Z)}{SPCT(Z)} ...(16)\]</span>
+<span class="math display">\[\Delta P_{friction}(Z) = \frac{4.219(10)^{-13}W^2.SPCT(Z).DELZ(Z).F(Z)}{r_{SURI}^5}...(17)\]</span>
+dimana: </br>
+<span class="math inline">\(P(Z+1)\)</span> = tekanan di segmen sumur ke-(<em>Z</em>+1) </br>
+<span class="math inline">\(P(Z)\)</span> = tekanan di segmen sumur ke-<em>Z</em> </br>
+<span class="math inline">\(\Delta P_{KE}(Z)\)</span> = perubahan tekanan akibat pengaruh perubahan energi kinetik dari steam untuk segmen sumur ke-<em>Z</em> </br>
+<span class="math inline">\(\Delta P_{F_{weight}}(Z)\)</span> = perubahan tekanan akibat pengaruh berat kolom fluida untuk segmen sumur ke-<em>Z</em> </br>
+<span class="math inline">\(\Delta P_{friction}(Z)\)</span> = perubahan tekanan akibat pengaruh gesekan untuk segmen sumur ke-<em>Z</em> </br>
+<span class="math inline">\(SPCT(Z)\)</span> = volume spesifik campuran <em>steam</em> dengan air untuk segmen ke-<em>Z</em>, cuft/bbl </br>
+<span class="math inline">\(r_{TI}\)</span> = radius sisi dalam tubing, ft (nilai <em>default</em> = 0.102) </br>
+<span class="math inline">\(DELZ(Z)\)</span> = panjang segmen sumur ke-<em>Z</em>, ft = <span class="math inline">\(\frac{depth}{jumlah\ segmen\ sumur\ injeksi}\)</span> </br>
+<span class="math inline">\(F(Z)\)</span> = <em>mody friction factor</em> untuk segmen sumur ke-<em>Z</em>, <em>dimensionless</em></p>
+<p>Volume spesifik campuran <em>steam</em> dengan air (SPCT) dan <em>moody friction factor</em> dihitung dengan cara yang sama seperti pada pipa permukaan, yaitu menggunakan persamaan (2), (6), (7), dan (8), dengan mengganti segmen pipa permukaan <em>I</em> dengan segmen sumur injeksi <em>Z</em>.</p>
+<p>Pada sumur injeksi <em>steam</em> diasumsikan mengalir di dalam <em>tubing</em>, sehingga penjelasan <em>heat loss</em> ke formasi batuan menjadi lebih rumit dibandingkan dengan penjelasan <em>heat loss</em> dari pipa permukaan. <em>Heat loss</em> (dari <em>steam</em>) dalam sumur injeksi akan mengalir secara berurutan melalui medium-medium berikut: <em>tubing</em>, <em>annulus</em>, <em>casing</em>, semen pemboran, dan formasi batuan.</p>
+<p>Penjelasan <em>heat loss</em> pada sumur injeksi akan dimulai dengan mendefinisikan parameter koefisien <em>overall</em> transfer panas sumur (<span class="math inline">\(K_{coef}\)</span>), yaitu:
+<span class="math display">\[K_{coef} = \frac{1}{K_{konduksi-tub}+K_{konv-rad\ tubing}+K_{konduksi-semen}}...(18)\]</span>
+<span class="math inline">\(K_{konduksi-tub}\)</span> menyatakan koefisien transfer panas konduksi melalui tubing. Koefisien ini dinyatakan oleh persamaan berikut:
+<span class="math display">\[K_{konduksi-tub} = \frac{r_w \log \left(\frac{r_{ins}}{r_{TO}}\right)}{k_{tubing}}...(19)\]</span>
+dimana: </br>
+<span class="math inline">\(r_w\)</span> = radius sumur, ft (nilai <em>default</em> = 0.25) </br>
+<span class="math inline">\(r_{ins}\)</span> = radius insulasi tubing, ft (nilai <em>default</em> = <span class="math inline">\(r_{TO}\)</span>) </br>
+<span class="math inline">\(r_{TO}\)</span> = radius sisi luar tubing, ft (nilai <em>default</em> = + 0.015) </br>
+<span class="math inline">\(k_{tubing}\)</span> = konduktivitas termal tubing (nilai <em>default</em> = 0.04 Btu/hr.ft.°F).</p>
+<p><span class="math inline">\(K_{konv-rad\ tubing}\)</span> menyatakan koefisien transfer panas konveksi dan radiasi melalui tubing. Koefisien ini dinyatakan oleh persamaan berikut:
+<span class="math display">\[K_{konv-rad\ tubing} = \frac{r_w}{\left(\frac{r_{ins}}{(K_{konveksi}+K_{radiasi})}\right)}...(20)\]</span>
+Pada persamaan (20), <span class="math inline">\(K_{radiasi}\)</span> adalah koefisien transfer panas melalui mekanisme radiasi. Parameter ini dihitung menggunakan persamaan berikut.
+<span class="math display">\[K_{radiasi} = \sigma F_{TCI}[T_{CI}^2 + T_{IN}^2](T_{CI} + T_{IN})...(21)\]</span>
+dimana: </br>
+<span class="math inline">\(\sigma\)</span> = konstanta Stefan-Boltzmann = 1.713(10)<sup>-9</sup> Btu/hr-ft<sup>2</sup>-°R <br>
+<span class="math inline">\(T_{CI}\)</span> = temperatur sisi dalam casing, °R </br>
+<span class="math inline">\(T_{IN}\)</span> = temperatur sisi luar <em>insulation</em> atau temperatur sisi luar tubing, °R </br>
+<span class="math inline">\(F_{TCI}\)</span> = <em>dimensionless view factor</em>, merupakan parameter yang menghubungkan geometri sumur beserta sifat emisif <em>tubing</em> dan <em>casing</em> terhadap flux panas <em>radiant</em>.
+<span class="math display">\[F_{TCI} = \frac{1}{\left(\frac{1}{\varepsilon_{TO}}\right)+\frac{r_{ins}}{r_{CI}}\left(\frac{1}{\varepsilon_{CI}-1}\right)}...(22)\]</span>
+dengan: </br>
+<span class="math inline">\(r_{CI}\)</span> = radius sisi dalam casing, ft (nilai <em>default</em> = 0.2655) </br>
+<span class="math inline">\(\varepsilon_{TO}\)</span> = emisivitas permukaan sisi luar <em>tubing</em>, <em>dimensionless</em> (nilai <em>default</em> = 0.9) </br>
+<span class="math inline">\(\varepsilon_{CI}\)</span> = emisivitas permukaan sisi luar <em>casing</em>, <em>dimensionless</em> (nilai <em>default</em> = 0.4) </br></p>
+<p>Selanjutnya, pada persamaan (20), <span class="math inline">\(K_{konveksi}\)</span> adalah koefisien transfer panas melalui mekanisme konveksi. Parameter ini dihitung menggunakan persamaan berikut.
+<span class="math display">\[K_{konveksi} = \frac{k_{hc}}{\left[\frac{r_{ins}}{\log \left(\frac{r_{CI}}{r_{ins}}\right)}\right]}...(23)\]</span>
+<span class="math display">\[k_{hc} = 0.049k_{ha}(N_{gr}N_{pr})^{0.333}N_{pr}^{0.074}...(24)\]</span>
+dengan:
+<span class="math display">\[N_{gr} = \frac{4.17(10)^8(r_{CI}-r_{TO})^3\rho_{ann}^2(T_{IN}-T_{CI})}{(T_{ann}+460)\mu_{ann}^2}...(25)\]</span>
+<span class="math display">\[N_{pr} = \frac{C_{ann}\mu_{ann}}{k_{ha}}...(26)\]</span>
+dimana: </br>
+<span class="math inline">\(k_{hc}\)</span> = konveksivitas termal fluida annulus </br>
+<span class="math inline">\(k_{ha}\)</span> = konveksivitas termal fluida annulus (nilai <em>default</em> = 0.1 Btu/hr.ft.°F)</br>
+<span class="math inline">\(N_{gr}\)</span> = bilangan Grashof fluida annulus</br>
+<span class="math inline">\(N_{pr}\)</span> = bilangan Prandtl fluida annulus</br>
+<span class="math inline">\(T_{ann}\)</span> = temperatur fluida annulus, °F (nilai <em>default</em> = <span class="math inline">\(T_{steam}\)</span>)</br>
+<span class="math inline">\(\rho_{ann}\)</span> = densitas fluida annulus, lb/cuft (nilai <em>default</em> = 0.1) </br>
+<span class="math inline">\(\mu_{ann}\)</span> = viskositas fluida annulus, cp (nilai <em>default</em> = 0.05) </br>
+<span class="math inline">\(C_{ann}\)</span> = kapasitas panas fluida annulus, Btu/lb.°F (nilai <em>default</em> = 0.2) </br></p>
+<p><span class="math inline">\(K_{konduksi-semen}\)</span> menyatakan koefisien transfer panas konduksi melalui semen pemboran. Parameter ini dinyatakan oleh persamaan berikut.
+<span class="math display">\[K_{konduksi-semen} = \frac{r_w \log \left(\frac{r_w}{r_{CO}}\right)}{k_{semen}}...(27)\]</span>
+dimana: </br>
+<span class="math inline">\(r_{CO}\)</span> = radius sisi luar <em>casing</em>, ft (nilai <em>default</em> = <span class="math inline">\(r_{CI}\)</span> 0.026) </br>
+<span class="math inline">\(k_{semen}\)</span> = konduktivitas termal semen pemboran (nilai <em>default</em> = 0.5 Btu/hr.ft.°F).</p>
+<p><em>Heat loss</em> di sepanjang sumur injeksi dinyatakan oleh persamaan berikut.
+<span class="math display">\[Q_{well}(Z) = \frac{2\pi r_wDELZ(Z)K_{coef}k_{rock}[T(Z)-T_{ground}(Z)]}{k_{rock} + (r_wK_{coef}F_T)}...(28)\]</span>
+dimana: </br>
+<span class="math inline">\(F_T = \log(2\sqrt {t_{DS}})-0.29\)</span> = fungsi konduksi panas transient </br>
+<span class="math inline">\(t_{DS} = \frac{24\alpha T}{r_w^2}\)</span> = <em>dimensionless time</em>; <span class="math inline">\(\alpha\)</span> = difusivitas termal batuan, ft<sup>2</sup>/hr (nilai <em>default</em> = 0.0306) </br>
+<span class="math inline">\(Q_{well}(Z)\)</span> = laju <em>heat loss</em> dari sumur injeksi untuk segmen sumur ke-<em>Z</em> </br>
+<span class="math inline">\(k_{rock}\)</span> = konduktivitas termal batuan reservoir (nilai <em>default</em> = 1 Btu/hr.ft.°F) </br>
+<span class="math inline">\(T(Z)\)</span> = temperatur segmen sumur ke-<em>Z</em> </br>
+<span class="math inline">\(T_{ground}(Z)\)</span> = temperatur tanah pada kondisi permukaan</p>
+<p>Selanjutnya, <em>steam quality</em> dihitung di bagian <em>downstream</em> dari setiap segmen sumur menggunakan persamaan berikut.
+<span class="math display">\[X(Z+1) = \frac{X(Z)\left( [H_G(Z)-H_{SL}(Z)] + [H_{SL}(Z)-H_{SL}(Z+1)]-\frac{Q_{well}(Z)}{W} \right)}{H_G(Z+1)-H_{SL}(Z+1)}...(29)\]</span>
+dimana: </br>
+<span class="math inline">\(X(Z)\)</span> = <em>steam quality</em> di segmen pipa permukaan ke-<em>Z</em> </br>
+<span class="math inline">\(X(Z+1)\)</span> = <em>steam quality</em> di segmen pipa permukaan ke-(<em>Z</em>+1) </br>
+<span class="math inline">\(H_G(Z)\)</span> = entalpi <em>steam</em> di segmen pipa permukaan ke-<em>Z</em> </br>
+<span class="math inline">\(H_G(Z+1)\)</span> = entalpi <em>steam</em> di segmen pipa permukaan ke-(<em>Z</em>+1) </br>
+<span class="math inline">\(H_{SL}(Z)\)</span> = entalpi air tersaturasi <em>steam</em> di segmen pipa permukaan ke-<em>Z</em> </br>
+<span class="math inline">\(H_{SL}(Z+1)\)</span> = entalpi air tersaturasi <em>steam</em> di segmen pipa permukaan ke-(<em>Z</em>+1) </br>
+<span class="math inline">\(W\)</span> = laju alir massa = laju injeksi <em>steam</em></p>
+</div>
+</div>
+<div id="perhitungan-sejumlah-parameter-penting-yang-digunakan-dalam-predictive-model" class="section level2">
+<h2><span class="header-section-number">8.3</span> Perhitungan Sejumlah Parameter Penting yang Digunakan Dalam <em>Predictive Model</em></h2>
+<div id="permeabilitas-relatif-tiga-fasa" class="section level3">
+<h3><span class="header-section-number">8.3.1</span> Permeabilitas Relatif Tiga Fasa</h3>
+<p>Permeabilitas relatif tiga fasa dihitung menggunakan modifikasi metode Stone. Hal ini ditunjukkan oleh persamaan-persamaan berikut.
+<span class="math display">\[k_{rw} = k_{rwro}(T) \left[ \frac{S_w-S_{wr}(T)}{1-S_{wr}(T)-S_{or}(T)} \right]^{n_w(p)}...(30)\]</span>
+<span class="math display">\[k_{rg} = k_{rgro}(T) \left[ \frac{S_g-S_{gr}(T)}{1-S_{wr}(T)-S_{or}(T)-S_{gr}(T)} \right]^{n_g}...(31)\]</span>
+<span class="math display">\[k_{ro} = k_{rocw}(T) \left[ \left( \frac{k_{row}}{k_{rocw}}+k_{rw} \right)\left( \frac{k_{rog}}{k_{rocw}}+k_{rg} \right)-k_{rw}-k_{rg}\right] ...(32)\]</span>
+dengan:
+<span class="math display">\[k_{row} = k_{rocw}(T) \left[ \frac{1-S_w-S_{or}(T)}{1-S_{wr}(T)-S_{or}(T)} \right]^{n_{ow}}...(33)\]</span>
+<span class="math display">\[k_{rog} = k_{rocw}(T) \left[ \frac{1-S_w-S_{or}(T)-S_g}{1-S_{wr}(T)-S_{or}(T)} \right]^{n_{og}}...(34)\]</span>
+<span class="math display">\[k_{rocw}(T) = k_{rocwi} + k_{rocwt}(T - T_{form})...(35)\]</span>
+<span class="math display">\[k_{rwro}(T) = k_{rwroi} + k_{rwrot}(T - T_{form})...(36)\]</span>
+<span class="math display">\[k_{rgro}(T) = k_{rgroi} + k_{rgrot}(T - T_{form})...(37)\]</span>
+<span class="math display">\[n_w(p) = n_{wi} \left[1+n_{wp}\left(\frac{p-p_{form}}{p_{form}}\right)\right]...(38)\]</span>
+dimana: </br>
+<span class="math inline">\(k_{rwroi}\)</span> = nilai <em>initial end-point</em> dari kurva <span class="math inline">\(k_{rw}\)</span> (nilai <em>default</em> = 0.2) </br>
+<span class="math inline">\(k_{rwrot}\)</span> = perubahan nilai <em>end-point</em> kurva <span class="math inline">\(k_{rw}\)</span> terhadap temperatur (nilai <em>default</em> = 0.00215 °F<sup>-1</sup>) </br>
+<span class="math inline">\(k_{rocwi}\)</span> = nilai <em>initial end-point</em> dari kurva <span class="math inline">\(k_{ro}\)</span> (nilai <em>default</em> = 1) </br>
+<span class="math inline">\(k_{rocwt}\)</span> = perubahan nilai <em>end-point</em> kurva <span class="math inline">\(k_{ro}\)</span> terhadap temperatur </br>
+<span class="math inline">\(k_{rgroi}\)</span> = nilai <em>initial end-point</em> dari kurva <span class="math inline">\(k_{rg}\)</span> (nilai <em>default</em> = 1) </br>
+<span class="math inline">\(k_{rgrot}\)</span> = perubahan nilai <em>end-point</em> kurva <span class="math inline">\(k_{rg}\)</span> terhadap temperatur </br>
+<span class="math inline">\(n_{wi}\)</span> = initial eksponen persamaan <span class="math inline">\(k_{rw}\)</span> (nilai <em>default</em> = 2) </br>
+<span class="math inline">\(n_{wp}\)</span> = perubahan nilai eksponen persamaan <span class="math inline">\(k_{rw}\)</span> terhadap perubahan tekanan </br>
+<span class="math inline">\(n_{ow}\)</span> = eksponen dalam persamaan <span class="math inline">\(k_{ro}\)</span> untuk sistem minyak-air (nilai <em>default</em> = 2) </br>
+<span class="math inline">\(n_{og}\)</span> = eksponen dalam persamaan <span class="math inline">\(k_{ro}\)</span> untuk sistem minyak-gas (nilai <em>default</em> = 2) </br>
+<span class="math inline">\(n_{g}\)</span> = eksponen dalam persamaan <span class="math inline">\(k_{rg}\)</span> </br>
+<span class="math inline">\(p_{form}\)</span> = tekanan formasi = 14.7 + <span class="math inline">\(\left(\frac{0.433}{2}\right)depth\)</span> </br>
+<span class="math inline">\(T_{form}\)</span> = temperatur formasi = 70 + 0.0011 °F/ft.</p>
+</div>
+<div id="pembagian-daerah-reservoir" class="section level3">
+<h3><span class="header-section-number">8.3.2</span> Pembagian Daerah Reservoir</h3>
+<p>Salah satu asumsi yang digunakan dalam model Aydelotte-Pope adalah predictive model yang dibangun membagi reservoir ke dalam empat daerah. Keempat daerah reservoir ini adalah sebagai berikut.</p>
+<ul>
+<li><p><strong>Daerah 1: zona formasi reservoir awal</strong> </br>
+Daerah ini dikarakterisasi oleh nilai tekanan dan temperatur berikut.
+<span class="math display">\[T(1) = T_{form}...(39)\]</span>
+<span class="math display">\[P(1) = P_{form}...(40)\]</span></p></li>
+<li><p><strong>Daerah 2: zona <em>cold liquid</em></strong> </br>
+Daerah ini dikarakterisasi oleh nilai tekanan dan temperatur berikut.
+<span class="math display">\[T(2) = T_{form}...(41)\]</span>
+<span class="math display">\[P(2) = P_(1) + 0.333[P_(4)-P_(1)]...(42)\]</span></p></li>
+<li><p><strong>Daerah 3: zona <em>hot liquid</em></strong> </br>
+Daerah ini dikarakterisasi oleh nilai tekanan dan temperatur berikut.
+<span class="math display">\[T(3) = T_{avg}...(43)\]</span>
+<span class="math display">\[P(3) = P(1) + 0.667[P(4)-P(1)]...(44)\]</span>
+dimana:
+<span class="math display">\[T_{avg} = T_{form}(1-F_{T_{avg}})+T_{steam}F_{T_{avg}}...(45)\]</span>
+<span class="math inline">\(F_{T_{avg}}\)</span> = 0.6 = fraksi peningkatan temperatur zona <em>steam</em> yang diterapkan pada temperatur zona <em>hot liquid</em>.</p></li>
+<li><p><strong>Daerah 4: zona <em>steam</em></strong> </br>
+Daerah ini dikarakterisasi oleh nilai tekanan dan temperatur berikut.
+<span class="math display">\[T(4) = T_{steam}...(46)\]</span>
+<span class="math display">\[P(4) = P_{frac} = 0.5depth...(47)\]</span></p></li>
+</ul>
+</div>
+<div id="initial-injectivity-index" class="section level3">
+<h3><span class="header-section-number">8.3.3</span> <em>Initial Injectivity Index</em></h3>
+<p>Nilai <em>default</em> dari <em>initial injectivity index</em> diperoleh dengan terlebih dahulu mengestimasi nilai <em>pattern area</em> (A) jika tidak diketahui.
+<span class="math display">\[I_{index} = k \left( \frac{h_{net}}{141.3} \right)\left[ \frac{2}{\log \left( \frac{755268.2763A}{r_w^2} \right)} \right]\beta...(48)\]</span>
+<span class="math display">\[\beta = \left( \frac{S_{wi}-S_{wr(1)}}{R_1} \right)^{\frac{2}{\mu_w(1)}} + \left( \frac{S_{oi}-S_{or(1)}}{R_1} \right)^{\frac{2}{\mu_o(1)}} + \left( \frac{S_{gi}-S_{gr(1)}}{R_1} \right)^{\frac{2}{\mu_g(1)}}...(49)\]</span>
+<span class="math display">\[R_1 = 1-S_{wr}(1)-S_{or}(1)-S_{gr}(1)...(50)\]</span>
+diasumsikan bahwa:
+<span class="math display">\[r_w = 0.25\]</span>
+<span class="math display">\[S_{gr}(1)=0\]</span>
+dimana: </br>
+<span class="math inline">\(I_{index}\)</span> = <em>initial injectivity index</em> </br>
+<span class="math inline">\(h_{net}\)</span> = <em>net thickness</em> reservoir </br>
+<span class="math inline">\(A\)</span> = <em>pattern area</em> reservoir; max = 80 acres; min = 0.625 acres </br>
+<span class="math inline">\(S_{wi}\)</span> = nilai saturasi air <em>initial</em> = <span class="math inline">\(S_{wr}(1)\)</span> = 0.2 (nilai <em>default</em>) </br>
+<span class="math inline">\(S_{oi}\)</span> = nilai saturasi minyak <em>initial</em> = <span class="math inline">\(1-S_{wi}-S_{gi}\)</span> </br>
+<span class="math inline">\(S_{gi}\)</span> = nilai saturasi air <em>initial</em> = <span class="math inline">\(S_{wr}(1)\)</span> = 0.2 (nilai <em>default</em>) </br>
+<span class="math inline">\(S_{jr}(1)\)</span> = nilai saturasi residual fluida fasa <em>j</em> di zona 1 reservoir </br>
+<span class="math inline">\(S_{or}(1,2,3)\)</span> = [0.3495 + 0.03657 <span class="math inline">\(\log\)</span>(<span class="math inline">\(\mu_o(region)\)</span>)[1.294 − 0.0445 log<span class="math inline">\(k\)</span>]] </br>
+<span class="math inline">\(S_{wr}(3\ or\ 4)\)</span> = <span class="math inline">\(S_{wr}(1) + 0.00245.S_{wr}(1).(T(region)-T_{form})\)</span> </br>
+<span class="math inline">\(\mu_j(1)\)</span> = nilai viskositas fluida fasa <em>j</em> di zona 1 reservoir</p>
+</div>
+<div id="viskositas-fluida" class="section level3">
+<h3><span class="header-section-number">8.3.4</span> Viskositas Fluida</h3>
+<div id="viskositas-air" class="section level4">
+<h4><span class="header-section-number">8.3.4.1</span> Viskositas Air</h4>
+<p>Nilai viskositas air dihitung untuk keempat zona reservoir.
+<span class="math display">\[\mu_w (zona\ 1\ atau\ 2) = BB(37).T_{form}+BB(38)+\frac{\alpha_3}{T_{form}}...(51)\]</span>
+<span class="math display">\[\alpha_3 = \frac{\alpha_2}{T_{form}} + BB(39)...(52)\]</span>
+<span class="math display">\[\alpha_2 = \frac{\alpha_1}{T_{form}} + BB(40)...(53)\]</span>
+<span class="math display">\[\alpha_1 = \frac{BB(42)}{T_{form}} + BB(41)...(54)\]</span>
+dimana: </br>
+<span class="math inline">\(BB(i)\)</span> = konstanta viskositas fluida </br>
+Nilai <span class="math inline">\(\mu_w\)</span> di zona 3 dan 4 diperoleh dari tabel <em>steam</em></p>
+</div>
+<div id="viskositas-minyak-3" class="section level4">
+<h4><span class="header-section-number">8.3.4.2</span> Viskositas Minyak</h4>
+<p>Nilai viskositas minyak dihitung untuk keempat zona reservoir dengan terlebih dahulu menghitung nilai viskositas minyak pada kondisi temperatur 100° dan 210°F.</p>
+<ul>
+<li><p>Untuk API <span class="math inline">\(\leq 10\)</span>:
+<span class="math display">\[\mu_{o,100} = 10^{(8.35928-0.37539 API)}...(55)\]</span>
+<span class="math display">\[\mu_{o,210} = 10^{(3.15424-0.11862 API)}...(56)\]</span></p></li>
+<li><p>Untuk API &gt; 10:
+<span class="math display">\[\mu_{o,100} = e^{[BB(1)API-BB(2) \frac{\alpha_6}{API}]}...(57)\]</span>
+<span class="math display">\[\mu_{o,210} = e^{[BB(7)API-BB(8) \frac{\alpha_9}{API}]}...(58)\]</span>
+dengan:
+<span class="math display">\[\alpha_6 = \frac{\alpha_5}{API} + BB(3)...(59)\]</span>
+<span class="math display">\[\alpha_5 = \frac{\alpha_4}{API} + BB(4)...(60)\]</span>
+<span class="math display">\[\alpha_4 = \frac{BB(6)}{API} + BB(5)...(61)\]</span>
+<span class="math display">\[\alpha_9 = \frac{\alpha_8}{API} + BB(9)...(62)\]</span>
+<span class="math display">\[\alpha_8 = \frac{\alpha_7}{API} + BB(10)...(63)\]</span>
+<span class="math display">\[\alpha_7 = \frac{BB(12)}{API} + BB(11)...(64)\]</span>
+dimana: </br>
+<span class="math inline">\(API\)</span> = API <em>gravity</em> minyak </br>
+<span class="math inline">\(BB(i)\)</span> = konstanta viskositas fluida</p></li>
+</ul>
+<p>Viskositas minyak untuk setiap zona diberikan oleh persamaan berikut.
+<span class="math display">\[\mu_o(region) = Y(VIS)^{X}...(65)\]</span>
+dengan:
+<span class="math display">\[VIS = \mu_{o,100} \left[ \frac{T(region)}{100} \right]^{1.345 \log \left( \frac{\mu_{o,210}}{\mu_{o,100}} \right)}...(66)\]</span></p>
+<ul>
+<li><p>Untuk <em>solution gas oil ratio</em>, <em>R<sub>s</sub></em> &lt; 20:
+<span class="math display">\[Y = 1-0.0025R_s ...(67)\]</span>
+<span class="math display">\[X = 1-0.00175R_s ...(68)\]</span></p></li>
+<li><p>Untuk 20 <span class="math inline">\(\leq\)</span> R<sub>s</sub> &lt; 100:
+<span class="math display">\[Y = BB(13)R_s + BB(14) + \frac{\beta_3}{R_s}...(69)\]</span>
+<span class="math display">\[X = BB(25)R_s + BB(26) + \frac{BB(27)}{R_s} + \frac{BB(28)}{R_s^2} + \frac{BB(29)}{R_s^3} + \frac{BB(30)}{R_s^4}...(70)\]</span>
+dengan:
+<span class="math display">\[\beta_3 = \frac{\beta_2}{R_s}+BB(15)...(71)\]</span>
+<span class="math display">\[\beta_2= \frac{\beta_1}{R_s}+BB(16)...(72)\]</span>
+<span class="math display">\[\beta_1= \frac{BB(18)}{R_s}+BB(17)...(73)\]</span></p></li>
+<li><p>Untuk R<sub>s</sub> <span class="math inline">\(\geq\)</span> 100:
+<span class="math display">\[Y = BB(19)R_s + BB(20) + \frac{BB(21)}{R_s}+ \frac{BB(22)}{R_s^2}+ \frac{BB(23)}{R_s^3}+ \frac{BB(24)}{R_s^4}...(74)\]</span>
+<span class="math display">\[X = BB(31)R_s + BB(32) + \frac{BB(33)}{R_s}+ \frac{BB(34)}{R_s^2}+ \frac{BB(35)}{R_s^3}+ \frac{BB(36)}{R_s^4}...(75)\]</span></p></li>
+</ul>
+</div>
+<div id="nilai-konstanta-korelasi-viskositas-bbi" class="section level4">
+<h4><span class="header-section-number">8.3.4.3</span> Nilai Konstanta Korelasi Viskositas, BB(<em>i</em>)</h4>
+<p>Tabel berikut memberikan nilai konstanta korelasi viskositas dari <em>i</em> = 1 sampai <em>i</em> = 42.</p>
+<table>
+<thead>
+<tr class="header">
+<th align="center">i</th>
+<th align="center">BB(<em>i</em>)</th>
+<th align="center">i</th>
+<th align="center">BB(<em>i</em>)</th>
+<th align="center">i</th>
+<th align="center">BB(<em>i</em>)</th>
+<th align="center">i</th>
+<th align="center">BB(<em>i</em>)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="center">1</td>
+<td align="center">-0.000676825</td>
+<td align="center">11</td>
+<td align="center">-190.395376</td>
+<td align="center">21</td>
+<td align="center">281.437484</td>
+<td align="center">31</td>
+<td align="center">-7.34671E-05</td>
+</tr>
+<tr class="even">
+<td align="center">2</td>
+<td align="center">-3.89570682</td>
+<td align="center">12</td>
+<td align="center">4161.01142</td>
+<td align="center">22</td>
+<td align="center">-53791.9095</td>
+<td align="center">32</td>
+<td align="center">0.541912201</td>
+</tr>
+<tr class="odd">
+<td align="center">3</td>
+<td align="center">272.18035</td>
+<td align="center">13</td>
+<td align="center">-0.001495773</td>
+<td align="center">23</td>
+<td align="center">4985256.03</td>
+<td align="center">33</td>
+<td align="center">133.649237</td>
+</tr>
+<tr class="even">
+<td align="center">4</td>
+<td align="center">-3470.80586</td>
+<td align="center">14</td>
+<td align="center">0.944396001</td>
+<td align="center">24</td>
+<td align="center">-173099129</td>
+<td align="center">34</td>
+<td align="center">-26771.3439</td>
+</tr>
+<tr class="odd">
+<td align="center">5</td>
+<td align="center">36881.4527</td>
+<td align="center">15</td>
+<td align="center">3.98464375</td>
+<td align="center">25</td>
+<td align="center">-0.000475188</td>
+<td align="center">35</td>
+<td align="center">2799780.44</td>
+</tr>
+<tr class="even">
+<td align="center">6</td>
+<td align="center">-148843.074</td>
+<td align="center">16</td>
+<td align="center">-186.338863</td>
+<td align="center">26</td>
+<td align="center">0.884019819</td>
+<td align="center">36</td>
+<td align="center">-110373996</td>
+</tr>
+<tr class="odd">
+<td align="center">7</td>
+<td align="center">-0.025195294</td>
+<td align="center">17</td>
+<td align="center">3325.20064</td>
+<td align="center">27</td>
+<td align="center">7.38565439</td>
+<td align="center">37</td>
+<td align="center">0.000547457</td>
+</tr>
+<tr class="even">
+<td align="center">8</td>
+<td align="center">-0.964528667</td>
+<td align="center">18</td>
+<td align="center">-18147.1583</td>
+<td align="center">28</td>
+<td align="center">-237.472458</td>
+<td align="center">38</td>
+<td align="center">-0.375792641</td>
+</tr>
+<tr class="odd">
+<td align="center">9</td>
+<td align="center">95.0590107</td>
+<td align="center">19</td>
+<td align="center">-4.55391E-05</td>
+<td align="center">29</td>
+<td align="center">3301.29337</td>
+<td align="center">39</td>
+<td align="center">135.019571</td>
+</tr>
+<tr class="even">
+<td align="center">10</td>
+<td align="center">-398.368883</td>
+<td align="center">20</td>
+<td align="center">0.134211338</td>
+<td align="center">30</td>
+<td align="center">-15644.0226</td>
+<td align="center">40</td>
+<td align="center">-857.863129</td>
+</tr>
+<tr class="odd">
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">41</td>
+<td align="center">-68814.674</td>
+</tr>
+<tr class="even">
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center"></td>
+<td align="center">42</td>
+<td align="center">1178800.05</td>
+</tr>
+</tbody>
+</table>
+Table: <span style="color: grey;"> Tabel 8.1: Konstanta korelasi viskositas, BB(<em>i</em>) </span>
+<p>
+ 
+</p>
+</div>
+</div>
+<div id="solution-gas-oil-ratio-4" class="section level3">
+<h3><span class="header-section-number">8.3.5</span> <em>Solution Gas-Oil Ratio</em></h3>
+<p><em>Solution gas-oil ratio</em>, <em>R<sub>s</sub></em>, dihitung menggunakan korelasi Vasquez-Beggs. Dalam korelasi Vasquez-Beggs, nilai <em>specific gravity gas</em>, <span class="math inline">\(\gamma_g\)</span>, terlebih dahulu dikoreksi ke dalam kondisi tekanan <em>separator</em> 100 psig dan temperatur <em>separator</em> (temperatur <em>separator</em> diasumsikan sama dengan temperatur reservoir).
+<span class="math display">\[\gamma_{g.100} = \gamma_g \left[ 1+\left( (5.912(10)^{-5}(API)(T)log \left( \frac{64.7}{114.7} \right) \right) \right]...(76)\]</span>
+Selanjutnya, nilai <em>solution gas-oil ratio</em> dihitung sebagai berikut. </br>
+Untuk <em>API</em> <span class="math inline">\(\leq\)</span> 30:
+<span class="math display">\[R_s = 0.0362 \gamma_{g.100} P_{form}^{1.0937}exp \left[ 25.724 \left( \frac{API}{T+460} \right)\right]...(77)\]</span>
+Untuk <em>API</em> &gt; 30:
+<span class="math display">\[R_s = 0.0178 \gamma_{g.100} P_{form}^{1.187}exp \left[ 23.931 \left( \frac{API}{T+460} \right)\right]...(78)\]</span></p>
+</div>
+<div id="faktor-volume-formasi-minyak-4" class="section level3">
+<h3><span class="header-section-number">8.3.6</span> Faktor Volume Formasi Minyak</h3>
+<p>Faktor volume formasi minyak, <em>B<sub>o</sub></em>, dihitung menggunakan korelasi Vasquez-Beggs.
+<span class="math display">\[B_o = 1 + C_1R-s + (C_2 + C_3R_s)(T-60) \left( \frac{API}{\gamma_{g.100}} \right)...(79)\]</span>
+dimana: </br>
+Untuk <span class="math inline">\(API \leq\)</span> 30:
+<span class="math display">\[C_1 = 4.677 (10^{-4})\]</span>
+<span class="math display">\[C_2 = 1.751 (10^{-5})\]</span>
+<span class="math display">\[C_3 = -1.811 (10^{-8})\]</span>
+Untuk <span class="math inline">\(API\)</span> &gt; 30:
+<span class="math display">\[C_1 = 4.67 (10^{-4})\]</span>
+<span class="math display">\[C_2 = 1.1 (10^{-5})\]</span>
+<span class="math display">\[C_3 = 1.337 (10^{-9})\]</span></p>
+</div>
+</div>
+<div id="steamflood-predictive-model-1" class="section level2">
+<h2><span class="header-section-number">8.4</span> <em>Steamflood Predictive Model</em></h2>
+<p>Seperti yang telah dijelaskan di bagian pendahuluan, terdapat empat metode yang digunakan untuk membangun <em>steamflood predictive model</em>. Keempat metode yang digunakan adalah:</p>
+<ol style="list-style-type: decimal">
+<li>Metode Williams, atau disebut juga Metode <em>Stanford University Petroleum Research Institute</em> (SUPRI)</li>
+<li>Metode Jones</li>
+<li>Metode Gomaa</li>
+<li>Metode Aydelotte – Pope, disebut juga Metode Intercomp.</li>
+</ol>
+<p>Penjelasan masing-masing metode ini akan diberikan sebagai berikut.</p>
+<div id="metode-williams-metode-stanford-university" class="section level3">
+<h3><span class="header-section-number">8.4.1</span> Metode Williams (Metode Stanford University)</h3>
+<p>Dalam metode Williams, model Marx-Langenheim digunakan untuk menghitung reservoir <em>heat loss</em> yang akan mempengaruhi pertumbuhan zona <em>steam</em> (<em>steam zone growth</em>). Fraksi injeksi panas yang mengalami <em>heat loss</em> ke formasi <em>overburden</em> dan <em>underburden</em> dinyatakan oleh persamaan berikut.
+<span class="math display">\[W_{loss} = 1- \left[ \frac{1}{t_{DA}\left[ e^{t_{DA}}erfc(\sqrt {t_{DA}})+ \left( 2 \sqrt {\frac{t_{DA}}{\pi}}-1\right)\right]} \right]...(80)\]</span>
+<span class="math display">\[t_{DA} = \frac{1460 \alpha t_{tot}}{h_{gross}^2}...(81)\]</span>
+dimana:</br>
+<span class="math inline">\(\alpha\)</span> = difusivitas termal batuan reservoir, ft<sup>2</sup>/hr </br>
+<span class="math inline">\(h_{gross}\)</span> = <em>gross thickness</em> reservoir, ft = 1.25<span class="math inline">\(h_{net}\)</span> </br>
+<span class="math inline">\(h_{net}\)</span> = <em>net thickness</em> reservoir, ft
+<span class="math inline">\(t_{tot}\)</span> = <em>economic life</em></p>
+<p>Parameter selanjutnya yang akan digunakan dalam model adalah nilai saturasi minyak residu di zona <em>steam</em> dan produksi panas kumulatif selama periode <em>economic life</em>. Saturasi minyak residu di zona <em>steam</em> (<em>S<sub>or</sub></em>(4)) dihitung dengan persamaan berikut.
+<span class="math display">\[S_{or}(4) = \frac{S_{orx}}{100}...(82)\]</span>
+<span class="math display">\[S_{orx} = 13.253 + 2.55956 \log[\mu_o(4)]-0.7196 \log(T_{steam}-T_{form})...(83)\]</span>
+Sedangkan produksi panas kumulatif selama periode <em>economic life</em> dinyatakan oleh persamaan berikut.
+<span class="math display">\[Heat_{prod} = 992.2 - 1060.9E_{1}1^2 + 0.06276\omega^2...(84)\]</span>
+dengan:
+<span class="math display">\[E_{11} = 0.01\left[-237.43 - 11.279 \log \left( \frac{\mu_0(1)}{\mu_0(4)} \right)-0.47331[T(4)-T_{form}]+90.167 \log[T(4)-T_{form}]\right]...(85)\]</span>
+<span class="math display">\[\omega = 2.15962W\left[ \frac{X(4).(H_G(4)-H_{SL}(4))+(T(4)-T_{form})}{(H_G(4)-H_{SL}(4))+(T(4)-T_{form})} \right]...(86)\]</span>
+dimana: </br>
+<span class="math inline">\(W\)</span> = laju alir massa = laju injeksi <em>steam</em> </br>
+<span class="math inline">\(X(4)\)</span> = <em>steam quality</em> di zona 4 (zona <em>steam</em>) </br>
+<span class="math inline">\(H_G(4)\)</span> = entalpi <em>steam</em> di zona <em>steam</em> </br>
+<span class="math inline">\(H_{SL}(4)\)</span> = entalpi air tersaturasi <em>steam</em> di zona <em>steam</em></p>
+<p>Luas daerah reservoir yang terpanaskan oleh injeksi <em>steam</em> (<em>reservoir heated area</em>) dapat dinyatakan sebagai fraksi dari total luas daerah reservoir atau sebagai fungsi dari reservoir <em>heat loss</em> dan produksi panas.
+<span class="math display">\[A_{heated} = \frac{E_{11}(S_{oi}-S_{or}(4))+S_{gi}}{(S_{oi}-S_{or}(4))+S_{gi}}...(87)\]</span>
+atau
+<span class="math display">\[A_{heated} = \frac{\left[ \frac{(1-W_{loss})(Heat_{inj}-Heat_{prod})}{C_{area}} \right]}{\left[\frac{(T(4)-T_{form})}{43560A(10)^6}\right]}...(88)\]</span>
+<span class="math display">\[C_{area} = QT1+QT2+QT3+QT4...(89)\]</span>
+dengan:
+<span class="math display">\[QT1 = [(1-\phi)h_{net}+(h_{gross}-h_{net})]C_{rock}\rho_{rock}...(90)\]</span>
+<span class="math display">\[QT2 = \phi S_{wr}(4)\rho_w(4)C_wh_{net}...(91)\]</span>
+<span class="math display">\[QT3 = \phi S_{or}(4)\rho_w(4)C_oh_{net}...(92)\]</span>
+<span class="math display">\[QT4 = \frac{\phi (1-S_{or}(4)-S_{wr}(4))H_G(4)}{\left[ \frac{v_G}{(T(4)-T_{form})h_{net}} \right]} ...(93)\]</span>
+<span class="math display">\[Heat_{inj} = 24W[(X(4)H_G(4))+(1-(4))H_{SL}(4)]\frac{t_{tot}}{10^6}...(94)\]</span>
+dimana: </br>
+<span class="math inline">\(W_{loss}\)</span> = reservoir <em>heat loss</em> </br>
+<span class="math inline">\(C_{area}\)</span> = kapasitas panas areal </br>
+<span class="math inline">\(T(4)\)</span> = temperatur <em>steam</em> </br>
+<span class="math inline">\(Heat_{inj}\)</span> = injeksi panas kumulatif </br>
+<span class="math inline">\(Heat_{prod}\)</span> = produksi panas kumulatif </br>
+<span class="math inline">\(C_{rock}\)</span> = kapasitas panas batuan reservoir = 0.19 + <span class="math inline">\(\left(0.00013\left(\frac{T_{form}-T_{steam}}{2}\right)\right)\)</span> </br>
+<span class="math inline">\(\rho_{rock}\)</span> = densitas batuan reservoir (nilai <em>default</em> = 165 lb/cuft) </br>
+<span class="math inline">\(C_{w}\)</span> = kapasitas panas air = <span class="math inline">\(\frac{H(4)-H(1)}{T_{steam}-T_{form}}\)</span> </br>
+<span class="math inline">\(C_{o}\)</span> = kapasitas panas minyak = 0.0000557<span class="math inline">\(T_{steam}\)</span> + (0.00088911<em>API</em>) </br>
+<span class="math inline">\(v_G\)</span> = volume spesifik <em>steam</em></p>
+<p>Produksi minyak kumulatif dan produksi air kumulatif dihitung menggunakan persamaan berikut.
+<span class="math display">\[N_p = PV \left[A_{heated}(S_{oi}-S_{or}(4))-(1-A_{heated})\frac{S_{gi}}{B_{oi}}\right]...(95)\]</span>
+<span class="math display">\[W_p = PV \frac{S_{wi}}{B_{wi}}+2.15962Wt_{tot} - PV \left[A_{heated}S_{wr}(4)+(1-A_{heated})\frac{S_{gi}}{B_{w}(4)}\right]...(96)\]</span>
+dengan:
+<span class="math display">\[PV = 7758 A\phi h_{net}...(97)\]</span>
+Model Williams memberikan hasil yang paling optimistik dibandingkan ketiga model lainnya.</p>
+</div>
+<div id="metode-jones" class="section level3">
+<h3><span class="header-section-number">8.4.2</span> Metode Jones</h3>
+<p>Metode Jones menggabungkan metode Van Lookeren (1977) dan Myhill-Stegemeier (1978) untuk memprediksi performa <em>steamflood</em>. Model ini menjelaskan:</p>
+<ol style="list-style-type: decimal">
+<li>Optimisasi laju injeksi <em>steam</em> berdasarkan perbandingan antara jumlah produksi minyak kumulatif dengan jumlah injeksi <em>steam</em></li>
+<li>Prediksi perolehan minyak menggunakan persamaan Marx-Langenheim yang dimodifikasi oleh Mandl-Volek.</li>
+</ol>
+<p>Berbeda dengan metode Williams, metode Jones menyertakan faktor <em>delay</em> terhadap kedatangan <em>oil bank</em> di sumur produksi sehingga terdapat faktor koreksi terhadap perolehan minyak. Model Jones akan memberikan hasil yang paling pesimistik dibandingkan ketiga model lainnya.</p>
+<p>Model Jones memberikan laju produksi fluida (minyak dan air) sebagai fungsi dari laju injeksi <em>steam</em> dan laju perpindahan minyak di reservoir.
+<span class="math display">\[OS_{ratio} = \rho_w(4)\left( \frac{C_w}{C_{res}} \right)\left( \frac{h_{net}}{h_{gross}} \right)(S_{oi}-S_{or}(4))\phi (1+HD)\eta_{steam}...(98)\]</span>
+dimana: </br>
+<span class="math inline">\(OS_{ratio}\)</span> = perbandingan antara minyak yang terpindahkan dari zona steam terhadap injeksi <em>steam</em> </br>
+<span class="math inline">\(C_{res}\)</span> = kapasitas panas reservoir </br>
+<span class="math inline">\(HD\)</span> = <em>dimensionless steam quality</em> </br>
+<span class="math inline">\(\eta_{steam}\)</span> = koefisien Myhill-Stegemeier untuk efisiensi termal zona <em>steam</em>.</p>
+<p>Laju perpindahan minyak di reservoir dihitung menggunakan persamaan berikut.
+<span class="math display">\[q_{od}=\frac{V_{oc}(i)-V_{oc}(i-1)}{t_{step}}...(99)\]</span>
+<span class="math display">\[V_{oc} = 2.15962.W.OS_{ratio}.t_{step}...(100)\]</span>
+dimana: </br>
+<span class="math inline">\(q_{od}\)</span> = laju perpindahan minyak </br>
+<span class="math inline">\(V_{oc}\)</span> = volume kumulatif minyak terpindahkan </br>
+<span class="math inline">\(t_{step}\)</span> = ukuran <em>time step, days</em></p>
+<p>Selanjutnya, laju produksi minyak (dalam bbl/d) dihitung menggunakan persamaan berikut.
+<span class="math display">\[q_o = q_{od}V_{od}A_{sd}V_{pd}...(101)\]</span>
+dengan:
+<span class="math display">\[V_{od} = (1 - \Omega)^{0.5}...(102)\]</span>
+<span class="math display">\[\Omega = \frac{1000N_p(region)S_{oi}}{\left(43560A\phi h_{net}\frac{S_{oi}}{5.615}\right)(S_{oi}-S_{or}(4))}...(103)\]</span>
+<span class="math display">\[A_{sd} = \left( A_{steam} \frac{A}{f_{ac}}\right)^2...(104)\]</span>
+<span class="math display">\[A_{steam} = q_{heat}h_{net}\eta_{steam}\left[\frac{\left(\frac{t_D}{1.2}\right)}{\left(\frac{T(4)-T_{form}}{\frac{209088}{A}}\right)}\right]...(105) \]</span>
+<span class="math display">\[q_{heat} = 31.530452W[H_{SL}(4)+X(4)[H_G(4)-H_{SL}(4)]-C_w(T_{form}-32)]...(106)\]</span></p>
+<ul>
+<li>Untuk <span class="math inline">\(\mu_0(region) &gt; 100 cp\)</span>:
+<span class="math display">\[f_{ac}=0.3317A \sqrt {\log \left( \frac{\mu_o(region)}{100} \right)}...(107)\]</span></li>
+<li>Untuk <span class="math inline">\(\mu_o(region) \leq 100 cp\)</span>:
+<span class="math display">\[f_{ac} = 0.01 ...(108)\]</span>
+<span class="math display">\[V_{pd} = (2.15962.W.t_{step}.V_p)^2...(109)\]</span>
+<span class="math display">\[V_p = \frac{\left(\frac{5.615}{43560}\right)}{\left[\frac{\left(\frac{A}{h_{net}}\right)}{\left(\frac{\phi}{S_{gi}}\right)}\right]}...(110)\]</span>
+dimana: </br>
+<span class="math inline">\(q_o\)</span> = laju produksi minyak, bbl/d </br>
+<span class="math inline">\(V_{od}\)</span> = volume minyak terpindahkan yang terproduksi, <em>dimensionless</em> </br>
+<span class="math inline">\(A_{sd}\)</span> = luas daerah zona <em>steam, dimensionless</em> </br>
+<span class="math inline">\(V_{pd}\)</span> = <em>initial pore volume</em> yang terisi oleh <em>steam, dimensionless</em> </br>
+<span class="math inline">\(A_{steam}\)</span> = parameter Marx-Langenheim yang menyatakan ukuran zona <em>steam</em> </br>
+<span class="math inline">\(q_{heat}\)</span> = laju injeksi panas, Btu/hr </br>
+<span class="math inline">\(t_D\)</span> = <em>dimensionless time</em> </br>
+<span class="math inline">\(\eta_{steam}\)</span> = koefisien Myhill-Stegemeier untuk efisiensi termal zona <em>steam</em></br>
+<span class="math inline">\(A\)</span> = luas daerah reservoir (<em>pattern area</em>)</br>
+<span class="math inline">\(f_{ac}\)</span> = fungsi <em>oil bank response</em></br>
+<span class="math inline">\(t_{step}\)</span> = ukuran <em>time step</em></br>
+<span class="math inline">\(V_p\)</span> = fungsi <em>gas saturation fillup</em></li>
+</ul>
+<p>Laju produksi air (dalam bbl/d) dihitung dengan persamaan berikut.
+<span class="math display">\[q_w = 2.156962W-q_o...(111)\]</span>_
+Selain laju produksi fluida, model Jones juga menyertakan analisis efisiensi proyek <em>steamflood</em>. Efisiensi proyek _steamflood dihitung menggunakan persamaan berikut.
+<span class="math display">\[eff = \left[ \frac{13.1\rho_o(4)}{62.4+5.615} \right]Boiler_{eff}f_{os}...(112)\]</span>
+<span class="math display">\[f_{os} = \left[\frac{1000q_o}{\left(\frac{2.15962W}{[H_{SL}(4)+X(4)(H_G(4)-H_{SL}(4))-C_w(T_{form}-70)]}\right)}\right]...(113)\]</span>
+dimana: </br>
+<span class="math inline">\(eff\)</span> = efisiensi <em>steamflood</em> </br>
+<span class="math inline">\(\rho_o(4)\)</span> = densitas minyak di zona <em>steam</em> </br>
+<span class="math inline">\(Boiler_{eff}\)</span> = boiler efisiensi (nilai <em>default</em> = 0.8) </br>
+<span class="math inline">\(f_{os}\)</span> = perbandingan produksi minyak kumulatif dengan injeksi <em>steam</em>.</p>
+</div>
+<div id="model-gomaa" class="section level3">
+<h3><span class="header-section-number">8.4.3</span> Model Gomaa</h3>
+<p>Gomaa memprediksi performa <em>steamflood</em> dengan membangun korelasi empiris dari hasil simulasi. Dalam membangun korelasinya, Gomaa menetapkan beberapa parameter reservoir dan fluida pada nilai konstan yang dia anggap sebagai nilai <em>typical</em>. Model Gomaa akan berlaku baik untuk proyek <em>steamflood</em> yang karakteristik reservoir dan fluida-nya bersesuaian atau dekat dengan nilai <em>typical</em> yang dinyatakan oleh Gomaa dalam membangun korelasinya.</p>
+<p>Laju injeksi <em>steam</em> dan laju injeksi panas dinyatakan oleh Gomaa dalam persamaan berikut.
+<span class="math display">\[q_{i,steam} = \frac{2.15962W}{\left(\frac{h_{gross}}{A}\right)}...(114)\]</span>
+<span class="math display">\[q_{i,heat} = q_{i,steam}H_{steam}\left(\frac{350}{10^6}\right)...(115)\]</span>
+dimana: </br>
+<span class="math inline">\(q_{i,steam}\)</span> =laju injeksi <em>steam</em> </br>
+<span class="math inline">\(q_{i,heat}\)</span> = laju injeksi panas </br>
+<span class="math inline">\(H_{steam}\)</span> = entalpi <em>steam</em></p>
+<p>Injeksi panas efektif dan total injeksi panas dinyatakan oleh persamaan berikut.
+<span class="math display">\[q_{{i,steam}_{eff}} = F_{HU}q_{{i,heat}_{net}}...(116)\]</span>
+<span class="math display">\[q_{{i,heat}_{net}} = 0.128q_{i,steam}H_{steam}(1-F_{HV})\frac{t_{step}}{365}...(117)\]</span>
+dimana: </br>
+<span class="math inline">\(q_{{i,steam}_{eff}}\)</span> = injeksi panas efektif </br>
+<span class="math inline">\(q_{{i,heat}_{net}}\)</span> = injeksi panas kumulatif </br>
+<span class="math inline">\(F_{HU}\)</span> = <em>heat utilization factor</em> </br>
+<span class="math inline">\(F_{HV}\)</span> = <em>vertical heat loss</em>, dinyatakan sebagai frkasi dari <span class="math inline">\(q_{i,heat}\)</span> </br>
+<span class="math inline">\(t_{step}\)</span> = <em>time step</em> </br></p>
+<p>Koreksi terhadap nilai injeksi panas efektif dilakukan jika kemiringan reservoir lebih besar dari 10°
+<span class="math display">\[\left[q_{{i,steam}_{eff}}\right]_{corr} = \frac{q_{{i,steam}_{eff}}}{1.093-0.013dip}...(118)\]</span>
+dimana: </br>
+<span class="math inline">\(dip\)</span> = kemiringan reservoir terhadap sumbu horizontal </br>
+<span class="math inline">\(\left[q_{{i,steam}_{eff}}\right]_{corr}\)</span> = injeksi panas efektif yang telah dikoreksi terhadap faktor kemiringan reservoir.</p>
+<p>Laju produksi minyak dan laju produksi air diberikan oleh persamaan berikut.
+<span class="math display">\[q_o = \frac{RF(S_{oi}-S_{or}(4))}{\left(\frac{B_{oi}}{t_{step}PV}\right)}...(119)\]</span>
+<span class="math display">\[q_w = 2.15962W-q_o...(120)\]</span></p>
+<p>Nilai <em>typical</em> dari sejumlah parameter reservoir dan fluida yang ditentukan oleh Gomaa dalam membangun korelasinya dirangkum dalam tabel berikut.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-2"></span>
+<img src="images/steam/typical.png" alt="Nilai _typical_ dari sifat batuan dan fluida dalam korelasi Gomaa" width="50%" />
+<p class="caption">
+Gambar 1.1: Nilai <em>typical</em> dari sifat batuan dan fluida dalam korelasi Gomaa
+</p>
+</div>
+<p>
+ 
+</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-3"></span>
+<img src="images/steam/viskositas.png" alt="Nilai viskositas fluida yang digunakan dalam korelasi Gomaa" width="50%" />
+<p class="caption">
+Gambar 1.2: Nilai viskositas fluida yang digunakan dalam korelasi Gomaa
+</p>
+</div>
+<p>
+ 
+</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-4"></span>
+<img src="images/steam/interval.png" alt="Interval nilai sejumah parameter yang digunakan dalam korelasi Gomaa" width="50%" />
+<p class="caption">
+Gambar 1.3: Interval nilai sejumah parameter yang digunakan dalam korelasi Gomaa
+</p>
+</div>
+<p>
+ 
+</p>
+</div>
+<div id="model-aydelotte-pope-model-intercomp" class="section level3">
+<h3><span class="header-section-number">8.4.4</span> Model Aydelotte-Pope (Model Intercomp)</h3>
+<p>Model Aydelotte-Pope adalah model analitik yang merupakan pengembangan dari model analitikyang telah disusun sebelumnya oleh beberapa peneliti, seperti Marx-Langenheim, Mandl-Volek, Myhill-Stegemeier, Williams, et al, Jones, Farouq Ali, dan Gomaa.</p>
+<p>Model Ayedelotte-Pope disusun dengan menggabungkan persamaan kesetimbangan panas dengan persamaan <em>fractional flow</em>. Reservoir dibagi ke dalam enam zona (atau <em>bank</em>), yaitu: (1) zona formasi reservoir awal, (2) zona <em>cold liquid</em>, (3) zona <em>hot liquid</em>, (4) zona <em>steam</em>, (5) zona <em>hot water drive</em>, dan (6) zona <em>cold water drive</em>. Namun, dalam <em>predictive model</em> yang dibangun, zona (5) dan (6) dianggap tidak signifikan pengaruhnya terhadap performa reservoir sehingga diabaikan dalam perhitungan. Sehingga, seperti yang telah dibahas sebelumnya, reservoir dibagi ke dalam empat zona, yaitu (1) zona formasi reservoir awal, (2) zona <em>cold-liquid</em>, (3) zona <em>hot liquid</em>, dan (4) zona <em>steam</em>. Ukuran zona (<em>bank size</em>), saturasi fluida, dan kecepatan gerak dari setiap zona ini kemudian dihitung menggunakan persamaan <em>fractional flow</em> dan persamaan kesetimbangan panas.</p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-5"></span>
+<img src="images/steam/pembagian.png" alt="Pembagian zona reservoir berdasarkan model Aydelotte-Pope" width="50%" />
+<p class="caption">
+Gambar 1.4: Pembagian zona reservoir berdasarkan model Aydelotte-Pope
+</p>
+</div>
+<p>
+ 
+</p>
+<p>Model yang disusun menyertakan efek penyapuan reservoir, <em>steam injectivity</em>, beserta heat loss di pipa permukaan dan sumur injeksi ke dalam perhitungan. Model ini memberikan gambaran fenomena perpindahan yang lebih realistik dibandingkan ketiga model lainnya, sehingga model ini mampu memberikan hasil prediksi yang lebih akurat.</p>
+<p>Model Aydelotte-Pope ini kemudian dibandingkan dengan studi simulasi numerik dan uji data lapangan, diantaranya lapangan Franklin Heavy Pool, Kern River, dan Deerfield pilot test. <em>Predictive model</em> mampu memberikan hasil prediksi yang cukup dekat dengan hasil simulasi dan data <em>history</em> lapangan.</p>
+<p>Batasan dari model Aydelotte-Pope beserta sejumlah asumsi yang digunakan adalah sebagai berikut:</p>
+<ol style="list-style-type: decimal">
+<li>Perhitungan perubahan tekanan beserta <em>heat loss</em> yang terjadi di pipa permukaan dan sumur injeksi dilakukan dengan mengadopsi metode Williams, et al (dikenal juga dengan metode Stanford University)</li>
+<li>Reservoir diasumsikan horizontal, homogen isotropik, dan bersifat <em>incompressible</em></li>
+<li>Reservoir berada dalam keadaan setimbang termal dengan lapisan batuan di sekelilingnya (termasuk dengan lapisan <em>overburden</em> dan <em>underburden</em>)</li>
+<li>Keadaan awal (<em>initial</em>) reservoir tersaturasi secara merata dengan minyak, air, dan gas</li>
+<li>Saturasi gas hanya terdapat di zona formasi reservoir awal</li>
+<li><em>Cold-liquid bank</em> menyatakan respon awal reservoir terhadap proses <em>steamflood</em></li>
+<li><em>Hot-liquid bank</em> dapat dianggap sebagai proses “<em>hot waterflooding</em>”</li>
+<li><em>Hot and cold water banks</em> di belakang zona <em>steam</em> disebabkan oleh injeksi <em>drive water</em> yang mengikuti injeksi <em>steam</em></li>
+<li>Nilai densitas, viskositas, <em>residual saturation</em>, dan permeabilitas relatif dari setiap fasa fluida akan berbeda-beda di setiap zona (atau <em>bank</em>) tergantung pada kondisi tekanan dan temperatur di zona terkait</li>
+<li>Setiap zona (atau <em>bank</em>) mengalir secara radial menjauh dari sumur injeksi</li>
+<li>Urutan zona (atau <em>bank</em>) di reservoir tidak pernah berubah</li>
+</ol>
+<p>Model Aydelotte-Pope dimulai dengan penjelasan mengenai teori kesetimbangan panas dan teori <em>fractional flow</em>. Selanjutnya, faktor-faktor seperti perhitungan <em>areal sweep</em>, <em>steam overlay</em>, penurunan tekanan reservoir, dan laju produksi juga disertakan dalam analisis.</p>
+<div id="teori-kesetimbangan-panas" class="section level4">
+<h4><span class="header-section-number">8.4.4.1</span> Teori Kesetimbangan Panas</h4>
+<p>Kesetimbangan panas dijelaskan dari pengembangan teori Marx-Langenheim, yaitu dengan menggunakan <em>time ste</em>p yang diskrit di dalam perhitungan, dimana perhitungan dilakukan di setiap <em>time step</em>.</p>
+<p>Persamaan kesetimbangan panas untuk zona 3 (zona <em>hot liquid</em>) dan zona 4 (zona <em>steam</em>) adalah:
+<span class="math display">\[\Delta (V_4M_4\Delta T_4)^n+\Delta (V_3M_3\Delta T_3)^n = H^n-Q_4^n-Q_3^n...(121)\]</span>
+dimana: </br>
+<span class="math display">\[H^n = \dot H_i^n \Delta t^n...(122)\]</span>
+<span class="math display">\[Q_k^n = \sum_{m=1}^n {(A_k^m-A_k^{m-1})q_k^m\Delta t^n}...(123)\]</span>
+<span class="math display">\[q_k^m = \frac{k_f\Delta T_k}{\pi\alpha(t^n-t^m)}...(124)\]</span>
+dimana: </br>
+<span class="math inline">\(V_k\)</span> = volume <em>bulk</em> dari <em>bank</em> ke-<em>k</em>, cuft </br>
+<span class="math inline">\(M_k\)</span> = kapasitas panas volumetrik dari <em>bank</em> ke-<em>k</em>, Btu/cuft.°F </br>
+<span class="math inline">\(\Delta T_k\)</span> = perubahan temperatur bank ke-<em>k</em> </br>
+<span class="math inline">\(H_i^n\)</span> = laju injeksi panas untuk <em>time step</em> ke-<em>n</em> </br>
+<span class="math inline">\(\Delta t^n\)</span> = <em>time step</em> </br>
+<span class="math inline">\(Q_k^n\)</span> = <em>heat loss</em> dari <em>bank</em> ke-<em>k</em> pada <em>time step</em> ke-<em>n</em> </br>
+<span class="math inline">\(A_k^m\)</span> = luas daerah zona <em>steam</em> pada <em>time step</em> ke-<em>n</em> </br>
+<span class="math inline">\(k_f\)</span> = konduktivitas termal batuan <em>overburden</em> dan <em>underburden</em> </br>
+<span class="math inline">\(\alpha\)</span> = difusivitas termal</p>
+<p>Perubahan temperatur di zona <em>steam</em> dan zona <em>hot liquid</em> diasumsikan tidak signifikan. Pertumbuhan zona <em>hot-liquid</em> dinyatakan oleh:
+<span class="math display">\[\Delta (V_3M_3\Delta T_3)^n = u_3^n(\rho_{w3}f_{w3}C_{w}\Delta T_3 + \rho_{o3}f_{o3}C_{o}\Delta T_3)^n(2\pi r_4h_n)\Delta t^n-Q_3^n...(125)\]</span>
+dimana: </br>
+<span class="math inline">\(u_k^n\)</span> = flux volumetrik di <em>bank</em> ke-<em>k</em> pada time step ke-<em>n</em> </br>
+<span class="math inline">\(\rho_{jk}\)</span> = densitas fluida fasa <em>j</em> pada <em>bank</em> ke-<em>k</em> </br>
+<span class="math inline">\(f_{jk}\)</span> = <em>fractional flow</em> dari fasa <em>j</em> pada <em>bank</em> ke-<em>k</em> </br>
+<span class="math inline">\(C_j\)</span> = panas spesifik untuk fasa <em>j</em> </br>
+<span class="math inline">\(r_k\)</span> = radius <em>bank</em> ke-<em>k</em></p>
+<p>Prosedur iterasi dilakukan untuk mendapatkan nilai Q<sub>3</sub>, Q<sub>4</sub>, V<sub>3</sub>, dan V<sub>4</sub>. Dari sini, terlihat bahwa pertumbuhan zona ke-<em>k</em> (pertambahan volume zona <em>k</em>) terkait erat dengan jumlah <em>flux heat loss</em> dari dan menuju zona <em>k</em>.</p>
+</div>
+<div id="teori-fractional-flow-1" class="section level4">
+<h4><span class="header-section-number">8.4.4.2</span> Teori <em>Fractional Flow</em></h4>
+<p>Analisis <em>fractional flow</em> digunakan untuk mengetahui hubungan antara kecepatan <em>front bank</em> dengan <em>volumetric flu</em>x yang terjadi di depan dan di belakang <em>front bank</em> terkait. Tujuan dari analisis <em>fractional flow</em> adalah menentukan nilai saturasi air rata-rata dan <em>fractional flow of water</em> di setiap zona, <em>S<sub>wk</sub></em> dan <em>f<sub>wk</sub></em>.</p>
+<p><strong>Analisis Zona 4 (Zona <em>Steam</em>)</strong> </br>
+Analisis dimulai dari zona 4, yaitu zona <em>steam</em>. Tinjau persamaan laju <em>heat arrival</em> di <em>steam front</em>.
+<span class="math display">\[v_4M_4\Delta T_4 = u_4(f_{w4}\rho_{w4}C_w\Delta T_4 + f_{g4}\rho_{g4}C_{g4}\Delta T_4)...(126)\]</span>
+dimana: </br>
+<span class="math inline">\(C_{g4}\)</span> = panas spesifik <em>steam</em> </br>
+<span class="math inline">\(M_k\)</span> = kapasitas panas dari <em>bank k</em>
+<span class="math display">\[C_{g4} = \frac{C_{w4}\Delta T_4+L_v}{\Delta T_4}...(127)\]</span>
+<span class="math display">\[M_k = \phi \frac{h_n}{h_t}(S_{ok}\rho_{ok}C_o\Delta T_k + S_{wk}\rho_{wk}C_w\Delta T_k + S_{gk}\rho_{gk}C_g\Delta T_k)\Delta T_k + \left(1- \phi \frac{h_n}{h_t}\right)\rho_rC_r\Delta T_k...(128)\]</span>
+dengan asumsi-asumsi berikut:
+<span class="math display">\[S_{o4} = S_{or4},\ f_{o4}=0,\ S_{g4}=1-S_{w4}-S_{or4},\ f_{g4}=1-f_{w4}\]</span>
+maka, volumeterik flux di zona <em>steam</em>, u<sub>4</sub>, dinyatakan oleh:
+<span class="math display">\[u_4 = \frac{\dot m_i}{f_{w4}\rho_{w4}+f_{g4}\rho_{g4}} \frac{1}{2\pi r_4h_n}...(129)\]</span>
+dimana: </br>
+<span class="math inline">\(v_k\)</span> = kecepatan <em>front bank</em> ke-<em>k</em>, ft/d </br>
+<span class="math inline">\(u_k\)</span> = flux volumetrik di <em>bank</em> ke-<em>k</em>, ft/d </br>
+<span class="math inline">\(\phi\)</span> = porositas, fraksi </br>
+<span class="math inline">\(h_n\)</span> = <em>net thickness</em> reservoir, ft </br>
+<span class="math inline">\(h_t\)</span> = <em>total thicknes</em>s reservoir, ft </br>
+<span class="math inline">\(L_v\)</span> = panas laten penguapan air, Btu/lbm </br>
+<span class="math inline">\(S_{jk}\)</span> = saturasi fluida fasa <em>j</em> di <em>bank</em> <em>k</em>, fraksi </br>
+<span class="math inline">\(\rho_r\)</span> = densitas batuan reservoir </br>
+<span class="math inline">\(C_r\)</span> = kapasitas panas spesifik batuan reservoir </br>
+<span class="math inline">\(\dot m_i\)</span> = laju alir massa = laju injeksi <em>steam</em></p>
+<p>Kecepatan <em>front</em> zona <em>steam</em>, v<sub>4</sub>, adalah
+<span class="math display">\[v_4 = \frac{\Delta r_4}{\Delta t}...(130)\]</span>
+dimana r<sub>4</sub> dihitung dari pertumbuhan zona <em>steam</em>.</p>
+<p>Nilai saturasi air rata-rata di zona <em>steam</em> (<em>S<sub>w4</sub></em>) diperoleh dengan melakukan substitusi persamaan (127), (128), (129), dan (130) ke dalam persamaan (126). Nilai <em>S<sub>w4</sub></em> diperoleh melalui prosedur iterasi. Adapun nilai <em>default</em> dari <em>S<sub>w4</sub></em> adalah:
+<span class="math display">\[S_{g4} = 1-S_{or4}-S_{w4} \geq S_{g4\min}\]</span>
+<span class="math display">\[S_{g4\min} = 0.5...(131)\]</span>
+<span class="math display">\[S_{w4\min} = S_{wr4} + \frac{\rho_{g4}(1-f_{st,i})}{\rho_{g4}+f_{st,i}(\rho_{w4}-\rho_{g4})}...(132)\]</span>
+Setelah nilai <em>S<sub>w4</sub></em>, <em>S<sub>g4</sub></em>, dan <em>S<sub>o4</sub></em> diperoleh, nilai kapasitas panas dari setiap <em>bank</em>, <em>M<sub>k</sub></em>, dapat dihitung.</p>
+<p><em>Steam quality</em> di zona <em>steam</em> (<em>f<sub>st4</sub></em>) dihitung dari persamaan berikut.
+<span class="math display">\[f_{st4} = \frac{S_{g4}\rho_{g4}}{S_{w4}\rho_{w4}+S_{g4}\rho_{g4}}...(133)\]</span>
+Fraksi aliran suatu fasa fluida <em>j</em> di dalam <em>bank k</em> dihitung menggunakan persamaan berikut:
+<span class="math display">\[f_{jk} = \frac{\frac{k_{rjk}}{\mu_{jk}}}{\left(\frac{k_{rok}}{\mu_{ok}}\right) + \left(\frac{k_{rwk}}{\mu_{wk}}\right) + \left(\frac{k_{rgk}}{\mu_{gk}}\right)}...(134)\]</span>
+Sehingga fraksi aliran air di zona <em>steam</em> (<em>f<sub>w4</sub></em>) adalah:
+<span class="math display">\[f_{w4} = \frac{\frac{k_{rw4}}{\mu_{w4}}}{\left(\frac{k_{ro4}}{\mu_{o4}}\right) + \left(\frac{k_{rw4}}{\mu_{w4}}\right) + \left(\frac{k_{rg4}}{\mu_{g4}}\right)}...(135)\]</span></p>
+<p><strong>Analisis Zona 3 (Zona <em>Hot Liquid</em>)</strong> </br>
+Selanjutnya, tinjau persamaan kesetimbangan massa di <em>steam front</em>. Seperti yang telah disebutkan sebelumnya bahwa kecepatan <em>front</em> suatu <em>bank</em> akan terhubung dengan flux volumetrik di belakang dan di depan <em>bank</em> tersebut. Dalam hal ini, kecepatan <em>steam front</em> (<span class="math inline">\(v_4\)</span>) terhubung dengan flux volumetrik zona <em>steam</em>, <span class="math inline">\(u_4\)</span> (sebagai zona di belakang <em>steam front</em>) dan flux volumetrik zona <em>hot-liquid</em>, <span class="math inline">\(u_3\)</span> (sebagai zona di depan <em>steam front</em>). Karena terdapat tiga fasa fluida yang mengalir (minyak, air, dan gas), dan setiap fasa fluida ini berperan dalam flux aliran, maka flux volumetrik dapat dinyatakan dalam bentuk setiap fraksi fluida yang mengalir.</p>
+<p>Karena <em>fractional flow</em> minyak di zona <em>steam</em>, f<sub>o4</sub> = 0, maka
+<span class="math display">\[v_4 = \frac{-u_3f_{o3}\rho_{o3}}{\phi(S_{o4}\rho_{o4}-S_{o3}\rho_{o3})}...(136)\]</span>
+<span class="math display">\[v_4 = \frac{u_4(f_{w4}\rho_{w4}+f_{g4}\rho_{g4})-u_3f_{w3}\rho_{w3}}{\phi(S_{w4}\rho_{w4}+S_{g4}\rho_{g4}-S_{w3}\rho_{w3})}...(137)\]</span>
+Gabungan dari persamaan (136) dan (137 ) memberikan persamaan berikut.
+<span class="math display">\[u_3 = u_4 \left( f_{w4}\frac{\rho_{w4}}{\rho_{w3}} + f_{g4}\frac{\rho_{g4}}{\rho_{w3}} \right) - \phi v_4\left(S_{o4}\frac{\rho_{o4}}{\rho_{o3}}+S_{w4}\frac{\rho_{w4}}{\rho_{w3}}+S_{g4}\frac{\rho_{g4}}{\rho_{w3}}-1\right)...(138)\]</span>
+Substitusi persamaan (138) ke persamaan (137), diperoleh persamaan untuk menghitung <em>S<sub>w3</sub></em> sebagai berikut.
+<span class="math display">\[f_{w3} = K_{a3}S_{w3} + K_{b3}...(139)\]</span>
+dimana:
+<span class="math display">\[K_{a3} = \frac{\phi v_4}{u_3}...(140)\]</span>
+<span class="math display">\[K_{b3} = 1 + K_{a3}\left(S_{o4}\frac{\rho_{o4}}{\rho_{o3}}-1\right)...(141)\]</span>
+Nilai <em>f<sub>w3</sub></em> dihitung dengan menerapkan persamaan (134) untuk fasa air di <em>bank</em> ke-3 (<em>hot liquid bank</em>). Dengan asumsi tidak terdapat fasa gas di <em>hot liquid bank</em>, maka <em>S<sub>o3</sub></em> = 1 − <em>S<sub>3</sub></em>. Kecepatan <em>hot liquid bank front</em> diperoleh dari persamaan berikut.
+<span class="math display">\[v_3 = \frac{\Delta r_3}{\Delta t}...(142)\]</span></p>
+<p><strong>Analisis Zona 2 (Zona <em>Cold Liquid</em>)</strong> </br>
+Dengan melakukan analisis yang sama terhadap <em>hot liquid bank front</em>, diperoleh persamaan-persamaan berikut.
+<span class="math display">\[v_3 = \frac{u_3\left(\frac{r_4^2}{r_3^2}\right)f_{o3}\rho_{o3}-u_2f_{o2}\rho_{o2}}{\phi(S_{o3}\rho_{o3}-S_{o2}\rho_{o2})}...(143)\]</span>
+<span class="math display">\[v_3 = \frac{u_3\left(\frac{r_4^2}{r_3^2}\right)f_{w3}\rho_{w3}-u_2f_{w2}\rho_{w2}}{\phi(S_{w3}\rho_{w3}-S_{w2}\rho_{w2})}...(144)\]</span>
+<span class="math display">\[u_2 = u_3 \left(\frac{f_{o3}\rho_{o3}}{\rho_{o2}}+\frac{f_{w3}\rho_{w3}}{\rho_{w2}}\right)\left(\frac{r_4^2}{r_3^2}\right) - \phi v_3\left(\frac{S_{o3}\rho_{o3}}{\rho_{o2}}+\frac{S_{w3}\rho_{w3}}{\rho_{w2}}-1\right)...(145)\]</span>
+Substitusi persamaan (145) ke persamaan (144), diperoleh persamaan untuk menghitung <em>S<sub>w2</sub></em>. Nilai <em>f<sub>w2</sub></em> dihitung menggunakan persamaan (134) untuk fasa air dan <em>bank</em> ke-2 (<em>cold liquid bank</em>). Nilai saturasi air rata-rata di zona 2 diperoleh dari persamaan berikut.
+<span class="math display">\[f_{w2} = k_{a2}S_{w2} + k_{b2}...(146)\]</span>
+dimana:
+<span class="math display">\[k_{a2} = \frac{\phi v_3}{u_2}...(147)\]</span>
+<span class="math display">\[k_{b2} = u_3 \frac{r_4^2}{r_3^2} \left(\frac{f_{w3}\rho_{w3}- \phi v_3S_{w3}\rho_{w3}}{\rho_{w2}u_2}\right)...(148)\]</span>
+Kecepatan <em>cold-liquid bank front</em> dinyatakan oleh persamaan berikut.
+<span class="math display">\[v_2 = \frac{u_2\left(\frac{r_3^2}{r_2^2}\right)f_{o2}\rho_{o2}-u_1f_{o1}\rho_{o1}}{\phi(S_{o2}\rho_{o2}-S_{o1}\rho_{o1})}...(149)\]</span>
+Karena temperatur zona 1 sama dengan zona 2, maka <span class="math inline">\(\rho_{o2} = \rho_{o1}\)</span> dan <span class="math inline">\(u_2\left(\frac{r_3^2}{r_2^2}\right) =u_1\)</span>, sehingga:
+<span class="math display">\[v_2 = u_2\left(\frac{r_3^2}{r_2^2}\right)\frac{f_{o2}-f_{o1}}{\phi (S_{o2}-S_{o1})}...(150)\]</span>
+Nilai v<sub>2</sub> diperoleh dengan mensubstitusi nilai r<sub>2</sub> ke dalam persamaan (150) untuk setiap <em>time step</em>.</p>
+<p><strong>Analisis Zona 5 dan 6 (<em>Drive Water</em>)</strong> </br>
+Volume dari <em>bank</em> 5 dan 6 dihitung sebagai berikut:
+<span class="math display">\[V_5 = \frac{W_d}{\frac{h_n}{h_t} \phi \left[\left(\frac{M_5-M_4}{M_4} \frac{\rho_{w6}}{S_{w6}}\right)+\frac{\rho_{w5}}{S_{w5}}\right]}...(151)\]</span>
+<span class="math display">\[V_6 = \frac{W_d-V_5 \phi \frac{h_n}{h_t}\frac{\rho_{w5}}{S_{w5}}}{\phi \frac{h_n}{h_t}\frac{\rho_{w6}}{S_{w6}}}...(152)\]</span>
+Volumetrik flux dari masing-masing zona adalah:
+<span class="math display">\[u_6 = \frac{m_i}{\rho_{w6}}\frac{1}{2\pi r_6h_n}...(153)\]</span>
+<span class="math display">\[u_5 = u_6 \left(\frac{r_6^2}{r_5^2}\right) \frac{\rho_{w6}}{\rho_{w5}}...(154)\]</span></p>
+</div>
+<div id="perhitungan-areal-sweep" class="section level4">
+<h4><span class="header-section-number">8.4.4.3</span> Perhitungan <em>Areal Sweep</em></h4>
+<p>Nilai volume setiap bank, kecuali zona <em>steam</em>, yang diperoleh dari persamaan <em>fractional flow</em> yang telah dijelaskan sebelumnya kemudian dikoreksi menjadi volume sapuan (<em>swept volume</em>) menggunakan korelasi Claridge (pola injeksi <em>five-spot</em>). <em>Areal sweep</em> untuk zona <em>steam</em> dinyatakan oleh persamaan berikut.
+<span class="math display">\[E_A = 0.9 - 0.1025 \log [\mu_o@80 ^\circ F]...(155)\]</span>
+Persamaan (155) merupakan korelasi Farouq Ali.</p>
+</div>
+<div id="perhitungan-steam-overlay" class="section level4">
+<h4><span class="header-section-number">8.4.4.4</span> Perhitungan <em>Steam Overlay</em></h4>
+<p>Metode Van Lookeren digunakan untuk menghitung pengaruh <em>steam overlay</em> terhadap volume zona <em>steam</em>. Pengaruh <em>steam overlay</em> dilakukan dengan menganalisis perubahan potensial di <em>interface</em> antara zona <em>steam</em> dan zona <em>hot liquid</em>.
+<span class="math display">\[\Delta \Phi_{st}-\Delta \Phi_{o} = (\rho_{o3}-\rho_{st4})g\Delta h...(156)\]</span>
+Perubahan radius zona <em>steam</em> akibat pengaruh <em>steam overlay</em> relatif terhadap <em>gross thickness</em> reservoir adalah:
+<span class="math display">\[\delta = h_t \frac{\Delta r}{\Delta h} = \frac{K_1kh_t(p_{o3}-p_{st4})}{\frac{f_{o3}u_3}{\lambda_{o3}}}...(157)\]</span></p>
+<div class="figure" style="text-align: center"><span id="fig:unnamed-chunk-6"></span>
+<img src="images/steam/overlay.png" alt="Efek _steam overlay_ terhadap radius zona _steam_" width="50%" />
+<p class="caption">
+Gambar 1.5: Efek <em>steam overlay</em> terhadap radius zona <em>steam</em>
+</p>
+</div>
+<p>
+ 
+</p>
+<p>Untuk menghitung volume zona <em>steam</em> dengan menyertakan faktor <em>steam overlay</em>, asumsikan zona <em>steam</em> memiliki bentuk irisan kerucut. Maka, volume zona <em>steam</em> (V<sub>4</sub>) adalah:
+<span class="math display">\[V_4 = \frac{h_{st}}{3}(A_t + A_b + \sqrt {A_tA_b})...(158)\]</span>
+dimana:
+<span class="math display">\[A_t = \pi \left(\bar r_4+ \frac{\delta}{2}\right)^2...(159)\]</span>
+<span class="math display">\[A_b = \left(\bar r_4- \frac{\delta}{2}\right)^2...(160)\]</span>
+<span class="math display">\[\bar r_4 = \sqrt {\frac{V_4}{\pi h_{st}}-\frac{\delta^2}{12}}...(161)\]</span>
+Jika zona <em>steam</em> belum mencapai batas bawah reservoir, maka nilai A<sub>b</sub> = 0. Ketebalan zona <em>steam</em> di dekat sumur injeksi adalah:
+<span class="math display">\[h_{st} = \frac{3V_4}{A_t}...(162)\]</span>
+Saat bagian atas zona <em>steam</em> telah mencapai sumur produksi, ketebalan zona <em>steam</em> di dekat sumur produksi dinyatakan oleh:
+<span class="math display">\[h_p = \frac{h_t}{\delta}\left(\sqrt {\frac{A_{ti}}{\pi}-\frac{A_{t}}{\pi}}\right)...(163)\]</span>
+Ati adalah luas daerah <em>original</em> dari <em>top steam zone</em>, dan A<sub>t</sub> adalah luas daerah <em>top steam zone</em> setelah koreksi <em>areal sweep</em>. Maka, volume zona <em>steam</em> (V<sub>4</sub>) dinyatakan oleh:
+<span class="math display">\[V_4 = \frac{h_{st}-h_p}{3}(A_t +A_b + \sqrt {A_tA_b}) + h_pA_t...(164)\]</span></p>
+</div>
+<div id="perhitungan-reservoir-pressure-drop" class="section level4">
+<h4><span class="header-section-number">8.4.4.5</span> Perhitungan <em>Reservoir Pressure Drop</em></h4>
+<p>Perhitungan reservoir <em>pressure drop</em> dilakukan dengan terlebih dahulu menghitung <em>pressure drop</em> di setiap <em>bank</em>. Jumlahan <em>pressure drop</em> dari setiap bank memberikan nilai reservoir <em>pressure drop</em>.
+<span class="math display">\[q_m^n = \frac{\phi}{\Delta t} \frac{h_n}{h_t} \sum_{k=1}^6 \left(\frac{V_k^nS_{mk}^n}{B_{mk}^n}-\frac{V_k^{n-1}S_{mk}^{n-1}}{B_{mk}^{n-1}}\right)-q_i^n...(166)\]</span>
+dimana B<sub>mk</sub> menyatakan faktor konversi satuan.</br>
+Laju produksi panas diperoleh dari persamaan berikut.
+<span class="math display">\[\dot H_p^n = \frac{1}{\Delta t}\sum_{k=3}^n\left(V_k^nM_{k}^n \Delta T_k^n - V_k^{n-1}M_k^{n-1} \Delta T_k^{n-1} + \frac{Q_3^n}{\Delta t}+\frac{Q_4^n}{\Delta t}- \dot H_i^n\right)...(167)\]</span>
+Model Aydelotte-Pope merupakan suatu <em>predictive model</em> sederhana untuk proses <em>steamflood</em>,
+dimana model yang disusun memiliki kriteria-kriteria berikut:</p>
+<ol style="list-style-type: lower-alpha">
+<li>Model membagi reservoir ke dalam enam zona (atau <em>bank</em>), dimana parameter sifat fluida, saturasi, dan ukuran (volume) dari setiap <em>bank</em> akan dihitung per <em>time step</em>.</li>
+<li>Model menggunakan konsep <em>incremental heat balance</em> dan persamaan <em>fractional flow</em> dalam menghubungkan kecepatan <em>front bank</em> dengan flux volumetrik di depan dan di belakang <em>front bank</em> tersebut untuk menghitung nilai saturasi fluida dan volume di setiap <em>bank</em>.</li>
+<li>Model menyertakan faktor koreksi untuk volume <em>bank</em> terhadap <em>areal sweep</em> dan fenomena <em>steam-overlay</em>.</li>
+<li>Model menyertakan perhitungan <em>heat loss</em> di pipa permukaan dan sumur injeksi.</li>
+</ol>
+<p><em>Predictive model</em> ini telah divalidasi dengan studi simulasi dan penerapan data lapangan, dan menunjukkan hasil yang mendekati hasil simulasi dan data <em>history</em> lapangan.</p>
+
+</div>
+</div>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="06-co2immiscible.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="08-insitu.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"toc": {
+"collapse": "subsection",
+"scroll_highlight": true
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>

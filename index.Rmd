@@ -1,0 +1,19 @@
+--- 
+title: "Technical Guide PertaEOR-Lite"
+author: "PT LAPI ITB & PERTAMINA INV"
+date: "`r Sys.Date()`"
+cover-image: "images/PertaEOR.png"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: yes
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+<p> &nbsp; </p>
+```{r fig.align = 'center', out.width = "80%"}
+knitr::include_graphics("images/PertaEOR.png")
+```
