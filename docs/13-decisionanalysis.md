@@ -1,8 +1,6 @@
 # _Decision Tree Analysis_
 
-```{r include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
+
 
 ## Pendahuluan
 
@@ -28,9 +26,10 @@ Terdapat suatu perbedaan definisi yang mendasar antara keputusan dan hasil. Hasi
 
 Setelah mencapi tahap pendeklarasian keputusan, perlu dipastikan bahwa proses menentukan keputusan tersebut sudah mencapai keputusan yang berkualitas yang dilakukan dengan mengevaluasi keputusan tersebut berdasarkan 6 elemen _Decision Quality_. Matheson dan Matheson (1998) mensurvei sejumlah besar _decison-maker_ dan menggabungan tanggapan mereka dengan pemikiran akademisi untuk mengembangkan kerangka kerja yang mengevaluasi kualitas dari keputusan dalam 6 dimensi seperti Gambar di bawah ini.
 
-```{r fig.align = 'center', out.width = "55%", fig.cap = "Elemen _Decision Quality_"}
-knitr::include_graphics("images/decisionanalysis/bagan.png")
-```
+<div class="figure" style="text-align: center">
+<img src="images/decisionanalysis/bagan.png" alt="Elemen _Decision Quality_" width="55%" />
+<p class="caption">(\#fig:unnamed-chunk-2)Elemen _Decision Quality_</p>
+</div>
 
 Elemen-elemen tersebut direpresentasikan dalam sebagai hubungan dalam rantai keputusan akan hanya sekuat mata rantai yang paling lemah. Jika setiap elemen kuat, maka kualitas keputusan adalah tinggi. Jika salah satu elemen lemah, maka kualitas keputusan tidak lebih baik dari elemen yang lemah tersebut. Setiap elemen harus dipertimbangkan berdasarkan perspektif kepala dan hati karena keputusan harus masuk akal dan terasa benar. Setiap dari 6 elemen tersebut harus mencapai kualitas terbaiknya: _helpful frame_, _creative alternatives_, _useful information_, _clear values_, _sound reasoning_, dan _commitment to follow through_.
 
@@ -66,33 +65,8 @@ Bagian ini menjelaskan kebutuhan untuk menggunakan informasi yang terpercaya dan
 - Seberapa akurat kita di masa lalu dengan penilaian serupa?
 - Informasi apa dikumpulkan dengan adanya lebih banyak waktu/uang/sumber daya? 
 
-Perusahaan-perusahaan dan individu-individu seringkali baik dalam memasukkan apa yang mereka tahu dalam analisis. Namun, keenderungan yang sangat berbahaya diilustrasikan dengan tepat sebagai berikut: _"Bukan banyaknya hal yang tidak kita ketahui yang membuat kita dalam masalah. Namun, hal-hal yang kita ketahui tidak seperti itu seharusnya"_. Kunci dari kualitas bagian ini adalah informasi mengenai apa yang belum diketahui (yaitu, keterbatasan pengetahuan). Terlalu banyak keputusan yang dibuat berdasarkan kesalahan atau kekurangan informasi. Penentuan kebutuhan informasi dan mengumpulan informasi yang bermanfaat secara sadar sebelum eksekusi merupakan hal yang sangat penting dilakukan untuk membuat keputusan yang baik.
-
 ##### _4. Clear Values_ {-}
-
-Seperti yang telah dibahas sebelumnya, komponen yang sangat penting untuk memebuat keputusan yang baik adalah mendefinisikan dan mengartikulasikan dengan jelas kriteria untuk mengukur _value_ dari alternatif-alternatif dan bagaimana perusahaan membuat _tradeoffs_ pada setiap alternatif. Untuk kebanyakan perusahaan-perusahaan E&P, kriteria kuncinya adalah beberapa dari kombinasi NPV, _cash flow_, produksi, dan penggantian _reserves_. Pertanyaan-pertanyaan yang dapat ditanyakan adalah sebagai berikut:
-
-- Konsekuensi-konsekuensi apa saja yang perlu diperhatikan? 
-- _Tradeoff_ apa saja yang dihasilkan?
-- Apakah kita bisa mengukur _value_ secara akurat di masa lalu?
-
-_Tradeoff_ seringkali dibutuhkan, dan kejelasan mengenai bagaimana kriteria dirankingkan juga sangat penting. _Value metric_ yang biasa digunakan pada E&P adalah pengurangan _uncertainty_ atau peningkatan kepercayaan. Seperti yang telah dibahas sebelumnya, _metric-metric_ ini tidak memiliki nilai ekonomi. Bahaya lain adalah mengabaikan _metric_ keputusan yang _intangible_, seperti reputasi atau keamanan perusahaan.
 
 ##### _5. Sound Reasoning_ {-}
 
-_Reasoning_ adalah bagaimana kita mengkombinasikan alternatif, informasi, dan _value_ agar menjadi keputusan. Itu adalah jawaban kita atas pertanyaan: "Kami memilih alternif ini karena .....". Bagian ini membutuhkan penggabungan input dari bagian-bagian sebelumnya untuk menentukan alternatif manakah yang menghasilkan _value_ terbanyak. Pada kebanyakan kasus, situasi keputusan cukup kompleks untuk memercayakan pada intuisi dan membutuhkan model. Bagian ini dapt diilustrasikan dengan menanyakan pertanyaan: "Apakah saya berpikir jernih tentang ini?".
-
-Pada industri E&P tidak terbiasa untuk mengembangkan model yang terlalu rumit untuk menyampaikan kejelasan dan transparansi yang dibutuhkan. Prosedur biasa dalam pengembangan "*base case*" terkadang menghasilkan determinisktik model yang terlalu detail dan kompleks yang mengabaikan tidak hanya _uncertainties_ tetapi juga variabel-variabel kunci. 
-
-Tujuan dari evaluasi adalah untuk mengembangkan rekomendasi yang jelas, transparan, dan mudah dimengerti. Rekomendasi yang mampu memaksimalkan _value_ dari _decision-maker_.
-
 ##### _6. Commitment to Follow Through_ {-}
-
-Bagian ini menggerakkan keputusan ke tahap implementasi, yang mana tidak trivial. Keputusan terbaik tidak berguna jika organisasi tidak mengimplementasikannya. Jika komitmen yang dimilki hanya setengah hati, maka pelaksanaanya biasanya kurang intens dan mungkin tidak mencapai hasil yang terbaik. Bagian ini dapat diilustrasikan dengan menanyakan beberapa pertanyaan:
-
-- Apakah rekomendasi sesuai dan bisa dilakukan?
-- Bagaimana kita akan mengkomunikasikan keputusan?
-- Apakah organisasi bisa mendukung keputusan tersebut?
-- Apakah sudah terdapat rencana implementasi?
-
-Pelaksanaan yang sukses membutuhkan suber daya, seperti waktu, usaha, uang, atau bantuan dari pihak lain. Selain itu pula juga membutuhkan kesiapan untuk mengatasi permasalahan.

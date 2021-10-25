@@ -80,7 +80,7 @@ Dengan kata lain, suatu nilai yang merupakan anggota dari populasi nilai distrib
 ```{r fig.align = 'center', out.width = "50%", fig.cap = "Luas daerah (probabilitas) di bawah kurva distribusi normal untuk masing-masing _range_ standard deviasi dari _mean_"}
 knitr::include_graphics("images/screening/distribusi_normal_range.png")
 ```
-_
+
 Probability Density Function_ (PDF) distribusi normal diberikan oleh persamaan berikut. $$f(x)=\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x-\mu)^2}{2\sigma^2}}...(4)$$
 
 Menentukan luas daerah di bawah kurva distribusi normal tidaklah selalu mudah karena masing- masing distribusi normal memiliki nilai rata-rata $\mu$ dan standard deviasi $\sigma$ yang berbeda satu sama lain. Oleh karena itu, digunakanlah teori __distribusi standard normal__ untuk mempermudah menghitung luas daerah di bawah kurva distribusi normal. Prosedur dalam menentukan luas daerah di bawah kurva normal adalah mentransformasi nilai _x_ pada distribusi normal original menjadi nilai _z_ pada distribusi standard normal. Statistik _z_ disebut sebagai statistik standard normal, yaitu suatu parameter yang mengkarakterisasi nilai distribusi standard normal. Kemudian, luas daerah di bawah kurva standard normal ditentukan dengan melihat tabel luas daerah kurva standard normal yang telah disusun oleh para ahli statistik.
