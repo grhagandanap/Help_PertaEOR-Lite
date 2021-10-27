@@ -6,7 +6,20 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Pendahuluan
 
-Decision tree merupakan metode yang digunakan untuk ... bla bla
+Analisis keputusan atau *Decision Analysis*(DA) secara sederhana didefinisikan sebagai sebuah proses dalam pemilihan alternatif yang paling sesuai dengan tujuan yang telah ditetapkan. Didalam literatur, Analisis keputusan dijelaskan sebagai sebuah prosedur yang sistematis dalam men-trasformasikan masalah-masalah pengambilan keputusan yang masih buram menjadi sebuah keputusan yang jelas dengan urutan langkah yang transparan.
+
+Penggunaan analisis keputusan dalam penilaian kelayakan proyek memberikan gambaran yang lebih baik terhadap _Opportunity_ yang dimiliki, risiko yang berpotensi terjadi, Informasi yang diperlukan dan menilai kesiapan untuk melakukan pekerjaan tersebut. Analisis keputusan juga mengharuskan pengambil keputusan untuk melakukan serangkaian pengumpulan informasi terkait, memetakan variabel-variabel ketidakpastian dan melakukan komunikasi dengan _stakeholder_, sehingga hasil dari analisis keputusan akan meningkatkan kepercayaan diri dari pengambil keputusan.   
+
+Analisis Pohon Keputusan atau _Decision Tree Analysis_ (DTA) merupakan salah satu metode yang paling sering digunakan dalam proses pengambilan keputusan, implementasi penggunaan metode ini dalam teknik perminyakan sejauh ini sering ditujukan pada tahap eksplorasi(Bratfold,2010). 
+
+## Stuktur Analisis Pohon Keputusan _(Decision Tree Analysis)_
+### Elemen Analisis Pohon Keputusan 
+#### _Alternatives_
+#### _Objectives_
+#### _Information_
+#### _Payoff_
+#### _Decision_
+### Notasi Baku Analisis Pohon Keputusan
 
 ## Teori Dasar Teknik Pengambilan Keputusan 
 
@@ -96,3 +109,14 @@ Bagian ini menggerakkan keputusan ke tahap implementasi, yang mana tidak trivial
 - Apakah sudah terdapat rencana implementasi?
 
 Pelaksanaan yang sukses membutuhkan suber daya, seperti waktu, usaha, uang, atau bantuan dari pihak lain. Selain itu pula juga membutuhkan kesiapan untuk mengatasi permasalahan.
+
+## Pemetaan Ketidakpastian
+### Apa itu _Uncertainty_
+### _Uncertainty & Probability_
+## Menciptakan Nilai dari Sebuah Ketidakpastian
+### _Value of Information_
+### _Value of Flexibility_
+
+## Tantangan Dalam Pengambilan Keputusan
+## Bias
+## _Encoding Probabilities_
